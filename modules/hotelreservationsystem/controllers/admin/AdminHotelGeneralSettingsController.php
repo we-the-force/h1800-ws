@@ -32,6 +32,11 @@ class AdminHotelGeneralSettingsController extends ModuleAdminController
             $image = '<img class="img-thumbnail img-responsive" style="max-width:200px" src="'._PS_IMG_.
             'hotel_header_image.jpg'.'">';
         }
+        $psPanUrl = _PS_IMG_DIR_.'hotel_header_panorama.jpg';
+        if ($panExist = file_exists($psPanUrl)) {
+            $panorama = '<img class="img-thumbnail img-responsive" style="max-width:200px" src="'._PS_IMG_.
+            'hotel_header_panorama.jpg'.'">';
+        }
         $objHotelInfo = new HotelBranchInformation();
         if (!$hotelsInfo = $objHotelInfo->hotelBranchesInfo(false, 1)) {
             $hotelsInfo = array();
@@ -149,6 +154,14 @@ class AdminHotelGeneralSettingsController extends ModuleAdminController
                         'image' => $imgExist ? $image : false,
                         'hint' => $this->l('This image appears as header background image on home page.'),
                         'name' => 'htl_header_image',
+                        'url' => _PS_IMG_,
+                    ),
+                    'WK_HTL_HEADER_PANORAMA' => array(
+                        'title' => $this->l('Header Panorama Image'),
+                        'type' => 'file',
+                        'image' => $imgExist ? $panorama : false,
+                        'hint' => $this->l('This image appears as header panorama image on home page.'),
+                        'name' => 'htl_header_panorama',
                         'url' => _PS_IMG_,
                     ),
                 ),

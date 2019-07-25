@@ -713,6 +713,7 @@ class hotelreservationsystem extends Module
             'WK_TITLE_HEADER_BLOCK',
             'WK_CONTENT_HEADER_BLOCK',
             'WK_HTL_HEADER_IMAGE',
+            'WK_HTL_HEADER_PANORAMA',
             'WK_ALLOW_ADVANCED_PAYMENT',
             'WK_ADVANCED_PAYMENT_GLOBAL_MIN_AMOUNT',
             'WK_ADVANCED_PAYMENT_INC_TAX',
