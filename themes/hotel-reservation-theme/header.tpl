@@ -99,7 +99,7 @@
 							</div>
 						</div>
 					</div>
-					<div>
+					{* <div>
 						<div class="container">
 							<div class="row">
 								<div id="header_logo" class="col-xs-4">
@@ -111,7 +111,7 @@
 							</div>
 							{hook h='displaySearchHotelPanel'}
 						</div>
-					</div>
+					</div> *}
 					{hook h='displayAfterHookTop'}
 				</header>
 			</div>

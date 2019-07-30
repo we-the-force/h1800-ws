@@ -1,6 +1,7 @@
 /* ===== headerHotelDescBlock.tpl ===== */
+
 .header-desc-container {
-	bottom: 0;
+    bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
@@ -8,21 +9,24 @@
     z-index: -10;
     /*height: 100%;*/
 }
-.header-desc-wrapper  {
-	display: table;
+
+.header-desc-wrapper {
+    display: table;
     height: 100%;
     width: 100%;
 }
+
 .header-desc-primary {
-	display: table-cell;
+    display: table-cell;
     vertical-align: middle;
     text-align: center;
     color: #FFFFFF;
 }
-.header-desc-welcome{
-	font-size: 18px;
-	font-weight: 300;
-	margin: 0;
+
+.header-desc-welcome {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
 }
 
 .header-desc-primary hr {
@@ -35,16 +39,22 @@
 }
 
 .header-hotel-name {
-	font-size: 55px;
-	font-weight: 400;
-	margin-top: 5px;
+    font-size: 55px;
+    font-weight: 400;
+    margin-top: 5px;
     margin-bottom: 25px;
 }
 
 .header-hotel-desc {
-	font-size: 400;
-	font-size: 18px;
-    line-height: 24px;
+    font-family: Fieldwork;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 66px;
 }
 
 .heasder-desc-hr-second {
@@ -53,8 +63,11 @@
 }
 
 @media (max-width: 767px) {
-.topSubSecondaryBlock {
-    margin-top: 0px; } }
+    .topSubSecondaryBlock {
+        margin-top: 0px;
+    }
+}
+
 
 /* ===== headerHotelDescBlock.tpl ===== */
 
@@ -62,6 +75,7 @@
     background-color: #242424;
     padding: 30px;
 }
+
 .copyRightWrapper p {
     color: #868686;
     font-size: 16px;
@@ -73,10 +87,13 @@
 .copyRightWrapper {
     background-color: #242424;
     padding: 30px;
-    width: 100%; }
-    .copyRightWrapper .copyRight {
-        color: #868686;
-        font-size: 16px;
-        margin: 0;
-        text-align: center;
-        line-height: 23px; }
+    width: 100%;
+}
+
+.copyRightWrapper .copyRight {
+    color: #868686;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+    line-height: 23px;
+}
