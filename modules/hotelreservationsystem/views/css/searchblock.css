@@ -3,6 +3,7 @@
     display: flex !important;
     height: 80px;
     justify-content: center;
+    padding-top: 80px;
 }
 
 .header-rmsearch-hide-xs {
@@ -24,17 +25,17 @@
     display: block;
     vertical-align: middle;
     text-align: center;
-    background-color: #ededed;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 40px;
     height: 80px;
     width: 100%;
 }
 
 .header-rmsearch-inner-wrapper {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
     height: 40px;
 }
 
@@ -44,33 +45,38 @@
 
 .header-rmsearch-input {
     border-radius: 20px;
-    color: #999999;
-    font-size: 16px;
-    font-weight: 400;
+    color: #000;
+    font-family: Fieldwork;
+    font-style: normal;
+    font-weight: 300;
+    /* font-size: 12.2289px; */
+    line-height: 17px;
     height: 40px;
     padding: 7px 5px 7px 12px;
+    border: none;
+    direction: ltr !important;
 }
 
 .header-rmsearch-input::-webkit-input-placeholder {
-    color: #999999;
-    font-weight: 400;
+    color: #000;
+    font-weight: 300;
 }
 
 .header-rmsearch-input:-moz-placeholder {
     /* Firefox 18- */
-    color: #999999;
-    font-weight: 400;
+    color: #000;
+    font-weight: 300;
 }
 
 .header-rmsearch-input::-moz-placeholder {
     /* Firefox 19+ */
-    color: #999999;
-    font-weight: 400;
+    color: #000;
+    font-weight: 300;
 }
 
 .header-rmsearch-input:-ms-input-placeholder {
-    color: #999999;
-    font-weight: 400;
+    color: #000;
+    font-weight: 300;
 }
 
 .input-date {
@@ -175,19 +181,26 @@
     padding: 20px;
 }
 
-
-/*#search_room_submit
-{
-background-color:#BF9958;
-padding-left: 30px;
-padding-right: 30px;
-padding-top: 15px;
-padding-bottom: 15px;
-color:#ffffff;
-font-size:18px;
-font-family: 'PT Serif', serif;
-font-weight:400;
-}*/
+#search_room_submit {
+    background-color: #003380;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 36px;
+    color: #ffffff;
+    font-family: Fieldwork;
+    font-style: normal;
+    font-weight: bold;
+    /* font-size: 11px; */
+    line-height: 15px;
+    text-align: center;
+    box-shadow: 0px 4.46452px 4.46452px rgba(0, 0, 0, 0.25);
+    border-radius: 18px;
+    background-image: none;
+    border-color: transparent;
+    border: none;
+}
 
 #make_booking_btn {
     background-color: #BF9958;

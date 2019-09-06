@@ -22,10 +22,10 @@
         <div class="col-xs-12 col-sm-12">
             {if $HOTEL_ROOM_DISPLAY_HEADING && $HOTEL_ROOM_DISPLAY_DESCRIPTION}
                 <div class="row home_block_desc_wrapper">
-                    <div class="col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-                        <p class="home_block_heading">{$HOTEL_ROOM_DISPLAY_HEADING|escape:'htmlall':'UTF-8'}</p>
-                        <p class="home_block_description">{$HOTEL_ROOM_DISPLAY_DESCRIPTION|escape:'htmlall':'UTF-8'}</p>
-                        <hr class="home_block_desc_line"/>
+                    <div class=" col-md-12  col-lg-12">
+                        <h1 class="home_block_heading">{l s='Our Roomss' mod='wkhotelroom'}</h1>
+                        {* <p class="home_block_description">{$HOTEL_ROOM_DISPLAY_DESCRIPTION|escape:'htmlall':'UTF-8'}</p>
+                        <hr class="home_block_desc_line"/> *}
                     </div>
                 </div>
             {/if}
@@ -41,23 +41,26 @@
                                         <img src="{$roomDisplay.image|escape:'htmlall':'UTF-8'}" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100">
                                         <div class="hotelRoomDescContainer">
                                             <div class="row margin-lr-0">
-                                                <p class="htlRoomTypeNameText pull-left">{$roomDisplay.name|escape:'htmlall':'UTF-8'}</p>
+                                                <h2 class="htlRoomTypeNameText pull-left">{$roomDisplay.name|escape:'htmlall':'UTF-8'}</h2>
                                                 {if $roomDisplay.show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
-                                                    <p class="htlRoomTypePriceText pull-right">
+                                                    <h3 class="htlRoomTypePriceText pull-right">
                                                         {if $roomDisplay.feature_price_diff >= 0}
-                                                            <span class="wk_roomType_price {if $roomDisplay.feature_price_diff>0}room_type_old_price{/if}">{convertPrice price = $roomDisplay.price_without_reduction}</span>
+                                                             {convertPrice price = $roomDisplay.price_without_reduction}
                                                         {/if}
                                                         {if $roomDisplay.feature_price_diff}
-                                                            <span class="wk_roomType_price">{convertPrice price = $roomDisplay.feature_price}</span>
+                                                            {convertPrice price = $roomDisplay.feature_price}
                                                         {/if}
-                                                        /&nbsp;{l s='Per Night' mod='wkhotelroom'}
-                                                    </p>
+                                                        <br/>
+                                                        <span class="wk_roomType_price">
+                                                        &nbsp;{l s='Per Night' mod='wkhotelroom'}
+                                                        </span>
+                                                    </h3>
                                                 {/if}
                                             </div>
                                             <div class="row margin-lr-0 htlRoomTypeDescText">
                                                 {$roomDisplay.description}
                                             </div>
-                                            <div class="row margin-lr-0">
+                                            <div class="row margin-lr-0" style="text-align: right;">
                                                 <a target="blank" class="btn btn-default button htlRoomTypeBookNow" href="{$link->getProductLink($roomDisplay.id_product)|escape:'html':'UTF-8'}"><span>{l s='book now' mod='wkhotelroom'}</span></a>
                                             </div>
                                         </div>

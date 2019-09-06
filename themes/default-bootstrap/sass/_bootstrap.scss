@@ -11,11 +11,9 @@
 // Core variables and mixins
 @import "bootstrap_lib/variables";
 @import "bootstrap_lib/mixins";
-
 // Reset
 @import "bootstrap_lib/normalize";
 //@import "bootstrap_lib/print";
-
 // Core CSS
 @import "bootstrap_lib/scaffolding";
 @import "bootstrap_lib/type";
@@ -24,7 +22,6 @@
 @import "bootstrap_lib/tables";
 @import "bootstrap_lib/forms";
 @import "bootstrap_lib/buttons";
-
 // Components
 @import "bootstrap_lib/component-animations";
 //@import "bootstrap_lib/glyphicons";
@@ -47,13 +44,11 @@
 @import "bootstrap_lib/panels";
 @import "bootstrap_lib/wells";
 @import "bootstrap_lib/close";
-
 // Components w/ JavaScript
 //@import "bootstrap_lib/modals";
 //@import "bootstrap_lib/tooltip";
 @import "bootstrap_lib/popovers";
-//@import "bootstrap_lib/carousel";
-
+@import "bootstrap_lib/carousel";
 // Utility classes
 @import "bootstrap_lib/utilities";
 @import "bootstrap_lib/responsive-utilities";

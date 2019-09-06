@@ -19,9 +19,9 @@
 
 <div id="hotelInteriorBlock" class="row home_block_container">
     <div class="col-xs-12 col-sm-12">
-        <div class="row home_block_desc_wrapper">
+        {* <div class="row home_block_desc_wrapper">
             <div class="col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-                <p class="home_block_heading">{$HOTEL_INTERIOR_HEADING|escape:'htmlall':'UTF-8'}</p>
+                <p class="home_block_heading"> test {$HOTEL_INTERIOR_HEADING|escape:'htmlall':'UTF-8'}</p>
                 <p class="home_block_description">{$HOTEL_INTERIOR_DESCRIPTION|escape:'htmlall':'UTF-8'}</p>
                 <hr class="home_block_desc_line"/>
             </div>
@@ -66,7 +66,11 @@
                     </div>
                 </div>
             </div>
-        {/if}
+        {/if} *}
+        <!-- SnapWidget -->
+        <script src="https://snapwidget.com/js/snapwidget.js"></script>
+        <iframe src="https://snapwidget.com/embed/726558" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; width:100%; height: 1195px;"></iframe>
+
     </div>
     <hr class="home_block_seperator"/>
 </div>

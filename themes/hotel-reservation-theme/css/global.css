@@ -4388,7 +4388,7 @@ a.thumbnail:focus {
 
 .media,
 .media-body {
-    overflow: hidden;
+    /* overflow: hidden; */
     zoom: 1;
 }
 
@@ -8430,9 +8430,8 @@ span.exclusive {
 
 .button.button-medium span {
     display: block;
-    padding: 10px 10px 10px 14px;
-    /*border: 1px solid;
-    border-color: #51E4FF #338FDD #2F85CE #51E4FF;*/
+    /* padding: 10px 10px 10px 14px; */
+    /*border: 1px solid;*/
 }
 
 @media (max-width: 480px) {
@@ -12247,6 +12246,7 @@ div.star.star_hover:after {
     text-transform: capitalize;
     line-height: 35px;
     margin-bottom: 25px;
+    text-align: left;
 }
 
 .home_block_description {
@@ -12443,5 +12443,88 @@ hr.theme-text-underline {
     position: absolute;
     left: 0;
     top: 0;
-    filter: brightness(0.8);
+    filter: brightness(1);
+}
+
+.input-date.header-rmsearch-input {
+    background-image: url('../img/icon/icon-calendar.svg');
+    background-position: 90% 50%;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+* {
+    font-family: 'Fieldwork', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+}
+
+h1 {
+    font-weight: bold !important;
+    font-size: 30px !important;
+}
+
+h2 {
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+h3 {
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
+.btn-default {
+    background-color: #003380 !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    height: 36px !important;
+    color: #ffffff !important;
+    font-family: Fieldwork !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    /* font-size: 11px !important; */
+    line-height: 15px !important;
+    text-align: center !important;
+    box-shadow: 0px 4.46452px 4.46452px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 18px !important;
+    background-image: none !important;
+    border-color: transparent !important;
+    border: none !important;
+}
+
+.htlRoomTypePriceText {
+    color: #003380 !important;
+}
+
+.hotelRoomDescContainer {
+    position: relative !important;
+}
+
+.homeAmenitiesBlock {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+}
+
+.homeAmenitiesBlock .amenity {
+    display: inline-flex;
+    align-items: center;
+}
+
+.homeAmenitiesBlock .media-object {
+    width: 100%;
+    height: auto;
+}
+
+.home_block_content h2 {
+    color: #373737;
+    text-transform: capitalize;
+}
+
+.home_block_content .media-heading {
+    padding-top: 25px;
 }

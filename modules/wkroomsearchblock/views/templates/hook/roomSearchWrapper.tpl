@@ -17,6 +17,7 @@
 *  @license   https://store.webkul.com/license.html
 *}
 
+
 {if isset($hotel_name) && count($hotel_name)}
 	<div class="header-rmsearch-wrapper" id="xs_room_search_form">
 		<div class="header-rmsearch-primary">
@@ -24,9 +25,9 @@
 				<p>{l s='Search Rooms' mod='wkroomsearchblock'}</p>
 				<hr>
 			</div>
-			<div class="container">
-				<div class="row header-rmsearch-inner-wrapper">
+				<div class=" header-rmsearch-inner-wrapper">
 					<form method="POST" id="search_hotel_block_form">
+					
 						{if isset($location_enable) && $location_enable}
 							<div class="form-group
 							{if count($hotel_name) <= 1 && !$show_only_active_htl}
@@ -89,7 +90,7 @@
 						{else}
 							col-sm-3
 						{/if}">
-							<input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="Check In Date">
+							<input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{l s='Check In Date' mod='wkroomsearchblock'}">
 						</div>
 						<div class="form-group
 						{if count($hotel_name) <= 1}
@@ -105,7 +106,7 @@
 						{else}
 							col-sm-3
 						{/if}">
-							<input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="Check Out Date">
+							<input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{l s='Check Out Date' mod='wkroomsearchblock'}">
 						</div>
 						<div class="form-group
 						{if count($hotel_name) <= 1}
@@ -127,7 +128,6 @@
 						</div>
 					</form>
 				</div>
-			</div>
 		</div>
 	</div>
 {/if}
