@@ -17,7 +17,7 @@
 *  @license   https://store.webkul.com/license.html
 *}
 
-<div id="filter_results" class="row block">
+{* <div id="filter_results" class="row block">
 	<div class="col-sm-12">
 		{if $product_comment_installed && isset($config) && $config['SHOW_RATTING_FILTER']}
 			<div class="row margin-lr-0 layered_filter_cont">
@@ -108,7 +108,7 @@
 			</div>
 		{/if}
 	</div>
-</div>
+</div> *}
 {strip}
 	{addJsDef num_days = $num_days}
 	{addJsDef date_from = $date_from}

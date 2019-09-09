@@ -2054,6 +2054,15 @@ textarea.input-lg,
     color: #b7b7b7;
 }
 
+.category_page_search_block label.input-group-addon {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 15px;
+    color: #888888;
+    top: 3px;
+}
+
 @media (min-width: 768px) {
     .form-inline .form-group,
     .navbar-form .form-group {
@@ -8054,7 +8063,7 @@ textarea {
 }
 
 .columns-container {
-    background: #fff;
+    background: #EDEDED;
 }
 
 #columns {
@@ -12454,7 +12463,6 @@ hr.theme-text-underline {
 }
 
 * {
-    font-family: 'Fieldwork', sans-serif !important;
     font-size: 14px !important;
     font-weight: normal !important;
 }

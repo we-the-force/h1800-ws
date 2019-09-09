@@ -54,17 +54,17 @@
                 </div>
             </div>
         </div>
-        <div class="row margin-lr-0" id="category_data_cont">
+        <div class="row no-gutters" id="category_data_cont">
             <input type="hidden" id="max_order_date" name="max_order_date" value="{$max_order_date}">
             {foreach from=$booking_data['rm_data'] key=room_k item=room_v}
                 <div class="col-sm-12 room_cont">
-                    <div class="row">
-                        <div class="col-sm-4">
+                    <div class="row no-gutters">
+                        <div class="col-sm-7 pl-0 ">
                             <a href="{$room_v['product_link']}">
                             <img src="{$room_v['image']}" class="img-responsive">
                             </a>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-5">
                             <p class="rm_heading">{$room_v['name']}</p>
                             <div class="rm_desc">{$room_v['description']}&nbsp;<a href="{$room_v['product_link']}">{l s='View More'}....</a></div>
 

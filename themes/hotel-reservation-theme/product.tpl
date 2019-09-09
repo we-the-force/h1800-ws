@@ -65,120 +65,145 @@
 			{/if}
 
 			<!-- By webkul to search panel on product page -->
-			<div class="header-rmsearch-wrapper">
-				<div class="header-rmsearch-primary">
-					<div class="container">
-						<div class="row header-rmsearch-inner-wrapper">
-							<form method="POST" id="search_hotel_block_form">
-								{if isset($location_enable) && $location_enable}
-									<div class="form-group
-									{if $totalActiveHotels <= 1 && !$show_only_active_htl}
-										col-sm-3
-									{else}
-										col-sm-6 col-lg-3
-									{/if}">
-										<input type="text" class="form-control header-rmsearch-input" id="hotel_location" name="hotel_location" autocomplete="off" placeholder="{l s='Hotel Location'}" {if isset($search_data['location'])}value="{$search_data['location']}"{/if}>
-										<div class="dropdown">
-											<ul class="location_search_results_ul"></ul>
+
+			<!-- end -->
+			<!-- left infos-->
+			<div class="pb-right-column col-xs-12 col-sm-4 col-md-4">
+				{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
+					<p class="hidden">
+						<input type="hidden" name="token" value="{$static_token}" />
+						<input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
+						<input type="hidden" name="add" value="1" />
+						<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
+					</p>
+					<div class="booking-form card">
+						<div class="booking_room_fields">
+							<form action="" method="post">
+								<div class="form-group htl_location_block">
+									<label for="" class="control-label">{l s='Hotel Location'}</label>
+									<p>{$hotel_location|escape:'html':'UTF-8'}</p>
+								</div>
+								{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
+									<div class="row">
+										<div class="form-group col-sm-6">
+											<label for="" class="control-label">{l s='Check In Date'}</label>
+											<input type="text" class="form-control input-date" name="room_check_in" id="room_check_in" value="{if isset($date_from)}{$date_from|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
+										</div>
+										<div class="form-group col-sm-6">
+											<label for="" class="control-label">{l s='Check Out Date'}</label>
+											<input type="text" class="form-control input-date" name="room_check_out" id="room_check_out" value="{if isset($date_to)}{$date_to|escape:'html':'UTF-8'|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
 										</div>
 									</div>
+									<div class="room_unavailability_date_error_div"></div>
+									<div class="unvail_rooms_cond_display row">
+										<div class="form-group col-sm-6" id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+											<label for="quantity_wanted">{l s='No. of Rooms'}</label>
+											<div class="qty_sec_cont">
+												<div class="qty_input_cont row margin-lr-0">
+													<input autocomplete="off" type="text" min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}">
+
+													<input type="hidden" id="num_days" value="{if isset($num_days)}{$num_days|escape:'html':'UTF-8'}{/if}">
+													<input type="hidden" id="max_avail_type_qty" value="{if isset($total_available_rooms)}{$total_available_rooms|escape:'html':'UTF-8'}{/if}">
+												</div>
+												<div class="qty_direction">
+													<a href="#" data-field-qty="qty" class="btn btn-default product_quantity_up">
+														<span>
+															<i class="icon-plus"></i>
+														</span>
+													</a>
+													<a href="#" data-field-qty="qty" class="btn btn-default product_quantity_down">
+														<span>
+															<i class="icon-minus"></i>
+														</span>
+													</a>
+												</div>
+											</div>
+											<span class="clearfix"></span>
+										</div>
+									</div>
+									{if isset($room_type_demands) && $room_type_demands}
+										<hr class="separator-hr-mg-10 unvail_rooms_cond_display">
+										<div class="row price_desc_block unvail_rooms_cond_display">
+											<div class="col-sm-6">
+												<label class="control-label">{l s='Room Price'}</label>
+													<p>
+														<span class="total_rooms_price_block">{convertPrice price=$total_price|floatval}</span>
+														<span class="pull-right plus-sign">+</span>
+													</p>
+											</div>
+											<div class="col-sm-6">
+												<label class="control-label">{l s='Extra Facilities'}</label>
+													<p class="extra_demands_price_block">{convertPrice price=0}</p>
+											</div>
+										</div>
+										<hr class="separator-hr-mg-10 form-group unvail_rooms_cond_display">
+									{/if}
+									<div class="room_unavailability_qty_error_div"></div>
+									<div class="row unvail_rooms_cond_display">
+										<div class="total_price_block col-xs-7 form-group">
+											<label class="control-label">{l s='Subtotal'}</label>
+											<p>
+												{convertPrice price=$total_price|floatval}
+											</p>
+										</div>
+										<div class="col-xs-5 form-group pull-right num_quantity_alert">
+											<span class="num_searched_avail_rooms">{$total_available_rooms|escape:'html':'UTF-8'}</span> {l s='Room(s) Left !'}
+										</div>
+									</div>
+
+									<!-- End -->
+									<div class="sold_out_alert">
+										<span>{l s='Rooms Sold Out !'}</span>
+									</div>
 								{/if}
-								<div class="form-group {if $totalActiveHotels <= 1 && !$show_only_active_htl} hidden {/if}
-								{if isset($location_enable) && $location_enable}
-									col-sm-6 col-lg-3
-								{else}
-									col-sm-3
-								{/if}">
-									{if !show_only_active_htl}
-										<input type="hidden" id="max_order_date" name="max_order_date" value="{$all_hotels_info[0]['max_order_date']}">
-										<input type="hidden" id="hotel_cat_id" name="hotel_cat_id" value="{$all_hotels_info[0]['id_category']}">
-										<input type="hidden" id="id_hotel" name="id_hotel" value="{$all_hotels_info[0]['id']}">
-										<input type="text" id="htl_name" class="form-control header-rmsearch-input" value="{$all_hotels_info[0]['hotel_name']}" readonly>
+								<div class="unvail_rooms_cond_display">
+									{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE}
 									{else}
-										<div class="dropdown">
-											<button class="form-control header-rmsearch-input {if isset($error) && $error == 1}error_border{/if}" type="button" data-toggle="dropdown">
-												{if isset($search_data)}
-													<span id="hotel_cat_name" class="pull-left">{$search_data['htl_dtl']['hotel_name']}</span>
-												{else}
-													<span id="hotel_cat_name" class="pull-left">{l s='Select Hotel'}</span>
-												{/if}
-												<!-- <span id="hotel_cat_name" class="pull-left">{l s='Select Hotel'}</span> -->
-												<input type="hidden" id="hotel_cat_id" name="hotel_cat_id" {if isset($search_data)}value="{$search_data['htl_dtl']['id_category']}"{/if}>
-												<input type="hidden" id="id_hotel" name="id_hotel" {if isset($search_data)}value="{$search_data['htl_dtl']['id']}"{/if}>
-												<input type="hidden" id="max_order_date" name="max_order_date" value="{if isset($max_order_date)}{$max_order_date}{/if}">
-												<span class="arrow_span">
-													<i class="icon icon-angle-down"></i>
+										<p id="add_to_cart" class="buttons_bottom_block no-print">
+											<button type="submit" name="Submit" class="exclusive book_now_submit">
+												<span>
+													{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{l s='Book Now'}{/if}
 												</span>
 											</button>
-											<ul class="dropdown-menu hotel_dropdown_ul">
-												{if isset($all_hotels_info) && $all_hotels_info}
-													{foreach from=$all_hotels_info key=htl_k item=htl_v}
-														<li class="hotel_name" data-id-hotel="{$htl_v['id']}" data-hotel-cat-id="{$htl_v['id_category']}" data-max_order_date="{$htl_v['max_order_date']}">
-															{$htl_v['hotel_name']}
-														</li>
-													{/foreach}
-												{/if}
-											</ul>
-										</div>
+										</p>
 									{/if}
-								</div>
-								<div class="form-group
-								{if $totalActiveHotels <= 1}
-									{if isset($location_enable) && $location_enable && $show_only_active_htl}
-										col-sm-4 col-lg-2
-									{elseif isset($location_enable) && !$location_enable && !$show_only_active_htl}
-										col-sm-4
-									{else}
-										col-sm-3
-									{/if}
-								{elseif isset($location_enable) && $location_enable}
-									col-sm-4 col-lg-2
-								{else}
-									col-sm-3
-								{/if}">
-									<input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{l s='Check In Date'}" {if isset($search_data)}value="{$search_data['date_from']}"{/if} />
-								</div>
-								<div class="form-group
-								{if count($hotel_name) <= 1}
-									{if isset($location_enable) && $location_enable && $show_only_active_htl}
-										col-sm-4 col-lg-2
-									{elseif isset($location_enable) && !$location_enable && !$show_only_active_htl}
-										col-sm-4
-									{else}
-										col-sm-3
-									{/if}
-								{elseif isset($location_enable) && $location_enable}
-									col-sm-4 col-lg-2
-								{else}
-									col-sm-3
-								{/if}">
-									<input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{l s='Check Out Date'}" {if isset($search_data)}value="{$search_data['date_to']}"{/if} />
-								</div>
-								<div class="form-group
-								{if count($hotel_name) <= 1}
-									{if isset($location_enable) && $location_enable && $show_only_active_htl}
-										col-sm-4 col-lg-2
-									{elseif isset($location_enable) && !$location_enable && !$show_only_active_htl}
-										col-sm-4
-									{else}
-										col-sm-3
-									{/if}
-								{elseif isset($location_enable) && $location_enable}
-									col-sm-4 col-lg-2
-								{else}
-									col-sm-3
-								{/if}">
-									<button type="submit" class="btn btn-default button button-medium pull-right" name="product_page_search_submit" id="search_room_submit">
-										<span>{l s='Search' mod='wkroomsearchblock'}</span>
-									</button>
 								</div>
 							</form>
 						</div>
 					</div>
-				</div>
+					{* extra room type demands *}
+					{if isset($room_type_demands) && $room_type_demands}
+						<div class="col-sm-12 card room_demands_container">
+							<label for="" class="control-label">{l s='Additional Facilities'}</label>
+							{foreach $room_type_demands as $idGlobalDemand => $demand}
+								<div class="row room_demand_block">
+									{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
+										<div class="col-xs-1">
+											<p class="checkbox">
+												<input value="{$idGlobalDemand|escape:'html':'UTF-8'}" type="checkbox" class="id_room_type_demand" />
+											</p>
+										</div>
+									{/if}
+									<div class="col-xs-11 demand_adv_option_block">
+										<p>{$demand['name']|escape:'html':'UTF-8'} {if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}<span class="pull-right extra_demand_option_price">{convertPrice price = {$demand['price']}}</span>{/if}</p>
+										{if isset($demand['adv_option']) && $demand['adv_option']}
+											<select class="id_option">
+												{foreach $demand['adv_option'] as $idOption => $option}
+													<option optionPrice="{$option['price']|escape:'html':'UTF-8'}" value="{$idOption|escape:'html':'UTF-8'}">{$option['name']|escape:'html':'UTF-8'}</option>
+												{/foreach}
+											</select>
+										{else}
+											<input type="hidden" class="id_option" value="0" />
+										{/if}
+									</div>
+								</div>
+							{/foreach}
+							<div class="room_demands_container_overlay">
+							</div>
+						</div>
+					{/if}
+				{/if}
 			</div>
-			<!-- end -->
-			<!-- left infos-->
 			<div class="pb-left-column col-xs-12 col-sm-8 col-md-8">
 				<div class="room_type_img_containter card">
 					<div class="room_hotel_name_block">
@@ -345,142 +370,7 @@
 				</div>
 			</div> <!-- end pb-left-column -->
 
-			<div class="pb-right-column col-xs-12 col-sm-4 col-md-4">
-				{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
-					<p class="hidden">
-						<input type="hidden" name="token" value="{$static_token}" />
-						<input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
-						<input type="hidden" name="add" value="1" />
-						<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
-					</p>
-					<div class="booking-form card">
-						<div class="booking_room_fields">
-							<form action="" method="post">
-								<div class="form-group htl_location_block">
-									<label for="" class="control-label">{l s='Hotel Location'}</label>
-									<p>{$hotel_location|escape:'html':'UTF-8'}</p>
-								</div>
-								{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
-									<div class="row">
-										<div class="form-group col-sm-6">
-											<label for="" class="control-label">{l s='Check In Date'}</label>
-											<input type="text" class="form-control input-date" name="room_check_in" id="room_check_in" value="{if isset($date_from)}{$date_from|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
-										</div>
-										<div class="form-group col-sm-6">
-											<label for="" class="control-label">{l s='Check Out Date'}</label>
-											<input type="text" class="form-control input-date" name="room_check_out" id="room_check_out" value="{if isset($date_to)}{$date_to|escape:'html':'UTF-8'|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
-										</div>
-									</div>
-									<div class="room_unavailability_date_error_div"></div>
-									<div class="unvail_rooms_cond_display row">
-										<div class="form-group col-sm-6" id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-											<label for="quantity_wanted">{l s='No. of Rooms'}</label>
-											<div class="qty_sec_cont">
-												<div class="qty_input_cont row margin-lr-0">
-													<input autocomplete="off" type="text" min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}">
 
-													<input type="hidden" id="num_days" value="{if isset($num_days)}{$num_days|escape:'html':'UTF-8'}{/if}">
-													<input type="hidden" id="max_avail_type_qty" value="{if isset($total_available_rooms)}{$total_available_rooms|escape:'html':'UTF-8'}{/if}">
-												</div>
-												<div class="qty_direction">
-													<a href="#" data-field-qty="qty" class="btn btn-default product_quantity_up">
-														<span>
-															<i class="icon-plus"></i>
-														</span>
-													</a>
-													<a href="#" data-field-qty="qty" class="btn btn-default product_quantity_down">
-														<span>
-															<i class="icon-minus"></i>
-														</span>
-													</a>
-												</div>
-											</div>
-											<span class="clearfix"></span>
-										</div>
-									</div>
-									{if isset($room_type_demands) && $room_type_demands}
-										<hr class="separator-hr-mg-10 unvail_rooms_cond_display">
-										<div class="row price_desc_block unvail_rooms_cond_display">
-											<div class="col-sm-6">
-												<label class="control-label">{l s='Room Price'}</label>
-													<p>
-														<span class="total_rooms_price_block">{convertPrice price=$total_price|floatval}</span>
-														<span class="pull-right plus-sign">+</span>
-													</p>
-											</div>
-											<div class="col-sm-6">
-												<label class="control-label">{l s='Extra Facilities'}</label>
-													<p class="extra_demands_price_block">{convertPrice price=0}</p>
-											</div>
-										</div>
-										<hr class="separator-hr-mg-10 form-group unvail_rooms_cond_display">
-									{/if}
-									<div class="room_unavailability_qty_error_div"></div>
-									<div class="row unvail_rooms_cond_display">
-										<div class="total_price_block col-xs-7 form-group">
-											<label class="control-label">{l s='Subtotal'}</label>
-											<p>
-												{convertPrice price=$total_price|floatval}
-											</p>
-										</div>
-										<div class="col-xs-5 form-group pull-right num_quantity_alert">
-											<span class="num_searched_avail_rooms">{$total_available_rooms|escape:'html':'UTF-8'}</span> {l s='Room(s) Left !'}
-										</div>
-									</div>
-
-									<!-- End -->
-									<div class="sold_out_alert">
-										<span>{l s='Rooms Sold Out !'}</span>
-									</div>
-								{/if}
-								<div class="unvail_rooms_cond_display">
-									{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE}
-									{else}
-										<p id="add_to_cart" class="buttons_bottom_block no-print">
-											<button type="submit" name="Submit" class="exclusive book_now_submit">
-												<span>
-													{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{l s='Book Now'}{/if}
-												</span>
-											</button>
-										</p>
-									{/if}
-								</div>
-							</form>
-						</div>
-					</div>
-					{* extra room type demands *}
-					{if isset($room_type_demands) && $room_type_demands}
-						<div class="col-sm-12 card room_demands_container">
-							<label for="" class="control-label">{l s='Additional Facilities'}</label>
-							{foreach $room_type_demands as $idGlobalDemand => $demand}
-								<div class="row room_demand_block">
-									{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
-										<div class="col-xs-1">
-											<p class="checkbox">
-												<input value="{$idGlobalDemand|escape:'html':'UTF-8'}" type="checkbox" class="id_room_type_demand" />
-											</p>
-										</div>
-									{/if}
-									<div class="col-xs-11 demand_adv_option_block">
-										<p>{$demand['name']|escape:'html':'UTF-8'} {if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}<span class="pull-right extra_demand_option_price">{convertPrice price = {$demand['price']}}</span>{/if}</p>
-										{if isset($demand['adv_option']) && $demand['adv_option']}
-											<select class="id_option">
-												{foreach $demand['adv_option'] as $idOption => $option}
-													<option optionPrice="{$option['price']|escape:'html':'UTF-8'}" value="{$idOption|escape:'html':'UTF-8'}">{$option['name']|escape:'html':'UTF-8'}</option>
-												{/foreach}
-											</select>
-										{else}
-											<input type="hidden" class="id_option" value="0" />
-										{/if}
-									</div>
-								</div>
-							{/foreach}
-							<div class="room_demands_container_overlay">
-							</div>
-						</div>
-					{/if}
-				{/if}
-			</div>
 
 		</div> <!-- end primary_block -->
 		{if !$content_only}
