@@ -7,7 +7,7 @@
     margin: 0px;
     background-color: transparent;
     border: none;
-    padding-top: 20px;
+    padding-top: 0px;
     padding-bottom: 20px;
 }
 
@@ -67,15 +67,17 @@
     transform: translate(0px, 6px);
 }
 
+.room_cont p.ocupancy {
+    text-align: center;
+}
+
 .room_cont a img {
     width: 100%;
 }
 
 .rm_heading {
     color: #333333;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 25px;
+    text-align: center;
     margin-bottom: 10px;
 }
 
@@ -98,8 +100,10 @@
 
 .capa_txt {
     color: #333333;
-    font-size: 16px;
-    font-weight: 400;
+    font-style: normal;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    text-align: center;
 }
 
 .capa_data {
@@ -135,12 +139,24 @@
 }
 
 .rm_amenities_cont {
-    background-color: white;
+    background-color: transparent;
     border-bottom: 1px solid #cccccc;
     border-top: 1px solid #cccccc;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     padding: 10px;
     clear: both;
+}
+
+.rm_amenities_cont .icon {
+    color: #003380;
+    font-size: 8px !important;
+    padding-right: 4px;
+}
+
+.rm_amenities_cont .amenity_name {
+    font-style: normal !important;
+    font-weight: 300 !important;
 }
 
 .rm_left {

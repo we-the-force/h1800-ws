@@ -25,7 +25,7 @@
 
 <div class="row cat_cont">
     <div class="col-sm-12">
-        <div class="row margin-lr-0 catSortBlock">
+        {* <div class="row margin-lr-0 catSortBlock">
             <div class="col-sm-2 sortBlockHeading">
                 <p>{l s='Sort By:'}</p>
             </div>
@@ -53,7 +53,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> *}
         <div class="row no-gutters" id="category_data_cont">
             <input type="hidden" id="max_order_date" name="max_order_date" value="{$max_order_date}">
             {foreach from=$booking_data['rm_data'] key=room_k item=room_v}
@@ -65,11 +65,12 @@
                             </a>
                         </div>
                         <div class="col-sm-5">
-                            <p class="rm_heading">{$room_v['name']}</p>
-                            <div class="rm_desc">{$room_v['description']}&nbsp;<a href="{$room_v['product_link']}">{l s='View More'}....</a></div>
+                            <h2 class="rm_heading">{$room_v['name']}</h2>
+                            <p class="ocupancy"><span class="capa_txt">{l s='Max Capacity:'}</span><br/><span class="capa_data"> {$room_v['adult']} {l s='Adults'}, {$room_v['children']} {l s='child'}</span></p>
+                            {* <div class="rm_desc">{$room_v['description']}&nbsp;<a href="{$room_v['product_link']}">{l s='View More'}....</a></div> *}
 
-                            <p><span class="capa_txt">{l s='Max Capacity:'}</span><span class="capa_data"> {$room_v['adult']} {l s='Adults'}, {$room_v['children']} {l s='child'}</span></p>
-                            {if isset($room_v['num_review'])}
+
+                            {* {if isset($room_v['num_review'])}
                                 <div class="rm_review_cont pull-left">
                                     {for $foo=1 to 5}
                                         {if $foo <= $room_v['ratting']}
@@ -80,15 +81,23 @@
                                     {/for}
                                     <span class="rm_review">{$room_v['num_review']} {l s='Reviews'}</span>
                                 </div>
-                            {/if}
+                            {/if} *}
 
-                            <span class="rm_left pull-right" {if $room_v['room_left']>$warning_num}  style="display:none"{/if}>{l s='Hurry!'} <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span> {l s='rooms left'}</span>
+                            {* <span class="rm_left pull-right" {if $room_v['room_left']>$warning_num}  style="display:none"{/if}>{l s='Hurry!'} <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span> {l s='rooms left'}</span> *}
 
                             {if !empty($room_v['feature'])}
                                 <div class="rm_amenities_cont">
+                                <div class="row">
                                     {foreach from=$room_v['feature'] key=feat_k item=feat_v}
-                                        <img src="{$feat_img_dir}{$feat_v['value']}" class="rm_amen">
+                                        {* {foreach from=$feat_v key=k item=i}
+                                          {$i}
+                                        {/foreach} *}
+                                        <div class="col-md-6">
+                                        <i class="icon icon-circle"></i><span class="amenity_name">{$feat_v['name']}</span>
+                                        </div>
+                                        {* <img src="{$feat_img_dir}{$feat_v['value']}" class="rm_amen"> *}
                                     {/foreach}
+                                    </div>
                                 </div>
                             {/if}
                             <div class="row margin-lr-0 pull-left rm_price_cont">
