@@ -12539,3 +12539,9 @@ h3 {
 .home_block_content .media-heading {
     padding-top: 25px;
 }
+
+.qty_input_cont input {
+    background: transparent;
+    border: none;
+    height: 23px;
+}

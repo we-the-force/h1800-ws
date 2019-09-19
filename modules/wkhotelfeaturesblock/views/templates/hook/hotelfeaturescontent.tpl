@@ -18,7 +18,7 @@ newer * versions in the future. If you wish to customize this module for your * 
             <div class="row homeAmenitiesBlock home_block_content">
 
 
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleControls" class=" slide" >
                     <div class="carousel-inner">
                         {assign var='counter' value=1} {foreach from=$hotelAmenities item=amenity name=amenityBlock} {if $counter == 1}
                         <div class="carousel-item active">
@@ -93,6 +93,5 @@ newer * versions in the future. If you wish to customize this module for your * 
         </div>
         <script>
             $(document).ready(function() {
-                $('#carouselExampleControls2').carousel();
             });
         </script>
