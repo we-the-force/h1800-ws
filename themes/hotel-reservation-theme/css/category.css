@@ -294,7 +294,7 @@
 .qty_input_cont input {
     color: #3c3c3c;
     font-size: 20px;
-    height: 57px;
+    height: 23px;
     padding: 1px 10px;
 }
 
@@ -311,10 +311,12 @@
 }
 
 .qty_direction a {
-    margin-bottom: 2.8px;
-    margin-top: 3px;
-    margin-left: 2px;
-    padding: 1px 4px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding: 12px 5px !important;
+    height: 12px !important;
+    position: absolute;
 }
 
 #category_data_cont .room_cont .rm_qty_cont .qty_sec_cont a.cat_rm_quantity_up{
