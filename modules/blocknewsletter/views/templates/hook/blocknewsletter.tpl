@@ -24,7 +24,7 @@
 *}
 
 <!-- Block Newsletter module-->
-<div class="row">
+{* <div class="row">
     <section class="col-xs-12 col-sm-12">
         <div class="row margin-lr-0 footer-section-heading">
             <p>{l s='GET NOTIFICATIONS' mod='blocknewsletter'}</p>
@@ -34,7 +34,7 @@
             <form action="{$link->getPageLink('index', null, null, null, false, null, true)|escape:'html':'UTF-8'}" method="post">
                 <div class="form-group{if isset($msg) && $msg } {if $nw_error}form-error{else}form-ok{/if}{/if}" >
                     <input class="inputNew form-control grey newsletter-input" id="newsletter-input" type="text" name="email" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{l s='Enter your e-mail' mod='blocknewsletter'}{/if}" />
-                    {* Hook added for GDPR *}
+
                     {if isset($id_module)}
                         {hook h='displayGDPRConsent' id_module=$id_module}
                     {/if}
@@ -47,7 +47,7 @@
         </div>
         {hook h="displayBlockNewsletterBottom" from='blocknewsletter'}
     </section>
-</div>
+</div> *}
 <!-- /Block Newsletter module-->
 {strip}
 {if isset($msg) && $msg}

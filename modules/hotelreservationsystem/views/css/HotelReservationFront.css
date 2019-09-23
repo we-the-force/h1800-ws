@@ -72,7 +72,7 @@
 /* ===== headerHotelDescBlock.tpl ===== */
 
 .copyRightWrapper {
-    background-color: #242424;
+    background-color: #ededed;
     padding: 30px;
 }
 
@@ -85,8 +85,9 @@
 }
 
 .copyRightWrapper {
-    background-color: #242424;
+    background-color: #ededed;
     padding: 30px;
+    margin-bottom: 75px;
     width: 100%;
 }
 

@@ -427,6 +427,7 @@ table {
 html {
     font-size: 62.5%;
     -webkit-tap-highlight-color: transparent;
+    background-color: #ededed;
 }
 
 body {
@@ -8063,7 +8064,7 @@ textarea {
 }
 
 .columns-container {
-    background: #EDEDED;
+    background-color: #EDEDED;
 }
 
 #columns {
@@ -10162,7 +10163,7 @@ div.star a:hover {
 }
 
 .footer-container {
-    background-color: #333333;
+    background-color: #ffffff;
     padding-top: 30px;
 }
 
@@ -10242,10 +10243,7 @@ div.star a:hover {
     padding-bottom: 18px;
 }
 
-.footer-container #footer ul li a {
-    font-weight: bold;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
-}
+.footer-container #footer ul li a {}
 
 .footer-container #footer #block_contact_infos {
     border-left: 1px solid #515151;
@@ -10345,13 +10343,13 @@ div.star a:hover {
               width: 30px; } } */
 
 .footer-container #footer #social_block ul li a {
-    background-color: #3a3a3a;
-    border: 1px solid #868686;
+    background-color: #fff;
+    border: 1px solid #BABABA;
     border-radius: 50%;
     height: 43px;
     width: 43px;
     display: inline-block;
-    color: #868686;
+    color: #BABABA;
     /*by webkul*/
     font-size: 17px;
 }
@@ -12283,14 +12281,19 @@ div.star.star_hover:after {
 }
 
 .footer-section-heading p {
-    color: #fff;
+    color: #003380;
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
+    font-family: Fieldwork;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 .footer-section-heading hr {
-    border: 1px solid #379bf0;
+    border: 0.5px solid #BABABA;
     float: left;
     margin-top: 5px;
     width: 60px;
@@ -12463,8 +12466,8 @@ hr.theme-text-underline {
 }
 
 * {
-    font-size: 14px !important;
-    font-weight: normal !important;
+    font-size: 14px;
+    font-weight: normal;
 }
 
 h1 {
