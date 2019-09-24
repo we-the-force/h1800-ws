@@ -79,10 +79,10 @@
 					<div class="booking-form card">
 						<div class="booking_room_fields">
 							<form action="" method="post">
-								<div class="form-group htl_location_block">
+								{* <div class="form-group htl_location_block">
 									<label for="" class="control-label">{l s='Hotel Location'}</label>
 									<p>{$hotel_location|escape:'html':'UTF-8'}</p>
-								</div>
+								</div> *}
 								{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 									<div class="row">
 										<div class="form-group col-sm-6">
