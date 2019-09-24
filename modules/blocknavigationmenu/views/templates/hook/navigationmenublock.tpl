@@ -1,13 +1,13 @@
 <div class="pull-right clearfix nav_menu_padding">
-	<button type="button" class="nav_toggle">
+{* 	<button type="button" class="nav_toggle">
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
-	</button>
+	</button> *}
 </div>
 
 <div id="menu_cont" class="menu_cont_right">
-	<div class="row margin-lr-0">
+{* 	<div class="row margin-lr-0">
 		<div class="col-xs-12 col-sm-12">
 			<div class="row margin-lr-0">
 				<span class="pull-right close_navbar"><i class="icon-close"></i></span>
@@ -25,5 +25,5 @@
 				{hook h="displayExternalNavigationHook"}
 			</div>
 		</div>
-	</div>
+	</div> *}
 </div>

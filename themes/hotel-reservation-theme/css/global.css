@@ -136,6 +136,14 @@ table {
     border-spacing: 0;
 }
 
+#page .header-container #header .menu{
+    position: fixed;
+    background: #EDEDED;
+    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.1);
+    height: 74px;
+    width: 100%;
+}
+
 .noselect {
     -webkit-touch-callout: none;
     /* iOS Safari */
@@ -523,6 +531,12 @@ hr {
 
 p {
     margin: 0 0 9px;
+}
+
+.menu .shopping_cart p.text{
+    margin: 0px 5px -2px 5px;
+    position: absolute;
+    bottom: 0px;
 }
 
 .lead {
@@ -12210,6 +12224,10 @@ div.star.star_hover:after {
 
 .padding-top-5 {
     padding-top: 5px;
+}
+
+.menu .container .nav_menu_padding{
+    padding-top: 15px;
 }
 
 .nav_menu_padding {

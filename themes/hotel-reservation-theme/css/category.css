@@ -68,7 +68,8 @@
 }
 
 #category_data_cont .room_cont .btn.btn-default.button.button-medium{
-    transform: translate(-90px, 0px);
+    position: relative;
+    width: fit-content;
 }
 
 #category_data_cont .room_cont .ocupancy .capa_data{
@@ -210,7 +211,7 @@
     position: relative;
     width: 100%;
     margin: 0px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 #category_data_cont .room_cont .rm_price_cont .rm_price_val{
@@ -268,7 +269,7 @@
 }
 
 #category_data_cont .room_cont .rm_qty_cont .qty_sec_cont{
-    width: 153px;
+    width: 131px;
     margin: 0px 0px 0px 5px;
     float: right;
 }
@@ -320,6 +321,7 @@
 }
 
 #category_data_cont .room_cont .rm_qty_cont .qty_sec_cont a.cat_rm_quantity_up{
+    position: relative;
     margin: 0px !important;
     padding: 0px !important;
     width: 45px;
@@ -331,6 +333,7 @@
 }
 
 #category_data_cont .room_cont .rm_qty_cont .qty_sec_cont a.cat_rm_quantity_down{
+    position: relative;
     margin: 0px !important;
     padding: 0px !important;
     width: 45px;
