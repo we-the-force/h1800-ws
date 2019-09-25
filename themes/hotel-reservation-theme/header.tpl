@@ -107,6 +107,45 @@
 										<img class="logo img-responsive" src="{$logo_url}" alt="{$shop_name|escape:'html':'UTF-8'}"{if isset($logo_image_width) && $logo_image_width} width="{$logo_image_width}"{/if}{if isset($logo_image_height) && $logo_image_height} height="{$logo_image_height}"{/if}/>
 									</a>
 								</div> *}
+								<div class="calendar nav_menu_padding pull-left">
+									<a href="#">
+										<img class="img-calendar" src="themes/hotel-reservation-theme/img/Calendar.svg" />
+									</a>
+								</div>
+
+								<div class="centered nav_menu_padding">
+									<div class="home nav_icon">
+										<a href="#">
+											<img class="img-home" src="themes/hotel-reservation-theme/img/Home.svg" />
+											<p>HOME</p>
+										</a>
+									</div>
+									<div class="rooms nav_icon">
+										<a href="#">
+											<img class="img-rooms" src="themes/hotel-reservation-theme/img/Rooms.svg" />
+											<p>ROOMS</p>
+										</a>
+									</div>
+									<div class="amenities nav_icon">
+										<a href="#">
+											<img class="img-amenities" src="themes/hotel-reservation-theme/img/Amenities.svg" />
+											<p>AMENITIES</p>
+										</a>
+									</div>
+									<div class="parks nav_icon">
+										<a href="#">
+											<img class="img-parks" src="themes/hotel-reservation-theme/img/Parques.svg" />
+											<p>PARKS</p>
+										</a>
+									</div>
+									<div class="news nav_icon">
+										<a href="#">
+											<img class="img-news" src="themes/hotel-reservation-theme/img/News.svg" />
+											<p>NEWS</p>
+										</a>									
+									</div>
+								</div>
+
 								{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
 							</div>
 							{hook h='displaySearchHotelPanel'}

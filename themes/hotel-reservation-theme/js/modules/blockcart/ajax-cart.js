@@ -417,12 +417,12 @@ var ajaxCart = {
 
         // get the selected extra demands by customer
         var roomDemands = [];
-        $('input:checkbox.id_room_type_demand:checked').each(function () {
+        $('input:checkbox.id_room_type_demand:checked').each(function() {
             roomDemands.push({
-                'id_global_demand':$(this).val(),
+                'id_global_demand': $(this).val(),
                 'id_option': $(this).closest('.room_demand_block').find('.id_option').val()
             });
-       });
+        });
         //send the ajax request to the server
         $.ajax({
             type: 'POST',
@@ -972,13 +972,16 @@ var ajaxCart = {
 
         $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="' + product.image + '" alt="' + product.name + '" title="' + product.name + '" />');
 
-        var n = parseInt($(window).scrollTop()+50) + 'px';
+        /* var n = parseInt($(window).scrollTop()+50) + 'px'; */
 
         $('.layer_cart_overlay').css('width', '100%');
         $('.layer_cart_overlay').css('height', '100%');
         $('.layer_cart_overlay').show();
-        $('#layer_cart').css({
+        /* $('#layer_cart').css({
             'top': n
+        }).fadeIn('fast'); */
+        $('#layer_cart').css({
+            'bottom': '40vh'
         }).fadeIn('fast');
         crossselling_serialScroll();
     },
