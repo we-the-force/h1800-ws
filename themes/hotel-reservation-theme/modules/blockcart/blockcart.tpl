@@ -187,7 +187,7 @@
 							</table>
 						{/if}
 						<div class="cart-prices">
-							<div class="cart-prices-line first-line">
+							{* <div class="cart-prices-line first-line"> *}
 								<!-- <span class="price cart_block_shipping_cost ajax_cart_shipping_cost{if !($page_name == 'order-opc') && $shipping_cost_float == 0 && (!isset($cart->id_address_delivery) || !$cart->id_address_delivery)} unvisible{/if}">
 									{if $shipping_cost_float == 0}
 										 {if !($page_name == 'order-opc') && (!isset($cart->id_address_delivery) || !$cart->id_address_delivery)}{l s='To be determined' mod='blockcart'}{else}{l s='Free shipping!' mod='blockcart'}{/if}
@@ -198,7 +198,7 @@
 								<span{if !($page_name == 'order-opc') && $shipping_cost_float == 0 && (!isset($cart->id_address_delivery) || !$cart->id_address_delivery)} class="unvisible"{/if}>
 									{l s='Shipping' mod='blockcart'}
 								</span> --><!-- commented by webkul unnecessary data -->
-							</div>
+							{* </div> *}
 							<!-- {if $show_wrapping}
 								<div class="cart-prices-line">
 									{assign var='cart_flag' value='Cart::ONLY_WRAPPING'|constant}
@@ -267,15 +267,18 @@
 					<span id="layer_cart_product_title" class="product-name"></span>
 					<span id="layer_cart_product_attributes"></span>
 					<div>
-						<strong class="dark">{l s='Time Duration' mod='blockcart'} &nbsp;-&nbsp;</strong>
+						<strong class="dark">{l s='Time Duration' mod='blockcart'} {* &nbsp;-&nbsp; *}</strong>
+						<br>
 						<span id="layer_cart_product_time_duration"></span>
 					</div>
 					<div>
-						<strong class="dark">{l s='Rooms Quantity Added' mod='blockcart'} &nbsp;-&nbsp;</strong>
+						<strong class="dark">{l s='Rooms Quantity Added' mod='blockcart'}{*  &nbsp;-&nbsp; *}</strong>
+						<br>
 						<span id="layer_cart_product_quantity"></span>
 					</div>
 					<div>
-						<strong class="dark">{l s='Total Cart Cost of This Room Type' mod='blockcart'} &nbsp;-&nbsp;</strong>
+						<strong class="dark">{l s='Total Cart Cost of This Room Type' mod='blockcart'}{*  &nbsp;-&nbsp; *}</strong>
+						<br>
 						<span id="layer_cart_product_price"></span>
 					</div>
 				</div>

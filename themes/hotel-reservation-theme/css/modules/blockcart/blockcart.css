@@ -241,6 +241,11 @@
     margin-right: 10px;
 }
 
+#header .menu .shopping_cart .cart_block .cart-buttons a {
+    width: 55%;
+    float: unset;
+}
+
 .cart_block .cart-buttons a#button_order_cart {
     margin-right: 0;
     border: none;
@@ -341,6 +346,11 @@
     background: none;
 }
 
+#header .menu .cart_block dt {
+    background-color: #fff !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
 #header .cart_block .product-atributes {
     padding-bottom: 10px;
     font-size: 11px;
@@ -359,8 +369,17 @@
     background: url(../../../img/cart-shadow.png) repeat-x #3d3d3d;
 }
 
+#header .menu .cart_block .cart-prices {
+    border: none;
+    background: #E5E5E5;
+}
+
 #header .cart_block .cart-buttons {
     background: url(../../../img/cart-shadow.png) repeat-x #333;
+}
+
+#header .menu .cart_block .cart-buttons {
+    background: #f6f6f6
 }
 
 #header .block_content {
@@ -533,13 +552,46 @@
     padding: 38px 0 0 0;
 }
 
+.menu .row #layer_cart .layer_cart_product .layer_cart_product_info {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    padding: 5px 0 0 0;
+}
+
 #layer_cart .layer_cart_product .layer_cart_product_info #layer_cart_product_title {
     display: block;
     padding-bottom: 8px;
 }
 
+.menu .row #layer_cart .layer_cart_product .layer_cart_product_info #layer_cart_product_title { 
+    font-family: Fieldwork;
+    font-size: 20.775px;
+    line-height: 24px;
+}
+
 #layer_cart .layer_cart_product .layer_cart_product_info>div {
     padding-bottom: 7px;
+}
+
+/* .menu .row #layer_cart .layer_cart_product .layer_cart_product_info>div {
+    padding-bottom: 0px;
+} */
+
+.menu .row #layer_cart .layer_cart_product .layer_cart_product_info>div strong {
+    font-family: Fieldwork;
+    font-size: 12px;
+    line-height: 17px;
+    color: #939393;
+}
+
+.menu .row #layer_cart .layer_cart_product .layer_cart_product_info>div span {
+    font-family: Fieldwork;
+    font-size: 17px;
+    line-height: 24px;
+    color: #003380;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
 #layer_cart .layer_cart_product .layer_cart_product_info>div strong {

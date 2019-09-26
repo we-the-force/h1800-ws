@@ -959,12 +959,12 @@ var ajaxCart = {
 
         //by webkul has to work on it more..
         if (pagename == 'product') {
-            $('#layer_cart_product_time_duration').text($('#room_check_in').val() + '-' + $('#room_check_out').val());
+            $('#layer_cart_product_time_duration').text($('#room_check_in').val() + '/' + $('#room_check_out').val());
             $('#layer_cart_product_quantity').text($('#quantity_wanted').val());
             $('#quantity_wanted').val(1);
         }
         if (pagename == 'category') {
-            $('#layer_cart_product_time_duration').text($('#check_in_time').val() + '-' + $('#check_out_time').val());
+            $('#layer_cart_product_time_duration').text($('#check_in_time').val() + '/' + $('#check_out_time').val());
             $('#layer_cart_product_quantity').text($('#cat_quantity_wanted_' + product.id).val());
             $('#cat_quantity_wanted_' + product.id).val(1);
 
