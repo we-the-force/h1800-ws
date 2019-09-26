@@ -254,7 +254,12 @@
 			<div class="layer_cart_product">
 				<span class="cross" title="{l s='Close window' mod='blockcart'}"></span>
 				<h2>
-					<i class="icon-check-circle"></i>{l s='Room successfully added to your cart' mod='blockcart'}
+					{* <i class="icon-check-circle"></i> *}
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9.36836 18.0537C9.14397 18.0537 8.91956 17.9415 8.75127 17.8293L6.05859 15.1366C5.72201 14.8 5.72201 14.2952 6.05859 13.9586C6.39518 13.622 6.90004 13.622 7.23663 13.9586L9.31224 16.0342L16.7732 8.57324C17.1098 8.23665 17.6147 8.23665 17.9513 8.57324C18.2879 8.90983 18.2879 9.41469 17.9513 9.75127L9.87322 17.8293C9.81712 17.9415 9.59275 18.0537 9.36836 18.0537Z" fill="#1F70D1"/>
+						<path d="M23 12.5C23 6.16098 17.839 1 11.5 1C5.16098 1 0 6.16098 0 12.5C0 18.839 5.16098 24 11.5 24C14.6415 24 17.5024 22.7097 19.578 20.6902C19.8024 20.7463 20.0268 20.8024 20.3073 20.8024C21.5415 20.8024 22.6073 19.7927 22.6073 18.5024C22.6073 17.9414 22.3829 17.4366 22.1024 17.0439C22.6634 15.6414 23 14.1268 23 12.5ZM1.73901 12.5C1.73901 7.11463 6.11462 2.68293 11.5561 2.68293C16.9415 2.68293 21.3732 7.05854 21.3732 12.5C21.3732 13.8463 21.0927 15.0805 20.5878 16.2585C20.5317 16.2585 20.4195 16.2585 20.3073 16.2585C19.0732 16.2585 18.0073 17.2683 18.0073 18.5585C18.0073 18.9512 18.1195 19.2878 18.2878 19.6244C16.5488 21.3073 14.1366 22.3732 11.5 22.3732C6.11463 22.261 1.73901 17.8854 1.73901 12.5ZM20.3073 19.6244C19.6903 19.6244 19.1293 19.1195 19.1293 18.4463C19.1293 17.8293 19.6342 17.2683 20.3073 17.2683C20.9805 17.2683 21.4854 17.7732 21.4854 18.4463C21.4854 19.1195 20.9244 19.6244 20.3073 19.6244Z" fill="#1F70D1"/>
+					</svg>
+					{l s='Room successfully added to your cart' mod='blockcart'}
 				</h2>
 				<div class="product-image-container layer_cart_img">
 				</div>
@@ -274,9 +279,9 @@
 						<span id="layer_cart_product_price"></span>
 					</div>
 				</div>
-			</div>
-			<div class="layer_cart_cart">
-				<h2>
+			</div>{* 
+			<div class="layer_cart_cart"> *}
+				{* <h2>
 					<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
 					<span class="ajax_cart_product_txt_s {if $cart_qties < 2} unvisible{/if}">
 						{l s='There are [1]%d[/1] room(s) in your cart.' mod='blockcart' sprintf=[$cart_qties] tags=['<span class="ajax_cart_quantity">']}
@@ -304,7 +309,7 @@
 							{convertPrice price=$cart->getOrderTotal(false, Cart::ONLY_PRODUCTS)}
 						{/if}
 					</span>
-				</div>
+				</div> *}
 
 				<!-- {if $show_wrapping}
 					<div class="layer_cart_row">
@@ -339,7 +344,7 @@
 						{/if}
 					</span>
 				</div> -->
-				{if $show_tax && isset($tax_cost)}
+				{* {if $show_tax && isset($tax_cost)}
 					<div class="layer_cart_row">
 						<strong class="dark">{l s='Tax' mod='blockcart'}</strong>
 						<span class="price cart_block_tax_cost ajax_cart_tax_cost">{$tax_cost}</span>
@@ -371,20 +376,20 @@
 							{/if}
 						{/if}
 					</span>
-				</div>
+				</div> *}
 				<div class="button-container">
-					<span class="continue btn btn-default button exclusive-medium" title="{l s='Continue shopping' mod='blockcart'}">
+					{* <span class="continue btn btn-default button exclusive-medium" title="{l s='Continue shopping' mod='blockcart'}">
 						<span>
 							<i class="icon-chevron-left left"></i>{l s='Continue shopping' mod='blockcart'}
 						</span>
-					</span>
+					</span> *}
 					<a class="btn btn-default button button-medium"	href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
 						<span>
 							{l s='Proceed to checkout' mod='blockcart'}<i class="icon-chevron-right right"></i>
 						</span>
 					</a>
 				</div>
-			</div>
+			{* </div> *}
 		</div>
 		<div class="crossseling"></div>
 	</div> <!-- #layer_cart -->
