@@ -766,23 +766,24 @@ var ajaxCart = {
 
 
                     content += '<div class="room-capacity cart-info-sec">';
-                    content += '<span class="product_info_label">' + capacity_txt + ':</span>';
+                    content += '<span class="product_info_label">' + capacity_txt + ':</span><br>';
                     content += '<span class="product_info_data">&nbsp;' + cart_booking_data[key].adult + '&nbsp;' + adults_txt + '&nbsp;&&nbsp;' + cart_booking_data[key].children + '&nbsp;' + children_txt + '</span>'
                     content += '</div>';
 
-                    if (this.hasAttributes)
-                        content += '<div class="product-atributes"><a href="' + this.link + '" title="' + this.name + '">' + this.attributes + '</a></div>';
 
-                    if (typeof(freeProductTranslation) != 'undefined') {
-                        content += '<div class="cart-info-sec rm_product_info_' + productId + '">';
-                        content += '<span class="product_info_label">Price:</span>';
-                        content += '<span class="price product_info_data" ttl_prod_price="' + this.total_product_price + '">';
-                        content += (parseFloat(this.price_float) > 0 ? this.priceByLine : freeProductTranslation);
-                        content += '</span>';
-                        content += '</div>';
-                    }
+                    content += '<div class="cart-info-sec">';
+                    content += '<span class="product_info_label">'+ duration_txt +':</span><br>';
+                    content += '<span class="product_info_data">';
+                    $.each(cart_booking_data[key].date_diff, function(date_diff_k, date_diff_v) {
+                        //content += $.datepicker.formatDate('dd/mm/yy', new Date(date_diff_v.data_form)) + '&nbsp;-&nbsp;' + $.datepicker.formatDate('dd/mm/yy', new Date(date_diff_v.data_to));
+                        let options = { weekday: 'short', day: 'numeric', month: 'short'};
+                        content += new Date(date_diff_v.data_form).toLocaleDateString("es-MX", options) + ' - ' +new Date(date_diff_v.data_to).toLocaleDateString("es-MX", options);
+                    });
+                    content += '</span>';
+                    content += '</div>';
+
                     content += '<div class="cart-info-sec rm_product_info_' + productId + '">';
-                    content += '<span class="product_info_label">' + total_qty_txt + ':</span>';
+                    content += '<span class="product_info_label">' + total_qty_txt + ':</span><br>';
                     content += '<span class="quantity-formated">';
                     content += '<span class="quantity product_info_data">';
                     content += cart_booking_data[key].total_num_rooms;
@@ -792,6 +793,18 @@ var ajaxCart = {
                     content += '</div>';
 
 
+                    if (this.hasAttributes)
+                        content += '<div class="product-atributes"><a href="' + this.link + '" title="' + this.name + '">' + this.attributes + '</a></div>';
+
+                    if (typeof(freeProductTranslation) != 'undefined') {
+                        content += '<div class="cart-info-sec room-price rm_product_info_' + productId + '">';
+                        content += '<span class="product_info_label">Price:</span>';
+                        content += '<span class="price product_info_data" ttl_prod_price="' + this.total_product_price + '">';
+                        content += (parseFloat(this.price_float) > 0 ? this.priceByLine : freeProductTranslation);
+                        content += '</span>';
+                        content += '</div>';
+                    }
+
                     if (typeof(this.is_gift) == 'undefined' || this.is_gift == 0)
                         content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token + (this.hasAttributes ? '&amp;ipa=' + parseInt(this.idCombination) : '') + '"> </a></span>';
                     else
@@ -799,7 +812,8 @@ var ajaxCart = {
 
 
                     content += '<div style="clear:both;"></div>';
-                    content += '<div id="booking_dates_container_' + productId + '" class="cart_prod_cont">';
+                    
+                    /* content += '<div id="booking_dates_container_' + productId + '" class="cart_prod_cont">';
                     content += '<div class="table-responsive">';
                     content += '<table class="table">';
                     content += '<tbody>';
@@ -808,7 +822,7 @@ var ajaxCart = {
                     content += '<th>' + qty_txt + '.</th>';
                     content += '<th>' + price_txt + '</th>';
                     content += '<th>&nbsp;</th>';
-                    content += '</tr>';
+                    content += '</tr>'; 
 
 
                     $.each(cart_booking_data[key].date_diff, function(date_diff_k, date_diff_v) {
@@ -824,7 +838,7 @@ var ajaxCart = {
                     content += '</tbody>';
                     content += '</table>';
                     content += '</div>';
-                    content += '</div>';
+                    content += '</div>'; */
 
                     content += '</dt>';
 
