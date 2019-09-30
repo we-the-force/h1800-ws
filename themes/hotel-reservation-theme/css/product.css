@@ -1594,6 +1594,16 @@ Quick View Styles
     margin-bottom: 20px;
 }
 
+.columns-container .product_wrapper .primary_block .booking_room_fields .form-group {
+    display: inline-block;
+    width: unset;
+    position: relative;
+    height: 51px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+}
 .content_prices {
     background-color: #404040;
 }
@@ -1845,13 +1855,20 @@ Quick View Styles
     float: left;
 }
 
-#quantity_wanted_p .qty_input_cont {
-    float: left;
-    width: 126px;
+.columns-container .product_wrapper .primary_block #quantity_wanted_p .qty_direction .qty_input_cont{
+    width: 86px;
+    height: 35px;
 }
 
 #quantity_wanted_p .qty_input_cont input {
     border-radius: 4px 0px 0px 4px;
+}
+
+.columns-container .product_wrapper .primary_block #quantity_wanted_p .qty_direction .qty_input_cont input{
+    text-align: center;
+    height: 35px;
+    border: none;
+    box-shadow: none;
 }
 
 #quantity_wanted_p .qty_direction {
@@ -1859,11 +1876,55 @@ Quick View Styles
     float: left;
 }
 
+.columns-container .product_wrapper .primary_block #quantity_wanted_p .qty_direction {
+    display: flex;
+    width: min-content;
+    border-radius: 50px;
+    border: 2px solid #E2E2E2;
+}
+
 #quantity_wanted_p .qty_direction a {
     padding: 2px 5px;
     border-left: 0px;
     border-color: #999;
 }
+
+.columns-container .product_wrapper .primary_block #quantity_wanted_p .qty_direction .product_quantity_down {
+    position: relative;
+    margin: 0px !important;
+    width: 62px;
+    height: 35px !important;
+    border-top-right-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.columns-container .product_wrapper .primary_block #quantity_wanted_p .qty_direction .product_quantity_down span {
+    position: absolute;
+    left: 26px;
+    color: #8B8B8B;
+    top: 11.5px;
+}
+
+.columns-container .product_wrapper .primary_block #quantity_wanted_p .qty_direction .product_quantity_up {
+    position: relative;
+    margin: 0px !important;
+    width: 45px;
+    height: 35px !important;
+    border-top-left-radius: 0% !important;
+    border-bottom-left-radius: 0% !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.columns-container .product_wrapper .primary_block #quantity_wanted_p .qty_direction .product_quantity_up span {
+    position: absolute;
+    right: 26px;
+    color: #8B8B8B;
+    top: 11.5px;
+}
+
 
 .product_wrapper .header-rmsearch-inner-wrapper {
     margin-top: 15px!important;
@@ -1898,6 +1959,22 @@ Quick View Styles
     background-size: 16px!important;
 }
 
+.columns-container .product_wrapper .primary_block .input-date{
+    background-color: transparent;
+    border: 2px solid #E2E2E2;
+    border-radius: 50px;
+    font-family: Fieldwork;
+    font-style: normal !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    width: 100%;
+    height: 35px;
+    color: #848484;
+    padding-left: 15px;
+    background: none !important;
+}
+
 #search_hotel_block_form #search_room_submit {
     width: 100%;
 }
@@ -1928,6 +2005,31 @@ Quick View Styles
     display: block;
     font-size: 14px;
     color: #333;
+}
+
+.columns-container .product_wrapper .primary_block .booking_room_fields .control-label{
+    font-family: Fieldwork !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: #262626;
+    background-color: #F4F4F4 !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: absolute;
+    z-index: 1;
+    left: 27px;
+    top: -10px;
+}
+
+.columns-container .product_wrapper .primary_block .booking_room_fields .input-group-addon{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 15px;
+    color: #888888;
+    top: 3px;
 }
 
 .product_wrapper .price_desc_block label {
