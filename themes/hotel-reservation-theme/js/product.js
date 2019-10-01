@@ -922,10 +922,10 @@ function submitPublishProduct(url, redirect, token) {
 
 function checkMinimalQuantity(minimal_quantity) {
     if ($('#quantity_wanted').val() < minimal_quantity) {
-        $('#quantity_wanted').css('border', '1px solid red');
+        //$('#quantity_wanted').css('border', '1px solid red');
         $('#minimal_quantity_wanted_p').css('color', 'red');
     } else {
-        $('#quantity_wanted').css('border', '1px solid #BDC2C9');
+        //$('#quantity_wanted').css('border', '1px solid #BDC2C9');
         $('#minimal_quantity_wanted_p').css('color', '#374853');
     }
 }

@@ -12514,6 +12514,12 @@ hr.theme-text-underline {
     display: block;
 }
 
+.columns-container .product_wrapper .primary_block .card {
+    background: #e5e5e5;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
 #header-panorama {
     height: 100%;
     width: 100%;

@@ -138,6 +138,10 @@ a.fancybox-nav {
     width: 392px;
 }
 
+.columns-container .product_wrapper .primary_block .room_type_img_containter #thumbs_list {
+    width: 90%;
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
     #thumbs_list {
         width: 294px;
@@ -203,7 +207,7 @@ a.fancybox-nav {
 
 #thumbs_list li img {
     border: 1px solid #dbdbdb;
-    border-radius: 4px;
+    border-radius: 7px;
     width: 100%;
     height: 100%;
     -moz-box-sizing: border-box;
@@ -248,6 +252,12 @@ span.view_scroll_spacer {
     float: left;
     width: 39px;
     padding-left: 12px;
+}
+
+.columns-container .product_wrapper .primary_block .room_type_img_containter #views_block span.view_scroll_spacer {
+    padding-left: 18px;
+    width: 5%;
+    padding-right: 18px;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -308,13 +318,17 @@ span.view_scroll_spacer {
 }
 
 #view_scroll_left,
-#view_scroll_right {
+#view_scroll_right { 
     margin-top: 38px;
     height: 20px;
     width: 20px;
     line-height: 0;
     font-size: 0;
     overflow: hidden;
+}
+
+.columns-container .product_wrapper .primary_block .room_type_img_containter #views_block #view_scroll_right {
+    margin-top: 0px;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1080,7 +1094,22 @@ table.table-product-discounts tr th {
     display: block;
 }
 
-
+.columns-container .product_wrapper .primary_block .booking_room_fields #quantity_wanted_p label {
+    font-family: Fieldwork !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: #262626;
+    background-color: #E5E5E5 !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /* availability_statut */
 
 #availability_statut span#availability_label,
@@ -1568,6 +1597,12 @@ Quick View Styles
     margin: 0px;
 }
 
+.columns-container .product_wrapper .primary_block .booking_room_fields #add_to_cart{
+    display: inline-block;
+    width: 185px;
+    margin-top: 0.5%;
+}
+
 #add_to_cart .book_now_submit {
     background-color: #36BA46;
     border: 1px solid #36BA46;
@@ -1577,6 +1612,22 @@ Quick View Styles
     width: 100%;
     text-transform: uppercase;
     padding: 15px;
+}
+
+.columns-container .product_wrapper .primary_block .booking_room_fields #add_to_cart .book_now_submit{
+    background-color: #003380;
+    border: none;
+    border-radius: 50px;
+    height: 36px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+}
+
+.columns-container .product_wrapper .primary_block .booking_room_fields #add_to_cart .book_now_submit span{
+    font-family: Fieldwork;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
 }
 
 .booking_room_fields .hasDatepicker {
@@ -1599,10 +1650,11 @@ Quick View Styles
     width: unset;
     position: relative;
     height: 51px;
-    margin-right: 0px;
-    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
     padding-left: 15px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 .content_prices {
     background-color: #404040;
@@ -1611,6 +1663,16 @@ Quick View Styles
 .total_price_block p {
     font-size: 28px;
     color: #000;
+}
+
+.columns-container .product_wrapper .primary_block .booking_room_fields .total_price_block p{
+    font-family: Fieldwork;
+    font-size: 30px;
+    line-height: 44px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: #003380;
 }
 
 .total_price_block label {
@@ -1669,6 +1731,21 @@ Quick View Styles
     border-bottom: 4px solid #379aef;
 }
 
+.columns-container .product_wrapper .primary_block .product_description_tabs li.active{
+    border: none;
+}
+
+.columns-container .product_wrapper .primary_block .product_description_tabs li.active a{
+    color: #003380 !important;
+}
+
+.columns-container .product_wrapper .primary_block .product_description_tabs li a{
+    font-family: Fieldwork;
+    font-size: 16px;
+    line-height: 22px;
+    color: #8B8B8B !important;
+}
+
 .product_description_tabs_contents {
     margin-top: 0px!important;
     line-height: 25px;
@@ -1690,6 +1767,13 @@ Quick View Styles
     text-transform: uppercase;
 }
 
+.columns-container .product_wrapper .primary_block .product_description_tabs_contents .info_margin_div .room_info_heading {
+    font-family: Fieldwork;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1F1F1F;
+}
+
 .room_info_content {
     font-size: 14px;
     color: #000000;
@@ -1702,11 +1786,43 @@ Quick View Styles
     margin-bottom: 30px;
 }
 
+.columns-container .product_wrapper .primary_block .product_description_tabs_contents .info_margin_div.room_description {
+    font-family: Fieldwork;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+}
+
 .hotel_name_block {
     font-family: OpenSans;
     font-size: 22px;
     color: #000000;
     margin-bottom: 5px;
+}
+
+.columns-container .product_wrapper .primary_block .room_hotel_name_block .hotel_name_block{
+    font-family: Fieldwork;
+    font-size: 30px;
+    line-height: 42px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.columns-container .product_wrapper .primary_block .room_type_img_containter #image-block img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.columns-container .product_wrapper .primary_block .room_type_img_containter #image-block {
+    margin-bottom: 15px;
+}
+
+.columns-container .product_wrapper .primary_block .room_type_img_containter #views_block {
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .room_hotel_name_block {
@@ -1869,6 +1985,11 @@ Quick View Styles
     height: 35px;
     border: none;
     box-shadow: none;
+    font-family: Fieldwork;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #003380;
 }
 
 #quantity_wanted_p .qty_direction {
@@ -1880,7 +2001,7 @@ Quick View Styles
     display: flex;
     width: min-content;
     border-radius: 50px;
-    border: 2px solid #E2E2E2;
+    border: 2px solid #D5D5D5;
 }
 
 #quantity_wanted_p .qty_direction a {
@@ -1956,7 +2077,7 @@ Quick View Styles
 
 .product_wrapper .input-date {
     background: transparent url(../img/icon/icon-calendar.svg) no-repeat scroll 92% 50%!important;
-    background-size: 16px!important;
+    background-size: 16px !important;
 }
 
 .columns-container .product_wrapper .primary_block .input-date{
@@ -2014,14 +2135,23 @@ Quick View Styles
     font-size: 14px !important;
     line-height: 20px !important;
     color: #262626;
-    background-color: #F4F4F4 !important;
+    background-color: #e5e5e5 !important;
     padding-left: 5px;
     padding-right: 5px;
     position: absolute;
     z-index: 1;
     left: 27px;
-    top: -10px;
+    top: 0px;
+} 
+
+.columns-container .product_wrapper .primary_block .booking_room_fields .total_price_block .control-label{
+    font-family: Fieldwork;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.08em;
+    color: #000000;
 }
+
 
 .columns-container .product_wrapper .primary_block .booking_room_fields .input-group-addon{
     background-color: transparent;
