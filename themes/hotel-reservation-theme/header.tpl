@@ -121,7 +121,7 @@
 										</a>
 									</div>
 									<div class="rooms nav_icon">
-										<a href="#">
+										<a href="/index.php?id_category=15&controller=category">
 											<img class="img-rooms" src="themes/hotel-reservation-theme/img/Rooms.svg" />
 											<p>ROOMS</p>
 										</a>
@@ -142,7 +142,7 @@
 										<a href="#">
 											<img class="img-news" src="themes/hotel-reservation-theme/img/News.svg" />
 											<p>NEWS</p>
-										</a>									
+										</a>
 									</div>
 								</div>
 
