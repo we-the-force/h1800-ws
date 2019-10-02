@@ -40,6 +40,9 @@ class ImageCore extends ObjectModel
     /** @var bool Image is cover */
     public $cover;
 
+    /** @var bool Image is cover */
+    public $panorama;
+
     /** @var string Legend */
     public $legend;
 
@@ -69,6 +72,7 @@ class ImageCore extends ObjectModel
             'id_product' => array('type' => self::TYPE_INT, 'shop' => 'both', 'validate' => 'isUnsignedId', 'required' => true),
             'position' =>    array('type' => self::TYPE_INT, 'validate' => 'isUnsignedInt'),
             'cover' =>        array('type' => self::TYPE_BOOL, 'allow_null' => true, 'validate' => 'isBool', 'shop' => true),
+            'panorama' =>        array('type' => self::TYPE_BOOL, 'allow_null' => true, 'validate' => 'isBool'),
             'legend' =>    array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 128),
         ),
     );
@@ -94,6 +98,12 @@ class ImageCore extends ObjectModel
             $this->cover = null;
         }
 
+        if ($this->panorama) {
+            $this->panorama = 1;
+        } else {
+            $this->panorama = null;
+        }
+
         return parent::add($autodate, $null_values);
     }
 
@@ -103,6 +113,12 @@ class ImageCore extends ObjectModel
             $this->cover = 1;
         } else {
             $this->cover = null;
+        }
+
+        if ($this->panorama) {
+            $this->panorama = 1;
+        } else {
+            $this->panorama = null;
         }
 
 
@@ -282,6 +298,34 @@ class ImageCore extends ObjectModel
     }
 
     /**
+     * Delete product panorama
+     *
+     * @param int $id_product Product ID
+     * @return bool result
+     */
+    public static function deletePanorama($id_product)
+    {
+        if (!Validate::isUnsignedId($id_product)) {
+            die(Tools::displayError());
+        }
+
+        if (file_exists(_PS_TMP_IMG_DIR_.'product_'.$id_product.'.jpg')) {
+            unlink(_PS_TMP_IMG_DIR_.'product_'.$id_product.'.jpg');
+        }
+
+        return (Db::getInstance()->execute('
+			UPDATE `'._DB_PREFIX_.'image`
+			SET `panorama` = NULL
+			WHERE `id_product` = '.(int)$id_product
+        ) &&
+        Db::getInstance()->execute('
+			UPDATE `'._DB_PREFIX_.'image_shop` image_shop
+			SET image_shop.`panorama` = NULL
+			WHERE image_shop.id_shop IN ('.implode(',', array_map('intval', Shop::getContextListShopID())).') AND image_shop.`id_product` = '.(int)$id_product
+        ));
+    }
+
+    /**
      *Get product cover
      *
      * @param int $id_product Product ID
@@ -293,6 +337,20 @@ class ImageCore extends ObjectModel
 			SELECT * FROM `'._DB_PREFIX_.'image_shop` image_shop
 			WHERE image_shop.`id_product` = '.(int)$id_product.'
 			AND image_shop.`cover`= 1');
+    }
+
+    /**
+     *Get product panorama
+     *
+     * @param int $id_product Product ID
+     * @return bool result
+     */
+    public static function getPanorama($id_product)
+    {
+        return Db::getInstance()->getRow('
+			SELECT * FROM `'._DB_PREFIX_.'image_shop` image_shop
+			WHERE image_shop.`id_product` = '.(int)$id_product.'
+			AND image_shop.`panorama`= 1');
     }
 
     /**

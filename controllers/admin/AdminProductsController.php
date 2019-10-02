@@ -1748,6 +1748,30 @@ class AdminProductsControllerCore extends AdminController
         }
     }
 
+    public function ajaxProcessUpdatePanorama()
+    {
+        if ($this->tabAccess['edit'] === '0') {
+            return die(Tools::jsonEncode(array('error' => $this->l('You do not have the right permission'))));
+        }
+        //Image::deleteCover((int)Tools::getValue('id_product'));
+        $img = new Image((int)Tools::getValue('id_image'));
+        if(Tools::getValue('panorama') == 0){
+            $img->panorama = 1;
+        }            
+        else{
+            $img->panorama = 0;
+        }
+
+        @unlink(_PS_TMP_IMG_DIR_.'product_'.(int)$img->id_product.'.jpg');
+        @unlink(_PS_TMP_IMG_DIR_.'product_mini_'.(int)$img->id_product.'_'.$this->context->shop->id.'.jpg');
+
+        if ($img->update()) {
+            $this->jsonConfirmation($this->_conf[26]);
+        } else {
+            $this->jsonError(Tools::displayError('An error occurred while attempting to update the cover picture.'));
+        }
+    }
+
     public function ajaxProcessDeleteProductImage()
     {
         $this->display = 'content';
