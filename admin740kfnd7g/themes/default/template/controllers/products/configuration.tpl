@@ -138,12 +138,12 @@
 				<i class="process-icon-cancel"></i>
 				{l s='Cancel'}
 			</a>
-			<button type="submit" name="submitAddproduct" class="btn btn-default pull-right checkConfigurationClick" disabled="disabled">
-				<i class="process-icon-loading"></i>
+			<button type="submit" name="submitAddproduct" class="btn btn-default pull-right checkConfigurationClick" >
+				<i class="process-icon-save"></i>
 				{l s='Save'}
 			</button>
-			<button type="submit" name="submitAddproductAndStay" class="btn btn-default pull-right checkConfigurationClick"  disabled="disabled">
-				<i class="process-icon-loading"></i>
+			<button type="submit" name="submitAddproductAndStay" class="btn btn-default pull-right checkConfigurationClick" >
+				<i class="process-icon-save"></i>
 					{l s='Save and stay'}
 			</button>
 		</div>
