@@ -71,34 +71,43 @@
 											<!-- extra fields added by webkul to show on the cart  -->
 											<div class="room-capacity cart-info-sec">
 												<span class="product_info_label">{l s='Capacity' mod='blockcart'}:</span>
-												<span class="product_info_data">&nbsp;{$cart_htl_data[$data_k]['adult']}&nbsp;{l s='Adults' mod='blockcart'}&nbsp;&&nbsp;{$cart_htl_data[$data_k]['children']}&nbsp;{l s='Children' mod='blockcart'}</span>
+												<br>
+												<span class="product_info_data">{$cart_htl_data[$data_k]['adult']}&nbsp;{l s='Adults' mod='blockcart'}&nbsp;&&nbsp;{$cart_htl_data[$data_k]['children']}&nbsp;{l s='Children' mod='blockcart'}</span>
 											</div>
 
-											{if isset($product.attributes_small)}
-												<div class="product-atributes">
-													<a href="{$link->getProductLink($product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute)|escape:'html':'UTF-8'}" title="{l s='Product detail' mod='blockcart'}">{$product.attributes_small}</a>
-												</div>
-											{/if}
-											<div class="cart-info-sec rm_product_info_{$product.id_product}">
-												<span class="product_info_label">{l s='Price' mod='blockcart'}:</span>
-												<span class="price product_info_data" ttl_prod_price={if $priceDisplay == $smarty.const.PS_TAX_EXC}{$product.total}{else}{$product.total_wt}{/if}>
-													{if !isset($product.is_gift) || !$product.is_gift}
-														{if $priceDisplay == $smarty.const.PS_TAX_EXC}{displayWtPrice p="`$product.total`"}{else}{displayWtPrice p="`$product.total_wt`"}{/if}
-	                                                    <div id="hookDisplayProductPriceBlock-price">
-	                                                        {hook h="displayProductPriceBlock" product=$product type="price" from="blockcart"}
-	                                                    </div>
-													{else}
-														{l s='Free!' mod='blockcart'}
-													{/if}
+											<div class="cart-info-sec">
+												<span class="product_info_label">{l s='Duration' mod='blockcart'}:</span><br>
+												<span class="product_info_data">
+												{foreach from=$cart_htl_data[$data_k]['date_diff'] key=data_k1 item=data_v}
+												{$data_v['data_form']|date_format:"%a. %e %b"}&nbsp;-&nbsp;{$data_v['data_to']|date_format:"%a. %e %b"}
+												{/foreach}
 												</span>
 											</div>
 
 											<div class="cart-info-sec rm_product_info_{$product.id_product}">
-												<span class="product_info_label">{l s='Total Qty.' mod='blockcart'}:</span>
+												<span class="product_info_label">{l s='Total Qty.' mod='blockcart'}:</span><br>
 												<span class="quantity-formated">
 													<span class="quantity product_info_data">{$cart_htl_data[$data_k]['total_num_rooms']}</span>
 												</span>
 											</div>
+										</div>
+										{if isset($product.attributes_small)}
+											<div class="product-atributes">
+												<a href="{$link->getProductLink($product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute)|escape:'html':'UTF-8'}" title="{l s='Product detail' mod='blockcart'}">{$product.attributes_small}</a>
+											</div>
+										{/if}
+										<div class="cart-info-sec room-price rm_product_info_{$product.id_product}">
+											<span class="product_info_label">{l s='Price' mod='blockcart'}:</span>
+											<span class="price product_info_data" ttl_prod_price={if $priceDisplay == $smarty.const.PS_TAX_EXC}{$product.total}{else}{$product.total_wt}{/if}>
+												{if !isset($product.is_gift) || !$product.is_gift}
+													{if $priceDisplay == $smarty.const.PS_TAX_EXC}{displayWtPrice p="`$product.total`"}{else}{displayWtPrice p="`$product.total_wt`"}{/if}
+													<div id="hookDisplayProductPriceBlock-price">
+														{hook h="displayProductPriceBlock" product=$product type="price" from="blockcart"}
+													</div>
+												{else}
+													{l s='Free!' mod='blockcart'}
+												{/if}
+											</span>
 										</div>
 										<span class="remove_link">
 											{if !isset($customizedDatas.$productId.$productAttributeId) && (!isset($product.is_gift) || !$product.is_gift)}
@@ -106,7 +115,7 @@
 											{/if}
 										</span>
 										<div style="clear:both"></div>
-										<div id="booking_dates_container_{$product.id_product}" class="cart_prod_cont">
+										{* <div id="booking_dates_container_{$product.id_product}" class="cart_prod_cont">
 											<div class="table-responsive">
 												<table class="table">
 													<tbody>
@@ -128,8 +137,8 @@
 														{/foreach}
 													</tbody>
 												</table>
-											</div>
-										</div>
+											</div> 
+										</div> *}
 									</dt>
 									{if isset($product.attributes_small)}
 										<dd data-id="cart_block_combination_of_{$product.id_product|intval}{if $product.id_product_attribute}_{$product.id_product_attribute|intval}{/if}_{$product.id_address_delivery|intval}" class="{if $smarty.foreach.myLoop.first}first_item{elseif $smarty.foreach.myLoop.last}last_item{else}item{/if}">
@@ -219,8 +228,8 @@
 								</div>
 							{/if}
 							<div class="cart-prices-line last-line">
+								<span>{l s='Total:' mod='blockcart'}</span>
 								<span class="price cart_block_total ajax_block_cart_total" total_cart_price="{$totalToPay}">{$total}</span>
-								<span>{l s='Total' mod='blockcart'}</span>
 							</div>
 							{if $use_taxes && $display_tax_label == 1 && $show_tax}
 								<p>

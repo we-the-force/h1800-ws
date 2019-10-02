@@ -12252,7 +12252,7 @@ div.star.star_hover:after {
 }
 
 .menu .container .centered.nav_menu_padding{
-    padding-top: 15px;
+    padding-top: 5px;
     padding-right: 0px;
     padding-left: 0px;
 }
@@ -12512,6 +12512,12 @@ hr.theme-text-underline {
     border-radius: 4px;
     padding: 15px;
     display: block;
+}
+
+.columns-container .product_wrapper .primary_block .card {
+    background: #e5e5e5;
+    border-radius: 10px;
+    box-shadow: none;
 }
 
 #header-panorama {
