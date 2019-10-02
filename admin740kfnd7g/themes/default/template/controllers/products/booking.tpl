@@ -124,8 +124,8 @@
 				<i class="process-icon-cancel"></i>
 				{l s='Cancel' mod='hotelreservationsystem'}
 			</a>
-			<button type="submit" name="submitAddproductAndStay" class="btn btn-default pull-right" disabled="disabled" id="stayBookingTab">
-				<i class="process-icon-loading"></i>
+			<button type="submit" name="submitAddproductAndStay" class="btn btn-default pull-right"  id="stayBookingTab">
+				<i class="process-icon-save"></i>
 					{l s='Display Bookings'}
 			</button>
 		</div>
