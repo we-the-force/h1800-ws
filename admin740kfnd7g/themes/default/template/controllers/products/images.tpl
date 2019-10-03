@@ -102,6 +102,7 @@
 					{/foreach}
 				{/if}
 				<th class="fixed-width-xs"><span class="title_box">{l s='Cover'}</span></th>
+				<th class="fixed-width-xs"><span class="title_box">{l s='Panorama'}</span></th>
 				<th></th> <!-- action -->
 			</tr>
 		</thead>
@@ -141,7 +142,12 @@
 			{/if}
 			<td class="cover">
 				<a href="#">
-					<i class="icon-check-empty icon-2x covered"></i>
+					<i class="icon-2x covered cover-2"></i>
+				</a>
+			</td>
+			<td class="panorama">
+				<a href="#">
+					<i class="icon-2x panoramic panorama-2"></i>
 				</a>
 			</td>
 			<td>
@@ -165,7 +171,7 @@
 		{literal}
 		//Ready Function
 
-		function imageLine(id, path, position, cover, shops, legend)
+		function imageLine(id, path, position, cover, panorama, shops, legend)
 		{
 			line = $("#lineType").html();
 			line = line.replace(/image_id/g, id);
@@ -176,7 +182,8 @@
 			line = line.replace(/\.jpg"\s/g, '.jpg?time=' + new Date().getTime() + '" ');
 			line = line.replace(/image_position/g, position);
 			line = line.replace(/legend/g, legend);
-			line = line.replace(/icon-check-empty/g, cover);
+			line = line.replace(/cover-2/g, cover);
+			line = line.replace(/panorama-2/g, panorama);
 			line = line.replace(/<tbody>/gi, "");
 			line = line.replace(/<\/tbody>/gi, "");
 			if (shops != false)
@@ -206,7 +213,7 @@
 				}
 				else
 					assoc = false;
-				imageLine({$image->id}, "{$image->getExistingImgPath()}", {$image->position}, "{if $image->cover}icon-check-sign{else}icon-check-empty{/if}", assoc, "{$image->legend[$default_language]|escape:'htmlall'}");
+				imageLine({$image->id}, "{$image->getExistingImgPath()}", {$image->position}, "{if $image->cover}icon-check-sign{else}icon-check-empty{/if}", "{if $image->panorama}icon-check-sign{else}icon-check-empty{/if}", assoc, "{$image->legend[$default_language]|escape:'htmlall'}");
 			{/foreach}
 			{literal}
 			var originalOrder = false;
@@ -287,6 +294,11 @@
 				$("#imageList .cover i").each( function(i){
 					$(this).removeClass('icon-check-sign').addClass('icon-check-empty');
 				});
+
+				if($(this).parent().parent().parent().children('.panorama').find('i').hasClass('icon-check-sign')){
+					$(this).parent().parent().parent().children('.panorama').find('i').removeClass('icon-check-sign').addClass('icon-check-empty');
+				}
+								
 				$(this).removeClass('icon-check-empty').addClass('icon-check-sign');
 
 				if (current_shop_id != 0)
@@ -301,6 +313,35 @@
 					"controller" : "AdminProducts",
 					"ajax" : 1 }
 				);
+			});
+
+			$('.panoramic').die().live('click', function(e)
+			{
+				let panorama;
+				e.preventDefault();
+				if($(this).parent().parent().parent().children('.cover').find('i').hasClass('icon-check-empty')){
+					id = $(this).parent().parent().parent().attr('id');
+					if($(this).hasClass('icon-check-empty')){
+						$(this).removeClass('icon-check-empty').addClass('icon-check-sign');
+						panorama = 0;
+					}else{
+						$(this).removeClass('icon-check-sign').addClass('icon-check-empty');
+						panorama = 1;
+					}
+					if (current_shop_id != 0)
+						$('#' + current_shop_id + id).attr('check', true);
+					else
+						$(this).parent().parent().parent().children('td input').attr('check', true);
+					doAdminAjax({
+						"action":"UpdatePanorama",
+						"panorama": panorama, 
+						"id_image":id,
+						"id_product" : {/literal}{$id_product}{literal},
+						"token" : "{/literal}{$token|escape:'html':'UTF-8'}{literal}",
+						"controller" : "AdminProducts",
+						"ajax" : 1 }
+					);
+				}
 			});
 
 			$('.image_shop').die().live('click', function()

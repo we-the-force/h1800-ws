@@ -2713,7 +2713,7 @@ class ProductCore extends ObjectModel
     public function getImages($id_lang, Context $context = null)
     {
         return Db::getInstance()->executeS('
-			SELECT image_shop.`cover`, i.`id_image`, il.`legend`, i.`position`
+			SELECT image_shop.`cover`, image_shop.`panorama`, i.`id_image`, il.`legend`, i.`position`
 			FROM `'._DB_PREFIX_.'image` i
 			'.Shop::addSqlAssociation('image', 'i').'
 			LEFT JOIN `'._DB_PREFIX_.'image_lang` il ON (i.`id_image` = il.`id_image` AND il.`id_lang` = '.(int)$id_lang.')
