@@ -1,46 +1,34 @@
 <?php
-/*
-* 2007-2017 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Open Software License (OSL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/osl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2017 PrestaShop SA
-*  @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*/
+  /*  Create a custom page in PrestaShop without CMS - CustomPageController class
+   *  Read the detailed tutorial at https://iftakharhasan.wordpress.com/prestashop-create-a-custom-page-without-cms
+   */
 
-class FeaturesControllerCore extends FrontController
-{
+  /*  The classname here will be the name of the controller  */
+  // include_once _PS_MODULE_DIR_.'hotelreservationsystem/define.php';
+  class FeaturesController extends FrontController{
     public $php_self = 'features';
-
-    /**
-     * Assign template vars related to page content
-     * @see FrontController::initContent()
-     */
-    public function initContent()
-    {
-        parent::initContent();
-        $this->addJS(_THEME_JS_DIR_.'index.js');
-
-        $this->context->smarty->assign(array('HOOK_HOME' => Hook::exec('displayHome'),
-            'HOOK_HOME_TAB' => Hook::exec('displayHomeTab'),
-            'HOOK_HOME_TAB_CONTENT' => Hook::exec('displayHomeTabContent')
-        ));
-        $this->setTemplate(_PS_THEME_DIR_.'index.tpl');
+    public function init(){
+      parent::init();
     }
+    public $display_column_left = false;
+
+    public function initContent(){
+
+      parent::initContent();
+      $this->setTemplate(_PS_THEME_DIR_.'features.tpl');
+
+    }
+
+  /*  The following code portion is optional.
+   *  Remove the double-slashes to activate the portion
+   *  if you want to use external stylesheet and JavaScript for the page.
+   *  Create the CSS and JS files in the css and js directories of the theme accordingly
+   */
+
+    public function setMedia(){
+      parent::setMedia();
+      $this->addCSS(_THEME_CSS_DIR_.'features.css');
+      // $this->addJS(_THEME_JS_DIR_.'custom-page.js');
+    }
+
 }
