@@ -126,9 +126,9 @@
 												<span class="clearfix"></span>
 											</div>
 										</div>
-										{if isset($room_type_demands) && $room_type_demands}
-											{* <hr class="separator-hr-mg-10 unvail_rooms_cond_display"> *}
-											<div class="{* row *} price_desc_block unvail_rooms_cond_display">
+										{* {if isset($room_type_demands) && $room_type_demands}
+											<hr class="separator-hr-mg-10 unvail_rooms_cond_display">
+											<div class="row price_desc_block unvail_rooms_cond_display">
 												<div class="col-sm-6">
 													<label class="control-label">{l s='Room Price'}</label>
 														<p>
@@ -141,8 +141,8 @@
 														<p class="extra_demands_price_block">{convertPrice price=0}</p>
 												</div>
 											</div>
-											{* <hr class="separator-hr-mg-10 form-group unvail_rooms_cond_display"> *}
-										{/if}
+											<hr class="separator-hr-mg-10 form-group unvail_rooms_cond_display">
+										{/if} *}
 										<div class="room_unavailability_qty_error_div"></div>
 										<div class="{* row *} unvail_rooms_cond_display">
 											<div class="total_price_block col-xs-7 form-group">
@@ -179,7 +179,7 @@
 						</div>
 					</div>
 					{* extra room type demands *}
-					{if isset($room_type_demands) && $room_type_demands}
+					{* {if isset($room_type_demands) && $room_type_demands}
 						<div class="col-sm-12 card room_demands_container">
 							<label for="" class="control-label">{l s='Additional Facilities'}</label>
 							{foreach $room_type_demands as $idGlobalDemand => $demand}
@@ -208,7 +208,7 @@
 							<div class="room_demands_container_overlay">
 							</div>
 						</div>
-					{/if}
+					{/if} *}
 				{/if}
 			</div>
 			<div class="{* pb-left-column col-xs-12 col-sm-8 col-md-8 *}">
@@ -235,15 +235,19 @@
 								<span class="new-label">{l s='New'}</span>
 							</span>
 						{/if} -->
-						{if $product->on_sale}
+						{* {if $product->on_sale}
 							<span class="sale-box no-print">
 								<span class="sale-label">{l s='Sale!'}</span>
 							</span>
 						{elseif $product->specificPrice && $product->specificPrice.reduction && $productPriceWithoutReduction > $productPrice}
 							<span class="discount">{l s='Reduced price!'}</span>
-						{/if}
+						{/if} *}
 						{if $have_image}
+
+						
 							<span id="view_full_size">
+								{* <div id="panorama">
+								</div> *}
 								{if $jqZoomEnabled && $have_image && !$content_only}
 									<a class="jqzoom" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" rel="gal1" href="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|escape:'html':'UTF-8'}">
 										<img itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"/>
@@ -288,7 +292,7 @@
 											{assign var=imageTitle value=$product->name|escape:'html':'UTF-8'}
 										{/if}
 										<li id="thumbnail_{$image.id_image}"{if $smarty.foreach.thumbnails.last} class="last"{/if}>
-											<a{if $jqZoomEnabled && $have_image && !$content_only} href="javascript:void(0);" rel="{literal}{{/literal}gallery: 'gal1', smallimage: '{$link->getImageLink($product->link_rewrite, $imageIds, 'large_default')|escape:'html':'UTF-8'}',largeimage: '{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}'{literal}}{/literal}"{else} href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}"	data-fancybox-group="other-views" class="fancybox{if $image.id_image == $cover.id_image} shown{/if}"{/if} title="{$imageTitle}">
+											<a {if $jqZoomEnabled && $have_image && !$content_only} href="javascript:void(0);" rel="{literal}{{/literal}gallery: 'gal1', smallimage: '{$link->getImageLink($product->link_rewrite, $imageIds, 'large_default')|escape:'html':'UTF-8'}',largeimage: '{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}'{literal}}{/literal}"{else} href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}"	data-fancybox-group="other-views" class="fancybox{if $image.id_image == $cover.id_image} shown{/if}"{/if} title="{$imageTitle}">
 												<img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
 											</a>
 										</li>
@@ -786,3 +790,44 @@
 
 {/strip}
 {/if}
+<script>
+    var wheight = $(window).height();
+    var wwidth = $(window).width();
+    var headerPanorama = pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
+        "autoLoad": true,
+        "showControls": false,
+        "vaov": 120,
+        "autoRotate": true,
+        "minXaw": -120,
+        "maxXaw": 120,
+        "minPitch": -55,
+        "maxPitch": 55,
+        "mouseZoom": false,
+        "autoRotateInactivityDelay": 2000
+    });
+    if (wwidth < wheight) {
+        // portrait
+        headerPanorama.setHfov(50);
+    } else {
+        // landscape
+        headerPanorama.setHfov(100);
+    }
+    var onChange = window.addEventListener("resize", function() {
+        // Get screen size (inner/outerWidth, inner/outerHeight)
+
+        if (wwidth < wheight) {
+            // portrait
+            headerPanorama.setHfov(50);
+        } else {
+            // landscape
+            headerPanorama.setHfov(100);
+        }
+    }, false);
+    $(document).ready(function() {
+        $(window).bind(onChange);
+    }).bind('load', onChange);
+    $('#hotel_cat_id').val('15');
+    $('#id_hotel').val('1');
+</script>
