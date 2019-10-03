@@ -294,6 +294,11 @@
 				$("#imageList .cover i").each( function(i){
 					$(this).removeClass('icon-check-sign').addClass('icon-check-empty');
 				});
+
+				if($(this).parent().parent().parent().children('.panorama').find('i').hasClass('icon-check-sign')){
+					$(this).parent().parent().parent().children('.panorama').find('i').removeClass('icon-check-sign').addClass('icon-check-empty');
+				}
+								
 				$(this).removeClass('icon-check-empty').addClass('icon-check-sign');
 
 				if (current_shop_id != 0)
@@ -314,27 +319,29 @@
 			{
 				let panorama;
 				e.preventDefault();
-				id = $(this).parent().parent().parent().attr('id');
-				if($(this).hasClass('icon-check-empty')){
-					$(this).removeClass('icon-check-empty').addClass('icon-check-sign');
-					panorama = 1;
-				}else{
-					$(this).removeClass('icon-check-sign').addClass('icon-check-empty');
-					panorama = 0;
+				if($(this).parent().parent().parent().children('.cover').find('i').hasClass('icon-check-empty')){
+					id = $(this).parent().parent().parent().attr('id');
+					if($(this).hasClass('icon-check-empty')){
+						$(this).removeClass('icon-check-empty').addClass('icon-check-sign');
+						panorama = 0;
+					}else{
+						$(this).removeClass('icon-check-sign').addClass('icon-check-empty');
+						panorama = 1;
+					}
+					if (current_shop_id != 0)
+						$('#' + current_shop_id + id).attr('check', true);
+					else
+						$(this).parent().parent().parent().children('td input').attr('check', true);
+					doAdminAjax({
+						"action":"UpdatePanorama",
+						"panorama": panorama, 
+						"id_image":id,
+						"id_product" : {/literal}{$id_product}{literal},
+						"token" : "{/literal}{$token|escape:'html':'UTF-8'}{literal}",
+						"controller" : "AdminProducts",
+						"ajax" : 1 }
+					);
 				}
-				if (current_shop_id != 0)
-					$('#' + current_shop_id + id).attr('check', true);
-				else
-					$(this).parent().parent().parent().children('td input').attr('check', true);
-				doAdminAjax({
-					"action":"UpdatePanorama",
-					"panorama": panorama, 
-					"id_image":id,
-					"id_product" : {/literal}{$id_product}{literal},
-					"token" : "{/literal}{$token|escape:'html':'UTF-8'}{literal}",
-					"controller" : "AdminProducts",
-					"ajax" : 1 }
-				);
 			});
 
 			$('.image_shop').die().live('click', function()
