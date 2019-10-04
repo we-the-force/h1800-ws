@@ -2713,7 +2713,7 @@ class ProductCore extends ObjectModel
     public function getImages($id_lang, Context $context = null)
     {
         return Db::getInstance()->executeS('
-			SELECT image_shop.`cover`, image_shop.`panorama`, i.`id_image`, il.`legend`, i.`position`
+			SELECT image_shop.`cover`, i.`panorama`, i.`id_image`, il.`legend`, i.`position`
 			FROM `'._DB_PREFIX_.'image` i
 			'.Shop::addSqlAssociation('image', 'i').'
 			LEFT JOIN `'._DB_PREFIX_.'image_lang` il ON (i.`id_image` = il.`id_image` AND il.`id_lang` = '.(int)$id_lang.')
@@ -2739,6 +2739,30 @@ class ProductCore extends ObjectModel
 					'.Shop::addSqlAssociation('image', 'i').'
 					WHERE i.`id_product` = '.(int)$id_product.'
 					AND image_shop.`cover` = 1';
+            $result = Db::getInstance()->getRow($sql);
+            Cache::store($cache_id, $result);
+            return $result;
+        }
+        return Cache::retrieve($cache_id);
+    }
+
+    /**
+    * Get product cover image
+    *
+    * @return array Product cover image
+    */
+    public static function getPanorama($id_product, Context $context = null)
+    {
+        if (!$context) {
+            $context = Context::getContext();
+        }
+        $cache_id = 'Product::getPanorama_'.(int)$id_product.'-'.(int)$context->shop->id;
+        if (!Cache::isStored($cache_id)) {
+            $sql = 'SELECT image_shop.`id_image`
+					FROM `'._DB_PREFIX_.'image` i
+					'.Shop::addSqlAssociation('image', 'i').'
+					WHERE i.`id_product` = '.(int)$id_product.'
+					AND i.`panorama` = 1';
             $result = Db::getInstance()->getRow($sql);
             Cache::store($cache_id, $result);
             return $result;

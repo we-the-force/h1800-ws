@@ -72,7 +72,7 @@ class ImageCore extends ObjectModel
             'id_product' => array('type' => self::TYPE_INT, 'shop' => 'both', 'validate' => 'isUnsignedId', 'required' => true),
             'position' =>    array('type' => self::TYPE_INT, 'validate' => 'isUnsignedInt'),
             'cover' =>        array('type' => self::TYPE_BOOL, 'allow_null' => true, 'validate' => 'isBool', 'shop' => true),
-            'panorama' =>        array('type' => self::TYPE_BOOL, 'allow_null' => true, 'validate' => 'isBool'),
+            'panorama' =>        array('type' => self::TYPE_BOOL, 'allow_null' => true, 'validate' => 'isBool', 'shop' => true),
             'legend' =>    array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 128),
         ),
     );
@@ -350,7 +350,7 @@ class ImageCore extends ObjectModel
         return Db::getInstance()->getRow('
 			SELECT * FROM `'._DB_PREFIX_.'image_shop` image_shop
 			WHERE image_shop.`id_product` = '.(int)$id_product.'
-			AND image_shop.`panorama`= 1');
+			AND i.`panorama`= 1');
     }
 
     /**

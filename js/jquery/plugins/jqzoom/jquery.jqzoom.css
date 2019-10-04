@@ -1,4 +1,5 @@
 .zoomPad{
+  width: 100%;
 	position:relative;
 	float:left;
 	z-index:99;
@@ -68,11 +69,23 @@
   z-index:10000;
   z-index:110;
 }
+
+.room_type_img_containter .zoomWindow{
+  width: 100%;
+  background: transparent !important;
+}
+
 .zoomWrapper{
 	position:relative;
 	border:1px solid #999;
   z-index:110;
 }
+.room_type_img_containter .zoomWrapper{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .zoomWrapperTitle{
 	display:block;
 	background:#999;

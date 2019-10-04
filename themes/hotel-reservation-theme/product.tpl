@@ -243,11 +243,9 @@
 							<span class="discount">{l s='Reduced price!'}</span>
 						{/if} *}
 						{if $have_image}
-
-						
 							<span id="view_full_size">
-								{* <div id="panorama">
-								</div> *}
+								<div id="panorama">
+								</div>
 								{if $jqZoomEnabled && $have_image && !$content_only}
 									<a class="jqzoom" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" rel="gal1" href="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|escape:'html':'UTF-8'}">
 										<img itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"/>
@@ -786,16 +784,31 @@
 {addJsDefL name=less_checkin_date}{l s='Check In date can not be before current date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDefL name=more_checkout_date}{l s='Check Out date must be greater than Check In date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')}
-
+{addJsDef images=$product->getImages(EN)}
+{addJsDef panorama=$product->getPanorama($product->id|intval)}
 
 {/strip}
-{/if}
-<script>
+{/if} 
+<script type="text/javascript">
+	let x = false;
+	let id_panorama;
+	images.forEach(function(x){
+		if(x.panorama != null){
+			id_panorama = x.id_image;
+		}
+	});
+
+	let z = id_panorama.split('');
+	console.log(z);
+	console.log("{$img_prod_dir}"+z[0]+z[1]);
+	$('.jqzoom').css('visibility','hidden');
+	$('.jqzoom').find('*').css('height','0px');
     var wheight = $(window).height();
     var wwidth = $(window).width();
+
     var headerPanorama = pannellum.viewer('panorama', {
         "type": "equirectangular",
-        "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
+        "panorama": "{$img_prod_dir}"+z[0]+"/"+z[1]+"/"+id_panorama+".jpg",
         "autoLoad": true,
         "showControls": false,
         "vaov": 120,
@@ -830,4 +843,4 @@
     }).bind('load', onChange);
     $('#hotel_cat_id').val('15');
     $('#id_hotel').val('1');
-</script>
+</script> 
