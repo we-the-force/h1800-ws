@@ -33,7 +33,7 @@
                         <!-- <hr class="heasder-desc-hr-first" /> -->
                         <div class="header-desc-inner-wrapper">
                             <!-- <h1 class="header-hotel-name">{$WK_HTL_CHAIN_NAME}</h1> -->
-                            <p class="header-hotel-desc noselect">{$WK_HTL_TAG_LINE}</p>
+                            {* <p class="header-hotel-desc noselect">{$WK_HTL_TAG_LINE}</p> *}
                             <!-- <hr class="heasder-desc-hr-second" /> -->
                         </div>
                     </div>

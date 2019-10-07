@@ -18,7 +18,7 @@
 .header-rmsearch-wrapper {
     /* display: table; */
     height: 100%;
-    width: 930px;
+    width: 90%;
 }
 
 .header-rmsearch-primary {
@@ -37,6 +37,17 @@
     padding-left: 40px;
     padding-right: 40px;
     height: 40px;
+}
+
+@media (max-width: 768px) {
+    .header-rmsearch-inner-wrapper,
+    .header-rmsearch-primary {
+        height: auto;
+        background-color: transparent;
+    }
+    .media-grid .media-list-item {
+        width: 100% !important;
+    }
 }
 
 .header-rmsearch-inner-wrapper .form-group {

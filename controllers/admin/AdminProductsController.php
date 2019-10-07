@@ -25,8 +25,10 @@
 */
 
 /**
+ *
  * @property Product $object
  */
+set_time_limit(0);
 class AdminProductsControllerCore extends AdminController
 {
     /** @var int Max image size for upload
@@ -1757,7 +1759,7 @@ class AdminProductsControllerCore extends AdminController
         $img = new Image((int)Tools::getValue('id_image'));
         if(Tools::getValue('panorama') == 0){
             $img->panorama = 1;
-        }            
+        }
         else{
             $img->panorama = 0;
         }

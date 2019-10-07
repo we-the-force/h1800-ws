@@ -21,13 +21,13 @@
 {if isset($hotel_name) && count($hotel_name)}
 	<div class="header-rmsearch-wrapper" id="xs_room_search_form">
 		<div class="header-rmsearch-primary">
-			<div class="fancy_search_header_xs">
+			{* <div class="fancy_search_header_xs">
 				<p>{l s='Search Rooms' mod='wkroomsearchblock'}</p>
 				<hr>
-			</div>
+			</div> *}
 				<div class=" header-rmsearch-inner-wrapper">
 					<form method="POST" id="search_hotel_block_form">
-					
+
 						{if isset($location_enable) && $location_enable}
 							<div class="form-group
 							{if count($hotel_name) <= 1 && !$show_only_active_htl}
@@ -81,7 +81,7 @@
 							{if isset($location_enable) && $location_enable && $show_only_active_htl}
 								col-sm-4 col-lg-2
 							{elseif isset($location_enable) && !$location_enable && !$show_only_active_htl}
-								col-sm-4
+								col-sm-4 hidden-xs
 							{else}
 								col-sm-3
 							{/if}
@@ -97,7 +97,7 @@
 							{if isset($location_enable) && $location_enable && $show_only_active_htl}
 								col-sm-4 col-lg-2
 							{elseif isset($location_enable) && !$location_enable && !$show_only_active_htl}
-								col-sm-4
+								col-sm-4 hidden-xs
 							{else}
 								col-sm-3
 							{/if}

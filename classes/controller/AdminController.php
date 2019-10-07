@@ -548,9 +548,13 @@ class AdminControllerCore extends Controller
      */
     public function initBreadcrumbs($tab_id = null, $tabs = null)
     {
-        if (is_array($tabs) || count($tabs)) {
-            $tabs = array();
-        }
+
+            if (is_array($tabs) || count($tabs)) {
+                $tabs = array();
+            }
+
+
+
 
         if (is_null($tab_id)) {
             $tab_id = $this->id;
