@@ -790,21 +790,17 @@
 {/strip}
 {/if} 
 <script type="text/javascript">
+	
 	let x = false;
 	let id_panorama;
 	images.forEach(function(x){
 		if(x.panorama != null){
 			id_panorama = x.id_image;
 		}
-	});
+	}); 
 
 	let z = id_panorama.split('');
-	console.log(z);
-	console.log("{$img_prod_dir}"+z[0]+z[1]);
-	$('.jqzoom').css('visibility','hidden');
-	$('.jqzoom').find('*').css('height','0px');
-    var wheight = $(window).height();
-    var wwidth = $(window).width();
+	$('.jqzoom').css('display','none');
 
     var headerPanorama = pannellum.viewer('panorama', {
         "type": "equirectangular",
@@ -820,27 +816,55 @@
         "mouseZoom": false,
         "autoRotateInactivityDelay": 2000
     });
-    if (wwidth < wheight) {
-        // portrait
-        headerPanorama.setHfov(50);
-    } else {
-        // landscape
-        headerPanorama.setHfov(100);
-    }
-    var onChange = window.addEventListener("resize", function() {
-        // Get screen size (inner/outerWidth, inner/outerHeight)
 
-        if (wwidth < wheight) {
-            // portrait
-            headerPanorama.setHfov(50);
-        } else {
-            // landscape
-            headerPanorama.setHfov(100);
-        }
-    }, false);
-    $(document).ready(function() {
-        $(window).bind(onChange);
-    }).bind('load', onChange);
-    $('#hotel_cat_id').val('15');
-    $('#id_hotel').val('1');
+	$('#image-block').off('click');
+
+    $('#thumbs_list li a').click(function(){
+			let id = $(this).parent().attr('id').split('_')[1];
+			let image,exception = {};
+			try{
+				images.forEach(function(x){
+					if(x.id_image == id){
+						image = x;
+						throw exception;
+					}
+				});
+			}catch(e){
+				if(e !== exception) throw e;
+			}		
+			let n = image.id_image.split('');
+			if(image.panorama == 1){
+				$('#panorama').empty();
+				$('.jqzoom').css('display','none');
+				var wheight = $(window).height();
+				var wwidth = $(window).width();
+				var headerPanorama = pannellum.viewer('panorama', {
+					"type": "equirectangular",
+					"panorama": "{$img_prod_dir}"+n[0]+"/"+n[1]+"/"+image.id_image+".jpg",
+					"autoLoad": true,
+					"showControls": false,
+					"vaov": 120,
+					"autoRotate": true,
+					"minXaw": -120,
+					"maxXaw": 120,
+					"minPitch": -55,
+					"maxPitch": 55,
+					"mouseZoom": false,
+					"autoRotateInactivityDelay": 2000
+				});
+			}else{
+				$('#panorama').empty();
+				$('#panorama').removeAttr('class');
+				$('.jqzoom img').attr('src',"{$img_prod_dir}"+n[0]+"/"+n[1]+"/"+image.id_image+"-large_default.jpg").parent().attr('href', "{$img_prod_dir}"+n[0]+"/"+n[1]+"/"+image.id_image+"-thickbox_default.jpg");;
+				$('.jqzoom').css('display','unset');
+				$('.jqzoom').jqzoom({
+					zoomType: 'innerzoom', //innerzoom/standard/reverse/drag
+					zoomWidth: 458, //zooming div default width(default width value is 200)
+					zoomHeight: 458, //zooming div default width(default height value is 200)
+					xOffset: 21, //zooming div default offset(default offset value is 10)
+					yOffset: 0,
+					title: false
+				});
+			}
+    });
 </script> 

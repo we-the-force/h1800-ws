@@ -156,7 +156,7 @@ $(document).ready(function() {
             if ($('.jqzoom img').attr('src') != new_src)
                 $('.jqzoom img').attr('src', new_src).parent().attr('href', new_src);
         }
-
+/* 
         $('.jqzoom').jqzoom({
             zoomType: 'innerzoom', //innerzoom/standard/reverse/drag
             zoomWidth: 458, //zooming div default width(default width value is 200)
@@ -164,7 +164,7 @@ $(document).ready(function() {
             xOffset: 21, //zooming div default offset(default offset value is 10)
             yOffset: 0,
             title: false
-        });
+        }); */
 
     }
     if (typeof(contentOnly) != 'undefined' && !contentOnly) {
@@ -206,6 +206,7 @@ $(document).ready(function() {
         if (url.indexOf('#') != -1)
             getProductAttribute();
     }
+
 });
 
 $(window).resize(function() {
@@ -224,9 +225,9 @@ $(document).on('mouseover', '#views_block li a', function() {
     displayImage($(this));
 });
 //add a link on the span 'view full size' and on the big image
-$(document).on('click', '#view_full_size, #image-block', function(e) {
+/* $(document).on('click', '#view_full_size, #image-block', function(e) {
     $('#views_block .shown').click();
-});
+}); */
 //catch the click on the "more infos" button at the top of the page
 $(document).on('click', '#short_description_block .button', function(e) {
     $('#more_info_tab_more_info').click();
