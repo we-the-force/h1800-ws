@@ -4712,6 +4712,7 @@ class AdminProductsControllerCore extends AdminController
                 $file['id']       = $image->id;
                 $file['position'] = $image->position;
                 $file['cover']    = $image->cover;
+                $file['panorama'] = $image->panorama;
                 $file['legend']   = $image->legend;
                 $file['path']     = $image->getExistingImgPath();
                 $file['shops']    = $json_shops;

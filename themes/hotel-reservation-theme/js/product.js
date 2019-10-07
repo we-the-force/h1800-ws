@@ -151,6 +151,8 @@ $(document).ready(function() {
     if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
         if ($('#thumbs_list .shown img').length) {
             var new_src = $('#thumbs_list .shown img').attr('src').replace('cart_', 'large_');
+            console.log(new_src);
+            
             if ($('.jqzoom img').attr('src') != new_src)
                 $('.jqzoom img').attr('src', new_src).parent().attr('href', new_src);
         }
@@ -238,6 +240,8 @@ $(document).on('click', '#customizedDatas input', function(e) {
 });
 
 $(document).on('click', 'a[data-id=resetImages]', function(e) {
+    console.log("ahoy");
+    
     e.preventDefault();
     refreshProductImages(0);
 });
@@ -426,7 +430,7 @@ function findCombination() {
 
             //show the large image in relation to the selected combination
             if (combinations[combination]['image'] && combinations[combination]['image'] != -1)
-                displayImage($('#thumb_' + combinations[combination]['image']).parent());
+                displayImage($('#thumb_' + combinations[combination]['image']).parent());          
 
             //show discounts values according to the selected combination
             if (combinations[combination]['idCombination'] && combinations[combination]['idCombination'] > 0)
