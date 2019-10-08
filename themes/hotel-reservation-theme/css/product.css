@@ -1779,6 +1779,12 @@ Quick View Styles
     color: #000000;
 }
 
+.room_info_content .icon {
+    color: #003380;
+    font-size: 8px !important;
+    padding-right: 4px;
+}
+
 .info_margin_div {
     font-size: 14px;
     color: #333333;

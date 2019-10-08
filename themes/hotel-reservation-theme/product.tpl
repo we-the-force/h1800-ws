@@ -343,12 +343,16 @@
 											</div>
 											<div class="room_info_content">
 												{foreach from=$features key=ftr_k item=ftr_v}
-													<img title="{$ftr_v.name|escape:'html':'UTF-8'}" alt="{$ftr_v.name|escape:'html':'UTF-8'}" width="15px" src="{$ftr_img_src|escape:'html':'UTF-8'}{$ftr_v.value|escape:'html':'UTF-8'}">&nbsp;
+
+                                        			<div class="col-md-6">
+													<i class="icon icon-circle"></i><span class="amenity_name">{$ftr_v['name']}</span>
+													</div>
+													{* <img title="{$ftr_v.name|escape:'html':'UTF-8'}" alt="{$ftr_v.name|escape:'html':'UTF-8'}" width="15px" src="{$ftr_img_src|escape:'html':'UTF-8'}{$ftr_v.value|escape:'html':'UTF-8'}">&nbsp; *}
 												{/foreach}
 											</div>
 										</div>
 									{/if}
-									{if isset($hotel_features) && $hotel_features}
+									{* {if isset($hotel_features) && $hotel_features}
 										<div class="info_margin_div">
 											<div class="room_info_heading">
 												<span>{l s='Hotel Features'}</span>
@@ -359,7 +363,7 @@
 												{/foreach}
 											</div>
 										</div>
-									{/if}
+									{/if} *}
 									<!-- <div class="info_margin_div">
 										<div class="room_info_heading">
 											<span>{l s='Rooms'}</span>
