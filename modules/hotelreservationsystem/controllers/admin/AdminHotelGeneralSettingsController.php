@@ -37,6 +37,22 @@ class AdminHotelGeneralSettingsController extends ModuleAdminController
             $panorama = '<img class="img-thumbnail img-responsive" style="max-width:200px" src="'._PS_IMG_.
             'hotel_header_panorama.jpg'.'">';
         }
+        $psPanUrl2 = _PS_IMG_DIR_.'hotel_header_panorama2.jpg';
+        if ($pan2Exist = file_exists($psPanUrl2)) {
+            $panorama2 = '<img class="img-thumbnail img-responsive" style="max-width:200px" src="'._PS_IMG_.
+            'hotel_header_panorama2.jpg'.'">';
+        }
+        $psLifUrl = _PS_IMG_DIR_.'hotel_header_lifestyle.jpg';
+        if ($lifExist = file_exists($psLifUrl)) {
+            $lifestyle = '<img class="img-thumbnail img-responsive" style="max-width:200px" src="'._PS_IMG_.
+            'hotel_header_lifestyle.jpg'.'">';
+        }
+        $psLifUrl2 = _PS_IMG_DIR_.'hotel_header_lifestyle2.jpg';
+        if ($lif2Exist = file_exists($psLifUrl2)) {
+            $lifestyle2 = '<img class="img-thumbnail img-responsive" style="max-width:200px" src="'._PS_IMG_.
+            'hotel_header_lifestyle2.jpg'.'">';
+        }
+
         $objHotelInfo = new HotelBranchInformation();
         if (!$hotelsInfo = $objHotelInfo->hotelBranchesInfo(false, 1)) {
             $hotelsInfo = array();
@@ -162,6 +178,30 @@ class AdminHotelGeneralSettingsController extends ModuleAdminController
                         'image' => $imgExist ? $panorama : false,
                         'hint' => $this->l('This image appears as header panorama image on home page.'),
                         'name' => 'htl_header_panorama',
+                        'url' => _PS_IMG_,
+                    ),
+                    'WK_HTL_HEADER_PANORAMA2' => array(
+                        'title' => $this->l('Header Panorama Image 2'),
+                        'type' => 'file',
+                        'image' => $imgExist ? $panorama2 : false,
+                        'hint' => $this->l('This image appears as header panorama image on home page.'),
+                        'name' => 'htl_header_panorama2',
+                        'url' => _PS_IMG_,
+                    ),
+                    'WK_HTL_HEADER_LIFESTYLE' => array(
+                        'title' => $this->l('Header Lifestyle Image'),
+                        'type' => 'file',
+                        'image' => $imgExist ? $lifestyle : false,
+                        'hint' => $this->l('This image appears as header lifestyle image on home page.'),
+                        'name' => 'htl_header_lifestyle',
+                        'url' => _PS_IMG_,
+                    ),
+                    'WK_HTL_HEADER_LIFESTYLE2' => array(
+                        'title' => $this->l('Header Lifestyle Image 2'),
+                        'type' => 'file',
+                        'image' => $imgExist ? $lifestyle2 : false,
+                        'hint' => $this->l('This image appears as header lifestyle image on home page.'),
+                        'name' => 'htl_header_lifestyle2',
                         'url' => _PS_IMG_,
                     ),
                 ),
