@@ -803,23 +803,25 @@
 		}
 	}); 
 
-	let z = id_panorama.split('');
-	$('.jqzoom').css('display','none');
+	if(id_panorama){
+		let z = id_panorama.split('');
+		$('.jqzoom').css('display','none');
 
-    var headerPanorama = pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": "{$img_prod_dir}"+z[0]+"/"+z[1]+"/"+id_panorama+".jpg",
-        "autoLoad": true,
-        "showControls": false,
-        "vaov": 120,
-        "autoRotate": true,
-        "minXaw": -120,
-        "maxXaw": 120,
-        "minPitch": -55,
-        "maxPitch": 55,
-        "mouseZoom": false,
-        "autoRotateInactivityDelay": 2000
-    });
+		var headerPanorama = pannellum.viewer('panorama', {
+			"type": "equirectangular",
+			"panorama": "{$img_prod_dir}"+z[0]+"/"+z[1]+"/"+id_panorama+".jpg",
+			"autoLoad": true,
+			"showControls": false,
+			"vaov": 120,
+			"autoRotate": true,
+			"minXaw": -120,
+			"maxXaw": 120,
+			"minPitch": -55,
+			"maxPitch": 55,
+			"mouseZoom": false,
+			"autoRotateInactivityDelay": 2000
+		});
+	}
 
 	$('#image-block').off('click');
 
