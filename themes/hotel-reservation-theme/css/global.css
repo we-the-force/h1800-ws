@@ -12252,6 +12252,10 @@ div.star.star_hover:after {
     padding-top: 15px;
 }
 
+.menu .container .calendar svg{
+    filter: saturate(0);
+}
+
 .menu .container .centered.nav_menu_padding {
     padding-top: 5px;
     padding-right: 0px;
@@ -12262,6 +12266,15 @@ div.star.star_hover:after {
     display: inline-block;
     padding-right: 1vw;
     padding-left: 1vw;
+}
+
+.menu .nav_menu_padding .active svg *{
+    stroke: #005DCC;
+}
+
+
+.menu .nav_menu_padding .active p{
+    color: #005DCC;
 }
 
 .nav_menu_padding {

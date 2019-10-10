@@ -204,3 +204,22 @@
 						{if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
 						<div id="center_column" class="center_column col-xs-12 col-sm-12">
 	{/if}
+	{addJsDef name=$page.page_name}
+<script type="text/javascript">
+	$(document).ready(function(e){
+		switch($('body').attr('id')){
+			case "index":
+				$('.menu .nav_menu_padding .home').addClass('active');
+			break;
+			case "category":
+				$('.menu .nav_menu_padding .rooms').addClass('active');
+			break;
+			case "features":
+				$('.menu .nav_menu_padding .amenities').addClass('active');
+			break;
+			case "activities":
+				$('.menu .nav_menu_padding .parks').addClass('active');
+			break;
+		}
+	});$
+</script>
