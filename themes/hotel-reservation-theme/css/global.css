@@ -136,13 +136,13 @@ table {
     border-spacing: 0;
 }
 
-#page .header-container #header .menu .row .centered{
+#page .header-container #header .menu .row .centered {
     display: inline-block;
     position: relative;
     width: fit-content;
 }
 
-#page .header-container #header .menu{
+#page .header-container #header .menu {
     position: fixed;
     background: #EDEDED;
     bottom: 0px;
@@ -191,6 +191,7 @@ blockquote:after {
 a img {
     border: none;
 }
+
 
 /* .menu .calendar a img{
     filter: saturate(0);
@@ -544,7 +545,7 @@ p {
     margin: 0 0 9px;
 }
 
-.menu .shopping_cart p.text{
+.menu .shopping_cart p.text {
     margin: 0px 5px -2px 5px;
     position: absolute;
     bottom: 0px;
@@ -8134,7 +8135,7 @@ header .row {
     position: relative;
 }
 
-header .menu .row{
+header .menu .row {
     text-align: center;
 }
 
@@ -8587,7 +8588,7 @@ span.exclusive {
 .btn.button-minus span {
     display: block;
     border: 1px solid #fff;
-/*     vertical-align: middle; */
+    /*     vertical-align: middle; */
     width: 25px;
     height: 25px;
     text-align: center;
@@ -8672,14 +8673,14 @@ span.exclusive {
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#FF009AD0', endColorstr='#FF007AB7', GradientType=0);
 }
 
-.menu .shopping_cart .cart_block_list #button_order_cart span{
+.menu .shopping_cart .cart_block_list #button_order_cart span {
     background: none;
     border: none;
     padding: 0px 14px;
     line-height: 20px;
 }
 
-#category_data_cont .room_cont .button.ajax_add_to_cart_button span{
+#category_data_cont .room_cont .button.ajax_add_to_cart_button span {
     background: none;
     border: none;
     padding: 0px 14px;
@@ -9444,7 +9445,7 @@ ul.footer_links li+li {
 .content_sortPagiBar .sortPagiBar .nbrItemPage .clearfix>span {
     padding: 3px 0 0 12px;
     display: inline-block;
-/*     float: left;*/
+    /*     float: left;*/
 }
 
 .content_sortPagiBar .sortPagiBar .nbrItemPage #uniform-nb_item {
@@ -9589,7 +9590,7 @@ ul.footer_links li+li {
 .top-pagination-content ul.pagination li,
 .bottom-pagination-content ul.pagination li {
     display: inline-block;
-/*     float: left;
+    /*     float: left;
  */
 }
 
@@ -12247,17 +12248,17 @@ div.star.star_hover:after {
     padding-top: 5px;
 }
 
-.menu .container .nav_menu_padding{
+.menu .container .nav_menu_padding {
     padding-top: 15px;
 }
 
-.menu .container .centered.nav_menu_padding{
+.menu .container .centered.nav_menu_padding {
     padding-top: 5px;
     padding-right: 0px;
     padding-left: 0px;
 }
 
-.menu .container .centered .nav_icon{
+.menu .container .centered .nav_icon {
     display: inline-block;
     padding-right: 1vw;
     padding-left: 1vw;
@@ -12365,15 +12366,16 @@ hr.theme-text-underline {
     margin-bottom: 0px;
 }
 
-#filter_search_block .filter_header{
+#filter_search_block .filter_header {
     margin-bottom: 0px;
     margin-top: 10px;
 }
 
-#filter_search_block hr.theme-text-underline{
+#filter_search_block hr.theme-text-underline {
     border: none;
     margin-top: 0px;
 }
+
 
 /*For growl Notification as in admin side shown*/
 
@@ -12518,17 +12520,6 @@ hr.theme-text-underline {
     background: #e5e5e5;
     border-radius: 10px;
     box-shadow: none;
-}
-
-#header-panorama {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    margin: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    filter: brightness(1);
 }
 
 .input-date.header-rmsearch-input {
