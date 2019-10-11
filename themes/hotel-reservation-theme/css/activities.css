@@ -125,6 +125,7 @@ hr{
     line-height: 22px;
     text-align: center;
     color: #003380;
+    background: unset;
 }
 
 .nav-tabs{
