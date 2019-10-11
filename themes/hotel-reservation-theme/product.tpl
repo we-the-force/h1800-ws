@@ -90,7 +90,7 @@
 											<label for="" class="control-label">{l s='Check In Date'}</label>
 											<div class="input-group">
 												<input type="text" class="form-control input-date" name="room_check_in" id="room_check_in" value="{if isset($date_from)}{$date_from|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
-												<label class="input-group-addon" for="check_in_time"><iclass="icon-calendar"></i></label>
+												<label class="input-group-addon" for="check_in_time"><i class="icon-calendar"></i></label>
 											</div>
 										</div>
 										<div class="form-group col-sm-6">
