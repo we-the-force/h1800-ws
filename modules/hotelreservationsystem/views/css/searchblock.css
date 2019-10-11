@@ -433,3 +433,8 @@
     z-index: 4;
     pointer-events: none;
 }
+
+
+#index .header-desc-primary {
+    pointer-events: unset;
+}
