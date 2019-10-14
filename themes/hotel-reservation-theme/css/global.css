@@ -8063,6 +8063,12 @@ a:hover {
     }
 }
 
+@media only screen and (max-width: 780px){
+    body{
+        overflow-x: hidden;
+    }
+}
+
 body {
     min-width: 320px;
     height: 100%;
