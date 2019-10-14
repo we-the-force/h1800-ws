@@ -33,6 +33,34 @@ hr{
     margin: auto;
 }
 
+@media only screen and (max-width: 1200px) {
+    .contact a{
+        margin-bottom: 30px;
+    }
+
+    .activity_cont {
+        margin-bottom: 0 !important;
+        box-shadow: none !important;
+    }
+
+    #activities .container{
+        max-width: none;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin: 0;
+        width: 100%;
+    }
+
+    .activity_cont .col-sm-7,.activity_cont .col-sm-5{
+        width: 100%;
+    }
+}
+
+.contact{
+    width: fit-content;
+    margin: auto;
+}
+
 .contact a span{
     background: none !important;
     border: none !important;
