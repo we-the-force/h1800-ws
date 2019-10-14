@@ -90,9 +90,9 @@
             <div class="col-sm-12 activity_cont">
                 <div class="row no-gutters" style="width: inherit; margin: auto;">
                     <div class="col-sm-7 gallery">
-                            <img src="{$img_dir}parks/CAÑON_GRANDE_1.jpg" class="img-responsive">
-                            <img src="{$img_dir}parks/CAÑON_GRANDE_2.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/CAÑON_GRANDE_3.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/CAÑON_GRANDE_2.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/CAÑON_GRANDE_1.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/CAÑON_GRANDE_4.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/CAÑON_GRANDE_5.jpg" class="img-responsive">
                     </div>
@@ -172,8 +172,8 @@
             <div class="col-sm-12 activity_cont">
                 <div class="row no-gutters" style="width: inherit; margin: auto;">
                     <div class="col-sm-7 gallery">
-                            <img src="{$img_dir}parks/RIO_MEZQUITES_1.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_2.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/RIO_MEZQUITES_1.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_3.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_4.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_5.jpg" class="img-responsive">
@@ -257,12 +257,12 @@
             <div class="col-sm-12 activity_cont">
                 <div class="row no-gutters" style="width: inherit; margin: auto;">
                     <div class="col-sm-7 gallery">
-                            <img src="{$img_dir}parks/MINA_MARMOL_1.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/MINA_MARMOL_6.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/MINA_MARMOL_2.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/MINA_MARMOL_3.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/MINA_MARMOL_4.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/MINA_MARMOL_5.jpg" class="img-responsive">
-                            <img src="{$img_dir}parks/MINA_MARMOL_6.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/MINA_MARMOL_1.jpg" class="img-responsive">
                     </div>
                     <div class="col-sm-5">
                         <ul class="nav nav-tabs activities_description_tabs">
