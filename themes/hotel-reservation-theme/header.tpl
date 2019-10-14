@@ -221,5 +221,18 @@
 				$('.menu .nav_menu_padding .parks').addClass('active');
 			break;
 		}
-	});$
+
+		if($('body').attr('id') == 'index'){
+			$('.menu').fadeOut();
+			$(window).on("scroll", function(e){
+				if($(window).scrollTop() > 50){
+					$('.menu').fadeIn();
+				}else{
+					$('.menu').fadeOut();
+				}
+			});
+		}
+	});
+
+	
 </script>
