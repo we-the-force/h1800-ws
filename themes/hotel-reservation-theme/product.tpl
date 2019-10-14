@@ -69,7 +69,7 @@
 
 			<!-- end -->
 			<!-- left infos-->
-			<div class="{* pb-right-column col-xs-12 col-sm-4 col-md-4 *}">
+			<div class="top-block{* pb-right-column col-xs-12 col-sm-4 col-md-4 *}">
 				{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
 					<p class="hidden">
 						<input type="hidden" name="token" value="{$static_token}" />
@@ -161,7 +161,7 @@
 										{* <div class="sold_out_alert">
 											<span>{l s='Rooms Sold Out !'}</span>
 										</div> *}
-										<div class="unvail_rooms_cond_display">
+										<div class="unvail_rooms_cond_display last-block">
 											{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE}
 											{else}
 												<p id="add_to_cart" class="buttons_bottom_block no-print">
@@ -211,7 +211,7 @@
 					{/if} *}
 				{/if}
 			</div>
-			<div class="{* pb-left-column col-xs-12 col-sm-8 col-md-8 *}">
+			<div class="bottom-block{* pb-left-column col-xs-12 col-sm-8 col-md-8 *}">
 				<div class="room_type_img_containter card">
 					<div class="room_hotel_name_block">
 						<div class="hotel_name_block">

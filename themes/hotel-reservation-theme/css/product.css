@@ -7,6 +7,60 @@
     background-color: #ededed;
 }
 
+@media only screen and (max-width: 1200px) {
+
+    .primary_block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top-block {
+        order: 2;
+    }
+
+    .bottom-block {
+        order: 1;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+
+    .top-block .booking-form .row{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .top-block .booking-form .row .form-group{
+        width: 50% !important;
+        margin-right: 0px !important;
+    }
+
+    .top-block .booking-form .row .last-block{
+        width: fit-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .top-block .booking-form #quantity_wanted_p label{
+        transform: translateX(-70%) !important;
+    }
+
+    .top-block .booking-form .row .last-block #add_to_cart{
+        margin-top: 2% !important;
+    }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+
+    .top-block .booking-form .row{
+        width: 75%;
+    }
+}
+
+
 .primary_block {
     margin-bottom: 40px;
 }
