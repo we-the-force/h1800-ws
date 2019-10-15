@@ -24,7 +24,7 @@
 
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 768px) {
+@media only screen and (max-width: 1200px) and (min-width: 731px) {
 
     .top-block .booking-form .row{
         width: 60%;
@@ -49,15 +49,54 @@
     }
 
     .top-block .booking-form .row .last-block #add_to_cart{
-        margin-top: 2% !important;
+        margin-top: 3% !important;
     }
 }
 
-@media only screen and (max-width: 992px) and (min-width: 768px) {
-
+@media only screen and (max-width: 992px) and (min-width: 731px) {
     .top-block .booking-form .row{
         width: 75%;
     }
+
+    .top-block .booking-form .row .form-group{
+        width: 49% !important;
+    }
+
+    .top-block .booking-form .row .unvail_rooms_cond_display{
+        width: fit-content;
+        height: 57px;
+        display: inline-block;
+    }
+
+    .top-block .booking-form .row .total_price_block{
+        width: 100% !important;
+    }
+
+    .top-block .booking-form #quantity_wanted_p label{
+        width: fit-content;
+        transform: translate(7%) !important;
+    }
+
+    .top-block .booking-form .row .last-block{
+        display: block !important;
+    }
+
+}
+
+@media only screen and (max-width: 730px){
+    .top-block .booking-form .row .form-group,.top-block .booking-form .row .unvail_rooms_cond_display{
+        width: fit-content !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        height: 57px !important;
+        margin-top: 5%;
+    }
+
+    .top-block .booking-form .row .total_price_block{
+        width: 100% !important;
+    }
+
 }
 
 
@@ -1801,7 +1840,7 @@ Quick View Styles
 }
 
 .product_description_tabs_contents {
-    margin-top: 0px!important;
+    margin-top: 0px;
     line-height: 25px;
 }
 
