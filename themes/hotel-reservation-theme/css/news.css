@@ -1,0 +1,36 @@
+#rss_block_left h1 {
+    color: #373737;
+    margin-bottom: 32px;
+}
+
+#news-home {
+    height: auto;
+    width: 100%;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+#news-home li.news-item {
+    display: block;
+    padding-bottom: 35px;
+}
+
+#news-home li.news-item h3 {
+    color: #1F1F1F;
+}
+
+#news-home .news-item a {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#news-home .news-item a img.news-thumb {
+    width: 100%;
+    height: auto;
+}
+
+#news-home .news-item a.news-link p {
+    color: #1F70D1;
+}
