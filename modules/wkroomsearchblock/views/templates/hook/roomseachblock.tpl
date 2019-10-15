@@ -65,6 +65,10 @@ newer * versions in the future. If you wish to customize this module for your * 
     {/strip}
 
     <script>
+        function loadedPan(){
+            console.log('pannellum loaded');
+            $('#header-panorama').css('opacity','1');
+        }
         var wheight = $(window).height();
         var wwidth = $(window).width();
         var headerPanorama = pannellum.viewer('header-panorama', {
@@ -81,6 +85,10 @@ newer * versions in the future. If you wish to customize this module for your * 
             "mouseZoom": false,
             "autoRotateInactivityDelay": 2000
         });
+        headerPanorama.on('load', function (){
+            console.log('pannellum loaded');
+            $('#header-panorama').css('opacity','1');
+        })
         if (wwidth < wheight) {
             // portrait
             headerPanorama.setHfov(50);
