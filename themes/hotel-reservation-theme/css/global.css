@@ -12254,6 +12254,45 @@ div.star.star_hover:after {
     padding-top: 5px;
 }
 
+@media only screen and (max-width: 350px) {
+    .menu .container .centered .nav_icon {
+        padding-right: 0.5vw !important;
+        padding-left: 0.5vw !important;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .nav_icon p{
+        font-size: 10px !important;
+    }
+
+    .menu .container .clearfix.nav_menu_padding a p{
+        font-size: 10px !important;
+        margin-bottom: -7px !important;
+        margin-left: 10px;
+    }
+
+    .home svg{
+        width: 20px;
+        height: 17px;
+    }
+
+    .rooms svg{
+        width: 22px;
+        height: 17px;
+    }
+
+    .amenities svg{
+        width: 22px;
+        height: 22px;
+    }
+
+    .parks svg{
+        width: 17px;
+        height: 26px;
+    }
+}
+
 @media only screen and (max-width: 1200px) {
 
     .nav_icon p{
