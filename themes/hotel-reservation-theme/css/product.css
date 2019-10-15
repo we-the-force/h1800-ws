@@ -44,12 +44,26 @@
         margin-right: auto;
     }
 
-    .top-block .booking-form #quantity_wanted_p label{
-        transform: translateX(-70%) !important;
+    .top-block .booking-form #quantity_wanted_p{
+        width: 100% !important;
     }
 
     .top-block .booking-form .row .last-block #add_to_cart{
         margin-top: 3% !important;
+    }
+
+    .top-block .booking-form .row .unvail_rooms_cond_display{
+        width: fit-content;
+        height: 57px;
+        display: inline-block;
+    }
+
+    .top-block .booking-form .row .total_price_block{
+        width: 100% !important;
+    }
+
+    .top-block .booking-form .row .last-block{
+        display: block !important;
     }
 }
 
@@ -72,9 +86,8 @@
         width: 100% !important;
     }
 
-    .top-block .booking-form #quantity_wanted_p label{
-        width: fit-content;
-        transform: translate(7%) !important;
+    .top-block .booking-form #quantity_wanted_p{
+        width: 100% !important;
     }
 
     .top-block .booking-form .row .last-block{
@@ -1185,6 +1198,7 @@ table.table-product-discounts tr th {
 
 #quantity_wanted_p label {
     display: block;
+    width: max-content;
 }
 
 .columns-container .product_wrapper .primary_block .booking_room_fields #quantity_wanted_p label {
