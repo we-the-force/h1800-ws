@@ -27,7 +27,14 @@
 	<div class="row">
 		<section class="col-xs-12 col-sm-12">
 			<div class="row margin-lr-0 footer-section-heading">
-				<p>{l s='Language' mod='wkfooterexploreblock'}</p>
+				{* <p>{l s='Language' mod='wkfooterexploreblock'}</p> *}
+				<p>
+					{if $lang_iso == 'es'}
+									{l s='Idioma'}
+					{elseif $lang_iso == 'en'}
+									{l s='Language'}
+					{/if}
+				</p>
 				<hr/>
 			</div>
 			<div class="row margin-lr-0">

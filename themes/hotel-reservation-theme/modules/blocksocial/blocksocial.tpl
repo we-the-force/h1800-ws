@@ -27,7 +27,14 @@
 <div class="row">
     <section class="col-xs-12 col-sm-12">
         <div class="row margin-lr-0 footer-section-heading">
-            <p>{l s='Follow us on' mod='blocksocial'}</p>
+            {* <p>{l s='Follow us on' mod='blocksocial'}</p> *}
+            <p>
+                {if $lang_iso == 'es'}
+                    {l s='Síguenos'}
+                {elseif $lang_iso == 'en'}
+                    {l s='Follow us on'}
+                {/if}
+            </p>
             <hr/>
         </div>
         <div class="row margin-lr-0" id="social_block">
