@@ -479,6 +479,10 @@ a {
     text-decoration: none;
 }
 
+#hotelAmenitiesBlock .link{
+    color: #0366d6;
+}
+
 a:hover,
 a:focus {
     color: #515151;
