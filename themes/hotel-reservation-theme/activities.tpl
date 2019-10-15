@@ -172,11 +172,11 @@
             <div class="col-sm-12 activity_cont">
                 <div class="row no-gutters" style="width: inherit; margin: auto;">
                     <div class="col-sm-7 gallery">
+                            <img src="{$img_dir}parks/RIO_MEZQUITES_5.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_2.jpg" class="img-responsive">
-                            <img src="{$img_dir}parks/RIO_MEZQUITES_1.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_3.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_4.jpg" class="img-responsive">
-                            <img src="{$img_dir}parks/RIO_MEZQUITES_5.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/RIO_MEZQUITES_1.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_6.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_7.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_8.jpg" class="img-responsive">
