@@ -12378,6 +12378,7 @@ div.star.star_hover:after {
 
 .menu .nav_menu_padding .active svg *{
     stroke: #005DCC;
+    stroke-width: 0.5px;
 }
 
 
