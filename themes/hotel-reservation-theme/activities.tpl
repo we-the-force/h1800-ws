@@ -48,7 +48,7 @@
                                 </div>
                                 <hr>
                                 <div class="recommendations">
-                                    {if $lang_iso == 'es'} 
+                                    {if $lang_iso == 'es'}
                                         <h4>Recomendaciones</h4>
                                         <ul>
                                             <li>· Calzado cómodo</li>
@@ -72,7 +72,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class="btn btn-default button button-medium ajax_add_to_cart_button pull-right">
+                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="tel:869-696-0530">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -80,8 +80,17 @@
                                     {l s='Contact'}
                                     {/if}
                                     </span>
-                                </a>                
-                                </div>                
+                                </a>
+                                <a class="hidden-xs btn btn-default button button-medium ajax_add_to_cart_button pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                    <span>
+                                    {if $lang_iso == 'es'}
+                                    {l s='Contacto'}
+                                    {elseif $lang_iso == 'en'}
+                                    {l s='Contact'}
+                                    {/if}
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -130,7 +139,7 @@
                                 </div>
                                 <hr>
                                 <div class="recommendations">
-                                    {if $lang_iso == 'es'} 
+                                    {if $lang_iso == 'es'}
                                         <h4>Recomendaciones</h4>
                                         <ul>
                                             <li>· Calzado cómodo ideal para caminatas</li>
@@ -154,7 +163,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class="btn btn-default button button-medium ajax_add_to_cart_button pull-right">
+                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="tel:869-696-0530">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -162,8 +171,17 @@
                                     {l s='Contact'}
                                     {/if}
                                     </span>
-                                </a>                
-                                </div>                
+                                </a>
+                                <a class="hidden-xs btn btn-default button button-medium ajax_add_to_cart_button pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                    <span>
+                                    {if $lang_iso == 'es'}
+                                    {l s='Contacto'}
+                                    {elseif $lang_iso == 'en'}
+                                    {l s='Contact'}
+                                    {/if}
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -198,7 +216,7 @@
                                     <h2>
                                     {if $lang_iso == 'es'}
                                         Río Mezquites
-                                    {elseif $lang_iso == 'en'}                       
+                                    {elseif $lang_iso == 'en'}
                                         Mezquites River
                                     {/if}
                                     </h2>
@@ -215,7 +233,7 @@
                                 </div>
                                 <hr>
                                 <div class="recommendations">
-                                    {if $lang_iso == 'es'} 
+                                    {if $lang_iso == 'es'}
                                         <h4>Recomendaciones</h4>
                                         <ul>
                                             <li>· Traje de baño y toallas</li>
@@ -239,7 +257,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class="btn btn-default button button-medium ajax_add_to_cart_button pull-right">
+                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="tel:869-696-0530">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -247,8 +265,17 @@
                                     {l s='Contact'}
                                     {/if}
                                     </span>
-                                </a>                
-                                </div>                
+                                </a>
+                                <a class="hidden-xs btn btn-default button button-medium ajax_add_to_cart_button pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                    <span>
+                                    {if $lang_iso == 'es'}
+                                    {l s='Contacto'}
+                                    {elseif $lang_iso == 'en'}
+                                    {l s='Contact'}
+                                    {/if}
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -298,7 +325,7 @@
                                 </div>
                                 <hr>
                                 <div class="recommendations">
-                                    {if $lang_iso == 'es'} 
+                                    {if $lang_iso == 'es'}
                                         <h4>Recomendaciones</h4>
                                         <ul>
                                             <li>· Visitar la zona por la mañana o el atardecer</li>
@@ -324,7 +351,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class="btn btn-default button button-medium ajax_add_to_cart_button pull-right">
+                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="tel:869-696-0530">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -332,8 +359,17 @@
                                     {l s='Contact'}
                                     {/if}
                                     </span>
-                                </a>                
-                                </div>                
+                                </a>
+                                <a class="hidden-xs btn btn-default button button-medium ajax_add_to_cart_button pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                    <span>
+                                    {if $lang_iso == 'es'}
+                                    {l s='Contacto'}
+                                    {elseif $lang_iso == 'en'}
+                                    {l s='Contact'}
+                                    {/if}
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -352,4 +388,4 @@ $(document).ready(function(){
       dots: true
   });
 });
-</script> 
+</script>
