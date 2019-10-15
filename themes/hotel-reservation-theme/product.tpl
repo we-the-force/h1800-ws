@@ -87,14 +87,14 @@
 								{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 									<div class="row">
 										<div class="form-group col-sm-6">
-											<label for="" class="control-label">{l s='Check In Date'}</label>
+											<label for="" class="control-label">{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}</label>
 											<div class="input-group">
 												<input type="text" class="form-control input-date" name="room_check_in" id="room_check_in" value="{if isset($date_from)}{$date_from|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
 												<label class="input-group-addon" for="room_check_in"><i class="icon-calendar"></i></label>
 											</div>
 										</div>
 										<div class="form-group col-sm-6">
-											<label for="" class="control-label">{l s='Check Out Date'}</label>
+											<label for="" class="control-label">{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}</label>
 											<div class="input-group">
 												<input type="text" class="form-control input-date" name="room_check_out" id="room_check_out" value="{if isset($date_to)}{$date_to|escape:'html':'UTF-8'|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
 												<label class="input-group-addon" for="room_check_out"><i class="icon-calendar"></i></label>
@@ -103,7 +103,7 @@
 										<div class="room_unavailability_date_error_div"></div>
 										<div class="unvail_rooms_cond_display">
 											<div class="form-group col-sm-6" id="quantity_wanted_p" {if (!$allow_oosp && $product-> quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-												<label for="quantity_wanted">{l s='No. of Rooms'}</label>
+												<label for="quantity_wanted">{if $lang_iso == 'es'}{l s='Núm. de habitaciones'}{elseif $lang_iso == 'en'}{l s='No. of Rooms'}{/if}</label>
 												<div class="qty_sec_cont">
 													<div class="qty_direction">
 														<a href="#" data-field-qty="qty" class="btn btn-default product_quantity_down">
@@ -167,7 +167,7 @@
 												<p id="add_to_cart" class="buttons_bottom_block no-print">
 													<button type="submit" name="Submit" class="exclusive book_now_submit">
 														<span>
-															{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{l s='Book Now'}{/if}
+															{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{if $lang_iso == 'es'}{l s='Reservar'}{elseif $lang_iso == 'en'}{l s='Book Now'}{/if}{/if}
 														</span>
 													</button>
 												</p>
