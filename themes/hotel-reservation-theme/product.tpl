@@ -90,14 +90,14 @@
 											<label for="" class="control-label">{l s='Check In Date'}</label>
 											<div class="input-group">
 												<input type="text" class="form-control input-date" name="room_check_in" id="room_check_in" value="{if isset($date_from)}{$date_from|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
-												<label class="input-group-addon" for="check_in_time"><i class="icon-calendar"></i></label>
+												<label class="input-group-addon" for="room_check_in"><i class="icon-calendar"></i></label>
 											</div>
 										</div>
 										<div class="form-group col-sm-6">
 											<label for="" class="control-label">{l s='Check Out Date'}</label>
 											<div class="input-group">
 												<input type="text" class="form-control input-date" name="room_check_out" id="room_check_out" value="{if isset($date_to)}{$date_to|escape:'html':'UTF-8'|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
-												<label class="input-group-addon" for="check_in_time"><i class="icon-calendar"></i></label>
+												<label class="input-group-addon" for="room_check_out"><i class="icon-calendar"></i></label>
 											</div>
 										</div>
 										<div class="room_unavailability_date_error_div"></div>
