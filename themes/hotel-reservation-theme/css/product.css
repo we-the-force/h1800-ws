@@ -1886,6 +1886,10 @@ Quick View Styles
     color: #000000;
 }
 
+.columns-container .product_wrapper .primary_block .product_description_tabs_contents .info_margin_div .room_info_content {
+    overflow: auto;
+}
+
 .room_info_content .icon {
     color: #003380;
     font-size: 8px !important;

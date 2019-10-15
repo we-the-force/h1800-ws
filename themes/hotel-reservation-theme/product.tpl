@@ -372,11 +372,11 @@
 									</div> -->
 									{if isset($hotel_policies) && $hotel_policies}
 										<div class="info_margin_div">
-											<div class="room_info_heading">
-												<span>{l s='Hotel Policies'}</span>
+											<div class="room_info_heading">{* 
+												<span>{l s='Hotel Policies'}</span> *}
 											</div>
-											<div class="room_info_content">
-												<p class="">{$hotel_policies}</p>
+											<div class="room_info_content">{* 
+												<p class="">{$hotel_policies}</p> *}
 											</div>
 										</div>
 									{/if}
