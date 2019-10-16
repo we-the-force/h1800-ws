@@ -339,7 +339,14 @@
 									{if isset($features) && $features}
 										<div class="info_margin_div">
 											<div class="room_info_heading">
-												<span>{l s='Room Features'}</span>
+												<span>
+												{if $lang_iso == 'es'}
+																{l s='Carácterísticas de la habitación'}
+												{elseif $lang_iso == 'en'}
+																{l s='Room features'}
+												{/if}
+												</span>
+												{* <span>{l s='Room Features'}</span> *}
 											</div>
 											<div class="room_info_content">
 												{foreach from=$features key=ftr_k item=ftr_v}
