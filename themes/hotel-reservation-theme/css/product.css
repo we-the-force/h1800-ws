@@ -1721,8 +1721,9 @@ Quick View Styles
 .columns-container .product_wrapper .primary_block .booking_room_fields #add_to_cart .book_now_submit span {
     font-family: Fieldwork;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 13px;
     text-align: center;
+    display: block;
 }
 
 .booking_room_fields .hasDatepicker {
