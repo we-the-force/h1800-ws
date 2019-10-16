@@ -61,7 +61,7 @@
                                                 {$roomDisplay.description}
                                             </div>
                                             <div class="row margin-lr-0" style="text-align: right;">
-                                                <a target="blank" class="btn btn-default button htlRoomTypeBookNow" href="{$link->getProductLink($roomDisplay.id_product)|escape:'html':'UTF-8'}"><span>{l s='book now' mod='wkhotelroom'}</span></a>
+                                                <a target="" class="btn btn-default button htlRoomTypeBookNow" href="{$link->getProductLink($roomDisplay.id_product)|escape:'html':'UTF-8'}"><span>{l s='Reservar' mod='wkhotelroom'}</span></a>{* actualizar el problema del idioma *}
                                             </div>
                                         </div>
                                     </div>

@@ -7,6 +7,112 @@
     background-color: #ededed;
 }
 
+@media only screen and (max-width: 1200px) {
+
+    .primary_block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top-block {
+        order: 2;
+    }
+
+    .bottom-block {
+        order: 1;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 731px) {
+
+    .top-block .booking-form .row{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .top-block .booking-form .row .form-group{
+        width: 50% !important;
+        margin-right: 0px !important;
+    }
+
+    .top-block .booking-form .row .last-block{
+        width: fit-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .top-block .booking-form #quantity_wanted_p{
+        width: 100% !important;
+    }
+
+    .top-block .booking-form .row .last-block #add_to_cart{
+        margin-top: 3% !important;
+    }
+
+    .top-block .booking-form .row .unvail_rooms_cond_display{
+        width: fit-content;
+        height: 57px;
+        display: inline-block;
+    }
+
+    .top-block .booking-form .row .total_price_block{
+        width: 100% !important;
+    }
+
+    .top-block .booking-form .row .last-block{
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 731px) {
+    .top-block .booking-form .row{
+        width: 75%;
+    }
+
+    .top-block .booking-form .row .form-group{
+        width: 49% !important;
+    }
+
+    .top-block .booking-form .row .unvail_rooms_cond_display{
+        width: fit-content;
+        height: 57px;
+        display: inline-block;
+    }
+
+    .top-block .booking-form .row .total_price_block{
+        width: 100% !important;
+    }
+
+    .top-block .booking-form #quantity_wanted_p{
+        width: 100% !important;
+    }
+
+    .top-block .booking-form .row .last-block{
+        display: block !important;
+    }
+
+}
+
+@media only screen and (max-width: 730px){
+    .top-block .booking-form .row .form-group,.top-block .booking-form .row .unvail_rooms_cond_display{
+        width: fit-content !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        height: 57px !important;
+        margin-top: 5%;
+    }
+
+    .top-block .booking-form .row .total_price_block{
+        width: 100% !important;
+    }
+
+}
+
+
 .primary_block {
     margin-bottom: 40px;
 }
@@ -1092,6 +1198,7 @@ table.table-product-discounts tr th {
 
 #quantity_wanted_p label {
     display: block;
+    width: max-content;
 }
 
 .columns-container .product_wrapper .primary_block .booking_room_fields #quantity_wanted_p label {
@@ -1747,7 +1854,7 @@ Quick View Styles
 }
 
 .product_description_tabs_contents {
-    margin-top: 0px!important;
+    margin-top: 0px;
     line-height: 25px;
 }
 
@@ -1777,6 +1884,10 @@ Quick View Styles
 .room_info_content {
     font-size: 14px;
     color: #000000;
+}
+
+.columns-container .product_wrapper .primary_block .product_description_tabs_contents .info_margin_div .room_info_content {
+    overflow: auto;
 }
 
 .room_info_content .icon {

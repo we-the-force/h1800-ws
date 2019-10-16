@@ -144,7 +144,7 @@ table {
 
 #page .header-container #header .menu {
     position: fixed;
-    background: #EDEDED;
+    background: #E5E4E3;
     bottom: 0px;
     box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.1);
     height: 74px;
@@ -477,6 +477,10 @@ textarea {
 a {
     color: #777;
     text-decoration: none;
+}
+
+#hotelAmenitiesBlock .link{
+    color: #0366d6;
 }
 
 a:hover,
@@ -3517,10 +3521,6 @@ input[type="button"].btn-block {
     .navbar-toggle {
         display: none;
     }
-}
-
-.navbar-nav {
-    /*margin: 8px -15px;*/
 }
 
 .navbar-nav>li>a {
@@ -8063,6 +8063,12 @@ a:hover {
     }
 }
 
+@media only screen and (max-width: 780px){
+    body{
+        overflow-x: hidden;
+    }
+}
+
 body {
     min-width: 320px;
     height: 100%;
@@ -8684,7 +8690,7 @@ span.exclusive {
     background: none;
     border: none;
     padding: 0px 14px;
-    line-height: 20px;
+    line-height: 15px;
 }
 
 .button.ajax_add_to_cart_button:hover {
@@ -12248,6 +12254,108 @@ div.star.star_hover:after {
     padding-top: 5px;
 }
 
+@media only screen and (max-width: 350px) {
+    .menu .container .centered .nav_icon {
+        padding-right: 0.5vw !important;
+        padding-left: 0.5vw !important;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .nav_icon p{
+        font-size: 10px !important;
+    }
+
+    .menu .container .clearfix.nav_menu_padding a p{
+        font-size: 10px !important;
+        margin-bottom: -7px !important;
+        margin-left: 10px;
+    }
+
+    .home svg{
+        width: 20px;
+        height: 17px;
+    }
+
+    .rooms svg{
+        width: 22px;
+        height: 17px;
+    }
+
+    .amenities svg{
+        width: 22px;
+        height: 22px;
+    }
+
+    .parks svg{
+        width: 17px;
+        height: 26px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .nav_icon p{
+        font-size: 12px;
+    }
+
+    .home svg{
+        width: 23px;
+        height: 20px;
+    }
+
+    .rooms svg{
+        width: 25px;
+        height: 20px;
+    }
+
+    .amenities svg{
+        width: 25px;
+        height: 25px;
+    }
+
+    .parks svg{
+        width: 20px;
+        height: 29px;
+    }
+
+
+    .menu {
+        left: 50%;
+        margin-left: -45%;
+        width: 90% !important;
+        bottom: 15px !important;
+        border-radius: 50px;
+        box-shadow: 0px 1.96653px 1.96653px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .menu .container .calendar{
+        display: none;
+    }
+
+    .menu .container .centered{
+        margin-left: -10px;
+    }
+
+    .menu .container .news{
+        display: none !important;
+    }
+
+    .menu .container .clearfix.nav_menu_padding{
+        display: inline-block;
+        float: none !important;
+        margin-left: -10px;
+        padding-left: 0px;;
+    }
+
+    .menu .container .clearfix.nav_menu_padding a p{
+        margin-bottom: -6px;
+        font-size: 12px;
+        font-weight: 400;
+        text-shadow: none;
+    }
+}
+
 .menu .container .nav_menu_padding {
     padding-top: 15px;
 }
@@ -12270,6 +12378,7 @@ div.star.star_hover:after {
 
 .menu .nav_menu_padding .active svg *{
     stroke: #005DCC;
+    stroke-width: 0.5px;
 }
 
 
@@ -12569,8 +12678,8 @@ h3 {
     background-color: #003380 !important;
     padding-left: 30px !important;
     padding-right: 30px !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
     height: 36px !important;
     color: #ffffff !important;
     font-family: Fieldwork !important;

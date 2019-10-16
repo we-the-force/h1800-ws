@@ -20,7 +20,14 @@
 <div class="row">
 	<section class="col-xs-12 col-sm-12">
 		<div class="row margin-lr-0 footer-section-heading">
-			<p>{l s='payment accepted' mod='wkfooterpaymentblock'}</p>
+			{* <p>{l s='payment accepted' mod='wkfooterpaymentblock'}</p> *}
+			<p>
+				{if $lang_iso == 'es'}
+								{l s='Aceptamos'}
+				{elseif $lang_iso == 'en'}
+								{l s='Payment accepted'}
+				{/if}
+			</p>
 			<hr/>
 		</div>
 		<div class="row margin-lr-0 footer-payment-block">

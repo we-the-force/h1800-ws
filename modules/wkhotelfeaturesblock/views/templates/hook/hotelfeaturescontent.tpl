@@ -38,12 +38,15 @@ newer * versions in the future. If you wish to customize this module for your * 
                                                 <p>
                                                     {$amenity['feature_description']|escape:'htmlall':'UTF-8'}
                                                 </p>
+                                                <a href="" class="link">
+                                                    Ver más...
+                                                </a>
                                             </div>
-                                            <div class="col-md-3 col-lg-3">
+                                            {* <div class="col-md-3 col-lg-3">
                                                 <a href="" class="btn button btn-default ">
                                                     <span>Conocer más</span>
                                                 </a>
-                                            </div>
+                                            </div> *}
                                         </div>
 
 

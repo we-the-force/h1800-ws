@@ -578,7 +578,7 @@
 	padding: 0px 50px;}
 	#order-opc .button-medium > span {
 		font-size: 14px;
-		padding: 11px;
+		padding: unset;
 		font-weight: 600;
 		color: #FFFFFF;
 		text-transform: uppercase;

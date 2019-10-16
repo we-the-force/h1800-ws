@@ -37,6 +37,10 @@
     text-transform: capitalize;
 }
 
+#index .htlRoomTypePriceText {
+    text-align: right;
+}
+
 .htlRoomTypeDescText {
     font-size: 16px;
     color: #555555;

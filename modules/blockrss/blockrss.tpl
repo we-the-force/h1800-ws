@@ -6,7 +6,13 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 
     <!-- Block RSS module-->
     <div id="rss_block_left" class="block">
-        <h4 class="title_block">{$title}</h4>
+        <h4 class="title_block">
+        {if $lang_iso == 'es'}
+            {l s='Noticias'}
+        {elseif $lang_iso == 'en'}
+            {l s='News'}
+        {/if}
+        </h4>
         <div class="block_content list-block">
             {if $rss_links}
             <ul>
