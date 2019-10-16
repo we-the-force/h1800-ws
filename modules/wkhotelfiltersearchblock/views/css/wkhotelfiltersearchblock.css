@@ -37,6 +37,10 @@
     border-radius: 8.06548px;
 }
 
+#filter_search_block #filter_search_btn {
+    line-height: 10px !important;
+}
+
 .filter_header {
     float: left;
     width: 100%;
