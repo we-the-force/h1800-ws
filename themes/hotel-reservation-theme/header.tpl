@@ -127,6 +127,23 @@
 						</svg>
 					</a>
 					</div>
+					<div id="popup" class="popup hidden">
+						<div class="popup-content">
+							<form method="POST" id="search_hotel_block_form">
+								{* <input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}">
+								<input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}"> *}
+								<button type="submit" class="btn btn-default button button-medium exclusive" name="search_room_submit" id="search_room_submit">
+									<span>
+									{if $lang_iso == 'es'}
+										{l s='Buscar'}
+									{elseif $lang_iso == 'en'}
+										{l s='Search Now'}
+									{/if}
+									</span>
+								</button>
+							</form>
+						</div>
+					</div>
 					<div class="menu">
 						<div class="container">
 							<div class="row">
@@ -285,7 +302,19 @@
 				}
 			});
 		}
-	});
 
+		$('.fab_button.calendar').click(function(e){
+			console.log('ahoy');
+			$('#popup').removeClass('hidden');
+		});
+
+		
+		$(document).click(function(ev){
+			if(ev.target.id == 'popup'){
+				$('#popup').addClass('hidden');
+			}
+		});
+
+	});
 	
 </script>

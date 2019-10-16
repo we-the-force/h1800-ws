@@ -216,10 +216,13 @@ $(document).ready(function() {
         var new_chk_out = new Date($.datepicker.formatDate('yy-mm-dd', new Date(date_format_check_out[2], date_format_check_out[1] - 1, date_format_check_out[0])));
         var max_order_date = $("#max_order_date").val();
         var max_order_date_format = $.datepicker.formatDate('yy-mm-dd', new Date(max_order_date));
+
         var error = false;
 
         var locationCatId = $('#hotel_location').attr('city_cat_id');
         var hotelCatId = $('#hotel_cat_id').val();
+
+
         $('.header-rmsearch-input').removeClass("error_border");
 
         if (hotelCatId == '') {
@@ -257,10 +260,13 @@ $(document).ready(function() {
             $('#check_out_time_error_p').text(max_order_date_err + ' ' + max_order_date);
             error = true;
         }
-        if (error)
+        if (error){
+
             return false;
-        else
+        }
+        else{            
             return true;
+        }
     });
 
     $(document).on('keydown', 'body', function(e) {
