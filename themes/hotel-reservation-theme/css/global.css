@@ -12293,7 +12293,89 @@ div.star.star_hover:after {
     }
 }
 
+.fab_buttons {
+    display: none;
+}
+
 @media only screen and (max-width: 769px) {
+
+    .fab_buttons {
+        display: block;
+        position: fixed;
+        width: fit-content;
+        height: fit-content;
+        right: 0px;
+        top: 12vh;
+    }
+
+    .fab_button {
+        display: block;
+        position: relative;
+        width:50px;
+        height:50px;
+        border-top-left-radius: 42%;
+        border-bottom-left-radius: 42%;
+        background:#005DCC;
+    }
+
+    .fab_button.calendar::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        border-bottom-left-radius: 42%;
+        border-top-left-radius: 42%;
+        box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .fab_button.wa::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        border-bottom-left-radius: 0%;
+        border-top-left-radius: 42%;
+        box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .fab_button.call::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        border-top-left-radius: 0%;
+        border-bottom-left-radius: 42%;
+        box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .fab_button.wa {
+        border-bottom-left-radius: 0% !important;
+    }
+
+    .fab_button.call {
+        border-top-left-radius: 0% !important;
+    }
+
+    .fab_button.calendar{
+        margin-top: 7px;
+    }
+
+    .fab_button.wa svg,.fab_button.call svg,.fab_button.calendar svg{
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
 
     .nav_icon p{
         font-size: 12px;
