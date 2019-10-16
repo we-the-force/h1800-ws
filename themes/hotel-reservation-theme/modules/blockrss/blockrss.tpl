@@ -45,28 +45,55 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
             success: function(feed) {
 
                 var items = feed.items;
-                items.forEach(function(item) {
+
+                  if($('#hotelAmenitiesBlock').length){
+                      for (var i = 0; i < 3; i++) {
+                        var body = '<li class="row news-item">' +
+                            '<div class="col-lg-4 col-sm-12">' +
+                            '<a href="{$base_dir}/index.php?controller=news">' +
+                            '<img src="' + items[i].thumbnail + '" alt="" class="news-thumb">' +
+                            '</a>' +
+                            '</div>' +
+                            '<div class="col-lg-8 col-sm-12">' +
+                            '<h3>' + items[i].title + '</h3>' +
+                            '<p class="news-content">'+shortenText(toText(items[i].content),60, 300)+'</p>' +
+                            '<a href="{$base_dir}/index.php?controller=news" class="news-link"><p class="news-content">Ver más ...</p></a>' +
+                            '</div>' +
+
+                            '</li>';
+                        $(body).find('.news-content').html('test');
+
+                        $('#news-home').append(body);
+                      }
+                  } else {
+                      items.forEach(function(item) {
 
 
-                    console.log(shortenText(toText(item.content),60, 300));
 
-                    var body = '<li class="row news-item">' +
-                        '<div class="col-lg-4 col-sm-12">' +
-                        '<a href="' + item.link + '">' +
-                        '<img src="' + item.thumbnail + '" alt="" class="news-thumb">' +
-                        '</a>' +
-                        '</div>' +
-                        '<div class="col-lg-8 col-sm-12">' +
-                        '<h3>' + item.title + '</h3>' +
-                        '<p class="news-content">'+shortenText(toText(item.content),60, 300)+'</p>' +
-                        '<a href="' + item.link + '" class="news-link"><p class="news-content">Ver más ...</p></a>' +
-                        '</div>' +
+                          var body = '<li class="row news-item">' +
+                              '<div class="col-lg-4 col-sm-12">' +
+                              '<a href="' + item.link + '">' +
+                              '<img src="' + item.thumbnail + '" alt="" class="news-thumb">' +
+                              '</a>' +
+                              '</div>' +
+                              '<div class="col-lg-8 col-sm-12">' +
+                              '<h3>' + item.title + '</h3>' +
+                              '<p class="news-content">'+shortenText(toText(item.content),60, 300)+'</p>' +
+                              '<a href="' + item.link + '" class="news-link"><p class="news-content">Ver más ...</p></a>' +
+                              '</div>' +
 
-                        '</li>';
-                    $(body).find('.news-content').html('test');
+                              '</li>';
+                          $(body).find('.news-content').html('test');
 
-                    $('#news-home').append(body);
-                });
+                          $('#news-home').append(body);
+                      });
+                  }
+
+
+
+
+
+
 
             }
         });
