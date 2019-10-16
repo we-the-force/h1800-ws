@@ -197,7 +197,7 @@
 
 											<p>
 											{if $lang_iso == 'es'}
-												{l s='NOVEDADES'}
+												{l s='NOTICIAS'}
 											{elseif $lang_iso == 'en'}
 												{l s='NEWS'}
 											{/if}

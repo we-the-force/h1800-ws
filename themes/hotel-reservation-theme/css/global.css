@@ -12293,7 +12293,7 @@ div.star.star_hover:after {
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 769px) {
 
     .nav_icon p{
         font-size: 12px;
@@ -12378,9 +12378,11 @@ div.star.star_hover:after {
 
 .menu .nav_menu_padding .active svg *{
     stroke: #005DCC;
-    stroke-width: 0.5px;
 }
 
+.menu .nav_menu_padding .parks.active svg *{
+    stroke-width: 0.5px;
+}
 
 .menu .nav_menu_padding .active p{
     color: #005DCC;
