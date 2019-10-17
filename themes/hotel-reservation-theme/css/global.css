@@ -12292,6 +12292,93 @@ div.star.star_hover:after {
     display: none;
 }
 
+
+.menu .calendar .calendar-search{
+    bottom: 70px;
+    position: absolute;
+    width: 650px;
+}
+
+.menu .calendar .filter_header{
+    display: none;
+}
+
+.menu .calendar #filter_search_block{
+    width: 100%;
+    height: 100%;
+    border: unset;
+    background: unset;
+    box-shadow: unset;
+    border-radius: unset;
+}
+
+.menu .calendar #filter_search_block .h-100{
+    height: 100%;
+}
+
+.menu .calendar #filter_search_block form{
+    height: 100%;
+    display: flex;
+    padding-top: 20px;
+}
+
+.menu .calendar #filter_search_block .inputs_filter_search{
+    width: 66%;
+    display: inline-block;
+    margin-top: -6px;
+}
+
+.menu .calendar #filter_search_block .btn_filter_search{
+    width: 33%;
+    height: 40px;
+    display: inline-block;
+}
+
+.menu .calendar #filter_search_block .inputs_filter_search .input-group {
+    margin-top: 0px;
+}
+
+.menu .calendar #filter_search_block .inputs_filter_search label.control-label {
+    font-family: Fieldwork !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 11.2917px !important;
+    line-height: 16px !important;
+    color: #262626;
+    background-color: transparent !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: absolute;
+    z-index: 1;
+    left: 27px;
+    top: -8px;
+}
+
+.menu .calendar #check_in_time,
+.menu .calendar #check_out_time {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 330px !important;
+    margin-bottom: 15px;
+    background-color: #ededed;
+    height: 35px !important;
+    padding-left: 15px;
+}
+
+.menu .calendar #filter_search_block .form-group .col-sm-12{
+    width: 45%;
+    display: inline-block;
+}
+
+.calendar .header-rmsearch-container {
+    display: block;
+    text-align: center;
+    background-color: #EDEDED;
+    border-radius: 40px;
+    height: 80px;
+    width: 100%;
+    padding: 0px;
+}
+
 @media only screen and (max-width: 769px) {
     .popup {
         position: fixed;
@@ -12304,30 +12391,68 @@ div.star.star_hover:after {
         overflow: auto;
         transition: all 0.3s linear;
     }
+
     .popup-content {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: #EDEDED;
-        padding: 44px 17px;
+        background-color: #F4F4F4;
+        padding: 44px 0px;
         border-radius: 12px;
         width: 311px;
         height: 286px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
     }
-    .popup-content form {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+
+    .popup-content .filter_header {
+        display: none;
     }
+
+    .popup-content #filter_search_block{
+        box-shadow: none;
+        background: none;
+    }
+
+    .popup-content #filter_search_block label.input-group-addon {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 15px;
+        color: #888888;
+        top: 3px;
+    }
+    .popup-content #filter_search_block .input-group {
+        width: 100%;
+        margin-top: 21px;
+    }
+
+    .popup-content #filter_search_block div.form-group label.control-label {
+        font-family: Fieldwork !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-size: 11.2917px !important;
+        line-height: 16px !important;
+        color: #262626;
+        background-color: #F4F4F4 !important;
+        padding-left: 5px;
+        padding-right: 5px;
+        position: absolute;
+        z-index: 1;
+        left: 27px;
+        top: -8px;
+    }
+
     .popup-content #check_in_time,
     .popup-content #check_out_time {
         box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 330px;
+        border-radius: 330px !important;
         margin-bottom: 15px;
+        background-color: #ededed;
+        height: 35px !important;
+        padding-left: 15px;
     }
+
     .popup-content .button {
         width: 80% !important;
         display: block;

@@ -129,10 +129,12 @@
 					</div>
 					<div id="popup" class="popup hidden">
 						<div class="popup-content">
-							<form method="POST" id="search_hotel_block_form">
+							{* {include file="./roomSearchWrapper.tpl"} *}
+							{hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'}
+							{* <form method="POST" id="search_hotel_block_form"> *}
 								{* <input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}">
 								<input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}"> *}
-								<button type="submit" class="btn btn-default button button-medium exclusive" name="search_room_submit" id="search_room_submit">
+								{* <button type="submit" class="btn btn-default button button-medium exclusive" name="search_room_submit" id="search_room_submit">
 									<span>
 									{if $lang_iso == 'es'}
 										{l s='Buscar'}
@@ -141,9 +143,10 @@
 									{/if}
 									</span>
 								</button>
-							</form>
+							</form> *}
 						</div>
 					</div>
+					
 					<div class="menu">
 						<div class="container">
 							<div class="row">
@@ -153,7 +156,7 @@
 									</a>
 								</div> *}
 								<div class="calendar nav_menu_padding pull-left">
-									<a href="#">
+									<a href="">
 										{* <img class="img-calendar" src="themes/hotel-reservation-theme/img/Calendar.svg" /> *}
 										<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M10.5828 23.0337C8.84357 23.0337 7.42645 21.6166 7.42645 19.8773C7.42645 18.1381 8.84357 16.7209 10.5828 16.7209C12.3221 16.7209 13.7393 18.1381 13.7393 19.8773C13.7393 21.681 12.3221 23.0337 10.5828 23.0337ZM10.5828 18.0736C9.55216 18.0736 8.7148 18.9111 8.7148 19.9417C8.7148 20.9724 9.55216 21.8099 10.5828 21.8099C11.6135 21.8099 12.4509 20.9724 12.4509 19.9417C12.4509 18.9111 11.6135 18.0736 10.5828 18.0736Z" fill="#1F70D1"/>
@@ -165,6 +168,11 @@
 										<path d="M30.8098 6.09205H27.2025V3.96626C27.2025 3.45092 26.7515 3 26.2362 3C25.7209 3 25.2699 3.45092 25.2699 3.96626V6.09205H10.7117V3.96626C10.7117 3.45092 10.2608 3 9.74543 3C9.23009 3 8.77917 3.45092 8.77917 3.96626V6.09205H5.17182C3.17489 6.09205 1.5 7.70245 1.5 9.7638V30.8283C1.5 32.8252 3.11048 34.5 5.17182 34.5H30.7454C32.7423 34.5 34.4171 32.8252 34.4171 30.8283V9.7638C34.4816 7.70245 32.8067 6.09205 30.8098 6.09205ZM5.23623 8.02457H8.84357V9.50612C8.84357 10.0215 9.29449 10.4724 9.80983 10.4724C10.3252 10.4724 10.7761 10.0215 10.7761 9.50612V8.02457H25.3343V9.50612C25.3343 10.0215 25.7853 10.4724 26.3006 10.4724C26.8159 10.4724 27.2669 10.0215 27.2669 9.50612V8.02457H30.8742C31.8405 8.02457 32.6135 8.79754 32.6135 9.7638V13.3711H3.5614V9.7638C3.49698 8.79754 4.26997 8.02457 5.23623 8.02457ZM30.8098 32.5675H5.23623C4.26997 32.5675 3.49692 31.7945 3.49692 30.8283V15.3037H32.5491V30.8283C32.5491 31.7945 31.7761 32.5675 30.8098 32.5675Z" fill="#1F70D1"/>
 										</svg>
 									</a>
+									<div class="calendar-search hidden">
+										<div class="header-rmsearch-container header-rmsearch-hide-xs hidden-xs">
+											{hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'}
+										</div>
+									</div>
 								</div>
 
 								<div class="centered nav_menu_padding">
@@ -315,6 +323,14 @@
 			}
 		});
 
+		$('.calendar').hover(function(ev){
+			$('.calendar svg').css('filter','saturate(1)');
+			$('.calendar-search').removeClass('hidden');
+		},
+		function(ev){
+			$('.calendar svg').css('filter','saturate(0)');
+			$('.calendar-search').addClass('hidden');
+		});
 	});
 
 </script>
