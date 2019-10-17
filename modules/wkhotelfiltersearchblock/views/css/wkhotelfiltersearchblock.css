@@ -30,6 +30,16 @@
     margin-bottom: 15px;
 }
 
+#filter_search_block .filter_header {
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+#filter_search_block hr.theme-text-underline {
+    border: none;
+    margin-top: 0px;
+}
+
 #filter_search_block {
     border: none;
     background: #F4F4F4;
