@@ -174,7 +174,7 @@
 											{/if}
 										</div>
 									</div>
-								{/if}								
+								{/if}
 							</form>
 						</div>
 					</div>
@@ -305,7 +305,7 @@
 								</a>
 							</span>
 							{/if}
-						</div> 
+						</div>
 						</div>
 						<!-- end views-block -->
 						<!-- end thumbnails -->
@@ -339,7 +339,14 @@
 									{if isset($features) && $features}
 										<div class="info_margin_div">
 											<div class="room_info_heading">
-												<span>{l s='Room Features'}</span>
+												<span>
+												{if $lang_iso == 'es'}
+																{l s='Carácterísticas de la habitación'}
+												{elseif $lang_iso == 'en'}
+																{l s='Room features'}
+												{/if}
+												</span>
+												{* <span>{l s='Room Features'}</span> *}
 											</div>
 											<div class="room_info_content">
 												{foreach from=$features key=ftr_k item=ftr_v}
@@ -372,10 +379,10 @@
 									</div> -->
 									{if isset($hotel_policies) && $hotel_policies}
 										<div class="info_margin_div">
-											<div class="room_info_heading">{* 
+											<div class="room_info_heading">{*
 												<span>{l s='Hotel Policies'}</span> *}
 											</div>
-											<div class="room_info_content">{* 
+											<div class="room_info_content">{*
 												<p class="">{$hotel_policies}</p> *}
 											</div>
 										</div>
@@ -783,25 +790,26 @@
 {addJsDefL name=check_in_time_cond}{l s='Please enter Check In time' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDefL name=check_out_time_cond}{l s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDefL name=num_adults_cond}{l s='Please enter number of adults.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
-{addJsDefL name=num_children_cond}{l s='Please enter number of children.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+{addJsDefL name=num_children_cond}{l s='Children' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDefL name=some_error_occur_cond}{l s='Some error occured. Please try again.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
-{addJsDefL name=less_checkin_date}{l s='Check In date can not be before current date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+{addJsDefL name=less_checkin_date}{l s='Use another date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+{* {addJsDefL name=less_checkin_date}{l s='Check In date can not be before current date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} *}
 {addJsDefL name=more_checkout_date}{l s='Check Out date must be greater than Check In date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')}
 {addJsDef images=$product->getImages(EN)}
 {addJsDef panorama=$product->getPanorama($product->id|intval)}
 
 {/strip}
-{/if} 
+{/if}
 <script type="text/javascript">
-	
+
 	let x = false;
 	let id_panorama;
 	images.forEach(function(x){
 		if(x.panorama != null){
 			id_panorama = x.id_image;
 		}
-	}); 
+	});
 
 	if(id_panorama){
 		let z = id_panorama.split('');
@@ -837,7 +845,7 @@
 				});
 			}catch(e){
 				if(e !== exception) throw e;
-			}		
+			}
 			let n = image.id_image.split('');
 			if(image.panorama == 1){
 				$('#panorama').empty();
@@ -873,4 +881,4 @@
 				});
 			}
     });
-</script> 
+</script>

@@ -479,7 +479,7 @@ a {
     text-decoration: none;
 }
 
-#hotelAmenitiesBlock .link{
+#hotelAmenitiesBlock .link {
     color: #0366d6;
 }
 
@@ -8063,8 +8063,8 @@ a:hover {
     }
 }
 
-@media only screen and (max-width: 780px){
-    body{
+@media only screen and (max-width: 780px) {
+    body {
         overflow-x: hidden;
     }
 }
@@ -8690,7 +8690,7 @@ span.exclusive {
     background: none;
     border: none;
     padding: 0px 14px;
-    line-height: 15px;
+    line-height: 10px;
 }
 
 .button.ajax_add_to_cart_button:hover {
@@ -12262,64 +12262,167 @@ div.star.star_hover:after {
 }
 
 @media only screen and (max-width: 414px) {
-    .nav_icon p{
+    .nav_icon p {
         font-size: 10px !important;
     }
-
-    .menu .container .clearfix.nav_menu_padding a p{
+    .menu .container .clearfix.nav_menu_padding a p {
         font-size: 10px !important;
         margin-bottom: -7px !important;
         margin-left: 10px;
     }
-
-    .home svg{
+    .home svg {
         width: 20px;
         height: 17px;
     }
-
-    .rooms svg{
+    .rooms svg {
         width: 22px;
         height: 17px;
     }
-
-    .amenities svg{
+    .amenities svg {
         width: 22px;
         height: 22px;
     }
-
-    .parks svg{
+    .parks svg {
         width: 17px;
         height: 26px;
     }
 }
 
-@media only screen and (max-width: 1200px) {
+.fab_buttons {
+    display: none;
+}
 
-    .nav_icon p{
+@media only screen and (max-width: 769px) {
+    .popup {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        overflow: auto;
+        transition: all 0.3s linear;
+    }
+    .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #EDEDED;
+        padding: 44px 17px;
+        border-radius: 12px;
+        width: 311px;
+        height: 286px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    }
+    .popup-content form {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .popup-content #check_in_time,
+    .popup-content #check_out_time {
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 330px;
+        margin-bottom: 15px;
+    }
+    .popup-content .button {
+        width: 80% !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .fab_buttons {
+        display: block;
+        position: fixed;
+        width: fit-content;
+        height: fit-content;
+        right: 0px;
+        top: 12vh;
+    }
+    .fab_button {
+        display: block;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-top-left-radius: 42%;
+        border-bottom-left-radius: 42%;
+        background: #005DCC;
+    }
+    .fab_button.calendar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        border-bottom-left-radius: 42%;
+        border-top-left-radius: 42%;
+        box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+    }
+    .fab_button.wa::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        border-bottom-left-radius: 0%;
+        border-top-left-radius: 42%;
+        box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+    }
+    .fab_button.call::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        border-top-left-radius: 0%;
+        border-bottom-left-radius: 42%;
+        box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+    }
+    .fab_button.wa {
+        border-bottom-left-radius: 0% !important;
+    }
+    .fab_button.call {
+        border-top-left-radius: 0% !important;
+    }
+    .fab_button.calendar {
+        margin-top: 7px;
+    }
+    .fab_button.wa svg,
+    .fab_button.call svg,
+    .fab_button.calendar svg {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .nav_icon p {
         font-size: 12px;
     }
-
-    .home svg{
+    .home svg {
         width: 23px;
         height: 20px;
     }
-
-    .rooms svg{
+    .rooms svg {
         width: 25px;
         height: 20px;
     }
-
-    .amenities svg{
+    .amenities svg {
         width: 25px;
         height: 25px;
     }
-
-    .parks svg{
+    .parks svg {
         width: 20px;
         height: 29px;
     }
-
-
     .menu {
         left: 50%;
         margin-left: -45%;
@@ -12328,27 +12431,23 @@ div.star.star_hover:after {
         border-radius: 50px;
         box-shadow: 0px 1.96653px 1.96653px rgba(0, 0, 0, 0.25) !important;
     }
-
-    .menu .container .calendar{
+    .menu .container .calendar {
         display: none;
     }
-
-    .menu .container .centered{
+    .menu .container .centered {
         margin-left: -10px;
     }
-
-    .menu .container .news{
+    .menu .container .news {
         display: none !important;
     }
-
-    .menu .container .clearfix.nav_menu_padding{
+    .menu .container .clearfix.nav_menu_padding {
         display: inline-block;
         float: none !important;
         margin-left: -10px;
-        padding-left: 0px;;
+        padding-left: 0px;
+        ;
     }
-
-    .menu .container .clearfix.nav_menu_padding a p{
+    .menu .container .clearfix.nav_menu_padding a p {
         margin-bottom: -6px;
         font-size: 12px;
         font-weight: 400;
@@ -12360,7 +12459,7 @@ div.star.star_hover:after {
     padding-top: 15px;
 }
 
-.menu .container .calendar svg{
+.menu .container .calendar svg {
     filter: saturate(0);
 }
 
@@ -12376,13 +12475,15 @@ div.star.star_hover:after {
     padding-left: 1vw;
 }
 
-.menu .nav_menu_padding .active svg *{
+.menu .nav_menu_padding .active svg * {
     stroke: #005DCC;
+}
+
+.menu .nav_menu_padding .parks.active svg * {
     stroke-width: 0.5px;
 }
 
-
-.menu .nav_menu_padding .active p{
+.menu .nav_menu_padding .active p {
     color: #005DCC;
 }
 
