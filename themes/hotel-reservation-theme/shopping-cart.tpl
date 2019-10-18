@@ -135,13 +135,20 @@
 							<div class="col-sm-2 col-xs-6">
 								<p class="room_duration_block_head">{l s='ROOMS'}</p>
 								<p class="room_duration_block_value">
-									{if {$rm_v['num_rm']} <= 9}0{$rm_v['num_rm']}{else}{$rm_v['num_rm']}{/if}
+									{if {$rm_v['num_rm']} <= 9}{$rm_v['num_rm']}{else}{$rm_v['num_rm']}{/if}
 								</p>
 							</div>
 							<div class="col-sm-4 col-xs-6">
 								<p class="room_duration_block_head">{l s='NO. OF GUESTS'}</p>
-								<p class="room_duration_block_value">
+								{* <p class="room_duration_block_value">
 									{if {$data_v['adult']} <= 9}0{$data_v['adult']}{else}{$data_v['adult']}{/if} {l s='Adults'}, {if {$data_v['children']} <= 9}0{$data_v['children']}{else}{$data_v['children']}{/if} {l s='Child'}
+								</p> *}
+								<p class="room_duration_block_value">
+									{if {$data_v['adult']} <= 9}{$data_v['adult']}{else}{$data_v['adult']}{/if} {if $lang_iso == 'es'}
+													{l s='Personas'}
+									{elseif $lang_iso == 'en'}
+													{l s='Persons'}
+									{/if}
 								</p>
 							</div>
 						</div>

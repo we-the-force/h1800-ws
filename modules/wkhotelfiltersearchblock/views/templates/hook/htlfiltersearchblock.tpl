@@ -24,7 +24,7 @@
             <hr class="theme-text-underline">
         </div>
     </div>
-    <div class="col-sm-12 category_page_search_block clear-both">
+    <div class="col-sm-12 category_page_search_block clear-both h-100">
         <form method="POST" autocomplete="on" autofill="on">
 
             {if isset($error) && ($error == 1)}
@@ -70,7 +70,7 @@
                 {/if}
                 <p class="error_msg" id="select_htl_error_p"></p>
             </div>
-            <div class="form-group">
+            <div class="form-group inputs_filter_search">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
                         <label class="control-label" for="check_in_time">{l s='Check In Time' mod='wkroomsearchblock'}</label>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="btn_filter_search">
                 <button type="submit" name="filter_search_btn" class="btn btn-default button button-medium exclusive" id="filter_search_btn">
                     <span>{l s='Search' mod='wkhotelfiltersearchblock'}</span>
                 </button>

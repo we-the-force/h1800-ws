@@ -61,7 +61,7 @@ class wkhotelfiltersearchblock extends Module
 
     public function hookDisplayLeftColumn()
     {
-        if ($this->context->controller->php_self == 'category') {
+        /* if ($this->context->controller->php_self == 'features') { */
             if (Tools::isSubmit('filter_search_btn')) {
                 $hotel_cat_id = Tools::getValue('hotel_cat_id');
                 $check_in = Tools::getValue('check_in_time');
@@ -164,6 +164,6 @@ class wkhotelfiltersearchblock extends Module
             $this->context->controller->addCSS(_PS_MODULE_DIR_.'hotelreservationsystem/views/css/datepickerCustom.css');
 
             return $this->display(__FILE__, 'htlfiltersearchblock.tpl');
-        }
+        /* } */
     }
 }
