@@ -10,7 +10,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
 
-                        <div id="header-panorama">
+                        <div id="header-panorama1" class="header-panorama">
 
                         </div>
                         {* <img src="{$img_ps_dir}hotel_header_lifestyle2.jpg" alt=""> *}
@@ -18,6 +18,18 @@ newer * versions in the future. If you wish to customize this module for your * 
                     </div>
                     <div class="item lifestyle">
                         <div class="img" style="background-image: url('{$img_ps_dir}hotel_header_lifestyle.jpg');"></div>
+
+
+                    </div>
+                    <div class="item active">
+
+                        <div id="header-panorama2" class="header-panorama">
+
+                        </div>
+
+                    </div>
+                    <div class="item lifestyle">
+                        <div class="img" style="background-image: url('{$img_ps_dir}hotel_header_lifestyle2.jpg');"></div>
 
 
                     </div>
@@ -63,13 +75,10 @@ newer * versions in the future. If you wish to customize this module for your * 
     {/strip}
 
     <script>
-        function loadedPan(){
-            console.log('pannellum loaded');
-            $('#header-panorama').css('opacity','1');
-        }
+
         var wheight = $(window).height();
         var wwidth = $(window).width();
-        var headerPanorama = pannellum.viewer('header-panorama', {
+        var headerPanorama = pannellum.viewer('header-panorama1', {
             "type": "equirectangular",
             "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
             "autoLoad": true,
@@ -85,14 +94,34 @@ newer * versions in the future. If you wish to customize this module for your * 
         });
         headerPanorama.on('load', function (){
             console.log('pannellum loaded');
-            $('#header-panorama').css('opacity','1');
+            $('#header-panorama1').css('opacity','1');
+        })
+        var headerPanorama2 = pannellum.viewer('header-panorama2', {
+            "type": "equirectangular",
+            "panorama": "{$img_ps_dir}hotel_header_panorama2.jpg",
+            "autoLoad": true,
+            "showControls": false,
+            "vaov": 120,
+            "autoRotate": true,
+            "minXaw": -120,
+            "maxXaw": 120,
+            "minPitch": -55,
+            "maxPitch": 55,
+            "mouseZoom": false,
+            "autoRotateInactivityDelay": 2000
+        });
+        headerPanorama2.on('load', function (){
+            console.log('pannellum loaded');
+            $('#header-panorama2').css('opacity','1');
         })
         if (wwidth < wheight) {
             // portrait
             headerPanorama.setHfov(50);
+            headerPanorama2.setHfov(50);
         } else {
             // landscape
             headerPanorama.setHfov(100);
+            headerPanorama2.setHfov(100);
         }
         var onChange = window.addEventListener("resize", function() {
             // Get screen size (inner/outerWidth, inner/outerHeight)
@@ -100,9 +129,11 @@ newer * versions in the future. If you wish to customize this module for your * 
             if (wwidth < wheight) {
                 // portrait
                 headerPanorama.setHfov(50);
+                headerPanorama2.setHfov(50);
             } else {
                 // landscape
                 headerPanorama.setHfov(100);
+                headerPanorama2.setHfov(100);
             }
         }, false);
         $(document).ready(function() {
