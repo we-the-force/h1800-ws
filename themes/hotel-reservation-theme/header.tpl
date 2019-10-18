@@ -130,7 +130,7 @@
 					<div id="popup" class="popup hidden">
 						<div class="popup-content">
 							{* {include file="./roomSearchWrapper.tpl"} *}
-							{hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'}
+							{* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *}
 							{* <form method="POST" id="search_hotel_block_form"> *}
 								{* <input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}">
 								<input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}"> *}
@@ -169,8 +169,9 @@
 										</svg>
 									</a>
 									<div class="calendar-search hidden">
-										<div class="header-rmsearch-container header-rmsearch-hide-xs hidden-xs">
-											{hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'}
+										<div class="container">
+											{* {include file="modules/wkroomsearchblock/views/templates/hook/roomSearchWrapper.tpl"} *}
+											{* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *}
 										</div>
 									</div>
 								</div>
@@ -280,11 +281,32 @@
 						<div id="left_column" class="column col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</div>
 						{/if}
 						{if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
-						<div id="center_column" class="center_column col-xs-12 col-sm-9">
+						<div id="center_column" class="center_column col-xs-12">
 	{/if}
 	{addJsDef name=$page.page_name}
 <script type="text/javascript">
 	$(document).ready(function(e){
+
+		$('.fab_button.calendar').click(function(e){
+			console.log('ahoy');
+			$('#popup').removeClass('hidden');
+		});
+
+		$(document).click(function(ev){
+			if(ev.target.id == 'popup'){
+				$('#popup').addClass('hidden');
+			}
+		});
+
+		$('.menu .calendar').hover(function(ev){
+			$('.calendar svg').css('filter','saturate(1)');
+			$('.calendar-search').removeClass('hidden');
+		},
+		function(ev){
+			//$('.calendar svg').css('filter','saturate(0)');
+			//$('.calendar-search').addClass('hidden');
+		});
+
 		switch($('body').attr('id')){
 			case "index":
 				$('.menu .nav_menu_padding .home').addClass('active');
@@ -298,6 +320,9 @@
 			case "activities":
 				$('.menu .nav_menu_padding .parks').addClass('active');
 			break;
+			case "news":
+				$('.menu .nav_menu_padding .news').addClass('active');
+			break;
 		}
 
 		if($('body').attr('id') == 'index'){
@@ -310,27 +335,6 @@
 				}
 			});
 		}
-
-		$('.fab_button.calendar').click(function(e){
-			console.log('ahoy');
-			$('#popup').removeClass('hidden');
-		});
-
-
-		$(document).click(function(ev){
-			if(ev.target.id == 'popup'){
-				$('#popup').addClass('hidden');
-			}
-		});
-
-		$('.calendar').hover(function(ev){
-			$('.calendar svg').css('filter','saturate(1)');
-			$('.calendar-search').removeClass('hidden');
-		},
-		function(ev){
-			$('.calendar svg').css('filter','saturate(0)');
-			$('.calendar-search').addClass('hidden');
-		});
 	});
 
 </script>

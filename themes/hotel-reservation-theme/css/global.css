@@ -1056,6 +1056,11 @@ header .row #header_logo,
     width: 100%;
 }
 
+#category #center_column{
+    width: 75%;
+    float: left;
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 750px;
@@ -12369,7 +12374,7 @@ div.star.star_hover:after {
     display: inline-block;
 }
 
-.calendar .header-rmsearch-container {
+.calendar .container {
     display: block;
     text-align: center;
     background-color: #EDEDED;
