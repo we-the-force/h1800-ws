@@ -231,6 +231,7 @@ table {
     width: 140%;
     height: 100%;
     -webkit-transform: skewX(-5deg);
+    -webkit-backface-visibility: hidden;
     transform: skewX(-5deg);
     background: #000;
     border-right: 3px solid #fff;
@@ -244,6 +245,7 @@ table {
     width: 140%;
     height: 100%;
     -webkit-transform: skewX(-5deg);
+    -webkit-backface-visibility: hidden;
     transform: skewX(-5deg);
     background: #000;
     border-left: 3px solid #fff;
@@ -13147,4 +13149,8 @@ h3 {
     background: transparent;
     border: none;
     height: 23px;
+}
+
+body#cms {
+    padding: 25px;
 }
