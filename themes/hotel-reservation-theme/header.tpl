@@ -258,9 +258,11 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 <script type="text/javascript">
 var wheight = $(window).height();
 var wwidth = $(window).width();
+var headerPanorama2;
+var headerPanorama;
 function panelInit(){
 
-    var headerPanorama = pannellum.viewer('header-panorama1', {
+    headerPanorama = pannellum.viewer('header-panorama1', {
         "type": "equirectangular",
         "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
         "autoLoad": true,
@@ -278,7 +280,7 @@ function panelInit(){
         console.log('pannellum loaded');
         $('#header-panorama1').css('opacity','1');
     })
-    var headerPanorama2 = pannellum.viewer('header-panorama2', {
+    headerPanorama2 = pannellum.viewer('header-panorama2', {
         "type": "equirectangular",
         "panorama": "{$img_ps_dir}hotel_header_panorama2.jpg",
         "autoLoad": true,
