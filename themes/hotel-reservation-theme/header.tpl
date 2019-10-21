@@ -256,9 +256,10 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                                 {/if} {addJsDef name=$page.page_name}
 
 <script type="text/javascript">
+var wheight = $(window).height();
+var wwidth = $(window).width();
 function panelInit(){
-    var wheight = $(window).height();
-    var wwidth = $(window).width();
+
     var headerPanorama = pannellum.viewer('header-panorama1', {
         "type": "equirectangular",
         "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
