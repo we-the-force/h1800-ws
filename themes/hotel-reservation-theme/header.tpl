@@ -312,16 +312,18 @@ function panelInit(){
 
 var onChange = window.addEventListener("resize", function() {
     // Get screen size (inner/outerWidth, inner/outerHeight)
-
-    if (wwidth < wheight) {
-        // portrait
-        headerPanorama.setHfov(50);
-        headerPanorama2.setHfov(50);
-    } else {
-        // landscape
-        headerPanorama.setHfov(100);
-        headerPanorama2.setHfov(100);
+    if (typeof headerPanorama !== "undefined"){
+        if (wwidth < wheight) {
+            // portrait
+            headerPanorama.setHfov(50);
+            headerPanorama2.setHfov(50);
+        } else {
+            // landscape
+            headerPanorama.setHfov(100);
+            headerPanorama2.setHfov(100);
+        }
     }
+
 }, false);
 
 
@@ -360,6 +362,7 @@ var onChange = window.addEventListener("resize", function() {
                     $('.menu').fadeOut();
                 }
             });
+            $(document).bind('load', onChange);
         }
 
         $('.fab_button.calendar').click(function(e) {
@@ -382,5 +385,5 @@ var onChange = window.addEventListener("resize", function() {
                 $('.calendar svg').css('filter', 'saturate(0)');
                 $('.calendar-search').addClass('hidden');
             });
-    }).bind('load', onChange);;
+    });
 </script>
