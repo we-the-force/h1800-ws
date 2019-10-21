@@ -72,7 +72,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="tel:+52-869-696-0530">
+                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="https://wa.me/+5218662376908">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -163,7 +163,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="tel:+52-869-696-0530">
+                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="https://wa.me/+5218662376908">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -257,7 +257,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="tel:+52-869-696-0530">
+                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="https://wa.me/+5218662376908">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -351,7 +351,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="tel:+52-869-696-0530">
+                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="https://wa.me/+5218662376908">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
