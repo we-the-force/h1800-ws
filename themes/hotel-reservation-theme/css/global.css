@@ -306,6 +306,42 @@ table {
     transition: transform 0.4s, opacity 1s, filter 0.4s;
 }
 
+@media (max-width: 768px) {
+    #index #splash .side {
+        position: relative;
+        width: 100%;
+        height: 50%;
+        left: 0;
+    }
+    #index #splash .side .skew {
+        left: 0;
+        right: 0;
+        width: 100%;
+        -webkit-transform: skewX(0deg);
+        transform: skewX(0deg);
+        border: none;
+    }
+    #index #splash .left.side .skew {
+        border-bottom: 3px solid #fff;
+    }
+    #index #splash .right.side .skew {
+        border-top: 3px solid #fff;
+    }
+    #index #splash .logo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        pointer-events: none;
+    }
+    #index #splash .side .skew .skewed-image-cont {
+        padding-left: 0;
+        padding-right: 0;
+        -webkit-transform: skewX(0deg) scale(1);
+        transform: skewX(0deg) scale(1);
+    }
+}
+
 .noselect {
     -webkit-touch-callout: none;
     /* iOS Safari */

@@ -52,7 +52,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
             {/if}
 
             <div id="splash">
-                <div class="left">
+                <div class="left side">
                     <div class="text">
                         <p>HACIENDA 1800</p>
                     </div>
@@ -61,7 +61,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                     </a>
 
                 </div>
-                <div class="right">
+                <div class="right side">
                     <div class="text">
                         <p>PARKS</p>
                     </div>
