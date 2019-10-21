@@ -124,7 +124,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                         </div>
                         <div id="popup" class="popup hidden">
                             <div class="popup-content">
-                                {* {include file="./roomSearchWrapper.tpl"} *} {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} {*
+                                {* {include file="./roomSearchWrapper.tpl"} *} {* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *} {*
                                 <form method="POST" id="search_hotel_block_form"> *} {* <input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}">
                                     <input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}">                                    *} {* <button type="submit" class="btn btn-default button button-medium exclusive" name="search_room_submit" id="search_room_submit">
 									<span>
@@ -164,6 +164,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 									</a>
                                         <div class="calendar-search hidden">
                                             <div class="container">
+												{hook h='displayLeftColumn' mod='wkhotelfiltersearchblock' var='cal'}
                                                 {* {include file="modules/wkroomsearchblock/views/templates/hook/roomSearchWrapper.tpl"} *} {* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *}
                                             </div>
                                         </div>
@@ -325,8 +326,6 @@ var onChange = window.addEventListener("resize", function() {
 
     $(document).ready(function(e) {
 
-
-
         switch ($('body').attr('id')) {
             case "index":
                 $('.menu .nav_menu_padding .home').addClass('active');
@@ -340,6 +339,9 @@ var onChange = window.addEventListener("resize", function() {
             case "activities":
                 $('.menu .nav_menu_padding .parks').addClass('active');
                 break;
+			case "news":
+				$('.menu .nav_menu_padding .news').addClass('active');
+				break;
         }
 
         if ($('body').attr('id') == 'index') {
@@ -377,8 +379,9 @@ var onChange = window.addEventListener("resize", function() {
                 $('.calendar-search').removeClass('hidden');
             },
             function(ev) {
-                $('.calendar svg').css('filter', 'saturate(0)');
-                $('.calendar-search').addClass('hidden');
+                //$('.calendar svg').css('filter', 'saturate(0)');
+                //$('.calendar-search').addClass('hidden');
             });
     }).bind('load', onChange);;
+
 </script>
