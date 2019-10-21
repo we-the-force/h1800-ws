@@ -136,7 +136,7 @@ table {
     border-spacing: 0;
 }
 
-#page {
+#index #page {
     display: none;
 }
 
@@ -156,30 +156,52 @@ table {
 }
 
 #splash {
+    display: none;
+}
+
+#index #splash {
     width: 100%;
-    background-color: red;
     font-family: 'Fieldwork', sans-serif;
     overflow: hidden;
     position: relative;
     height: 100vh;
     font-weight: bold;
     color: white;
-    font-size: 35px;
+    font-size: 45px;
+    display: block;
 }
 
-#splash .logo {
+#index #splash .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    pointer-events: none;
+}
+
+#index #splash .text p {
+    z-index: 2;
+}
+
+#index #splash .logo {
     display: flex;
     align-items: center;
     justify-content: center;
     height: inherit;
 }
 
-#splash .logo img {
+#index #splash .logo img {
     position: absolute;
     z-index: 2;
 }
 
-#splash .left {
+#index #splash .skew {
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+}
+
+#index #splash .left {
     left: 0;
     position: absolute;
     top: 0;
@@ -190,7 +212,7 @@ table {
     transition: transform 1s, -webkit-transform 1s;
 }
 
-#splash .right {
+#index #splash .right {
     left: 50%;
     position: absolute;
     top: 0;
@@ -201,7 +223,7 @@ table {
     transition: transform 1s, -webkit-transform 1s;
 }
 
-#splash .left .skew {
+#index #splash .left .skew {
     left: -40%;
     overflow: hidden;
     position: absolute;
@@ -211,9 +233,10 @@ table {
     -webkit-transform: skewX(-5deg);
     transform: skewX(-5deg);
     background: #000;
+    border-right: 3px solid #fff;
 }
 
-#splash .right .skew {
+#index #splash .right .skew {
     right: -40%;
     overflow: hidden;
     position: absolute;
@@ -223,9 +246,10 @@ table {
     -webkit-transform: skewX(-5deg);
     transform: skewX(-5deg);
     background: #000;
+    border-left: 3px solid #fff;
 }
 
-#splash .right .skew .skewed-image-cont {
+#index #splash .right .skew .skewed-image-cont {
     padding-left: 30%;
     padding-right: 30%;
     -webkit-transform-origin: 0 100%;
@@ -241,16 +265,16 @@ table {
     height: 100%;
     padding: 0 30%;
     color: #fff;
-    -webkit-transform: skewX(5deg);
-    transform: skewX(5deg);
-    transition: opacity 1s, -webkit-transform 1s;
-    transition: transform 1s, opacity 1s;
-    transition: transform 1s, opacity 1s, -webkit-transform 1s;
+    -webkit-transform: skewX(5deg) scale(1);
+    transform: skewX(5deg) scale(1);
+    transition: opacity 1s, -webkit-transform 0.4s;
+    transition: transform 0.4s, opacity 1s;
+    transition: transform 0.4s, opacity 1s, -webkit-transform 0.4s;
     background-size: cover;
+    background-position: 50% 50%;
 }
 
-#splash .left .skew .skewed-image-cont {
-    background-color: green;
+#index #splash .left .skew .skewed-image-cont {
     padding-left: 30%;
     padding-right: 30%;
     -webkit-transform-origin: 100% 0;
@@ -266,12 +290,20 @@ table {
     height: 100%;
     padding: 0 30%;
     color: #fff;
-    -webkit-transform: skewX(5deg);
-    transform: skewX(5deg);
-    transition: opacity 1s, -webkit-transform 1s;
-    transition: transform 1s, opacity 1s;
-    transition: transform 1s, opacity 1s, -webkit-transform 1s;
+    -webkit-transform: skewX(5deg) scale(1);
+    transform: skewX(5deg) scale(1);
+    transition: opacity 1s, -webkit-transform 0.4s;
+    transition: transform 0.4s, opacity 1s;
+    transition: transform 0.4s, opacity 1s, -webkit-transform 0.4s;
     background-size: cover;
+    background-position: 50% 50%;
+}
+
+#index #splash .skew:hover .skewed-image-cont {
+    filter: brightness(0.7);
+    -webkit-transform: skewX(5deg) scale(1.1);
+    transform: skewX(5deg) scale(1.1);
+    transition: transform 0.4s, opacity 1s, filter 0.4s;
 }
 
 .noselect {
@@ -1179,7 +1211,7 @@ header .row #header_logo,
     width: 100%;
 }
 
-#category #center_column{
+#category #center_column {
     width: 75%;
     float: left;
 }

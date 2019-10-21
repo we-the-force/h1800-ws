@@ -53,17 +53,21 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 
             <div id="splash">
                 <div class="left">
-                    <p>HACIENDA 1800</p>
-                    <div class="skew">
-                        <div class="skewed-image-cont" style="background-image: url({$img_ps_dir}splash-left.jpg);"></div>
+                    <div class="text">
+                        <p>HACIENDA 1800</p>
                     </div>
+                    <a class="skew" href="#">
+                        <div class="skewed-image-cont" style="background-image: url({$img_ps_dir}splash-right.jpg);"></div>
+                    </a>
 
                 </div>
                 <div class="right">
-                    <p>PARKS</p>
-                    <div class="skew">
-                        <div class="skewed-image-cont" style="background-image: url({$img_ps_dir}splash-right.jpg);"></div>
+                    <div class="text">
+                        <p>PARKS</p>
                     </div>
+                    <a class="skew" href="{$base_dir}index.php?controller=activities">
+                        <div class="skewed-image-cont" style="background-image: url({$img_ps_dir}splash-left.jpg);"></div>
+                    </a>
 
                 </div>
                 <div class="logo">
@@ -72,6 +76,8 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
             </div>
 
             <div id="page" style="{if $page_name == 'index'}height: 100%;{/if}">
+
+
                 <div class="header-container" style="{if $page_name == 'index'}height: 100%;{/if}">
                     <header id="header" style='{if $page_name == "index"} height: 100%;{else}background-color:#252525;{/if}'>
                         <div class="banner">
@@ -156,13 +162,12 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 										<path d="M30.8098 6.09205H27.2025V3.96626C27.2025 3.45092 26.7515 3 26.2362 3C25.7209 3 25.2699 3.45092 25.2699 3.96626V6.09205H10.7117V3.96626C10.7117 3.45092 10.2608 3 9.74543 3C9.23009 3 8.77917 3.45092 8.77917 3.96626V6.09205H5.17182C3.17489 6.09205 1.5 7.70245 1.5 9.7638V30.8283C1.5 32.8252 3.11048 34.5 5.17182 34.5H30.7454C32.7423 34.5 34.4171 32.8252 34.4171 30.8283V9.7638C34.4816 7.70245 32.8067 6.09205 30.8098 6.09205ZM5.23623 8.02457H8.84357V9.50612C8.84357 10.0215 9.29449 10.4724 9.80983 10.4724C10.3252 10.4724 10.7761 10.0215 10.7761 9.50612V8.02457H25.3343V9.50612C25.3343 10.0215 25.7853 10.4724 26.3006 10.4724C26.8159 10.4724 27.2669 10.0215 27.2669 9.50612V8.02457H30.8742C31.8405 8.02457 32.6135 8.79754 32.6135 9.7638V13.3711H3.5614V9.7638C3.49698 8.79754 4.26997 8.02457 5.23623 8.02457ZM30.8098 32.5675H5.23623C4.26997 32.5675 3.49692 31.7945 3.49692 30.8283V15.3037H32.5491V30.8283C32.5491 31.7945 31.7761 32.5675 30.8098 32.5675Z" fill="#1F70D1"/>
 										</svg>
 									</a>
-									<div class="calendar-search hidden">
-										<div class="container">
-											{* {include file="modules/wkroomsearchblock/views/templates/hook/roomSearchWrapper.tpl"} *}
-											{* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *}
-										</div>
-									</div>
-								</div>
+                                        <div class="calendar-search hidden">
+                                            <div class="container">
+                                                {* {include file="modules/wkroomsearchblock/views/templates/hook/roomSearchWrapper.tpl"} *} {* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *}
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="centered nav_menu_padding">
                                         <div class="home nav_icon">
@@ -245,56 +250,134 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                         <div class="row">
                             {if isset($left_column_size) && !empty($left_column_size)}
                             <div id="left_column" class="column col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</div>
-                            {/if} {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
-                            <div id="center_column" class="center_column col-xs-12 col-sm-9">
+                            {/if}
+                            {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
+                            <div id="center_column" class="center_column col-xs-12 {if $left_column_size eq 0}col-sm-12 {else}col-sm-9 {/if}">
                                 {/if} {addJsDef name=$page.page_name}
-                                <script type="text/javascript">
-                                    $(document).ready(function(e) {
-                                        switch ($('body').attr('id')) {
-                                            case "index":
-                                                $('.menu .nav_menu_padding .home').addClass('active');
-                                                break;
-                                            case "category":
-                                                $('.menu .nav_menu_padding .rooms').addClass('active');
-                                                break;
-                                            case "features":
-                                                $('.menu .nav_menu_padding .amenities').addClass('active');
-                                                break;
-                                            case "activities":
-                                                $('.menu .nav_menu_padding .parks').addClass('active');
-                                                break;
-                                        }
 
-                                        if ($('body').attr('id') == 'index') {
-                                            $('.menu').fadeOut();
-                                            $(window).on("scroll", function(e) {
-                                                if ($(window).scrollTop() > 50) {
-                                                    $('.menu').fadeIn();
-                                                } else {
-                                                    $('.menu').fadeOut();
-                                                }
-                                            });
-                                        }
+<script type="text/javascript">
+function panelInit(){
+    var wheight = $(window).height();
+    var wwidth = $(window).width();
+    var headerPanorama = pannellum.viewer('header-panorama1', {
+        "type": "equirectangular",
+        "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
+        "autoLoad": true,
+        "showControls": false,
+        "vaov": 120,
+        "autoRotate": true,
+        "minXaw": -120,
+        "maxXaw": 120,
+        "minPitch": -55,
+        "maxPitch": 55,
+        "mouseZoom": false,
+        "autoRotateInactivityDelay": 2000
+    });
+    headerPanorama.on('load', function (){
+        console.log('pannellum loaded');
+        $('#header-panorama1').css('opacity','1');
+    })
+    var headerPanorama2 = pannellum.viewer('header-panorama2', {
+        "type": "equirectangular",
+        "panorama": "{$img_ps_dir}hotel_header_panorama2.jpg",
+        "autoLoad": true,
+        "showControls": false,
+        "vaov": 120,
+        "autoRotate": true,
+        "minXaw": -120,
+        "maxXaw": 120,
+        "minPitch": -55,
+        "maxPitch": 55,
+        "mouseZoom": false,
+        "autoRotateInactivityDelay": 2000
+    });
+    headerPanorama2.on('load', function (){
+        console.log('pannellum loaded');
+        $('#header-panorama2').css('opacity','1');
+    })
+    if (wwidth < wheight) {
+        // portrait
+        headerPanorama.setHfov(50);
+        headerPanorama2.setHfov(50);
+    } else {
+        // landscape
+        headerPanorama.setHfov(100);
+        headerPanorama2.setHfov(100);
+    }
 
-                                        $('.fab_button.calendar').click(function(e) {
-                                            console.log('ahoy');
-                                            $('#popup').removeClass('hidden');
-                                        });
+}
+
+var onChange = window.addEventListener("resize", function() {
+    // Get screen size (inner/outerWidth, inner/outerHeight)
+
+    if (wwidth < wheight) {
+        // portrait
+        headerPanorama.setHfov(50);
+        headerPanorama2.setHfov(50);
+    } else {
+        // landscape
+        headerPanorama.setHfov(100);
+        headerPanorama2.setHfov(100);
+    }
+}, false);
 
 
-                                        $(document).click(function(ev) {
-                                            if (ev.target.id == 'popup') {
-                                                $('#popup').addClass('hidden');
-                                            }
-                                        });
+    $(document).ready(function(e) {
 
-                                        $('.calendar').hover(function(ev) {
-                                                $('.calendar svg').css('filter', 'saturate(1)');
-                                                $('.calendar-search').removeClass('hidden');
-                                            },
-                                            function(ev) {
-                                                $('.calendar svg').css('filter', 'saturate(0)');
-                                                $('.calendar-search').addClass('hidden');
-                                            });
-                                    });
-                                </script>
+
+
+        switch ($('body').attr('id')) {
+            case "index":
+                $('.menu .nav_menu_padding .home').addClass('active');
+                break;
+            case "category":
+                $('.menu .nav_menu_padding .rooms').addClass('active');
+                break;
+            case "features":
+                $('.menu .nav_menu_padding .amenities').addClass('active');
+                break;
+            case "activities":
+                $('.menu .nav_menu_padding .parks').addClass('active');
+                break;
+        }
+
+        if ($('body').attr('id') == 'index') {
+            $('#splash .left .skew').on('click', function(e){
+                e.preventDefault();
+                $('#page').css('display','block');
+                panelInit();
+                $('#splash').fadeOut();
+                $(window).bind(onChange);
+            });
+            $('.menu').fadeOut();
+            $(window).on("scroll", function(e) {
+                if ($(window).scrollTop() > 50) {
+                    $('.menu').fadeIn();
+                } else {
+                    $('.menu').fadeOut();
+                }
+            });
+        }
+
+        $('.fab_button.calendar').click(function(e) {
+            console.log('ahoy');
+            $('#popup').removeClass('hidden');
+        });
+
+
+        $(document).click(function(ev) {
+            if (ev.target.id == 'popup') {
+                $('#popup').addClass('hidden');
+            }
+        });
+
+        $('.calendar').hover(function(ev) {
+                $('.calendar svg').css('filter', 'saturate(1)');
+                $('.calendar-search').removeClass('hidden');
+            },
+            function(ev) {
+                $('.calendar svg').css('filter', 'saturate(0)');
+                $('.calendar-search').addClass('hidden');
+            });
+    }).bind('load', onChange);;
+</script>

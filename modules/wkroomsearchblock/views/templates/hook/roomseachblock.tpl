@@ -76,69 +76,8 @@ newer * versions in the future. If you wish to customize this module for your * 
 
     <script>
 
-        var wheight = $(window).height();
-        var wwidth = $(window).width();
-        var headerPanorama = pannellum.viewer('header-panorama1', {
-            "type": "equirectangular",
-            "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
-            "autoLoad": true,
-            "showControls": false,
-            "vaov": 120,
-            "autoRotate": true,
-            "minXaw": -120,
-            "maxXaw": 120,
-            "minPitch": -55,
-            "maxPitch": 55,
-            "mouseZoom": false,
-            "autoRotateInactivityDelay": 2000
-        });
-        headerPanorama.on('load', function (){
-            console.log('pannellum loaded');
-            $('#header-panorama1').css('opacity','1');
-        })
-        var headerPanorama2 = pannellum.viewer('header-panorama2', {
-            "type": "equirectangular",
-            "panorama": "{$img_ps_dir}hotel_header_panorama2.jpg",
-            "autoLoad": true,
-            "showControls": false,
-            "vaov": 120,
-            "autoRotate": true,
-            "minXaw": -120,
-            "maxXaw": 120,
-            "minPitch": -55,
-            "maxPitch": 55,
-            "mouseZoom": false,
-            "autoRotateInactivityDelay": 2000
-        });
-        headerPanorama2.on('load', function (){
-            console.log('pannellum loaded');
-            $('#header-panorama2').css('opacity','1');
-        })
-        if (wwidth < wheight) {
-            // portrait
-            headerPanorama.setHfov(50);
-            headerPanorama2.setHfov(50);
-        } else {
-            // landscape
-            headerPanorama.setHfov(100);
-            headerPanorama2.setHfov(100);
-        }
-        var onChange = window.addEventListener("resize", function() {
-            // Get screen size (inner/outerWidth, inner/outerHeight)
 
-            if (wwidth < wheight) {
-                // portrait
-                headerPanorama.setHfov(50);
-                headerPanorama2.setHfov(50);
-            } else {
-                // landscape
-                headerPanorama.setHfov(100);
-                headerPanorama2.setHfov(100);
-            }
-        }, false);
-        $(document).ready(function() {
-            $(window).bind(onChange);
-        }).bind('load', onChange);
+
         /* $('#hotel_cat_id').val('19');
         $('#id_hotel').val('1'); */
     </script>
