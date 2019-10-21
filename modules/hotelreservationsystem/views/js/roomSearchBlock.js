@@ -57,7 +57,7 @@ $(document).ready(function() {
     /*END*/
     var ajax_check_var = '';
     $('.location_search_results_ul').hide();
-
+    
     $("#check_in_time").datepicker({
         showOtherMonths: true,
         dateFormat: 'dd-mm-yy',
@@ -229,10 +229,12 @@ $(document).ready(function() {
             if (typeof(locationCatId) == 'undefined' || locationCatId == '') {
                 $("#hotel_location").addClass("error_border");
                 error = true;
+                console.log('1');
             }
             $("#id_hotel_button").addClass("error_border");
             $('#select_htl_error_p').text(hotel_name_cond);
             error = true;
+            console.log('2');
         }
         if (check_in_time == '') {
             $("#check_in_time").addClass("error_border");

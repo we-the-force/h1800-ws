@@ -50,8 +50,8 @@
                             {else}
                                 <span id="hotel_cat_name" class="pull-left">{l s='Select Hotel'}</span>
                             {/if}
-                            <input type="hidden" id="hotel_cat_id" name="hotel_cat_id" {if isset($search_data)}value="{$search_data['htl_dtl']['id_category']}"{/if}>
-                            <input type="hidden" id="id_hotel" name="id_hotel" {if isset($search_data)}value="{$search_data['htl_dtl']['id']}"{/if}>
+                            <input type="hidden" id="hotel_cat_id" name="hotel_cat_id" {if isset($search_data)}value="{$search_data['htl_dtl']['0']['id_category']}"{/if}>
+                            <input type="hidden" id="id_hotel" name="id_hotel" {if isset($search_data)}value="{$search_data['htl_dtl']['0']['id']}"{/if}>
                             <input type="hidden" id="max_order_date" name="max_order_date" value="{if isset($max_order_date)}{$max_order_date}{/if}">
                             <span class="arrow_span">
                                 <i class="icon icon-angle-down"></i>
@@ -116,4 +116,14 @@
     {addJsDefL name=check_out_time_cond}{l s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL}
     {addJsDef max_order_date=$max_order_date}
     {addJsDef booking_date_to=$booking_date_to}
+    {addJsDef hotel=$search_data['htl_dtl']}
 {/strip}
+<script type="text/javascript">
+	$(document).ready(function(e){
+        if($('body').attr('id') == 'category'){
+            $('#hotel_cat_id').val("{$search_data['htl_dtl']['id_category']}");
+            $('#id_hotel').val("{$search_data['htl_dtl']['id']}");
+        }
+	});
+
+</script>
