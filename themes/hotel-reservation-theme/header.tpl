@@ -52,7 +52,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
             {/if}
 
             <div id="splash">
-                <div class="left">
+                <div class="left side">
                     <div class="text">
                         <p>HACIENDA 1800</p>
                     </div>
@@ -61,7 +61,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                     </a>
 
                 </div>
-                <div class="right">
+                <div class="right side">
                     <div class="text">
                         <p>PARKS</p>
                     </div>
@@ -259,9 +259,11 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 <script type="text/javascript">
 var wheight = $(window).height();
 var wwidth = $(window).width();
+var headerPanorama2;
+var headerPanorama;
 function panelInit(){
 
-    var headerPanorama = pannellum.viewer('header-panorama1', {
+    headerPanorama = pannellum.viewer('header-panorama1', {
         "type": "equirectangular",
         "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
         "autoLoad": true,
@@ -279,7 +281,7 @@ function panelInit(){
         console.log('pannellum loaded');
         $('#header-panorama1').css('opacity','1');
     })
-    var headerPanorama2 = pannellum.viewer('header-panorama2', {
+    headerPanorama2 = pannellum.viewer('header-panorama2', {
         "type": "equirectangular",
         "panorama": "{$img_ps_dir}hotel_header_panorama2.jpg",
         "autoLoad": true,
@@ -311,16 +313,18 @@ function panelInit(){
 
 var onChange = window.addEventListener("resize", function() {
     // Get screen size (inner/outerWidth, inner/outerHeight)
-
-    if (wwidth < wheight) {
-        // portrait
-        headerPanorama.setHfov(50);
-        headerPanorama2.setHfov(50);
-    } else {
-        // landscape
-        headerPanorama.setHfov(100);
-        headerPanorama2.setHfov(100);
+    if (typeof headerPanorama !== "undefined"){
+        if (wwidth < wheight) {
+            // portrait
+            headerPanorama.setHfov(50);
+            headerPanorama2.setHfov(50);
+        } else {
+            // landscape
+            headerPanorama.setHfov(100);
+            headerPanorama2.setHfov(100);
+        }
     }
+
 }, false);
 
 
@@ -360,6 +364,7 @@ var onChange = window.addEventListener("resize", function() {
                     $('.menu').fadeOut();
                 }
             });
+            $(document).bind('load', onChange);
         }
 
         $('.fab_button.calendar').click(function(e) {
