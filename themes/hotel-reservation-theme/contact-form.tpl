@@ -49,10 +49,10 @@
 	{include file="$tpl_dir./errors.tpl"}
 	<div class="margin-top-50 htl-contact-page">
 		<div class="row">
-			<p class="contact-header col-sm-offset-2 col-sm-8">{l s='Contact Us'}</p>
+			<p class="contact-header col-sm-offset-2 col-sm-8">{l s='Contáctanos'}</p>
 			<p class="contact-desc col-sm-offset-2 col-sm-8">{l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'}</p>
 		</div>
-		<div class="row margin-top-50">
+		<div class="row margin-top-30">
 			{if (isset($gblHtlAddress) && $gblHtlAddress) && (isset($gblHtlPhone) && $gblHtlPhone) && (isset($gblHtlEmail) && $gblHtlEmail)}
 				<div class="col-sm-6">
 					<div class="htl-global-address-div col-md-8 col-sm-12">
@@ -102,7 +102,7 @@
 						<div class="form-group row">
 							<div class="col-sm-12">
 								<label for="message" class="control-label">
-									{l s='Subject'}
+									{l s='Tema'}
 								</label>
 								<div class="dropdown">
 		                            <button class="form-control contact_type_input" type="button" data-toggle="dropdown">
@@ -130,7 +130,7 @@
 					<div class="form-group row">
 						<div class="col-sm-12">
 							<label for="price" class="control-label">
-								{l s='Email'}
+								{l s='Correo'}
 							</label>
 							{if isset($customerThread.email)}
 								<input class="form-control contact_input" type="email" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
@@ -141,8 +141,8 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-12">
-							<label for="message" class="control-label">
-								{l s='Message/Query'}
+							<label for="message" class="control-label msg">
+								{l s='Mensaje'}
 							</label>
 							<textarea class="form-control contact_textarea" id="message" name="message">{if isset($message)}{$message|escape:'html':'UTF-8'|stripslashes}{/if}</textarea>
 						</div>
@@ -150,8 +150,8 @@
 					{if $fileupload == 1}
 						<div class="form-group row">
 							<div class="col-sm-12">
-								<label for="fileUpload" class="control-label">
-									{l s='Attach File'}
+								<label for="fileUpload" class="control-label attch">
+									{l s='Adjuntar un archivo'}
 								</label>
 								<input type="hidden" name="MAX_FILE_SIZE" value="{if isset($max_upload_size) && $max_upload_size}{$max_upload_size|intval}{else}2000000{/if}" />
 								<input type="file" name="fileUpload" id="fileUpload" class="form-control" />
@@ -167,7 +167,7 @@
 				</form>
 			</div>
 		</div>
-		{if isset($hotelsInfo) && $hotelsInfo}
+		{* {if isset($hotelsInfo) && $hotelsInfo}
 			<div class="row hotels-container">
 				<div class="col-sm-12 hotel-header">
 					<span>{l s='Our Hotels'}</span>
@@ -202,7 +202,7 @@
 					</div>
 				{/foreach}
 			</div>
-		{/if}
+		{/if} *}
 		{if isset($hotelLocationArray)}
 			<div class="row">
 				<div class="col-xs-12 col-sm-12" id="googleMapWrapper">
