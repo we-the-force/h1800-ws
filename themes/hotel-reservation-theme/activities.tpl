@@ -81,7 +81,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://wa.me/+5218662376908" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -172,7 +172,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://wa.me/+5218662376908" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -266,7 +266,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://wa.me/+5218662376908" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -360,7 +360,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://wa.me/+5218662376908" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
