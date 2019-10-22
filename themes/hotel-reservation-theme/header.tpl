@@ -141,7 +141,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                                         </a>
                                     </div> *}
                                     <div class="calendar nav_menu_padding pull-left">
-                                        <a href="">
+                                        <a>
 										{* <img class="img-calendar" src="themes/hotel-reservation-theme/img/Calendar.svg" /> *}
 										<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M10.5828 23.0337C8.84357 23.0337 7.42645 21.6166 7.42645 19.8773C7.42645 18.1381 8.84357 16.7209 10.5828 16.7209C12.3221 16.7209 13.7393 18.1381 13.7393 19.8773C13.7393 21.681 12.3221 23.0337 10.5828 23.0337ZM10.5828 18.0736C9.55216 18.0736 8.7148 18.9111 8.7148 19.9417C8.7148 20.9724 9.55216 21.8099 10.5828 21.8099C11.6135 21.8099 12.4509 20.9724 12.4509 19.9417C12.4509 18.9111 11.6135 18.0736 10.5828 18.0736Z" fill="#1F70D1"/>
@@ -375,8 +375,10 @@ var onChange = window.addEventListener("resize", function() {
                 $('.calendar-search').removeClass('hidden');
             },
             function(ev) {
-                //$('.calendar svg').css('filter', 'saturate(0)');
-                //$('.calendar-search').addClass('hidden');
+                if($('#ui-datepicker-div').css('display') == 'none'){
+                $('.calendar svg').css('filter', 'saturate(0)');
+                $('.calendar-search').addClass('hidden');
+                }
             });
     }).bind('load', onChange);;
 
