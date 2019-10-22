@@ -58,6 +58,44 @@ $(document).ready(function() {
     var ajax_check_var = '';
     $('.location_search_results_ul').hide();
 
+    $("#check_in_time_mob").datepicker({
+        showOtherMonths: true,
+        dateFormat: 'dd-mm-yy',
+        minDate: 0,
+        //for calender Css
+        beforeShowDay: function (date) {
+            return highlightDateBorder($("#check_in_time_mob").val(), date);
+        },
+        onSelect: function(selectedDate) {
+            var date_format = selectedDate.split("-");
+            var selectedDate = new Date($.datepicker.formatDate('yy-mm-dd', new Date(date_format[2], date_format[1] - 1, date_format[0])));
+            selectedDate.setDate(selectedDate.getDate() + 1);
+            $("#check_out_time_mob").datepicker("option", "minDate", selectedDate);
+        },
+    });
+
+    $("#check_out_time_mob").datepicker({
+        showOtherMonths: true,
+        dateFormat: 'dd-mm-yy',
+        //for calender Css
+        beforeShowDay: function (date) {
+            return highlightDateBorder($("#check_out_time_mob").val(), date);
+        },
+        beforeShow: function (input, instance) {
+            var date_to = $('#check_in_time_mob').val();
+            if (typeof date_to != 'undefined' && date_to != '') {
+                var date_format = date_to.split("-");
+                var selectedDate = new Date($.datepicker.formatDate('yy-mm-dd', new Date(date_format[2], date_format[1] - 1, date_format[0])));
+                selectedDate.setDate(selectedDate.getDate()+1);
+                $("#check_out_time_mob").datepicker("option", "minDate", selectedDate);
+            } else {
+                var date_format = new Date();
+                var selectedDate = new Date($.datepicker.formatDate('yy-mm-dd', new Date()));
+                selectedDate.setDate(selectedDate.getDate()+1);
+                $("#check_out_time_mob").datepicker("option", "minDate", selectedDate);
+            }
+        }
+    });
 
     $("#check_in_time2").datepicker({
         showOtherMonths: true,
@@ -142,9 +180,11 @@ $(document).ready(function() {
         max_order_date_cal = new Date(max_order_date);
         $("#check_out_time").datepicker("option", "maxDate", new Date(max_order_date));
         $("#check_out_time2").datepicker("option", "maxDate", new Date(max_order_date));
+        $("#check_out_time_mob").datepicker("option", "maxDate", new Date(max_order_date));
         max_order_date_cal.setDate(max_order_date_cal.getDate() - 1);
         $("#check_in_time").datepicker("option", "maxDate", max_order_date_cal);
         $("#check_in_time2").datepicker("option", "maxDate", max_order_date_cal);
+        $("#check_in_time_mob").datepicker("option", "maxDate", max_order_date_cal);
     }
 
     function abortRunningAjax() {
@@ -208,6 +248,8 @@ $(document).ready(function() {
                     $('#hotel_cat_name').html('Select Hotel');
                     $('#hotel_cat_id2').val('');
                     $('#hotel_cat_name2').html('Select Hotel');
+                    $('#hotel_cat_id_mob').val('');
+                    $('#hotel_cat_name_mob').html('Select Hotel');
                     $('.hotel_dropdown_ul').empty();
                     $('.hotel_dropdown_ul').html(result.data);
                 } else {
@@ -223,14 +265,20 @@ $(document).ready(function() {
         $("#check_out_time").datepicker("option", "maxDate", new Date(max_order_date));
         $("#check_in_time2").datepicker("option", "maxDate", new Date(max_order_date));
         $("#check_out_time2").datepicker("option", "maxDate", new Date(max_order_date));
+        $("#check_in_time_mob").datepicker("option", "maxDate", new Date(max_order_date));
+        $("#check_out_time_mob").datepicker("option", "maxDate", new Date(max_order_date));
         $("#max_order_date").val(max_order_date);
         $("#max_order_date2").val(max_order_date);
+        $("#max_order_date_mob").val(max_order_date);
         $('#id_hotel').val($(this).attr('data-id-hotel'));
         $('#hotel_cat_id').val($(this).attr('data-hotel-cat-id'));
         $('#hotel_cat_name').html($(this).html());
         $('#id_hotel2').val($(this).attr('data-id-hotel'));
         $('#hotel_cat_id2').val($(this).attr('data-hotel-cat-id'));
         $('#hotel_cat_name2').html($(this).html());
+        $('#id_hotel_mob').val($(this).attr('data-id-hotel'));
+        $('#hotel_cat_id_mob').val($(this).attr('data-hotel-cat-id'));
+        $('#hotel_cat_name_mob').html($(this).html());
     });
 
     $(".hotel_cat_id_btn").on("click", function() {
@@ -253,6 +301,12 @@ $(document).ready(function() {
         $("#check_out_time2").datepicker("option", "maxDate", new Date(max_order_date2));
     }
 
+    var max_order_date_mob = $('#max_order_date_mob').val();
+    if (max_order_date_mob != '') {
+        $("#check_in_time_mob").datepicker("option", "maxDate", new Date(max_order_date_mob));
+        $("#check_out_time_mob").datepicker("option", "maxDate", new Date(max_order_date_mob));
+    }
+
     $("#check_in_time, #check_out_time").on("focus", function() {
         if ($(this).hasClass("error_border")) {
             $(this).removeClass("error_border");
@@ -270,6 +324,16 @@ $(document).ready(function() {
                 $("#check_in_time_error_p2").empty();
             else if ($(this).attr("name") == "check_out_time2")
                 $("#check_out_time_error_p2").empty();
+        }
+    });
+
+    $("#check_in_time_mob, #check_out_time_mob").on("focus", function() {
+        if ($(this).hasClass("error_border")) {
+            $(this).removeClass("error_border");
+            if ($(this).attr("name") == "check_in_time_mob")
+                $("#check_in_time_error_p_mob").empty();
+            else if ($(this).attr("name") == "check_out_time_mob")
+                $("#check_out_time_error_p_mob").empty();
         }
     });
 
@@ -330,8 +394,7 @@ $(document).ready(function() {
             error = true;
         }
         if (error){
-
-            return false;
+            return true;
         }
         else{            
             return true;
@@ -339,6 +402,7 @@ $(document).ready(function() {
     });
 
     $('#filter_search_btn2').on('click', function(e) {
+
         var check_in_time = $("#check_in_time2").val();
         var check_out_time = $("#check_out_time2").val();
 
@@ -392,6 +456,72 @@ $(document).ready(function() {
         } else if (max_order_date_format < new_chk_out) {
             $("#check_out_time2").addClass("error_border");
             $('#check_out_time_error_p2').text(max_order_date_err + ' ' + max_order_date);
+            error = true;
+        }
+        if (error){
+
+            return false;
+        }
+        else{            
+            return true;
+        }
+    });
+
+    $('#filter_search_btn_mob').on('click', function(e) {
+
+        var check_in_time = $("#check_in_time_mob").val();
+        var check_out_time = $("#check_out_time_mob").val();
+
+        var date_format_check_in = check_in_time.split("-");
+        var new_chk_in = new Date($.datepicker.formatDate('yy-mm-dd', new Date(date_format_check_in[2], date_format_check_in[1] - 1, date_format_check_in[0])));
+        var date_format_check_out = check_out_time.split("-");
+        var new_chk_out = new Date($.datepicker.formatDate('yy-mm-dd', new Date(date_format_check_out[2], date_format_check_out[1] - 1, date_format_check_out[0])));
+        var max_order_date = $("#max_order_date_mob").val();
+        var max_order_date_format = $.datepicker.formatDate('yy-mm-dd', new Date(max_order_date));
+
+        var error = false;
+
+        var locationCatId = $('#hotel_location').attr('city_cat_id');
+        var hotelCatId = $('#hotel_cat_id_mob').val();
+
+
+        $('.header-rmsearch-input').removeClass("error_border");
+
+        if (hotelCatId == '') {
+            if (typeof(locationCatId) == 'undefined' || locationCatId == '') {
+                $("#hotel_location").addClass("error_border");
+                error = true;
+                console.log('1');
+            }
+            $("#id_hotel_button").addClass("error_border");
+            $('#select_htl_error_p').text(hotel_name_cond);
+            error = true;
+            console.log('2');
+        }
+        if (check_in_time == '') {
+            $("#check_in_time_mob").addClass("error_border");
+            $('#check_in_time_error_p_mob').text(check_in_time_cond);
+            error = true;
+        } else if (new_chk_in < $.datepicker.formatDate('yy-mm-dd', new Date())) {
+            $("#check_in_time_mob").addClass("error_border");
+            $('#check_in_time_error_p_mob').text(less_checkin_date);
+            error = true;
+        }
+        if (check_out_time == '') {
+            $("#check_out_time_mob").addClass("error_border");
+            $('#check_out_time_error_p_mob').text(check_out_time_cond);
+            error = true;
+        } else if (new_chk_out < new_chk_in) {
+            $("#check_out_time_mob").addClass("error_border");
+            $('#check_out_time_error_p_mob').text(more_checkout_date);
+            error = true;
+        } else if (max_order_date_format < new_chk_in) {
+            $("#check_in_time_mob").addClass("error_border");
+            $('#check_in_time_error_p_mob').text(max_order_date_err + ' ' + max_order_date);
+            error = true;
+        } else if (max_order_date_format < new_chk_out) {
+            $("#check_out_time_mob").addClass("error_border");
+            $('#check_out_time_error_p_mob').text(max_order_date_err + ' ' + max_order_date);
             error = true;
         }
         if (error){

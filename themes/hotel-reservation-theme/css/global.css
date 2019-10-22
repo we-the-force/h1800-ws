@@ -12521,7 +12521,7 @@ div.star.star_hover:after {
     margin-top: -6px;
 }
 
-.menu .calendar #filter_search_block .btn_filter_search {
+.menu .calendar #filter_search_block .btn_filter_search2 {
     width: 33%;
     height: 40px;
     display: inline-block;
@@ -12547,8 +12547,8 @@ div.star.star_hover:after {
     top: -8px;
 }
 
-.menu .calendar #check_in_time,
-.menu .calendar #check_out_time {
+.menu .calendar #check_in_time2,
+.menu .calendar #check_out_time2 {
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
     border-radius: 330px !important;
     margin-bottom: 15px;
@@ -12630,8 +12630,8 @@ div.star.star_hover:after {
         left: 27px;
         top: -8px;
     }
-    .popup-content #check_in_time,
-    .popup-content #check_out_time {
+    .popup-content #check_in_time_mob,
+    .popup-content #check_out_time_mob {
         box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
         border-radius: 330px !important;
         margin-bottom: 15px;

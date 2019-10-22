@@ -46,13 +46,13 @@
                     <div class="dropdown">
                         <button class="btn btn-default hotel_cat_id_btn dropdown-toggle" type="button" data-toggle="dropdown">
                             {if isset($search_data)}
-                                <span id="hotel_cat_name2" class="pull-left">{$search_data['htl_dtl']['hotel_name']}</span>
+                                <span id="hotel_cat_name_mob" class="pull-left">{$search_data['htl_dtl']['hotel_name']}</span>
                             {else}
-                                <span id="hotel_cat_name2" class="pull-left">{l s='Select Hotel'}</span>
+                                <span id="hotel_cat_name_mob" class="pull-left">{l s='Select Hotel'}</span>
                             {/if}
-                            <input type="hidden" id="hotel_cat_id2" name="hotel_cat_id2" {if isset($search_data)}value="{$search_data['htl_dtl']['0']['id_category']}"{/if}>
-                            <input type="hidden" id="id_hotel2" name="id_hotel2" {if isset($search_data)}value="{$search_data['htl_dtl']['0']['id']}"{/if}>
-                            <input type="hidden" id="max_order_date2" name="max_order_date2" value="{if isset($max_order_date)}{$max_order_date}{/if}">
+                            <input type="hidden" id="hotel_cat_id_mob" name="hotel_cat_id_mob" {if isset($search_data)}value="{$search_data['htl_dtl']['0']['id_category']}"{/if}>
+                            <input type="hidden" id="id_hotel_mob" name="id_hotel_mob" {if isset($search_data)}value="{$search_data['htl_dtl']['0']['id']}"{/if}>
+                            <input type="hidden" id="max_order_date_mob" name="max_order_date_mob" value="{if isset($max_order_date)}{$max_order_date}{/if}">
                             <span class="arrow_span">
                                 <i class="icon icon-angle-down"></i>
                             </span>
@@ -73,25 +73,25 @@
             <div class="form-group inputs_filter_search">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                        <label class="control-label" for="check_in_time2">{l s='Check In Time' mod='wkroomsearchblock'}</label>
+                        <label class="control-label" for="check_in_time_mob">{l s='Check In Time' mod='wkroomsearchblock'}</label>
                         <div class="input-group">
-                            <input class="form-control" type="text" id="check_in_time2" name="check_in_time2" {if isset($search_data)}value="{$search_data['date_from']}"{/if}/>
-                            <label class="input-group-addon" for="check_in_time2"><i class="icon-calendar"></i></label>
+                            <input class="form-control" type="text" id="check_in_time_mob" name="check_in_time_mob" {if isset($search_data)}value="{$search_data['date_from']}"{/if}/>
+                            <label class="input-group-addon" for="check_in_time_mob"><i class="icon-calendar"></i></label>
                         </div>
-                        <p class="error_msg" id="check_in_time_error_p2"></p>
+                        <p class="error_msg" id="check_in_time_error_p_mob"></p>
                     </div>
                     <div class="col-xs-12 col-sm-12 margin-top-10">
-                        <label class="control-label" for="check_out_time2">{l s='Check Out Time' mod='wkroomsearchblock'}</label>
+                        <label class="control-label" for="check_out_time_mob">{l s='Check Out Time' mod='wkroomsearchblock'}</label>
                         <div class="input-group">
-                            <input class="form-control" type="text" id="check_out_time2" name="check_out_time2" {if isset($search_data)}value="{$search_data['date_to']}"{/if} />
-                            <label class="input-group-addon" for="check_out_time2"><i class="icon-calendar"></i></label>
+                            <input class="form-control" type="text" id="check_out_time_mob" name="check_out_time_mob" {if isset($search_data)}value="{$search_data['date_to']}"{/if} />
+                            <label class="input-group-addon" for="check_out_time_mob"><i class="icon-calendar"></i></label>
                         </div>
-                        <p class="error_msg" id="check_out_time_error_p2"></p>
+                        <p class="error_msg" id="check_out_time_error_p_mob"></p>
                     </div>
                 </div>
             </div>
             <div class="btn_filter_search2">
-                <button type="submit" name="filter_search_btn2" class="btn btn-default button button-medium exclusive" id="filter_search_btn2">
+                <button type="submit" name="filter_search_btn_mob" class="btn btn-default button button-medium exclusive" id="filter_search_btn_mob">
                     <span>{l s='Search' mod='wkhotelfiltersearchblock'}</span>
                 </button>
             </div>
@@ -121,8 +121,8 @@
 <script type="text/javascript">
 	$(document).ready(function(e){
         if($('body').attr('id') == 'category'){
-            $('#hotel_cat_id2').val("{$search_data['htl_dtl']['id_category']}");
-            $('#id_hotel2').val("{$search_data['htl_dtl']['id']}");
+            $('#hotel_cat_id_mob').val("{$search_data['htl_dtl']['id_category']}");
+            $('#id_hotel_mob').val("{$search_data['htl_dtl']['id']}");
         }
 	});
 

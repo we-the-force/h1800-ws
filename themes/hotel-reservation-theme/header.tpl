@@ -29,7 +29,9 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 					<![endif]-->
             {else}
             <link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css" media="{$media|escape:'html':'UTF-8'}" /> {/if} {/foreach} {/if} {if isset($js_defer) && !$js_defer && isset($js_files) && isset($js_def)} {$js_def} {foreach from=$js_files item=js_uri}
+            <link rel="stylesheet" href="modules/hotelreservationsystem/views/css/datepickerCustom.css">
             <script type="text/javascript" src="{$js_uri|escape:'html':'UTF-8'}"></script>
+            <script type="text/javascript" src="modules/hotelreservationsystem/views/js/roomSearchBlock.js"></script>
             {/foreach} {/if} {$HOOK_HEADER}
             <!-- <link rel="stylesheet" href="http{if Tools::usingSecureMode()}s{/if}://fonts.googleapis.com/css?family=Open+Sans:300,600&amp;subset=latin,latin-ext" type="text/css" media="all" /> -->
 
@@ -124,18 +126,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                         </div>
                         <div id="popup" class="popup hidden">
                             <div class="popup-content">
-                                {* {include file="./roomSearchWrapper.tpl"} *} {* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *} {*
-                                <form method="POST" id="search_hotel_block_form"> *} {* <input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}">
-                                    <input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}">                                    *} {* <button type="submit" class="btn btn-default button button-medium exclusive" name="search_room_submit" id="search_room_submit">
-									<span>
-									{if $lang_iso == 'es'}
-										{l s='Buscar'}
-									{elseif $lang_iso == 'en'}
-										{l s='Search Now'}
-									{/if}
-									</span>
-								</button>
-                                </form> *}
+                                {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock' var='mob'}
                             </div>
                         </div>
 
