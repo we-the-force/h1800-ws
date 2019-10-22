@@ -413,3 +413,11 @@
     color: #e85757;
     font-size: 18px;
 }
+
+@media (max-width: 767px) {
+    #left_column {
+        position: relative;
+        top: 0;
+        padding-top: 35px;
+    }
+}

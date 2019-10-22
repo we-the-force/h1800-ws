@@ -1770,6 +1770,7 @@ Quick View Styles
     display: flex;
     align-items: center;
     color: #003380;
+    margin-top: 5px;
 }
 
 .total_price_block label {
