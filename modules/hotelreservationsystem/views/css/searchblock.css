@@ -4,6 +4,7 @@
     height: 80px;
     justify-content: center;
     padding-top: 80px;
+    pointer-events: all;
 }
 
 .header-rmsearch-hide-xs {
@@ -437,5 +438,5 @@
 }
 
 #index .header-desc-primary {
-    pointer-events: unset;
+    pointer-events: none;
 }
