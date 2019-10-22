@@ -308,6 +308,10 @@ table {
     transition: transform 0.4s, opacity 1s, filter 0.4s;
 }
 
+#index #splash .side .skew .skewed-image-cont {
+    background-color: #5C6C83;
+}
+
 @media (max-width: 768px) {
     #index #splash .side {
         position: relative;

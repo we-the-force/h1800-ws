@@ -65,7 +65,14 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                 </div>
                 <div class="right side">
                     <div class="text">
-                        <p>PARKS</p>
+
+                        <p>
+                        {if $lang_iso == 'es'}
+                            PARQUES
+                        {elseif $lang_iso == 'en'}
+                            PARKS
+                        {/if}
+                        </p>
                     </div>
                     <a class="skew" href="{$base_dir}index.php?controller=activities">
                         <div class="skewed-image-cont" style="background-image: url({$img_ps_dir}splash-left.jpg);"></div>
