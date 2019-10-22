@@ -29,7 +29,9 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 					<![endif]-->
             {else}
             <link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css" media="{$media|escape:'html':'UTF-8'}" /> {/if} {/foreach} {/if} {if isset($js_defer) && !$js_defer && isset($js_files) && isset($js_def)} {$js_def} {foreach from=$js_files item=js_uri}
+            <link rel="stylesheet" href="modules/hotelreservationsystem/views/css/datepickerCustom.css">
             <script type="text/javascript" src="{$js_uri|escape:'html':'UTF-8'}"></script>
+            <script type="text/javascript" src="modules/hotelreservationsystem/views/js/roomSearchBlock.js"></script>
             {/foreach} {/if} {$HOOK_HEADER}
             <!-- <link rel="stylesheet" href="http{if Tools::usingSecureMode()}s{/if}://fonts.googleapis.com/css?family=Open+Sans:300,600&amp;subset=latin,latin-ext" type="text/css" media="all" /> -->
 
@@ -131,18 +133,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                         </div>
                         <div id="popup" class="popup hidden">
                             <div class="popup-content">
-                                {* {include file="./roomSearchWrapper.tpl"} *} {* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *} {*
-                                <form method="POST" id="search_hotel_block_form"> *} {* <input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}">
-                                    <input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}">                                    *} {* <button type="submit" class="btn btn-default button button-medium exclusive" name="search_room_submit" id="search_room_submit">
-									<span>
-									{if $lang_iso == 'es'}
-										{l s='Buscar'}
-									{elseif $lang_iso == 'en'}
-										{l s='Search Now'}
-									{/if}
-									</span>
-								</button>
-                                </form> *}
+                                {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock' var='mob'}
                             </div>
                         </div>
 
@@ -157,7 +148,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                                         </a>
                                     </div> *}
                                     <div class="calendar nav_menu_padding pull-left">
-                                        <a href="">
+                                        <a>
 										{* <img class="img-calendar" src="themes/hotel-reservation-theme/img/Calendar.svg" /> *}
 										<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M10.5828 23.0337C8.84357 23.0337 7.42645 21.6166 7.42645 19.8773C7.42645 18.1381 8.84357 16.7209 10.5828 16.7209C12.3221 16.7209 13.7393 18.1381 13.7393 19.8773C13.7393 21.681 12.3221 23.0337 10.5828 23.0337ZM10.5828 18.0736C9.55216 18.0736 8.7148 18.9111 8.7148 19.9417C8.7148 20.9724 9.55216 21.8099 10.5828 21.8099C11.6135 21.8099 12.4509 20.9724 12.4509 19.9417C12.4509 18.9111 11.6135 18.0736 10.5828 18.0736Z" fill="#1F70D1"/>
@@ -391,8 +382,10 @@ var onChange = window.addEventListener("resize", function() {
                 $('.calendar-search').removeClass('hidden');
             },
             function(ev) {
-                //$('.calendar svg').css('filter', 'saturate(0)');
-                //$('.calendar-search').addClass('hidden');
+                if($('#ui-datepicker-div').css('display') == 'none'){
+                $('.calendar svg').css('filter', 'saturate(0)');
+                $('.calendar-search').addClass('hidden');
+                }
             });
     }).bind('load', onChange);;
 
