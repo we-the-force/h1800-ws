@@ -72,7 +72,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="https://wa.me/+5218662376908">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://wa.me/+5218662376908" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -81,7 +81,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium ajax_add_to_cart_button pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -163,7 +163,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="https://wa.me/+5218662376908">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://wa.me/+5218662376908" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -172,7 +172,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium ajax_add_to_cart_button pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -257,7 +257,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="https://wa.me/+5218662376908">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://wa.me/+5218662376908" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -266,7 +266,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium ajax_add_to_cart_button pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -351,7 +351,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium ajax_add_to_cart_button pull-right visible-xs-block" href="https://wa.me/+5218662376908">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://wa.me/+5218662376908" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -360,7 +360,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium ajax_add_to_cart_button pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="{$base_dir}/index.php?id_cms=4&controller=cms">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
