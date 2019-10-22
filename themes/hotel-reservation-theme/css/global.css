@@ -12752,7 +12752,7 @@ div.star.star_hover:after {
     .menu .container .centered {
         margin-left: -10px;
     }
-    .menu .container .news {
+    .menu .container .news,.menu .container .contact {
         display: none !important;
     }
     .menu .container .clearfix.nav_menu_padding {
