@@ -7,13 +7,14 @@
   // include_once _PS_MODULE_DIR_.'hotelreservationsystem/define.php';
   class FeaturesController extends FrontController{
     public $php_self = 'features';
+    public $display_column_left = false;
+    public $display_left_column = false;
+
     public function init(){
       parent::init();
     }
-    public $display_column_left = false;
 
     public function initContent(){
-
       parent::initContent();
       $this->setTemplate(_PS_THEME_DIR_.'features.tpl');
 

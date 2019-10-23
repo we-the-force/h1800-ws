@@ -1,7 +1,39 @@
 {* * 2010-2018 Webkul. * * NOTICE OF LICENSE * * All right is reserved, * Please go through this link for complete license : https://store.webkul.com/license.html * * DISCLAIMER * * Do not edit or add to this file if you wish to upgrade this module to
 newer * versions in the future. If you wish to customize this module for your * needs please refer to https://store.webkul.com/customisation-guidelines/ for more information. * * @author Webkul IN
 <support@webkul.com>
-    * @copyright 2010-2018 Webkul IN * @license https://store.webkul.com/license.html *}
+    * @copyright 2010-2018 Webkul IN * @license https://store.webkul.com/license.html *} {if $smarty.get.controller eq "features"}
+    <div id="hotelAmenitiesBlock" class="row home_block_container">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            {if $hotelAmenities} {foreach from=$hotelAmenities item=amenity name=amenityBlock}
+            <div class="row amenity no-gutters">
+                <div class="col-xs-12 col-md-8 col-lg-8 nopadding">
+                    <div class="media d-block" style="background-image: url({$module_dir|escape:'htmlall':'UTF-8'}views/img/hotels_features_img/{$amenity.id_features_block|escape:'htmlall':'UTF-8'}.jpg)">
+
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div class="media-body">
+
+
+                        <h2 class="media-heading">{$amenity['feature_title']|escape:'htmlall':'UTF-8'}</h2>
+                        <hr>
+                        <p>
+                            {$amenity['feature_description']|escape:'htmlall':'UTF-8'}
+                        </p>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            {/foreach} {/if}
+        </div>
+    </div>
+    {else}
 
     <div id="hotelAmenitiesBlock" class="row home_block_container">
         <div class="col-xs-12 col-sm-12 home_amenities_wrapper">
@@ -18,7 +50,7 @@ newer * versions in the future. If you wish to customize this module for your * 
             <div class="row homeAmenitiesBlock home_block_content">
 
 
-                <div id="carouselExampleControls" class=" slide" >
+                <div id="carouselExampleControls" class=" slide">
                     <div class="carousel-inner">
                         {assign var='counter' value=1} {foreach from=$hotelAmenities item=amenity name=amenityBlock} {if $counter == 1}
                         <div class="carousel-item active">
@@ -42,7 +74,8 @@ newer * versions in the future. If you wish to customize this module for your * 
                                                     Ver más...
                                                 </a>
                                             </div>
-                                            {* <div class="col-md-3 col-lg-3">
+                                            {*
+                                            <div class="col-md-3 col-lg-3">
                                                 <a href="" class="btn button btn-default ">
                                                     <span>Conocer más</span>
                                                 </a>
@@ -94,7 +127,9 @@ newer * versions in the future. If you wish to customize this module for your * 
             </div>
             <hr class="home_block_seperator" />
         </div>
+
+
+        {/if}
         <script>
-            $(document).ready(function() {
-            });
+            $(document).ready(function() {});
         </script>

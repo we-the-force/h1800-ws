@@ -29,7 +29,9 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 					<![endif]-->
             {else}
             <link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css" media="{$media|escape:'html':'UTF-8'}" /> {/if} {/foreach} {/if} {if isset($js_defer) && !$js_defer && isset($js_files) && isset($js_def)} {$js_def} {foreach from=$js_files item=js_uri}
+            <link rel="stylesheet" href="modules/hotelreservationsystem/views/css/datepickerCustom.css">
             <script type="text/javascript" src="{$js_uri|escape:'html':'UTF-8'}"></script>
+            <script type="text/javascript" src="modules/hotelreservationsystem/views/js/roomSearchBlock.js"></script>
             {/foreach} {/if} {$HOOK_HEADER}
             <!-- <link rel="stylesheet" href="http{if Tools::usingSecureMode()}s{/if}://fonts.googleapis.com/css?family=Open+Sans:300,600&amp;subset=latin,latin-ext" type="text/css" media="all" /> -->
 
@@ -63,7 +65,14 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                 </div>
                 <div class="right side">
                     <div class="text">
-                        <p>PARKS</p>
+
+                        <p>
+                        {if $lang_iso == 'es'}
+                            PARQUES
+                        {elseif $lang_iso == 'en'}
+                            PARKS
+                        {/if}
+                        </p>
                     </div>
                     <a class="skew" href="{$base_dir}index.php?controller=activities">
                         <div class="skewed-image-cont" style="background-image: url({$img_ps_dir}splash-left.jpg);"></div>
@@ -124,18 +133,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                         </div>
                         <div id="popup" class="popup hidden">
                             <div class="popup-content">
-                                {* {include file="./roomSearchWrapper.tpl"} *} {* {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock'} *} {*
-                                <form method="POST" id="search_hotel_block_form"> *} {* <input type="text" class="form-control header-rmsearch-input input-date" id="check_in_time" name="check_in_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}">
-                                    <input type="text" class="form-control header-rmsearch-input input-date" id="check_out_time" name="check_out_time" autocomplete="off" placeholder="{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}">                                    *} {* <button type="submit" class="btn btn-default button button-medium exclusive" name="search_room_submit" id="search_room_submit">
-									<span>
-									{if $lang_iso == 'es'}
-										{l s='Buscar'}
-									{elseif $lang_iso == 'en'}
-										{l s='Search Now'}
-									{/if}
-									</span>
-								</button>
-                                </form> *}
+                                {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock' var='mob'}
                             </div>
                         </div>
 
@@ -150,7 +148,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                                         </a>
                                     </div> *}
                                     <div class="calendar nav_menu_padding pull-left">
-                                        <a href="">
+                                        <a>
 										{* <img class="img-calendar" src="themes/hotel-reservation-theme/img/Calendar.svg" /> *}
 										<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M10.5828 23.0337C8.84357 23.0337 7.42645 21.6166 7.42645 19.8773C7.42645 18.1381 8.84357 16.7209 10.5828 16.7209C12.3221 16.7209 13.7393 18.1381 13.7393 19.8773C13.7393 21.681 12.3221 23.0337 10.5828 23.0337ZM10.5828 18.0736C9.55216 18.0736 8.7148 18.9111 8.7148 19.9417C8.7148 20.9724 9.55216 21.8099 10.5828 21.8099C11.6135 21.8099 12.4509 20.9724 12.4509 19.9417C12.4509 18.9111 11.6135 18.0736 10.5828 18.0736Z" fill="#1F70D1"/>
@@ -229,6 +227,19 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 
                                                 <p>
                                                     {if $lang_iso == 'es'} {l s='NOTICIAS'} {elseif $lang_iso == 'en'} {l s='NEWS'} {/if}
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <div class="contact nav_icon .hidden-xs .hidden-sm">
+                                            <a href="{$base_dir}/index.php?controller=contact">
+                                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.3607 11.8797C12.1558 11.8797 11.1152 10.9033 11.1152 9.65562C11.1152 8.40798 12.101 7.43164 13.3607 7.43164C14.6203 7.43164 15.6061 8.40798 15.6061 9.65562C15.6061 10.9033 14.5655 11.8797 13.3607 11.8797ZM13.3607 8.51655C12.7582 8.51655 12.2106 9.00468 12.2106 9.65562C12.2106 10.2523 12.7035 10.7948 13.3607 10.7948C14.0179 10.7948 14.5108 10.3066 14.5108 9.65562C14.456 9.05892 13.9631 8.51655 13.3607 8.51655Z" fill="#8B8B8B"/>
+                                                <path d="M12.3747 0C11.9914 0 11.7175 0.271201 11.7175 0.650918C11.7175 1.03064 11.9914 1.30184 12.3747 1.30184C17.5228 1.30184 21.6851 5.42449 21.6851 10.5236C21.6851 10.9033 21.9589 11.1745 22.3423 11.1745C22.7256 11.1745 22.9995 10.9033 22.9995 10.5236C23.0542 4.7193 18.2895 0 12.3747 0Z" fill="#8B8B8B"/>
+                                                <path d="M18.1252 10.632C18.1252 11.0118 18.3991 11.283 18.7824 11.283C19.1658 11.283 19.4396 11.0118 19.4396 10.632C19.4396 6.67213 16.2084 3.47168 12.2104 3.47168C11.8271 3.47168 11.5532 3.74288 11.5532 4.1226C11.5532 4.50232 11.8271 4.77352 12.2104 4.77352C15.4964 4.82776 18.1252 7.43157 18.1252 10.632Z" fill="#8B8B8B"/>
+                                                <path d="M19.7683 14.3206C19.0563 13.6696 18.1253 13.3441 17.1395 13.3441C16.0441 13.3441 15.0036 13.8324 14.2368 14.5918L13.5796 15.3512C13.3606 15.5682 13.1963 15.8395 13.032 16.1107C10.6222 15.0258 8.59588 13.2357 7.33625 10.9574C7.77438 10.7404 8.10298 10.4691 8.43158 10.0894L9.08878 9.33003C9.80074 8.5706 10.1293 7.59413 10.0746 6.56346C10.0198 5.5328 9.58168 4.55644 8.81494 3.90549L7.66485 2.87475C6.95288 2.2238 6.02185 1.89844 5.03605 1.89844C3.94072 1.89844 2.90015 2.38654 2.13341 3.14598L1.47622 3.90549C1.36668 4.01398 1.31192 4.12239 1.20238 4.23088C0.43565 4.88183 -0.276316 6.40081 0.10705 8.40789C1.64052 16.2735 8.32204 22.2947 16.3727 22.9998C16.537 22.9998 16.7561 22.9998 16.9204 22.9998C17.9062 22.9998 18.7825 22.7828 19.5492 22.2946C19.9326 22.0777 20.2064 21.8607 20.4802 21.5353L21.1374 20.7757C22.5614 19.2026 22.4518 16.7617 20.8636 15.297L19.7683 14.3206ZM6.18615 9.70972L5.96708 9.76402C5.74801 9.81827 5.58372 9.9809 5.47418 10.1979C5.36465 10.4149 5.36465 10.6319 5.47418 10.8489L5.58371 11.0659C7.11718 14.1036 9.74598 16.4903 12.9772 17.7922L13.1415 17.8465C13.3606 17.9008 13.5796 17.9008 13.7439 17.8465C13.963 17.738 14.0725 17.5753 14.1273 17.4125L14.1821 17.2498C14.2916 16.9243 14.4559 16.6531 14.675 16.4361L15.3322 15.6767C15.7703 15.1885 16.4275 14.9173 17.0847 14.9173C17.6871 14.9173 18.2348 15.1342 18.6729 15.514L19.823 16.5447C20.8088 17.4126 20.8636 18.8772 19.9873 19.8536L19.3301 20.6131C19.1658 20.7758 18.9468 20.9385 18.7277 21.1013C18.1253 21.481 17.3585 21.6437 16.537 21.5353C9.14355 20.8843 3.06445 15.4055 1.64052 8.19083C1.36668 6.78045 1.85958 5.74986 2.24295 5.42439C2.24295 5.42439 2.29772 5.37004 2.35249 5.31579L2.40725 5.26163C2.46201 5.15314 2.51678 5.09881 2.57155 5.04457L3.22875 4.28518C3.66688 3.79697 4.32408 3.5258 4.98128 3.5258C5.58371 3.5258 6.13138 3.7427 6.56952 4.12242L7.71961 5.15316C8.15774 5.58713 8.43158 6.12958 8.48635 6.78052C8.54111 7.37722 8.32204 7.97384 7.88391 8.46205L7.22671 9.22157C6.95288 9.3843 6.62428 9.60123 6.18615 9.70972Z" fill="#8B8B8B"/>
+                                                </svg>
+                                                <p>
+                                                    {if $lang_iso == 'es'} {l s='CONTACTO'} {elseif $lang_iso == 'en'} {l s='CONTACT'} {/if}
                                                 </p>
                                             </a>
                                         </div>
@@ -358,7 +369,7 @@ var onChange = window.addEventListener("resize", function() {
             });
             $('.menu').fadeOut();
             $(window).on("scroll", function(e) {
-                if ($(window).scrollTop() > 50) {
+                if ($(window).scrollTop() > 150) {
                     $('.menu').fadeIn();
                 } else {
                     $('.menu').fadeOut();
@@ -384,8 +395,10 @@ var onChange = window.addEventListener("resize", function() {
                 $('.calendar-search').removeClass('hidden');
             },
             function(ev) {
-                //$('.calendar svg').css('filter', 'saturate(0)');
-                //$('.calendar-search').addClass('hidden');
+                if($('#ui-datepicker-div').css('display') == 'none'){
+                $('.calendar svg').css('filter', 'saturate(0)');
+                $('.calendar-search').addClass('hidden');
+                }
             });
     }).bind('load', onChange);;
 
