@@ -7,6 +7,31 @@
     background-color: #ededed;
 }
 
+.sold_out_alert label.control-label{
+    font-family: Fieldwork !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: #D62D2D !important;
+    font-weight: 700 !important;
+}
+
+.sold_out_alert .input-group{
+    border: 2px solid #D2D1D2;
+    border-radius: 50px;;
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.sold_out_alert .input-group span{
+    font-family: Fieldwork;
+    font-size: 12px;
+    line-height: 32px;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    color: #000000;
+    }
+
 @media only screen and (max-width: 769px) {
     .primary_block {
         display: flex;
@@ -2240,7 +2265,7 @@ Quick View Styles
 .columns-container .product_wrapper .primary_block .booking_room_fields .control-label {
     font-family: Fieldwork !important;
     font-style: normal !important;
-    font-weight: normal !important;
+    font-weight: normal;
     font-size: 14px !important;
     line-height: 20px !important;
     color: #262626;
