@@ -402,6 +402,12 @@
     z-index: 3;
 }
 
+.carousel.carousel-fade .active.item .pano360icon {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+}
+
 .carousel.carousel-fade .active.left,
 .carousel.carousel-fade .active.right {
     /* -webkit-transition: opacity 0.5s ease-in-out;

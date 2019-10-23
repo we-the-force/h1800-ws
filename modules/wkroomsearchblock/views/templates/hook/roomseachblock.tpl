@@ -10,10 +10,10 @@ newer * versions in the future. If you wish to customize this module for your * 
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
 
-                        <div id="header-panorama1" class="header-panorama">
+                        <div id="header-panorama2" class="header-panorama">
 
                         </div>
-                        {* <img src="{$img_ps_dir}hotel_header_lifestyle2.jpg" alt=""> *}
+                        <img src="{$img_ps_dir}360.svg" class="pano360icon" alt=""> {* <img src="{$img_ps_dir}hotel_header_lifestyle2.jpg" alt=""> *}
 
                     </div>
                     <div class="item lifestyle">
@@ -21,11 +21,12 @@ newer * versions in the future. If you wish to customize this module for your * 
 
 
                     </div>
-                    <div class="item active">
+                    <div class="item">
 
-                        <div id="header-panorama2" class="header-panorama">
+                        <div id="header-panorama1" class="header-panorama">
 
                         </div>
+                        <img src="{$img_ps_dir}360.svg" class="pano360icon" alt="">
 
                     </div>
                     <div class="item lifestyle">
@@ -71,13 +72,11 @@ newer * versions in the future. If you wish to customize this module for your * 
         {include file="./roomSearchWrapperXS.tpl"}
     </div>*} {/if} {strip} {addJsDefL name=no_results_found_cond}{l s='No results found for this search' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=hotel_loc_cond}{l s='Please enter a hotel location' js=1 mod='wkroomsearchblock'}{/addJsDefL}
     {addJsDefL name=hotel_name_cond}{l s='Please select a hotel name' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=check_in_time_cond}{l s='Please enter Check In time' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=check_out_time_cond}{l
-    s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=num_adults_cond}{l s='Please enter number of adults.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=num_children_cond}{l s='Children' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=some_error_occur_cond}{l s='Some error occured. Please try again.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=less_checkin_date}{l s='Use other date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=more_checkout_date}{l s='Check Out date must be greater than Check In date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')}
-    {/strip}
+    s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=num_adults_cond}{l s='Please enter number of adults.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=num_children_cond}{l s='Children' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+    {addJsDefL name=some_error_occur_cond}{l s='Some error occured. Please try again.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=less_checkin_date}{l s='Use other date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=more_checkout_date}{l
+    s='Check Out date must be greater than Check In date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')} {/strip}
 
     <script>
-
-
-
         /* $('#hotel_cat_id').val('19');
-        $('#id_hotel').val('1'); */
+                $('#id_hotel').val('1'); */
     </script>
