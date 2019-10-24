@@ -5,6 +5,7 @@ newer * versions in the future. If you wish to customize this module for your * 
     <div id="hotelAmenitiesBlock" class="row home_block_container">
         <div class="col-xs-12 col-md-12 col-lg-12">
             {if $hotelAmenities} {foreach from=$hotelAmenities item=amenity name=amenityBlock}
+
             <div class="row amenity no-gutters">
                 <div class="col-xs-12 col-md-8 col-lg-8 nopadding">
                     <div class="media d-block" style="background-image: url({$module_dir|escape:'htmlall':'UTF-8'}views/img/hotels_features_img/{$amenity.id_features_block|escape:'htmlall':'UTF-8'}.jpg)">
@@ -20,7 +21,15 @@ newer * versions in the future. If you wish to customize this module for your * 
                             <hr>
                             <p>
                                 {$amenity['feature_description']|escape:'htmlall':'UTF-8'}
+
                             </p>
+                            {if $smarty.foreach.amenityBlock.first}
+                            <p style="text-align: center;">
+                                <a target="" class="btn btn-default button htlRoomTypeBookNow" href="#"><span>Reservar</span></a>
+                            </p>
+
+                            {/if}
+
                         </div>
 
 
@@ -61,7 +70,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                                 {/if}
                                 <div class="media d-block w-100">
                                     <div class="">
-                                        <a href="#" style="width: 100%; height: 350px; overflow: hidden; display: block; background-image: url({$module_dir|escape:'htmlall':'UTF-8'}views/img/hotels_features_img/{$amenity.id_features_block|escape:'htmlall':'UTF-8'}.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;">
+                                        <a href="{$base_dir}/index.php?controller=features" style="width: 100%; height: 350px; overflow: hidden; display: block; background-image: url({$module_dir|escape:'htmlall':'UTF-8'}views/img/hotels_features_img/{$amenity.id_features_block|escape:'htmlall':'UTF-8'}.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;">
                                             {* <img class="media-object" src="" alt="..."> *}
                                         </a>
                                     </div>
