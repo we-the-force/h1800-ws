@@ -215,9 +215,9 @@
                                 <div class="title">
                                     <h2>
                                     {if $lang_iso == 'es'}
-                                        Río Mezquites
+                                        Río San Marcos
                                     {elseif $lang_iso == 'en'}
-                                        Mezquites River
+                                        San Marcos River
                                     {/if}
                                     </h2>
                                 </div>
