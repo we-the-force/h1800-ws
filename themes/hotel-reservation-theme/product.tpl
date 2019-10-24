@@ -158,9 +158,33 @@
 										</div>
 
 										<!-- End -->
-										{* <div class="sold_out_alert">
-											<span>{l s='Rooms Sold Out !'}</span>
-										</div> *}
+										<div class="sold_out_alert form-group col-sm-6">
+											<label for="" class="control-label hidden-xs hidden-sm">{if $lang_iso == 'es'}{l s='Lo sentimos'}{elseif $lang_iso == 'en'}{l s='Sorry :('}{/if}</label>
+											<div class="input-group hidden-xs hidden-sm">
+												<span>{l s='Esta habitación no está disponible. Por favor intenta seleccionando otras fechas.'}</span>
+											</div>
+											<div id="popup_sold" class="popup_sold">
+												<div class="popup_sold-content">
+													<h2>
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M11.4106 16.6422C11.063 16.6422 10.8313 16.4105 10.8313 16.0629V6.90918C10.8313 6.61951 11.063 6.32983 11.4106 6.32983C11.7583 6.32983 11.99 6.61951 11.99 6.90918V16.0629C11.99 16.3525 11.7003 16.6422 11.4106 16.6422Z" fill="#D62D2D"/>
+															<path d="M11.4105 20.0025C10.947 20.0025 10.5415 19.597 10.5415 19.1335V18.9017C10.5415 18.4383 10.947 18.0327 11.4105 18.0327C11.874 18.0327 12.2795 18.4383 12.2795 18.9017V19.1335C12.2795 19.597 11.874 20.0025 11.4105 20.0025Z" fill="#D62D2D"/>
+															<path d="M23.1713 15.7733C23.1713 14.4988 22.1285 13.5139 20.9118 13.5139C20.8539 13.5139 20.8539 13.5139 20.796 13.5139L15.8715 3.66498C15.0604 1.98487 13.3803 1 11.5264 1C9.67253 1 7.99243 2.04281 7.18134 3.66498L0.518865 16.9899C-0.234284 18.4962 -0.176371 20.2343 0.750583 21.6826C1.6196 23.131 3.18386 24 4.86396 24H18.1889C19.869 24 21.4332 23.131 22.3023 21.6826C23.1713 20.2922 23.2292 18.67 22.5919 17.1637C22.9395 16.8161 23.1713 16.2947 23.1713 15.7733ZM22.0126 15.7733C22.0126 16.4106 21.4912 16.874 20.9118 16.874C20.3325 16.874 19.8111 16.3527 19.8111 15.7733C19.8111 15.194 20.3325 14.6725 20.9118 14.6725C21.4912 14.6725 22.0126 15.136 22.0126 15.7733ZM20.8539 20.8136C20.2745 21.7406 19.2897 22.262 18.1889 22.262H4.86396C3.7632 22.262 2.77829 21.7406 2.19895 20.8136C1.6196 19.8866 1.56169 18.7859 2.08311 17.801L8.74558 4.47607C9.26699 3.37532 10.3098 2.73804 11.5264 2.73804C12.7431 2.73804 13.7859 3.37532 14.3073 4.47607L19.2317 14.267C18.8841 14.6725 18.6524 15.194 18.6524 15.7733C18.6524 17.0479 19.6952 18.0327 20.9118 18.0327C20.9698 18.0327 21.0277 18.0327 21.0856 18.0327C21.4332 18.9017 21.3753 19.9446 20.8539 20.8136Z" fill="#D62D2D"/>
+														</svg>
+														{if $lang_iso == 'es'}{l s='Lo sentimos'}{elseif $lang_iso == 'en'}{l s='Sorry :('}{/if}
+													</h2>
+													<p>
+														{if $lang_iso == 'es'}{l s='Esta habitación no está disponible. 
+														Por favor intenta seleccionando otras fechas.'}
+														{elseif $lang_iso == 'en'}{l s='This room is not available.
+														Please try selecting other dates.'}{/if}
+													</p>
+														<a class="btn btn-default button button-medium exclusive popup_sold_button">
+															{if $lang_iso == 'es'}{l s='Aceptar'}{elseif $lang_iso == 'en'}{l s='Accept'}{/if}
+														</a>
+												</div>
+											</div>
+										</div>
 										<div class="unvail_rooms_cond_display last-block">
 											{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE}
 											{else}
@@ -341,7 +365,7 @@
 											<div class="room_info_heading">
 												<span>
 												{if $lang_iso == 'es'}
-																{l s='Car�cter�sticas de la habitaci�n'}
+																{l s='Car�cter�sticas de la habitaci�n'}
 												{elseif $lang_iso == 'en'}
 																{l s='Room features'}
 												{/if}
