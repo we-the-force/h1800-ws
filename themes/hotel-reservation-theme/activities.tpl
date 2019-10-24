@@ -72,7 +72,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://wa.me/+5218662376908" target="_blank">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -81,7 +81,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://wa.me/+5218662376908" target="_blank">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -163,7 +163,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://wa.me/+5218662376908" target="_blank">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -172,7 +172,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://wa.me/+5218662376908" target="_blank">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -215,9 +215,9 @@
                                 <div class="title">
                                     <h2>
                                     {if $lang_iso == 'es'}
-                                        Río Mezquites
+                                        Río San Marcos
                                     {elseif $lang_iso == 'en'}
-                                        Mezquites River
+                                        San Marcos River
                                     {/if}
                                     </h2>
                                 </div>
@@ -257,7 +257,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://wa.me/+5218662376908" target="_blank">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -266,7 +266,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://wa.me/+5218662376908" target="_blank">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -351,7 +351,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://wa.me/+5218662376908" target="_blank">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -360,7 +360,7 @@
                                     {/if}
                                     </span>
                                 </a>
-                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://wa.me/+5218662376908" target="_blank">
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
