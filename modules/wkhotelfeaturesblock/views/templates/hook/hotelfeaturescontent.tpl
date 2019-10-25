@@ -25,7 +25,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                             </p>
                             {if $smarty.foreach.amenityBlock.first}
                             <p style="text-align: center;">
-                                <a target="" class="btn btn-default button htlRoomTypeBookNow" href="#"><span>Reservar</span></a>
+                                <a target="_blank" class="btn btn-default button htlRoomTypeBookNow" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n"><span>Reservar</span></a>
                             </p>
 
                             {/if}
