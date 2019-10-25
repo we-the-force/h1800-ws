@@ -32,7 +32,7 @@
             {if $hotelRoomDisplay}
                 <div class="row home_block_content">
                     <div class="col-sm-12 col-xs-12 main-content">
-                        <div class="owl-carousel owl-theme">
+                        <div class="owl-carousel rooms owl-theme">
                             {assign var='htlRoomBlockIteration' value=0}
                             {foreach from=$hotelRoomDisplay item=roomDisplay name=htlRoom}
                                 {* {if $smarty.foreach.htlRoom.iteration%2}
@@ -89,7 +89,7 @@
 {/if}
 <script type="text/javascript">
     $(document).ready(function(e) {
-        $('#hotelRoomsBlock .owl-carousel').owlCarousel({
+       $('#hotelRoomsBlock .owl-carousel.rooms').owlCarousel({
             loop:true,
             margin: 10,
             nav:true,
