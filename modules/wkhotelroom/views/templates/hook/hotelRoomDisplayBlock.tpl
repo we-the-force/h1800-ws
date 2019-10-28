@@ -32,7 +32,7 @@
             {if $hotelRoomDisplay}
                 <div class="row home_block_content">
                     <div class="col-sm-12 col-xs-12 main-content">
-                        <div class="owl-carousel owl-theme">
+                        <div class="owl-carousel rooms owl-theme">
                             {assign var='htlRoomBlockIteration' value=0}
                             {foreach from=$hotelRoomDisplay item=roomDisplay name=htlRoom}
                                 {* {if $smarty.foreach.htlRoom.iteration%2}
@@ -89,9 +89,8 @@
 {/if}
 <script type="text/javascript">
     $(document).ready(function(e) {
-        $('.owl-carousel').owlCarousel({
+       $('#hotelRoomsBlock .owl-carousel.rooms').owlCarousel({
             loop:true,
-            items: 2,
             margin: 10,
             nav:true,
             navText : ["<svg width=\"29\" height=\"30\" viewBox=\"0 0 29 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1.90735e-06 14.5561C1.90735e-06 22.5953 6.49187 29.1124 14.5 29.1124C22.5081 29.1124 29 22.5953 29 14.5561C29 6.51698 22.5081 0 14.5 0C6.49187 0 1.90735e-06 6.51698 1.90735e-06 14.5561Z\" fill=\"#005DCC\"/><path d=\"M8.76736 14.5562C8.76736 13.938 8.87976 13.2637 9.04837 12.7017C9.32938 11.8586 9.83518 11.0718 10.5096 10.3973L15.2867 5.67647C15.8487 5.11445 16.6918 5.17066 17.2538 5.67647C17.8158 6.23849 17.7596 7.08151 17.2538 7.64352L12.4766 12.3644C12.0832 12.7578 11.8022 13.1512 11.6898 13.6008C11.465 14.219 11.465 14.9497 11.6898 15.6241C11.8022 16.0175 12.0832 16.4671 12.4766 16.8605L17.2538 21.6377C17.8158 22.1997 17.8158 23.0427 17.2538 23.6047C16.6918 24.1667 15.8487 24.1667 15.2867 23.6047L10.5096 18.8276C9.77898 18.097 9.32938 17.3663 9.04837 16.5233C8.82356 15.7926 8.76736 15.1744 8.76736 14.5562Z\" fill=\"#F2F2F2\"/></svg>",
