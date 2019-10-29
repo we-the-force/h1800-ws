@@ -5,6 +5,23 @@
 	background-color: #FAFAFA;
 }
 
+#order-opc .card-header h5{
+	font-family: Fieldwork;
+	font-size: 22px !important;
+	line-height: 31px;
+	color: #373737 !important;
+}
+
+#order-opc #collapse-shopping-cart p.product-name {
+	font-family: Fieldwork;
+	font-size: 24px;
+	line-height: 34px;
+	font-weight: 700;
+	color: #000000;
+}
+#order-opc #oprder-opc-accordion .card{
+	border-radius: 10px;
+}
 #order-opc {
 	line-height: 20px;
 }
@@ -212,6 +229,41 @@
 	border-radius: 2px;
 	padding: 10px 0px 5px 0px;
 }
+
+#order-opc .cart_product_line .col-sm-7{
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+#order-opc .cart_product_line .room-type-img-block img{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#order-opc #collapse-shopping-cart .order-detail-content .room_duration_block {
+	background-color: unset !important;
+}
+#order-opc #collapse-shopping-cart .order-detail-content .room_duration_block .room_duration_block_head{
+	font-family: Fieldwork;
+	font-size: 18px;
+	line-height: 20px;
+	color: #939393;
+}
+#order-opc #collapse-shopping-cart .order-detail-content .room_duration_block .room_duration_block_value{
+	font-family: Fieldwork;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 22px;
+	color: #003380;
+}
+#order-opc #collapse-shopping-cart .order-detail-content .room_duration_block .room_duration_block_value.total{
+	font-family: Fieldwork;
+	font-size: 28px;
+	line-height: 38px;
+	font-weight: 700;
+	color: #003380;
+}
 .order-detail-content .cart_product_summary_line .room_duration_block {
 	background-color: #fff;
 }
@@ -383,6 +435,17 @@
 }
 #order-opc .cart_total_detail_block .cart_total_values {
 	float: right;
+	font-family: Fieldwork;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 22px;
+	color: #003380;
+}
+#order-opc .cart_total_detail_block .cart_total_header {
+	font-family: Fieldwork;
+	font-size: 14px;
+	line-height: 20px;
+	color: #373737;
 }
 #order-opc .cart_total_detail_block .total_discount_block {
 	color: #459C3D;
@@ -391,8 +454,11 @@
 	line-height: 40px;
 }
 #order-opc .cart_total_detail_block .cart_final_total_block > .cart_total_values {
+	font-family: Fieldwork;
 	font-size: 28px;
-	color: #003AEF;
+	font-weight: 700;
+	line-height: 22px;
+	color: #003380;
 }
 #order-opc .opc_advance_payment_block {
 	margin-bottom: 30px;
@@ -408,9 +474,28 @@
 	#order-opc .cart_voucher_detail_block .submit_discount_div {
 		margin-top: 10px;
 	}
-	#order-opc .room-type-img-block {
+	#order-opc .cart_product_line .room-type-img-block img {
+		width: 50%;
+		margin-bottom: 10px;
+	}
+	.order-detail-content .room_remove_block {
 		display: none;
 	}
+	.order-detail-content .cart_product_line{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.order-detail-content .cart_product_line .product-name .trash{
+		position: absolute;
+		right: 30px;
+		bottom: 0px;
+	}
+	.order-detail-content .cart_product_line .product-name .icon-trash{
+		display: inline;
+	}
+	/* #order-opc .room-type-img-block {
+		display: none;
+	} */
 	#order-opc .cart_product_line .room-type-features {
 		display: none;
 	}
@@ -503,6 +588,7 @@
 	}
 }
 #order-opc .cart_total_detail_block {
+	border-radius: 10px;
 	font-size: 14px;
 	color: #333333;
 }
