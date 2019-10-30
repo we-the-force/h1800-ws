@@ -50,7 +50,13 @@ newer * versions in the future. If you wish to customize this module for your * 
         <div class="col-xs-12 col-sm-12 home_amenities_wrapper">
             <div class="row home_block_desc_wrapper">
                 <div class="col-md-12 col-lg-12">
-                    <h1 class="home_block_heading">{$HOTEL_AMENITIES_HEADING|escape:'htmlall':'UTF-8'}</h1>
+                    <h1 class="home_block_heading">
+                        {if $lang_iso == 'es'}
+                            {l s='Espacios'}
+                        {elseif $lang_iso == 'en'}
+                            {l s='Amenities'}
+                        {/if}
+                    </h1>
                     {*
                     <p class="home_block_description">{$HOTEL_AMENITIES_DESCRIPTION|escape:'htmlall':'UTF-8'}</p> *}
                 </div>
@@ -116,7 +122,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                             <div class="amenities-nav owl-nav"></div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 {*
