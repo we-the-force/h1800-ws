@@ -12,6 +12,28 @@
 	color: #373737 !important;
 }
 
+#collapse-order-payment #opc_payment_methods .checkbox label{
+	font-family: Fieldwork;
+    font-size: 14px;
+    line-height: 20px;
+    color: #373737;
+}
+
+#collapse-order-payment #opc_payment_methods .checkbox a{
+	font-family: Fieldwork;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+}
+
+#collapse-order-payment #opc_payment_methods .paiement_block .block-small-header{
+	font-family: Fieldwork;
+    font-size: 15px;
+    line-height: 20px;
+    color: #939393;
+    font-weight: 600;
+}
+
 #order-opc #collapse-shopping-cart p.product-name {
 	font-family: Fieldwork;
 	font-size: 24px;
@@ -28,6 +50,9 @@
 #order-opc input.form-control {
 	height: 40px;
 	border-radius: 4px;
+	background: #FFFFFF;
+	border: 1px solid #E4E4E4;
+	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
 #order-opc .box {
 	padding-bottom: 20px;
@@ -144,9 +169,11 @@
 	font-weight: 700;
 }
 #opc_new_account form label {
+	font-family: Fieldwork;
 	font-size: 14px;
-	color: #333333;
+	color: #373737;
 	font-weight: 400;
+	line-height: 20px;
 }
 .opc-main-block h3.page-subheading {
 	margin-top: 5px;
@@ -317,13 +344,17 @@
 	font-size: 18px;
 }
 #order-opc #guest-info-block div.info-head {
-	font-size: 14px;
-	color: #555555;
+	font-family: Fieldwork;
+    font-size: 15px;
+    line-height: 20px;
+	color: #939393;
+	font-weight: 600;
 }
 #order-opc #guest-info-block div.info-value {
-	font-size: 14px;
-	color: #333333;
-	overflow: auto;
+	font-family: Fieldwork;
+    font-size: 14px;
+    line-height: 20px;
+    color: #373737;
 }
 
 /* Guest Account Block */
@@ -376,7 +407,7 @@
 }
 #order-opc .step-edit > a {
 	font-size: 14px;
-	color: #0000FF;
+	color: #003380;
 	text-align: right;
 }
 
@@ -443,7 +474,7 @@
 }
 #order-opc .cart_total_detail_block .cart_total_header {
 	font-family: Fieldwork;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 20px;
 	color: #373737;
 }
@@ -621,14 +652,43 @@
 #order-opc .right-border {
 	border-right: 1px solid #ccc;
 }
+@media (max-width: 769px) {
+	#order-opc select {
+		background-color: #EDEDED !important;
+		border-radius: 20px !important;
+		box-shadow: none !important;
+		width: 90% !important;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+	#opc_new_account form label {
+		left: 10%;
+		position: relative;
+	}
+	#order-opc input.form-control {
+		background-color: #EDEDED !important;
+		border-radius: 20px !important;
+		box-shadow: none !important;
+		width: 90% !important;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+	#opc_new_account form span {
+		left: 10%;
+		position: relative;
+	}
+}
 #order-opc select {
 	background-color: #fff;
 	height: 40px;
 	border-radius: 4px;
 	padding: 3px 5px;
 	color: #333;
-	border: 1px solid #d6d4d4;
+	border: 1px solid #E4E4E4;
 	width: 100%;
+	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
 #order-opc #center_column form.std .row .col-xs-4 {
 	max-width: 127px;
