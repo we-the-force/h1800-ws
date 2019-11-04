@@ -121,8 +121,7 @@
 <script type="text/javascript">
 	$(document).ready(function(e){
         if($('body').attr('id') == 'category'){
-            $('#hotel_cat_id_mob').val("{$search_data['htl_dtl']['id_category']}");
-            $('#id_hotel_mob').val("{$search_data['htl_dtl']['id']}");
+
         }
 	});
 
