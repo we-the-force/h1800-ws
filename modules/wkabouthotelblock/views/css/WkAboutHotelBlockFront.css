@@ -20,28 +20,34 @@
 .htlInterior-owlCarousel .owl-stage-outer {
     border: 1px solid #ccc;
 }
+
 .interiorImgWrapper {
     width: 100%;
     height: 100%;
 }
+
 .interiorbox {
-   position: relative;
-   width: 100%;
-   padding-bottom: 50%;
+    position: relative;
+    width: 100%;
+    padding-bottom: 50%;
 }
+
 .interiorboxInner {
-   position: absolute;
-   left: 0px;
-   right: 0px;
-   top: 0px;
-   bottom: 0px;
-   overflow: hidden;
-   border: 1px solid #ccc;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    border: 1px solid #ccc;
 }
+
 .interiorboxInner img {
-   width: 100%;
+    width: 100%;
 }
-.htlInterior-owlCarousel .owl-prev, .htlInterior-owlCarousel .owl-next{
+
+.htlInterior-owlCarousel .owl-prev,
+.htlInterior-owlCarousel .owl-next {
     font-size: 40px;
     font-weight: 200;
     position: absolute;
@@ -49,44 +55,73 @@
     bottom: 0;
     z-index: 10;
 }
+
 .htlInterior-owlCarousel .owl-prev {
     left: 0;
 }
+
 .htlInterior-owlCarousel .owl-next {
     right: 0;
 }
-.nav-direction-wrapper{
-	display: table;
+
+.nav-direction-wrapper {
+    display: table;
     height: 100%;
 }
+
 .nav-direction-primary {
-	display: table-cell;
+    display: table-cell;
     vertical-align: middle;
 }
+
 .nav-direction-secondary {
-	padding: 40px 18px;
-	opacity: 0.85;
-	background-color: #ffffff;
+    padding: 40px 18px;
+    opacity: 0.85;
+    background-color: #ffffff;
 }
+
 .interiorHoverBlockWrapper {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background-image: url("../img/black-opacity-5.png");
-	cursor: pointer;
-	display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url("../img/black-opacity-5.png");
+    cursor: pointer;
+    display: none;
 }
+
 .interiorHoverPrimaryBlock {
-	display: table;
+    display: table;
     height: 100%;
     width: 100%;
 }
+
 .interiorHoverSecondaryBlock {
-	color: #fff;
+    color: #fff;
     display: table-cell;
     font-size: 50px;
     text-align: center;
     vertical-align: middle;
+}
+
+#instafeed a .insta-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.4s ease-in;
+}
+
+#instafeed a {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#instafeed a:hover .insta-img {
+    transform: scale(1.5);
+    transition: transform 10s ease-out;
 }
