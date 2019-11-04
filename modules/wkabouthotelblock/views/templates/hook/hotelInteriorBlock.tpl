@@ -169,7 +169,7 @@ newer * versions in the future. If you wish to customize this module for your * 
             var instaLayout = '';
             for (let index = 0; index < res.length; index++) {
               const element = res[index];
-              $('#instafeed').append('<div class="col-sm-4 col-lg-4 col-md-4 col-xs-2 "> <a href="//instagram.com/hacienda1800" target="_blank" class=""> <img src="'+element+'" class="insta-img"/> </a> </div>')
+              $('#instafeed').append('<div class="col-sm-4 col-lg-4 col-md-4 col-xs-12 "> <a href="//instagram.com/hacienda1800" target="_blank" class=""> <img src="'+element+'" class="insta-img"/> </a> </div>')
 
             }
         }
