@@ -47,3 +47,12 @@ $$('#my-login-screen .login-button').on('click', function() {
     // Alert username and password
     app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
+
+$$('#app .navbar .nav-tab').click(function (e) {
+    if(!$$(this).hasClass('nav-tab-active')){
+        $$(this).parent().find('.nav-tab-active').removeClass('nav-tab-active'); 
+        $$(this).addClass('nav-tab-active');
+    }
+});
+
+
