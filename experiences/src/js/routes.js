@@ -2,6 +2,9 @@
 import HomePage from '../pages/home.f7.html';
 import AboutPage from '../pages/about.f7.html';
 import FormPage from '../pages/form.f7.html';
+import Parks from '../pages/parks.f7.html';
+import Experiences from '../pages/experiences.f7.html';
+import Tours from '../pages/tours.f7.html';
 
 
 import DynamicRoutePage from '../pages/dynamic-route.f7.html';
@@ -10,17 +13,37 @@ import NotFoundPage from '../pages/404.f7.html';
 
 var routes = [
   {
-    path: '/',
-    component: HomePage,
+
+    name: 'parks',
+    path: '/parks/',
+    id: 'parks',
+    component: Parks,
+
+
   },
   {
+    name: 'experiences',
+    path: '/experiences/',
+    id: 'experiences',
+    component: Experiences,
+  },
+  {
+    name: 'tours',
+    path: '/tours/',
+    id: 'tours',
+    component: Tours,
+  },
+
+
+
+  /* {
     path: '/about/',
     component: AboutPage,
   },
   {
     path: '/form/',
     component: FormPage,
-  },
+  }, */
 
 
   {
