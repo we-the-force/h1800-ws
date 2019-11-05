@@ -167,29 +167,29 @@
 							{* Total cart details, tax details, advance payment details and voucher details *}
 							<div class="col-sm-12 card cart_total_detail_block">
 								<p>
-									<span>{l s='Total Rooms Cost'}{if $display_tax_label}{l s=' (tax excl.)'}{/if}</span>
+									<span class="cart_total_header">{l s='Total Rooms Cost'}{if $display_tax_label}{l s=' (tax excl.)'}{/if}</span>
 									<span class="cart_total_values">{displayPrice price=$total_products}</span>
 								</p>
 								{if isset($totalDemandsPrice) && $totalDemandsPrice}
 									<p>
-										<span>{l s='Total Additional Facilities Cost'}</span>
+										<span class="cart_total_header">{l s='Total Additional Facilities Cost'}</span>
 										<span class="cart_total_values">{displayPrice price=$totalDemandsPrice}</span>
 									</p>
 								{/if}
 								{if $use_taxes && $show_taxes && $total_tax != 0 }
 									{if $priceDisplay != 0}
 										<p class="cart_total_price">
-											<span>{if $display_tax_label}{l s='Total (tax excl.)'}{else}{l s='Total'}{/if}</span>
+											<span class="cart_total_header">{if $display_tax_label}{l s='Total (tax excl.)'}{else}{l s='Total'}{/if}</span>
 											<span class="cart_total_values">{displayPrice price=$total_price_without_tax}</span>
 										</p>
 									{/if}
 									<p class="cart_total_tax">
-										<span>{l s='Tax'}</span>
+										<span class="cart_total_header">{l s='Tax'}</span>
 										<span class="cart_total_values">{displayPrice price=$total_tax}</span>
 									</p>
 								{/if}
 								<p {if $total_wrapping == 0} class="unvisible"{/if}>
-									<span>
+									<span class="cart_total_header">
 										{if $use_taxes}
 											{if $display_tax_label}{l s='Total gift wrapping (tax incl.)'}{else}{l s='Total gift-wrapping cost'}{/if}
 										{else}
@@ -210,16 +210,16 @@
 								</p>
 								{if isset($customer_adv_dtl)}
 									<p>
-										<span>{l s='Advance Payment Amount'}</span>
+										<span class="cart_total_header">{l s='Advance Payment Amount'}</span>
 										<span class="cart_total_values">{displayPrice price=$adv_amount}</span>
 									</p>
 									<p>
-										<span>{l s='Due Amount'}</span>
+										<span class="cart_total_header">{l s='Due Amount'}</span>
 										<span class="cart_total_values">{displayPrice price=$customer_adv_dtl['due_amount']}</span>
 									</p>
 								{/if}
 								<p class="total_discount_block {if $total_discounts == 0} unvisible{/if}">
-									<span>
+									<span class="cart_total_header">
 										{if $display_tax_label}
 											{if $use_taxes && $priceDisplay == 0}
 												{l s='Total Discount (tax incl)'}
@@ -241,10 +241,10 @@
 								</p>
 								<p class="cart_final_total_block">
 									{if isset($customer_adv_dtl)}
-										<span>{l s='Final Total'}</span>
+										<span class="cart_total_header">{l s='Final Total'}</span>
 										<span class="cart_total_values">{displayPrice price=$customer_adv_dtl['total_to_be_paid']}</span>
 									{else}
-										<span>{l s='Final Total'}</span>
+										<span class="cart_total_header">{l s='Final Total'}</span>
 										<span class="cart_total_values">
 											{if $use_taxes}
 												{displayPrice price=$total_price}

@@ -1,6 +1,6 @@
 <div id="opc_new_account" class="opc-main-block">
 	<div id="opc_new_account-overlay" class="opc-overlay" style="display: none;"></div>
-	<form action="{$link->getPageLink('authentication', true, NULL, "back=order-opc")|escape:'html':'UTF-8'}" method="post" id="login_form">
+	{* <form action="{$link->getPageLink('authentication', true, NULL, "back=order-opc")|escape:'html':'UTF-8'}" method="post" id="login_form">
 		<fieldset>
 			<div class="already_registered_block">
 				<p>
@@ -29,7 +29,7 @@
 				</p>
 			</div>
 		</fieldset>
-	</form>
+	</form> *}
 	<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="new_account_form" class="std" autocomplete="on" autofill="on">
 		<div id="opc_account_choice" class="row">
 			<div class="col-xs-12">
@@ -56,7 +56,7 @@
 			<p class="required"><sup>*</sup>{l s='Required field'}</p>
 
 			<div class="row">
-				<div class="required clearfix gender-line col-sm-2">
+				<div class="required clearfix gender-line col-sm-3">
 					<label>{l s='Social title'}</label>
 					<select name="id_gender" id="id_gender">
 						{foreach from=$genders key=k item=gender}
@@ -64,11 +64,15 @@
 						{/foreach}
 					</select>
 				</div>
-				<div class="required form-group col-sm-5">
+			</div>
+			<div class="row">
+				<div class="required form-group col-sm-6">
 					<label for="firstname">{l s='First name'} <sup>*</sup></label>
 					<input type="text" class="text form-control validate" id="customer_firstname" name="customer_firstname" onblur="$('#firstname').val($(this).val());" data-validate="isName" value="{if isset($guestInformations) && isset($guestInformations.customer_firstname) && $guestInformations.customer_firstname}{$guestInformations.customer_firstname}{/if}" />
-				</div>
-				<div class="required form-group col-sm-5">
+				</div>{* 
+			</div>
+			<div class="row"> *}
+				<div class="required form-group col-sm-6">
 					<label for="lastname">{l s='Last name'} <sup>*</sup></label>
 					<input type="text" class="form-control validate" id="customer_lastname" name="customer_lastname" onblur="$('#lastname').val($(this).val());" data-validate="isName" value="{if isset($guestInformations) && isset($guestInformations.customer_lastname) && $guestInformations.customer_lastname}{$guestInformations.customer_lastname}{/if}" />
 				</div>
@@ -79,8 +83,8 @@
 					<label for="email">{l s='Email'} <sup>*</sup></label>
 					<input type="email" class="text form-control validate" id="email" name="email" data-validate="isEmail" value="{if isset($guestInformations) && isset($guestInformations.email) && $guestInformations.email}{$guestInformations.email}{/if}" />
 				</div>
-			</div>
-			<div class="row">
+			{* </div>
+			<div class="row"> *}
 				<div class="required password is_customer_param form-group col-sm-6">
 					<label for="passwd">{l s='Password'} <sup>*</sup></label>
 					<input type="password" class="text form-control validate" name="passwd" id="passwd" data-validate="isPasswd" />
@@ -95,7 +99,7 @@
 			</div>
 			{if $PS_CUSTOMER_ADDRESS_CREATION}
 				<div class="row">
-					<div class="select form-group date-select col-sm-12">
+					<div class="select form-group date-select col-sm-6">
 						<label>{l s='Date of Birth'}</label>
 						<div class="row">
 							<div class="col-xs-4">
