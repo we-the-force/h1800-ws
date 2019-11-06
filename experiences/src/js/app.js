@@ -17,7 +17,7 @@ var app = new Framework7({
     name: 'Hacienda 1800', // App name
     theme: 'auto', // Automatic theme detection
     // App root data
-    data: function() {
+    data: function () {
         return {
             user: {
                 firstName: 'John',
@@ -28,7 +28,7 @@ var app = new Framework7({
     },
     // App root methods
     methods: {
-        helloWorld: function() {
+        helloWorld: function () {
             app.dialog.alert('Hello World!');
         },
     },
@@ -37,7 +37,7 @@ var app = new Framework7({
 });
 
 // Login Screen Demo
-$$('#my-login-screen .login-button').on('click', function() {
+$$('#my-login-screen .login-button').on('click', function () {
     var username = $$('#my-login-screen [name="username"]').val();
     var password = $$('#my-login-screen [name="password"]').val();
 
@@ -49,8 +49,8 @@ $$('#my-login-screen .login-button').on('click', function() {
 });
 
 $$('#app .navbar .nav-tab').click(function (e) {
-    if(!$$(this).hasClass('nav-tab-active')){
-        $$(this).parent().find('.nav-tab-active').removeClass('nav-tab-active'); 
+    if (!$$(this).hasClass('nav-tab-active')) {
+        $$(this).parent().find('.nav-tab-active').removeClass('nav-tab-active');
         $$(this).addClass('nav-tab-active');
     }
 });
