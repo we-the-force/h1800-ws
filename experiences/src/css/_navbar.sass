@@ -1,0 +1,35 @@
+#princ-navbar
+    .row
+        align-items: unset
+        .nav-tab
+            position: relative
+            top: 50%
+            transform: translate(0%, -50%)
+            height: fit-content
+            border-right: 1px solid #8B8B8B
+            border-left: 1px solid #8B8B8B
+            @include font-bold
+            font-size: 24px
+            line-height: 24px
+            color: #373737
+            filter: opacity(0.2)
+            &.bright
+                border-right: unset
+            &.bleft
+                border-left: unset
+            &.nav-tab-active
+                filter: unset
+        @media screen and ( max-width: 768px )
+            .nav-tab
+                font-size: 11px
+                border: 1px solid #000000 !important
+                margin-left: 5px
+                margin-right: 5px
+    @media screen and ( max-width: 768px )
+        .no-gap
+            --f7-grid-gap: unset
+            --f7-grid-row-gap: unset
+
+
+            
+                
