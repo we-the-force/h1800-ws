@@ -13,83 +13,83 @@
                     <div class="row no-gap">
                         <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
-                            <div class="experience">
+                            <a class="experience popup-open" href="#" data-popup=".popup-push">
                                 <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                 <div class="title">
                                     <p>Sesiones</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- each card closes -->
                         <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
-                            <div class="experience">
+                            <a class="experience popup-open" href="#" data-popup=".popup-push">
                                 <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                 <div class="title">
                                     <p>Sesiones</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- each card closes -->
 
                         <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
-                            <div class="experience">
+                            <a class="experience popup-open" href="#" data-popup=".popup-push">
                                 <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                 <div class="title">
                                     <p>Sesiones</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- each card closes -->
                         <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
-                            <div class="experience">
+                            <a class="experience popup-open" href="#" data-popup=".popup-push">
                                 <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                 <div class="title">
                                     <p>Sesiones</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- each card closes -->
                         <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
-                            <div class="experience">
+                            <a class="experience popup-open" href="#" data-popup=".popup-push">
                                 <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                 <div class="title">
                                     <p>Sesiones</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- each card closes -->
                         <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
-                            <div class="experience">
+                            <a class="experience popup-open" href="#" data-popup=".popup-push">
                                 <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                 <div class="title">
                                     <p>Sesiones</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- each card closes -->
                         <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
-                            <div class="experience">
+                            <a class="experience popup-open" href="#" data-popup=".popup-push">
                                 <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                 <div class="title">
                                     <p>Sesiones</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- each card closes -->
                         <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
-                            <div class="experience">
+                            <a class="experience popup-open" href="#" data-popup=".popup-push">
                                 <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                 <div class="title">
                                     <p>Sesiones</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- each card closes -->
                     </div>
@@ -98,7 +98,28 @@
             <div class="footer"></div>
 
         </div>
+        <div class="experiences-pop popup popup-push">
+            <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a>
+            <div class="cover">
+                <div class="title">
+                    <p>Título</p>
+                </div>
+            </div>
+          <div class="block">
+            <h3>Qué incluye</h3>
+
+          </div>
+        </div>
 </template>
 <script>
-    export default {}
+    import $$ from 'dom7';
+    export default {
+        on: {
+            pageInit: function(e, page) {
+                var self = this;
+                var app = self.$app;
+            }
+        }
+
+    }
 </script>
