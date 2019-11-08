@@ -1,0 +1,49 @@
+#tours
+    .title
+        margin: 0px 120px
+        @include font-bold
+        font-size: 40px
+        line-height: 56px
+        letter-spacing: 0.3em
+        color: #040006
+    p
+        margin: 0px 120px
+        @include font-normal
+        font-weight: 265
+        font-size: 20px
+        line-height: 28px
+        color: #040006
+    .photos
+        width: 90%
+        height: 470px
+        margin-left: auto
+        margin-right: auto
+        margin-top: 31px
+        .row
+            --f7-grid-row-gap: 3%
+        .photo
+            background-position: 50% 50%
+            background-size: cover
+            background-repeat: no-repeat
+            &.ph2,&.ph5
+                height: 33%
+            &.ph1,&.ph3,&.ph4
+                height: 100%
+            &.ph6
+                height: 63%
+                margin-top: 19px
+    .desc
+        width: 80%
+        margin-left: auto
+        margin-right: auto
+        margin-top: 30px
+        margin-bottom: 30px
+        p
+            @include font-normal
+            font-size: 20px
+            line-height: 28px
+            text-align: center
+            color: #1F1F1F
+            white-space: normal
+            margin: 0px
+            font-weight: 265

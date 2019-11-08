@@ -1,25 +1,75 @@
 <template>
-    <div class="page" data-name="tours">
+    <div class="page" data-name="tours" id="tours">
 
         <div class="navbar">
             <div class="navbar-inner row no-gap">
                 <div class="toolbar tabbar toolbar-bottom">
                     <div class="toolbar-inner">
-                      <!-- Links have "tab-link" class instead of just "link" to switch tabs -->
-                      <a href="#tab-1" class="bleft tab-link tab-link-active">Verano</a>
-                      <a href="#tab-2" class="bright tab-link">Invierno</a>
+                        <!-- Links have "tab-link" class instead of just "link" to switch tabs -->
+                        <a href="#verano" class="bleft tab-link tab-link-active"
+                            style="background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')">
+                            <p class="  ">Verano</p>
+                        </a>
+                        <a href="#invierno" class="bright tab-link"
+                            style="background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')">
+                            <p class=" ">Invierno</p>
+                        </a>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
 
         <!-- Scrollable page content-->
         <div class="page-content hide-navbar-on-scroll">
             <div class="tabs">
-                <div class="tab tab-active" id="tab-1">
-                    hola
+                <div class="tab tab-active" id="verano">
+                    <div class="row">
+                        <p class="title">
+                            Verano
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                    <div class="photos row">
+                        <div class="col-35 photo ph1" style="background-image: url('../static/img/experience.png');">
+                        </div>
+
+                        <div class="col-50" style="height: 100%;">
+                            <div class="row photo ph2"
+                                style="background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png')">
+                            </div>
+
+                            <div class="row" style="height: 63%;">
+                                <div class="col-50 photo ph3"
+                                    style="background-image: url('../static/img/experience.png');"></div>
+                                <div class="col-50 photo ph4"
+                                    style="background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png')">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-15" style="height: 100%;">
+                            <div class="row photo ph5" style="background-image: url('../static/img/experience.png');">
+                            </div>
+                            <div class="row photo ph6" style="background-image: url('../static/img/experience.png');">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row desc">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
                 </div>
-                <div class="tab" id="tab-2">
+                <div class="tab" id="invierno">
                     hola 2
                 </div>
             </div>
