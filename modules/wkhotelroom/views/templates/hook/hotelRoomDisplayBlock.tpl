@@ -41,6 +41,7 @@
                                     <div class="item">
                                         <div class="margin-btm-30">
                                             <img src="{$roomDisplay.image|escape:'htmlall':'UTF-8'}" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100">
+                                            {$roomDisplay.id_product}
                                             <div class="hotelRoomDescContainer">
                                                 <div class="row margin-lr-0">
                                                     <h2 class="htlRoomTypeNameText col-xs-6 pull-left">{$roomDisplay.name|escape:'htmlall':'UTF-8'}</h2>
