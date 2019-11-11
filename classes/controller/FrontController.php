@@ -427,9 +427,12 @@ class FrontControllerCore extends Controller
         if (Configuration::get('PS_COMPARATOR_MAX_ITEM') && isset($this->context->cookie->id_compare)) {
             $compared_products = CompareProduct::getCompareProducts($this->context->cookie->id_compare);
         }
-
+        
+        $ahoy = "ahoy";
         $this->context->smarty->assign(array(
             // Useful for layout.tpl
+            //'hotel_id'            => Tools::getValue('hotel_cat_id'),
+            'ahoy'                => $ahoy,
             'mobile_device'       => $this->context->getMobileDevice(),
             'link'                => $link,
             'cart'                => $cart,

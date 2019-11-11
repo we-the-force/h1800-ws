@@ -159,6 +159,7 @@ newer * versions in the future. If you wish to customize this module for your * 
 
 <script type="text/javascript">
     $(document).ready(function(e) {
+        
         if($('body').hasClass('index')){
             $('#hotelAmenitiesBlock .owl-carousel.amenities').owlCarousel({
             loop:true,
