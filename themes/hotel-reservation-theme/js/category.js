@@ -62,14 +62,15 @@ function resizeCatimg()
 // The button to increment the product value
 $(document).on('click', '.cat_rm_quantity_up', function(e){
     e.preventDefault();
-    fieldName = $(this).data('field-qty');
+	fieldName = $(this).data('field-qty');
     var currentVal = parseInt($('input[name='+fieldName+']').val());
-
+	
 	/*if (!allowBuyWhenOutOfStock && quantityAvailable > 0)
 		quantityAvailableT = quantityAvailable;
 	else*/
 	quantityAvailableT = $(this).closest('.room_cont').find(".cat_remain_rm_qty_"+$(this).data('room_id_product')).text();
-    if (!isNaN(currentVal) && currentVal < quantityAvailableT)
+	
+	if (!isNaN(currentVal) && currentVal < quantityAvailableT)
     {
         $('input[name='+fieldName+']').val(currentVal + 1).trigger('keyup');
     }

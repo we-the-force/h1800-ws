@@ -83,7 +83,13 @@
                                 </div>
                             {/if} *}
 
-                            {* <span class="rm_left pull-right" {if $room_v['room_left']>$warning_num}  style="display:none"{/if}>{l s='Hurry!'} <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span> {l s='rooms left'}</span> *}
+                            {* <span class="rm_left pull-right" {if $room_v['room_left']>$warning_num}  style="display:none"{/if}>{l s='Hurry!'} 
+                                <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span> {l s='rooms left'}
+                            </span> *}
+
+                            <span class="rm_left pull-right" style="visibility:hidden">
+                                <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span>
+                            </span>
 
                             {if !empty($room_v['feature'])}
                                 <div class="rm_amenities_cont">
