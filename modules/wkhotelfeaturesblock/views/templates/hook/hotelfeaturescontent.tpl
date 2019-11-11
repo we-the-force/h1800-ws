@@ -159,7 +159,8 @@ newer * versions in the future. If you wish to customize this module for your * 
 
 <script type="text/javascript">
     $(document).ready(function(e) {
-        $('#hotelAmenitiesBlock .owl-carousel.amenities').owlCarousel({
+        if($('body').hasClass('index')){
+            $('#hotelAmenitiesBlock .owl-carousel.amenities').owlCarousel({
             loop:true,
             margin: 10,
             items: 1,
@@ -177,6 +178,8 @@ newer * versions in the future. If you wish to customize this module for your * 
                 },
             }
         });
+        }
+        
     });
 </script>
 <style>
