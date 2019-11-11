@@ -289,7 +289,6 @@ function panelInit(){
         "autoRotateInactivityDelay": 2000
     });
     headerPanorama.on('load', function (){
-        console.log('pannellum loaded');
         $('#header-panorama1').css('opacity','1');
     })
     headerPanorama2 = pannellum.viewer('header-panorama2', {
@@ -307,7 +306,6 @@ function panelInit(){
         "autoRotateInactivityDelay": 2000
     });
     headerPanorama2.on('load', function (){
-        console.log('pannellum loaded');
         $('#header-panorama2').css('opacity','1');
     })
     if (wwidth < wheight) {
