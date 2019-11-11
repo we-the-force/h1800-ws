@@ -10,6 +10,15 @@ import DynamicRoutePage from '../pages/dynamic-route.f7.html';
 import RequestAndLoad from '../pages/request-and-load.f7.html';
 import NotFoundPage from '../pages/404.f7.html';
 
+
+var getCollection = function(collection) {
+    var apiPath = 'http://hacienda1800.com/panel/api/collections/get/';
+    var apiToken = '?token=8c4e6225dd7f133664f09e3f8dac1d'
+    var collectionUrl = apiPath + collection + apiToken;
+    return collectionUrl;
+
+};
+
 var routes = [{
 
         name: 'parks',
@@ -18,12 +27,6 @@ var routes = [{
         component: Parks,
 
 
-    },
-    {
-        name: 'experiences',
-        path: '/experiences/',
-        id: 'experiences',
-        component: Experiences,
     },
     {
         name: 'tours',
@@ -48,6 +51,34 @@ var routes = [{
         path: '/dynamic-route/blog/:blogId/post/:postId/',
         component: DynamicRoutePage,
     },
+    {
+        name: 'experiences',
+        path: '/experiences/',
+        id: 'experiences',
+
+        async: function(routeTo, routeFrom, resolve, reject) {
+            // Requested route
+            // Get external data and return template7 template
+            this.app.request.json(getCollection('Experiencias'),
+                function(data) {
+                    resolve(
+
+                        // How and what to load: template
+                        {
+
+                            component: Experiences,
+                        },
+                        // Custom template context
+                        {
+                            context: {
+                                experiences: data.entries,
+                            },
+                        }
+                    );
+                });
+        }
+    },
+
     {
         path: '/request-and-load/user/:userId/',
         async: function(routeTo, routeFrom, resolve, reject) {
@@ -93,8 +124,7 @@ var routes = [{
                 });
             }, 1000);
         },
-    },
-    {
+    }, {
         path: '(.*)',
         component: NotFoundPage,
     },

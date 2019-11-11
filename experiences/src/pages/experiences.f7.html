@@ -11,87 +11,23 @@
             <div class="experiences">
 
                     <div class="row no-gap">
-                        <!-- each card opens-->
-                        <div class="col-100 small-50 large-25">
-                            <a class="experience popup-open" href="#" data-popup=".popup-push">
-                                <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
-                                <div class="title">
-                                    <p>Sesiones</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- each card closes -->
-                        <!-- each card opens-->
-                        <div class="col-100 small-50 large-25">
-                            <a class="experience popup-open" href="#" data-popup=".popup-push">
-                                <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
-                                <div class="title">
-                                    <p>Sesiones</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- each card closes -->
+                        {{#each experiences}}
 
-                        <!-- each card opens-->
                         <div class="col-100 small-50 large-25">
                             <a class="experience popup-open" href="#" data-popup=".popup-push">
-                                <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
+                                {{#each Fotos}}
+                                {{if @first}}
+                                <div data-background="http://hacienda1800.com{{path}}" class="bg lazy lazy-fade-in" ></div>
+                                {{/if}}
+
+                                {{/each}}
                                 <div class="title">
-                                    <p>Sesiones</p>
+                                    <p>{{Nombre}}</p>
                                 </div>
                             </a>
                         </div>
                         <!-- each card closes -->
-                        <!-- each card opens-->
-                        <div class="col-100 small-50 large-25">
-                            <a class="experience popup-open" href="#" data-popup=".popup-push">
-                                <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
-                                <div class="title">
-                                    <p>Sesiones</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- each card closes -->
-                        <!-- each card opens-->
-                        <div class="col-100 small-50 large-25">
-                            <a class="experience popup-open" href="#" data-popup=".popup-push">
-                                <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
-                                <div class="title">
-                                    <p>Sesiones</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- each card closes -->
-                        <!-- each card opens-->
-                        <div class="col-100 small-50 large-25">
-                            <a class="experience popup-open" href="#" data-popup=".popup-push">
-                                <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
-                                <div class="title">
-                                    <p>Sesiones</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- each card closes -->
-                        <!-- each card opens-->
-                        <div class="col-100 small-50 large-25">
-                            <a class="experience popup-open" href="#" data-popup=".popup-push">
-                                <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
-                                <div class="title">
-                                    <p>Sesiones</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- each card closes -->
-                        <!-- each card opens-->
-                        <div class="col-100 small-50 large-25">
-                            <a class="experience popup-open" href="#" data-popup=".popup-push">
-                                <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
-                                <div class="title">
-                                    <p>Sesiones</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- each card closes -->
+                        {{/each}}
                     </div>
 
             </div>
