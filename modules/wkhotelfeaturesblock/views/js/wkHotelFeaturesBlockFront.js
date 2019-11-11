@@ -29,7 +29,7 @@ $(document).ready(function(){
 		$(".homeAmenitiesBlock").css({"left": -width_in_neg, "right": -width_in_neg, "top": amenities_block_top});
 		// home_amenities_wrapper height
 		var homeAmenitiesBlockHeight = $(".homeAmenitiesBlock").height();
-		$(".home_amenities_wrapper").css("height", (homeAmenitiesBlockHeight + amenities_block_top));
+		//$(".home_amenities_wrapper").css("height", (homeAmenitiesBlockHeight + amenities_block_top));
 
 		$(window).resize(function() {
 			// For width

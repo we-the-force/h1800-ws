@@ -6,7 +6,7 @@ npm-debug.log.*
 .sass-cache/
 /cache/*
 download/*
-/img/*
+
 /log/*
 /upload/*
 vendor/*
@@ -202,7 +202,7 @@ crashlytics-build.properties
 
 ### NetBeans ###
 nbproject/private/
-build/
+
 nbbuild/
 dist/
 nbdist/

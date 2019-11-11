@@ -24,7 +24,7 @@
             <hr class="theme-text-underline">
         </div>
     </div>
-    <div class="col-sm-12 category_page_search_block clear-both">
+    <div class="col-sm-12 category_page_search_block clear-both h-100">
         <form method="POST" autocomplete="on" autofill="on">
 
             {if isset($error) && ($error == 1)}
@@ -50,8 +50,8 @@
                             {else}
                                 <span id="hotel_cat_name" class="pull-left">{l s='Select Hotel'}</span>
                             {/if}
-                            <input type="hidden" id="hotel_cat_id" name="hotel_cat_id" {if isset($search_data)}value="{$search_data['htl_dtl']['id_category']}"{/if}>
-                            <input type="hidden" id="id_hotel" name="id_hotel" {if isset($search_data)}value="{$search_data['htl_dtl']['id']}"{/if}>
+                            <input type="hidden" id="hotel_cat_id" name="hotel_cat_id" {if isset($search_data)}value="{$search_data['htl_dtl']['0']['id_category']}"{/if}>
+                            <input type="hidden" id="id_hotel" name="id_hotel" {if isset($search_data)}value="{$search_data['htl_dtl']['0']['id']}"{/if}>
                             <input type="hidden" id="max_order_date" name="max_order_date" value="{if isset($max_order_date)}{$max_order_date}{/if}">
                             <span class="arrow_span">
                                 <i class="icon icon-angle-down"></i>
@@ -70,10 +70,10 @@
                 {/if}
                 <p class="error_msg" id="select_htl_error_p"></p>
             </div>
-            <div class="form-group">
+            <div class="form-group inputs_filter_search">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                        <label class="control-label" for="check_in_time">{l s='Check In Time' mod='wkroomsearchblock'}</label>
+                        <label class="control-label" for="check_in_time"> {if $lang_iso == 'es'} {l s='Entrada'} {elseif $lang_iso == 'en'} {l s='Check In Time'} {/if} </label>
                         <div class="input-group">
                             <input class="form-control" type="text" id="check_in_time" name="check_in_time" {if isset($search_data)}value="{$search_data['date_from']}"{/if}/>
                             <label class="input-group-addon" for="check_in_time"><i class="icon-calendar"></i></label>
@@ -81,7 +81,7 @@
                         <p class="error_msg" id="check_in_time_error_p"></p>
                     </div>
                     <div class="col-xs-12 col-sm-12 margin-top-10">
-                        <label class="control-label" for="check_out_time">{l s='Check Out Time' mod='wkroomsearchblock'}</label>
+                        <label class="control-label" for="check_out_time"> {if $lang_iso == 'es'} {l s='Salida'} {elseif $lang_iso == 'en'} {l s='Check Out Time'} {/if} </label>
                         <div class="input-group">
                             <input class="form-control" type="text" id="check_out_time" name="check_out_time" {if isset($search_data)}value="{$search_data['date_to']}"{/if} />
                             <label class="input-group-addon" for="check_out_time"><i class="icon-calendar"></i></label>
@@ -90,9 +90,15 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="btn_filter_search">
                 <button type="submit" name="filter_search_btn" class="btn btn-default button button-medium exclusive" id="filter_search_btn">
-                    <span>{l s='Search' mod='wkhotelfiltersearchblock'}</span>
+                    <span>
+                        {if $lang_iso == 'es'}
+                            {l s='Buscar'}
+                        {elseif $lang_iso == 'en'}
+                            {l s='Search'}
+                        {/if}
+                    </span>
                 </button>
             </div>
         </form>
@@ -105,9 +111,10 @@
     {addJsDefL name=check_in_time_cond}{l s='Please enter Check In time' js=1 mod='wkroomsearchblock'}{/addJsDefL}
     {addJsDefL name=check_out_time_cond}{l s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL}
     {addJsDefL name=num_adults_cond}{l s='Please enter number of adults.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
-    {addJsDefL name=num_children_cond}{l s='Please enter number of children.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+    {addJsDefL name=num_children_cond}{l s='Children' js=1 mod='wkroomsearchblock'}{/addJsDefL}
     {addJsDefL name=some_error_occur_cond}{l s='Some error occured. Please try again.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
-    {addJsDefL name=less_checkin_date}{l s='Check In date can not be before current date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+    {addJsDefL name=less_checkin_date}{l s='Use another date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+    {* {addJsDefL name=less_checkin_date}{l s='Check In date can not be before current date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} *}
     {addJsDefL name=more_checkout_date}{l s='Check Out date must be greater than Check In date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
     {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')}
     {addJsDefL name=hotel_name_cond}{l s='Please select a hotel name' js=1 mod='wkroomsearchblock'}{/addJsDefL}
@@ -115,4 +122,14 @@
     {addJsDefL name=check_out_time_cond}{l s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL}
     {addJsDef max_order_date=$max_order_date}
     {addJsDef booking_date_to=$booking_date_to}
+    {addJsDef hotel=$search_data['htl_dtl']}
 {/strip}
+<script type="text/javascript">
+	$(document).ready(function(e){
+        if($('body').attr('id') == 'category'){
+            $('#hotel_cat_id').val("{$search_data['htl_dtl']['id_category']}");
+            $('#id_hotel').val("{$search_data['htl_dtl']['id']}");
+        }
+	});
+
+</script>

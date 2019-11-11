@@ -4,6 +4,7 @@
     height: 80px;
     justify-content: center;
     padding-top: 80px;
+    pointer-events: all;
 }
 
 .header-rmsearch-hide-xs {
@@ -330,7 +331,7 @@
     }
 }
 
-#header-panorama {
+.header-panorama {
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -339,6 +340,8 @@
     left: 0;
     top: 0;
     filter: brightness(1);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
 }
 
 .carousel {
@@ -399,6 +402,12 @@
     z-index: 3;
 }
 
+.carousel.carousel-fade .active.item .pano360icon {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+}
+
 .carousel.carousel-fade .active.left,
 .carousel.carousel-fade .active.right {
     /* -webkit-transition: opacity 0.5s ease-in-out;
@@ -431,5 +440,9 @@
 .header-desc-primary {
     position: relative;
     z-index: 4;
+    pointer-events: none;
+}
+
+#index .header-desc-primary {
     pointer-events: none;
 }

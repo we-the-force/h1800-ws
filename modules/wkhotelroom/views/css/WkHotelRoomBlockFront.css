@@ -17,6 +17,40 @@
 *  @license   https://store.webkul.com/license.html
 */
 
+.main-content {
+    position: relative;
+}
+
+.main-content .custom-nav {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    left: 0;
+}
+
+.main-content .owl-stage {
+    padding-left: 0px !important;
+}
+
+.main-content .custom-nav .owl-prev, .main-content .custom-nav .owl-next{
+    position: absolute;
+    width: 100%;
+    color: inherit;
+    background: none;
+    border: none;
+    z-index: 100;
+}
+
+.main-content .custom-nav .owl-prev svg{
+    position: absolute;
+    left: 0;
+}
+
+.main-content .custom-nav .owl-next svg{
+    position: absolute;
+    right: 0;
+}
+
 .hotelRoomDescContainer {
     position: absolute;
     bottom: 0;
@@ -35,6 +69,10 @@
     color: #222222;
     font-weight: 400;
     text-transform: capitalize;
+}
+
+#index .htlRoomTypePriceText {
+    text-align: right;
 }
 
 .htlRoomTypeDescText {

@@ -48,7 +48,7 @@
                                 </div>
                                 <hr>
                                 <div class="recommendations">
-                                    {if $lang_iso == 'es'} 
+                                    {if $lang_iso == 'es'}
                                         <h4>Recomendaciones</h4>
                                         <ul>
                                             <li>· Calzado cómodo</li>
@@ -72,7 +72,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class="btn btn-default button button-medium ajax_add_to_cart_button pull-right">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -80,8 +80,17 @@
                                     {l s='Contact'}
                                     {/if}
                                     </span>
-                                </a>                
-                                </div>                
+                                </a>
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                                    <span>
+                                    {if $lang_iso == 'es'}
+                                    {l s='Contacto'}
+                                    {elseif $lang_iso == 'en'}
+                                    {l s='Contact'}
+                                    {/if}
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,9 +99,9 @@
             <div class="col-sm-12 activity_cont">
                 <div class="row no-gutters" style="width: inherit; margin: auto;">
                     <div class="col-sm-7 gallery">
-                            <img src="{$img_dir}parks/CAÑON_GRANDE_1.jpg" class="img-responsive">
-                            <img src="{$img_dir}parks/CAÑON_GRANDE_2.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/CAÑON_GRANDE_3.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/CAÑON_GRANDE_2.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/CAÑON_GRANDE_1.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/CAÑON_GRANDE_4.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/CAÑON_GRANDE_5.jpg" class="img-responsive">
                     </div>
@@ -130,7 +139,7 @@
                                 </div>
                                 <hr>
                                 <div class="recommendations">
-                                    {if $lang_iso == 'es'} 
+                                    {if $lang_iso == 'es'}
                                         <h4>Recomendaciones</h4>
                                         <ul>
                                             <li>· Calzado cómodo ideal para caminatas</li>
@@ -154,7 +163,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class="btn btn-default button button-medium ajax_add_to_cart_button pull-right">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -162,8 +171,17 @@
                                     {l s='Contact'}
                                     {/if}
                                     </span>
-                                </a>                
-                                </div>                
+                                </a>
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                                    <span>
+                                    {if $lang_iso == 'es'}
+                                    {l s='Contacto'}
+                                    {elseif $lang_iso == 'en'}
+                                    {l s='Contact'}
+                                    {/if}
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -172,11 +190,11 @@
             <div class="col-sm-12 activity_cont">
                 <div class="row no-gutters" style="width: inherit; margin: auto;">
                     <div class="col-sm-7 gallery">
-                            <img src="{$img_dir}parks/RIO_MEZQUITES_1.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/RIO_MEZQUITES_5.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_2.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_3.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_4.jpg" class="img-responsive">
-                            <img src="{$img_dir}parks/RIO_MEZQUITES_5.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/RIO_MEZQUITES_1.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_6.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_7.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/RIO_MEZQUITES_8.jpg" class="img-responsive">
@@ -197,9 +215,9 @@
                                 <div class="title">
                                     <h2>
                                     {if $lang_iso == 'es'}
-                                        Río Mezquites
-                                    {elseif $lang_iso == 'en'}                       
-                                        Mezquites River
+                                        Río San Marcos
+                                    {elseif $lang_iso == 'en'}
+                                        San Marcos River
                                     {/if}
                                     </h2>
                                 </div>
@@ -215,7 +233,7 @@
                                 </div>
                                 <hr>
                                 <div class="recommendations">
-                                    {if $lang_iso == 'es'} 
+                                    {if $lang_iso == 'es'}
                                         <h4>Recomendaciones</h4>
                                         <ul>
                                             <li>· Traje de baño y toallas</li>
@@ -239,7 +257,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class="btn btn-default button button-medium ajax_add_to_cart_button pull-right">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -247,8 +265,17 @@
                                     {l s='Contact'}
                                     {/if}
                                     </span>
-                                </a>                
-                                </div>                
+                                </a>
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                                    <span>
+                                    {if $lang_iso == 'es'}
+                                    {l s='Contacto'}
+                                    {elseif $lang_iso == 'en'}
+                                    {l s='Contact'}
+                                    {/if}
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -257,12 +284,12 @@
             <div class="col-sm-12 activity_cont">
                 <div class="row no-gutters" style="width: inherit; margin: auto;">
                     <div class="col-sm-7 gallery">
-                            <img src="{$img_dir}parks/MINA_MARMOL_1.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/MINA_MARMOL_6.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/MINA_MARMOL_2.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/MINA_MARMOL_3.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/MINA_MARMOL_4.jpg" class="img-responsive">
                             <img src="{$img_dir}parks/MINA_MARMOL_5.jpg" class="img-responsive">
-                            <img src="{$img_dir}parks/MINA_MARMOL_6.jpg" class="img-responsive">
+                            <img src="{$img_dir}parks/MINA_MARMOL_1.jpg" class="img-responsive">
                     </div>
                     <div class="col-sm-5">
                         <ul class="nav nav-tabs activities_description_tabs">
@@ -298,7 +325,7 @@
                                 </div>
                                 <hr>
                                 <div class="recommendations">
-                                    {if $lang_iso == 'es'} 
+                                    {if $lang_iso == 'es'}
                                         <h4>Recomendaciones</h4>
                                         <ul>
                                             <li>· Visitar la zona por la mañana o el atardecer</li>
@@ -324,7 +351,7 @@
                                 </div>
                                 <hr>
                                 <div class="contact">
-                                <a class="btn btn-default button button-medium ajax_add_to_cart_button pull-right">
+                                <a class=" btn btn-default button button-medium  pull-right visible-xs-block" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <span>
                                     {if $lang_iso == 'es'}
                                     {l s='Contacto'}
@@ -332,8 +359,17 @@
                                     {l s='Contact'}
                                     {/if}
                                     </span>
-                                </a>                
-                                </div>                
+                                </a>
+                                <a class="hidden-xs btn btn-default button button-medium  pull-right" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                                    <span>
+                                    {if $lang_iso == 'es'}
+                                    {l s='Contacto'}
+                                    {elseif $lang_iso == 'en'}
+                                    {l s='Contact'}
+                                    {/if}
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -352,4 +388,4 @@ $(document).ready(function(){
       dots: true
   });
 });
-</script> 
+</script>

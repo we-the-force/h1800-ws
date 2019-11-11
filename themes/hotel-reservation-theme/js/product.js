@@ -1061,6 +1061,17 @@ $(document).ready(function() {
         disableRoomTypeDemands(0);
     }
 
+    $(document).click(function(ev) {
+        if (ev.target.id == 'popup_sold') {
+            $('#popup').addClass('hidden');
+        }
+    });
+
+    $('.popup_sold_button').click(function (params) {
+        console.log('ahoy');
+        $('.popup_sold').hide();
+    });
+
     function highlightDateBorder(elementVal, date)
     {
         if (elementVal) {

@@ -69,7 +69,7 @@
 
 			<!-- end -->
 			<!-- left infos-->
-			<div class="{* pb-right-column col-xs-12 col-sm-4 col-md-4 *}">
+			<div class="top-block{* pb-right-column col-xs-12 col-sm-4 col-md-4 *}">
 				{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
 					<p class="hidden">
 						<input type="hidden" name="token" value="{$static_token}" />
@@ -87,23 +87,23 @@
 								{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 									<div class="row">
 										<div class="form-group col-sm-6">
-											<label for="" class="control-label">{l s='Check In Date'}</label>
+											<label for="" class="control-label">{if $lang_iso == 'es'}{l s='Entrada'}{elseif $lang_iso == 'en'}{l s='Check In Date'}{/if}</label>
 											<div class="input-group">
 												<input type="text" class="form-control input-date" name="room_check_in" id="room_check_in" value="{if isset($date_from)}{$date_from|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
-												<label class="input-group-addon" for="check_in_time"><iclass="icon-calendar"></i></label>
+												<label class="input-group-addon" for="room_check_in"><i class="icon-calendar"></i></label>
 											</div>
 										</div>
 										<div class="form-group col-sm-6">
-											<label for="" class="control-label">{l s='Check Out Date'}</label>
+											<label for="" class="control-label">{if $lang_iso == 'es'}{l s='Salida'}{elseif $lang_iso == 'en'}{l s='Check Out Date'}{/if}</label>
 											<div class="input-group">
 												<input type="text" class="form-control input-date" name="room_check_out" id="room_check_out" value="{if isset($date_to)}{$date_to|escape:'html':'UTF-8'|date_format:"%d-%m-%Y"}{/if}" autocomplete="off" readonly />
-												<label class="input-group-addon" for="check_in_time"><i class="icon-calendar"></i></label>
+												<label class="input-group-addon" for="room_check_out"><i class="icon-calendar"></i></label>
 											</div>
 										</div>
 										<div class="room_unavailability_date_error_div"></div>
 										<div class="unvail_rooms_cond_display">
 											<div class="form-group col-sm-6" id="quantity_wanted_p" {if (!$allow_oosp && $product-> quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-												<label for="quantity_wanted">{l s='No. of Rooms'}</label>
+												<label for="quantity_wanted">{if $lang_iso == 'es'}{l s='Núm. de habitaciones'}{elseif $lang_iso == 'en'}{l s='No. of Rooms'}{/if}</label>
 												<div class="qty_sec_cont">
 													<div class="qty_direction">
 														<a href="#" data-field-qty="qty" class="btn btn-default product_quantity_down">
@@ -158,23 +158,47 @@
 										</div>
 
 										<!-- End -->
-										{* <div class="sold_out_alert">
-											<span>{l s='Rooms Sold Out !'}</span>
-										</div> *}
-										<div class="unvail_rooms_cond_display">
+										<div class="sold_out_alert form-group col-sm-6">
+											<label for="" class="control-label hidden-xs hidden-sm">{if $lang_iso == 'es'}{l s='Lo sentimos'}{elseif $lang_iso == 'en'}{l s='Sorry :('}{/if}</label>
+											<div class="input-group hidden-xs hidden-sm">
+												<span>{l s='Esta habitación no está disponible. Por favor intenta seleccionando otras fechas.'}</span>
+											</div>
+											<div id="popup_sold" class="popup_sold">
+												<div class="popup_sold-content">
+													<h2>
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M11.4106 16.6422C11.063 16.6422 10.8313 16.4105 10.8313 16.0629V6.90918C10.8313 6.61951 11.063 6.32983 11.4106 6.32983C11.7583 6.32983 11.99 6.61951 11.99 6.90918V16.0629C11.99 16.3525 11.7003 16.6422 11.4106 16.6422Z" fill="#D62D2D"/>
+															<path d="M11.4105 20.0025C10.947 20.0025 10.5415 19.597 10.5415 19.1335V18.9017C10.5415 18.4383 10.947 18.0327 11.4105 18.0327C11.874 18.0327 12.2795 18.4383 12.2795 18.9017V19.1335C12.2795 19.597 11.874 20.0025 11.4105 20.0025Z" fill="#D62D2D"/>
+															<path d="M23.1713 15.7733C23.1713 14.4988 22.1285 13.5139 20.9118 13.5139C20.8539 13.5139 20.8539 13.5139 20.796 13.5139L15.8715 3.66498C15.0604 1.98487 13.3803 1 11.5264 1C9.67253 1 7.99243 2.04281 7.18134 3.66498L0.518865 16.9899C-0.234284 18.4962 -0.176371 20.2343 0.750583 21.6826C1.6196 23.131 3.18386 24 4.86396 24H18.1889C19.869 24 21.4332 23.131 22.3023 21.6826C23.1713 20.2922 23.2292 18.67 22.5919 17.1637C22.9395 16.8161 23.1713 16.2947 23.1713 15.7733ZM22.0126 15.7733C22.0126 16.4106 21.4912 16.874 20.9118 16.874C20.3325 16.874 19.8111 16.3527 19.8111 15.7733C19.8111 15.194 20.3325 14.6725 20.9118 14.6725C21.4912 14.6725 22.0126 15.136 22.0126 15.7733ZM20.8539 20.8136C20.2745 21.7406 19.2897 22.262 18.1889 22.262H4.86396C3.7632 22.262 2.77829 21.7406 2.19895 20.8136C1.6196 19.8866 1.56169 18.7859 2.08311 17.801L8.74558 4.47607C9.26699 3.37532 10.3098 2.73804 11.5264 2.73804C12.7431 2.73804 13.7859 3.37532 14.3073 4.47607L19.2317 14.267C18.8841 14.6725 18.6524 15.194 18.6524 15.7733C18.6524 17.0479 19.6952 18.0327 20.9118 18.0327C20.9698 18.0327 21.0277 18.0327 21.0856 18.0327C21.4332 18.9017 21.3753 19.9446 20.8539 20.8136Z" fill="#D62D2D"/>
+														</svg>
+														{if $lang_iso == 'es'}{l s='Lo sentimos'}{elseif $lang_iso == 'en'}{l s='Sorry :('}{/if}
+													</h2>
+													<p>
+														{if $lang_iso == 'es'}{l s='Esta habitación no está disponible. 
+														Por favor intenta seleccionando otras fechas.'}
+														{elseif $lang_iso == 'en'}{l s='This room is not available.
+														Please try selecting other dates.'}{/if}
+													</p>
+														<a class="btn btn-default button button-medium exclusive popup_sold_button">
+															{if $lang_iso == 'es'}{l s='Aceptar'}{elseif $lang_iso == 'en'}{l s='Accept'}{/if}
+														</a>
+												</div>
+											</div>
+										</div>
+										<div class="unvail_rooms_cond_display last-block">
 											{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE}
 											{else}
 												<p id="add_to_cart" class="buttons_bottom_block no-print">
 													<button type="submit" name="Submit" class="exclusive book_now_submit">
 														<span>
-															{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{l s='Book Now'}{/if}
+															{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{if $lang_iso == 'es'}{l s='Reservar'}{elseif $lang_iso == 'en'}{l s='Book Now'}{/if}{/if}
 														</span>
 													</button>
 												</p>
 											{/if}
 										</div>
 									</div>
-								{/if}								
+								{/if}
 							</form>
 						</div>
 					</div>
@@ -211,7 +235,7 @@
 					{/if} *}
 				{/if}
 			</div>
-			<div class="{* pb-left-column col-xs-12 col-sm-8 col-md-8 *}">
+			<div class="bottom-block{* pb-left-column col-xs-12 col-sm-8 col-md-8 *}">
 				<div class="room_type_img_containter card">
 					<div class="room_hotel_name_block">
 						<div class="hotel_name_block">
@@ -305,7 +329,7 @@
 								</a>
 							</span>
 							{/if}
-						</div> 
+						</div>
 						</div>
 						<!-- end views-block -->
 						<!-- end thumbnails -->
@@ -339,7 +363,14 @@
 									{if isset($features) && $features}
 										<div class="info_margin_div">
 											<div class="room_info_heading">
-												<span>{l s='Room Features'}</span>
+												<span>
+												{if $lang_iso == 'es'}
+																{l s='Car�cter�sticas de la habitaci�n'}
+												{elseif $lang_iso == 'en'}
+																{l s='Room features'}
+												{/if}
+												</span>
+												{* <span>{l s='Room Features'}</span> *}
 											</div>
 											<div class="room_info_content">
 												{foreach from=$features key=ftr_k item=ftr_v}
@@ -372,11 +403,11 @@
 									</div> -->
 									{if isset($hotel_policies) && $hotel_policies}
 										<div class="info_margin_div">
-											<div class="room_info_heading">
-												<span>{l s='Hotel Policies'}</span>
+											<div class="room_info_heading">{*
+												<span>{l s='Hotel Policies'}</span> *}
 											</div>
-											<div class="room_info_content">
-												<p class="">{$hotel_policies}</p>
+											<div class="room_info_content">{*
+												<p class="">{$hotel_policies}</p> *}
 											</div>
 										</div>
 									{/if}
@@ -783,25 +814,26 @@
 {addJsDefL name=check_in_time_cond}{l s='Please enter Check In time' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDefL name=check_out_time_cond}{l s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDefL name=num_adults_cond}{l s='Please enter number of adults.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
-{addJsDefL name=num_children_cond}{l s='Please enter number of children.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+{addJsDefL name=num_children_cond}{l s='Children' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDefL name=some_error_occur_cond}{l s='Some error occured. Please try again.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
-{addJsDefL name=less_checkin_date}{l s='Check In date can not be before current date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+{addJsDefL name=less_checkin_date}{l s='Use another date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+{* {addJsDefL name=less_checkin_date}{l s='Check In date can not be before current date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} *}
 {addJsDefL name=more_checkout_date}{l s='Check Out date must be greater than Check In date.' js=1 mod='wkroomsearchblock'}{/addJsDefL}
 {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')}
 {addJsDef images=$product->getImages(EN)}
 {addJsDef panorama=$product->getPanorama($product->id|intval)}
 
 {/strip}
-{/if} 
+{/if}
 <script type="text/javascript">
-	
+
 	let x = false;
 	let id_panorama;
 	images.forEach(function(x){
 		if(x.panorama != null){
 			id_panorama = x.id_image;
 		}
-	}); 
+	});
 
 	if(id_panorama){
 		let z = id_panorama.split('');
@@ -837,7 +869,7 @@
 				});
 			}catch(e){
 				if(e !== exception) throw e;
-			}		
+			}
 			let n = image.id_image.split('');
 			if(image.panorama == 1){
 				$('#panorama').empty();
@@ -873,4 +905,4 @@
 				});
 			}
     });
-</script> 
+</script>

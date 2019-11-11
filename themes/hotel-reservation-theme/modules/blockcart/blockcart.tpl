@@ -48,7 +48,13 @@
 				<span class="block_cart_expand{if !isset($colapseExpandStatus) || (isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded')} unvisible{/if}">&nbsp;</span>
 				<span class="block_cart_collapse{if isset($colapseExpandStatus) && $colapseExpandStatus eq 'collapsed'} unvisible{/if}">&nbsp;</span>
 			{/if}
-			<p class="text">BOOKING</p>
+			<p class="text">
+			{if $lang_iso == 'es'}
+				{l s='RESERVA'}
+			{elseif $lang_iso == 'en'}
+				{l s='BOOKING'}
+			{/if}
+			</p>
 		</a>
 		{if !$PS_CATALOG_MODE}
 			<div class="cart_block block exclusive">

@@ -54,7 +54,7 @@
 				<div class="left">{l s='Last product added'}</div>
 			</div>
 			<a class="cart_last_product_img" href="{$link->getProductLink($lastProductAdded.id_product, $lastProductAdded.link_rewrite, $lastProductAdded.category, null, null, $lastProductAdded.id_shop)|escape:'html':'UTF-8'}">
-				<img src="{$link->getImageLink($lastProductAdded.link_rewrite, $lastProductAdded.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$lastProductAdded.name|escape:'html':'UTF-8'}"/>
+				<img src="{$link->getImageLink($lastProductAdded.link_rewrite, $lastProductAdded.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$lastProductAdded.name|escape:'html':'UTF-8'}"/>
 			</a>
 			<div class="cart_last_product_content">
 				<p class="product-name">
@@ -79,11 +79,12 @@
 	{hook h="displayBeforeShoppingCartBlock"}
 
 	<div class="order-detail-content">
-		<p class="room_info_text">{l s='rooms information'}</p>
+		{* <p class="room_info_text">{l s='rooms information'}</p> *}
 		{foreach from=$cart_htl_data key=data_k item=data_v}
 			{foreach from=$data_v['date_diff'] key=rm_k item=rm_v}
+
 				<div class="row cart_product_line">
-					<div class="col-sm-2 room-type-img-block">
+					{* <div class="col-sm-2 room-type-img-block">
 						<p>
 							<a href="{$link->getProductLink($data_v['id_product'])}">
 								<img src="{$data_v['cover_img']}" class="img-responsive" />
@@ -92,29 +93,30 @@
 						<p class="room_remove_block">
 							<a href="{$rm_v['link']}"><i class="icon-trash"></i> &nbsp;{l s='Remove'}</a>
 						</p>
-					</div>
-					<div class="col-sm-10">
+					</div> *}
+					<div class="col-sm-7">
 						<div class="room-info-container">
-							<div class="room-xs-img">
+							{* <div class="room-xs-img">
 								<a href="{$link->getProductLink($data_v['id_product'])}">
 									<img src="{$data_v['cover_img']}" class="img-responsive" />
 								</a>
-							</div>
+							</div> *}
 							<div class="room-xs-info">
 								<p class="product-name">
 									<a href="{$link->getProductLink($data_v['id_product'])}">
 										{$data_v['name']}
 									</a>
-									<a class="btn btn-default pull-right room-xs-remove" href="{$rm_v['link']}"><i class="icon-trash"></i></a>
+									<a href="{$rm_v['link']}" class='trash room-xs-remove'><i class="icon-trash room-xs-remove"></i> &nbsp;{l s='Remove'}</a>
+									{* <a class="btn btn-default pull-right room-xs-remove" href="{$rm_v['link']}"><i class="icon-trash"></i></a> *}
 								</p>
-								{if isset($data_v['hotel_info']['location'])}
+								{* {if isset($data_v['hotel_info']['location'])}
 									<p class="hotel-location">
 										<i class="icon-map-marker"></i> &nbsp;{$data_v['hotel_info']['location']}
 									</p>
-								{/if}
+								{/if} *}
 							</div>
 						</div>
-						{if isset($data_v['hotel_info']['room_features'])}
+						{* {if isset($data_v['hotel_info']['room_features'])}
 							<div class="room-type-features">
 							{foreach $data_v['hotel_info']['room_features'] as $feature}
 								<span class="room-type-feature">
@@ -122,9 +124,56 @@
 								</span>
 							{/foreach}
 							</div>
-						{/if}
+						{/if} *}
 						<div class="room_duration_block">
-							<div class="col-sm-3 col-xs-6">
+							<p class="room_duration_block_head">{l s='Duración de la estadia'}</p>
+							<p class="room_duration_block_value">{$rm_v['data_form']|date_format:"%d %b, %a"} / {$rm_v['data_to']|date_format:"%d %b, %a"}</p>
+							<p class="room_duration_block_head">{l s='Habitaciones'}</p>
+							<p class="room_duration_block_value">
+								{if {$rm_v['num_rm']} <= 9}{$rm_v['num_rm']}{else}{$rm_v['num_rm']}{/if}
+							</p>
+							<p class="room_duration_block_head">{l s='Cap. Máx.'}</p>
+							<p class="room_duration_block_value">
+								{if {$data_v['adult']} <= 9}{$data_v['adult']}{else}{$data_v['adult']}{/if} {if $lang_iso == 'es'}
+												{l s='Personas'}
+								{elseif $lang_iso == 'en'}
+												{l s='Persons'}
+								{/if}
+							</p>
+							<p class="room_duration_block_head">
+								{l s='Total rooms price'}{*  {if $display_tax_label}{if $priceDisplay} {l s='(Excl.'} {else}{l s='(Incl.)'}{/if} {l s='all taxes.)'}{/if} *}
+							</p>
+							<p class="room_duration_block_value total">
+								<span class="room_type_current_price">
+									{displayPrice price=($rm_v['amount'])}
+								</span>
+								{if isset($data_v['extra_demands']) && $data_v['extra_demands']}
+									<span class="plus-sign pull-right">
+										+
+									</span>
+								{/if}
+							</p>
+							{if isset($data_v['extra_demands']) && $data_v['extra_demands']}
+							<p class="room_duration_block_head">
+								<a date_from="{$rm_v['data_form']|escape:'html':'UTF-8'}" date_to="{$rm_v['data_to']|escape:'html':'UTF-8'}" id_product="{$data_v['id_product']|escape:'html':'UTF-8'}" class="open_rooms_extra_demands" href="#rooms_type_extra_demands_form">
+									{l s='Additional Facilities'}
+								</a>
+							</p>
+							<p class="room_duration_block_value">
+								<span class="room_type_current_price">
+									{displayPrice price=$rm_v['demand_price']}
+								</span>
+							</p>
+							{/if}
+							{* <p class="room_total_price_detial room_duration_block_head">
+								{l s='Total price for'} {$rm_v['num_days']} {l s='Night(s) stay'}{if $display_tax_label}{if $priceDisplay} {l s='(Excl.'} {else}{l s='(Incl.'}{/if} {l s='all taxes.)'}{/if}
+							</p>
+							<p class="room_total_price room_duration_block_value">
+								<span class="room_type_current_price">
+									{displayPrice price=($rm_v['amount']+$rm_v['demand_price'])}
+								</span>
+							</p> *}
+							{* <div class="col-sm-3 col-xs-6">
 								<p class="room_duration_block_head">{l s='CHECK IN'}</p>
 								<p class="room_duration_block_value">{$rm_v['data_form']|date_format:"%d %b, %a"}</p>
 							</div>
@@ -135,17 +184,24 @@
 							<div class="col-sm-2 col-xs-6">
 								<p class="room_duration_block_head">{l s='ROOMS'}</p>
 								<p class="room_duration_block_value">
-									{if {$rm_v['num_rm']} <= 9}0{$rm_v['num_rm']}{else}{$rm_v['num_rm']}{/if}
+									{if {$rm_v['num_rm']} <= 9}{$rm_v['num_rm']}{else}{$rm_v['num_rm']}{/if}
 								</p>
 							</div>
 							<div class="col-sm-4 col-xs-6">
-								<p class="room_duration_block_head">{l s='NO. OF GUESTS'}</p>
-								<p class="room_duration_block_value">
+								<p class="room_duration_block_head">{l s='NO. OF GUESTS'}</p> *}
+								{* <p class="room_duration_block_value">
 									{if {$data_v['adult']} <= 9}0{$data_v['adult']}{else}{$data_v['adult']}{/if} {l s='Adults'}, {if {$data_v['children']} <= 9}0{$data_v['children']}{else}{$data_v['children']}{/if} {l s='Child'}
+								</p> *}
+								{* <p class="room_duration_block_value">
+									{if {$data_v['adult']} <= 9}{$data_v['adult']}{else}{$data_v['adult']}{/if} {if $lang_iso == 'es'}
+													{l s='Personas'}
+									{elseif $lang_iso == 'en'}
+													{l s='Persons'}
+									{/if}
 								</p>
-							</div>
+							</div> *}
 						</div>
-						<div class="row room_price_detail_block">
+						{* <div class="row room_price_detail_block">
 							<div class="col-sm-7">
 								<div class="row">
 									<div class="col-sm-6">
@@ -195,10 +251,21 @@
 									</p>
 								</div>
 							</div>
-						</div>
+						</div> *}
+					</div>
+					<div class="col-sm-5 room-type-img-block">
+						{* <p> *}
+							<a href="{$link->getProductLink($data_v['id_product'])}">
+								<img src="{$data_v['cover_img']}" class="img-responsive" />
+							</a>
+						{* </p> *}
+						<p class="room_remove_block">
+							<a href="{$rm_v['link']}"><i class="icon-trash"></i> &nbsp;{l s='Remove'}</a>
+						</p>
 					</div>
 				</div>
 				<hr>
+				
 			{/foreach}
 		{/foreach}
 		<div class="row">

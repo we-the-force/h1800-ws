@@ -89,13 +89,26 @@ class wkroomsearchblock extends Module
 
                     Tools::redirect($redirect_link);
                 } else {
+                    $redirect_link = $this->context->link->getCategoryLink(
+                        new Category($hotel_cat_id, $this->context->language->id),
+                        null,
+                        $this->context->language->id
+                    );
+                    Tools::redirect($redirect_link);
+                    /* if (Configuration::get('PS_SSL_ENABLED') && Configuration::get('PS_SSL_ENABLED_EVERYWHERE')) {
+                        Tools::redirect(
+                            $protocol_link.Tools::getShopDomainSsl().__PS_BASE_URI__.'index.php?id_category=15&controller=category'
+                        );
+                    } else {
+                        Tools::redirect(_PS_BASE_URL_.__PS_BASE_URI__.'index.php?id_category=15&controller=category');
+                    } *//* 
                     if (Configuration::get('PS_SSL_ENABLED') && Configuration::get('PS_SSL_ENABLED_EVERYWHERE')) {
                         Tools::redirect(
                             $protocol_link.Tools::getShopDomainSsl().__PS_BASE_URI__.'index.php?error='.$error
                         );
                     } else {
                         Tools::redirect(_PS_BASE_URL_.__PS_BASE_URI__.'index.php?error='.$error);
-                    }
+                    } */
                 }
             }
             $hotel_branch_obj = new HotelBranchInformation();

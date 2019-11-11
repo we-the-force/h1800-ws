@@ -10,14 +10,27 @@ newer * versions in the future. If you wish to customize this module for your * 
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
 
-                        <div id="header-panorama">
+                        <div id="header-panorama2" class="header-panorama">
 
                         </div>
-                        {* <img src="{$img_ps_dir}hotel_header_lifestyle2.jpg" alt=""> *}
+                        <img src="{$img_ps_dir}360.svg" class="pano360icon" alt=""> {* <img src="{$img_ps_dir}hotel_header_lifestyle2.jpg" alt=""> *}
 
                     </div>
                     <div class="item lifestyle">
                         <div class="img" style="background-image: url('{$img_ps_dir}hotel_header_lifestyle.jpg');"></div>
+
+
+                    </div>
+                    <div class="item">
+
+                        <div id="header-panorama1" class="header-panorama">
+
+                        </div>
+                        <img src="{$img_ps_dir}360.svg" class="pano360icon" alt="">
+
+                    </div>
+                    <div class="item lifestyle">
+                        <div class="img" style="background-image: url('{$img_ps_dir}hotel_header_lifestyle2.jpg');"></div>
 
 
                     </div>
@@ -57,51 +70,22 @@ newer * versions in the future. If you wish to customize this module for your * 
     {*
     <div class="header-rmsearch-container header-rmsearch-show-xs visible-xs">
         {include file="./roomSearchWrapperXS.tpl"}
-    </div>*} {/if} {strip} {addJsDefL name=no_results_found_cond}{l s='No results found for this search' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=hotel_loc_cond}{l s='Please enter a hotel location' js=1 mod='wkroomsearchblock'}{/addJsDefL}
-    {addJsDefL name=hotel_name_cond}{l s='Please select a hotel name' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=check_in_time_cond}{l s='Please enter Check In time' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=check_out_time_cond}{l
-    s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=num_adults_cond}{l s='Please enter number of adults.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=num_children_cond}{l s='Please enter number of
-    children.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=some_error_occur_cond}{l s='Some error occured. Please try again.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=less_checkin_date}{l s='Check In date can not be before
-    current date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDefL name=more_checkout_date}{l s='Check Out date must be greater than Check In date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')}
+    </div>*} {/if} 
+    {strip} 
+    {addJsDefL name=no_results_found_cond}{l s='No results found for this search' js=1 mod='wkroomsearchblock'}{/addJsDefL} 
+    {addJsDefL name=hotel_loc_cond}{l s='Please enter a hotel location' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+    {addJsDefL name=hotel_name_cond}{l s='Please select a hotel name' js=1 mod='wkroomsearchblock'}{/addJsDefL} 
+    {addJsDefL name=check_in_time_cond}{l s='Please enter Check In time' js=1 mod='wkroomsearchblock'}{/addJsDefL} 
+    {addJsDefL name=check_out_time_cond}{l s='Please enter Check Out time' js=1 mod='wkroomsearchblock'}{/addJsDefL} 
+    {addJsDefL name=num_adults_cond}{l s='Please enter number of adults.' js=1 mod='wkroomsearchblock'}{/addJsDefL} 
+    {addJsDefL name=num_children_cond}{l s='Children' js=1 mod='wkroomsearchblock'}{/addJsDefL}
+    {addJsDefL name=some_error_occur_cond}{l s='Some error occured. Please try again.' js=1 mod='wkroomsearchblock'}{/addJsDefL} 
+    {addJsDefL name=less_checkin_date}{l s='Use other date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} 
+    {addJsDefL name=more_checkout_date}{l s='Check Out date must be greater than Check In date.' js=1 mod='wkroomsearchblock'}{/addJsDefL} 
+    {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')} 
     {/strip}
 
     <script>
-        var wheight = $(window).height();
-        var wwidth = $(window).width();
-        var headerPanorama = pannellum.viewer('header-panorama', {
-            "type": "equirectangular",
-            "panorama": "{$img_ps_dir}hotel_header_panorama.jpg",
-            "autoLoad": true,
-            "showControls": false,
-            "vaov": 120,
-            "autoRotate": true,
-            "minXaw": -120,
-            "maxXaw": 120,
-            "minPitch": -55,
-            "maxPitch": 55,
-            "mouseZoom": false,
-            "autoRotateInactivityDelay": 2000
-        });
-        if (wwidth < wheight) {
-            // portrait
-            headerPanorama.setHfov(50);
-        } else {
-            // landscape
-            headerPanorama.setHfov(100);
-        }
-        var onChange = window.addEventListener("resize", function() {
-            // Get screen size (inner/outerWidth, inner/outerHeight)
-
-            if (wwidth < wheight) {
-                // portrait
-                headerPanorama.setHfov(50);
-            } else {
-                // landscape
-                headerPanorama.setHfov(100);
-            }
-        }, false);
-        $(document).ready(function() {
-            $(window).bind(onChange);
-        }).bind('load', onChange);
         /* $('#hotel_cat_id').val('19');
-        $('#id_hotel').val('1'); */
+                $('#id_hotel').val('1'); */
     </script>

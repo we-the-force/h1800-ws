@@ -59,9 +59,8 @@ class wkhotelfiltersearchblock extends Module
         return true;
     }
 
-    public function hookDisplayLeftColumn()
+    public function hookDisplayLeftColumn($params)
     {
-        if ($this->context->controller->php_self == 'category') {
             if (Tools::isSubmit('filter_search_btn')) {
                 $hotel_cat_id = Tools::getValue('hotel_cat_id');
                 $check_in = Tools::getValue('check_in_time');
@@ -72,6 +71,94 @@ class wkhotelfiltersearchblock extends Module
 
                 $curr_date = date('Y-m-d');
                 $max_order_date = Tools::getValue('max_order_date');
+                $max_order_date = date('Y-m-d', strtotime($max_order_date));
+                $error = false;
+
+                if ($hotel_cat_id == '') {
+                    $error = 1;
+                } elseif ($check_in == '' || !Validate::isDate($check_in)) {
+                    $error = 2;
+                } elseif ($check_out == '' || !Validate::isDate($check_out)) {
+                    $error = 3;
+                } elseif ($check_in < $curr_date) {
+                    $error = 5;
+                } elseif ($check_out <= $check_in) {
+                    $error = 4;
+                } elseif ($max_order_date < $check_in || $max_order_date < $check_out) {
+                    $error = 6;
+                }
+
+                if (!$error) {
+                    if (Configuration::get('PS_REWRITING_SETTINGS')) {
+                        $redirect_link = $this->context->link->getCategoryLink(new Category($hotel_cat_id, $this->context->language->id), null, $this->context->language->id).'?date_from='.$check_in.'&date_to='.$check_out;
+                    } else {
+                        $redirect_link = $this->context->link->getCategoryLink(new Category($hotel_cat_id, $this->context->language->id), null, $this->context->language->id).'&date_from='.$check_in.'&date_to='.$check_out;
+                    }
+                } else {
+                    if (Configuration::get('PS_REWRITING_SETTINGS')) {
+                        $redirect_link = $this->context->link->getCategoryLink(new Category($hotel_cat_id, $this->context->language->id), null, $this->context->language->id).'?error='.$error;
+                    } else {
+                        $redirect_link = $this->context->link->getCategoryLink(new Category($hotel_cat_id, $this->context->language->id), null, $this->context->language->id).'&error='.$error;
+                    }
+                }
+
+                Tools::redirect($redirect_link);
+            }
+
+            if (Tools::isSubmit('filter_search_btn2')) {
+                $hotel_cat_id = Tools::getValue('hotel_cat_id2');
+                $check_in = Tools::getValue('check_in_time2');
+                $check_out = Tools::getValue('check_out_time2');
+
+                $check_in = date('Y-m-d', strtotime($check_in));
+                $check_out = date('Y-m-d', strtotime($check_out));
+
+                $curr_date = date('Y-m-d');
+                $max_order_date = Tools::getValue('max_order_date2');
+                $max_order_date = date('Y-m-d', strtotime($max_order_date));
+                $error = false;
+
+                if ($hotel_cat_id == '') {
+                    $error = 1;
+                } elseif ($check_in == '' || !Validate::isDate($check_in)) {
+                    $error = 2;
+                } elseif ($check_out == '' || !Validate::isDate($check_out)) {
+                    $error = 3;
+                } elseif ($check_in < $curr_date) {
+                    $error = 5;
+                } elseif ($check_out <= $check_in) {
+                    $error = 4;
+                } elseif ($max_order_date < $check_in || $max_order_date < $check_out) {
+                    $error = 6;
+                }
+
+                if (!$error) {
+                    if (Configuration::get('PS_REWRITING_SETTINGS')) {
+                        $redirect_link = $this->context->link->getCategoryLink(new Category($hotel_cat_id, $this->context->language->id), null, $this->context->language->id).'?date_from='.$check_in.'&date_to='.$check_out;
+                    } else {
+                        $redirect_link = $this->context->link->getCategoryLink(new Category($hotel_cat_id, $this->context->language->id), null, $this->context->language->id).'&date_from='.$check_in.'&date_to='.$check_out;
+                    }
+                } else {
+                    if (Configuration::get('PS_REWRITING_SETTINGS')) {
+                        $redirect_link = $this->context->link->getCategoryLink(new Category($hotel_cat_id, $this->context->language->id), null, $this->context->language->id).'?error='.$error;
+                    } else {
+                        $redirect_link = $this->context->link->getCategoryLink(new Category($hotel_cat_id, $this->context->language->id), null, $this->context->language->id).'&error='.$error;
+                    }
+                }
+
+                Tools::redirect($redirect_link);
+            }
+
+            if (Tools::isSubmit('filter_search_btn_mob')) {
+                $hotel_cat_id = Tools::getValue('hotel_cat_id_mob');
+                $check_in = Tools::getValue('check_in_time_mob');
+                $check_out = Tools::getValue('check_out_time_mob');
+
+                $check_in = date('Y-m-d', strtotime($check_in));
+                $check_out = date('Y-m-d', strtotime($check_out));
+
+                $curr_date = date('Y-m-d');
+                $max_order_date = Tools::getValue('max_order_date_mob');
                 $max_order_date = date('Y-m-d', strtotime($max_order_date));
                 $error = false;
 
@@ -159,11 +246,21 @@ class wkhotelfiltersearchblock extends Module
                     'max_order_date' => date('Y-m-d', strtotime($max_order_date)),
                 )
             );
+
             $this->context->controller->addJS(_PS_MODULE_DIR_.'hotelreservationsystem/views/js/roomSearchBlock.js');
             $this->context->controller->addCSS(_PS_MODULE_DIR_.$this->name.'/views/css/wkhotelfiltersearchblock.css');
             $this->context->controller->addCSS(_PS_MODULE_DIR_.'hotelreservationsystem/views/css/datepickerCustom.css');
 
-            return $this->display(__FILE__, 'htlfiltersearchblock.tpl');
-        }
+            switch ($params['var']) {
+                case 'cal':
+                    return $this->display(__FILE__, 'htlfiltersearchblock2.tpl');
+                    break;
+                case 'mob':
+                    return $this->display(__FILE__, 'htlfiltersearchblock_mob.tpl');
+                    break;
+                default:
+                    return $this->display(__FILE__, 'htlfiltersearchblock.tpl');
+                    break;
+            }
     }
 }

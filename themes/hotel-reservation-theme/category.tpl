@@ -23,8 +23,8 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-<div class="row cat_cont">
-    <div class="col-sm-12">
+<div class="row">
+    <div class="col-sm-12 col-xs-12">
         {* <div class="row margin-lr-0 catSortBlock">
             <div class="col-sm-2 sortBlockHeading">
                 <p>{l s='Sort By:'}</p>
@@ -57,7 +57,7 @@
         <div class="row no-gutters" id="category_data_cont">
             <input type="hidden" id="max_order_date" name="max_order_date" value="{$max_order_date}">
             {foreach from=$booking_data['rm_data'] key=room_k item=room_v}
-                <div class="col-sm-12 room_cont">
+                <div class="col-sm-12 col-xs-12 room_cont">
                     <div class="row no-gutters">
                         <div class="col-sm-7 pl-0 ">
                             <a href="{$room_v['product_link']}">
