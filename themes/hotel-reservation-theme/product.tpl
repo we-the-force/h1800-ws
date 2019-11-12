@@ -240,6 +240,11 @@
 					<div class="room_hotel_name_block">
 						<div class="hotel_name_block">
 							<span>{$product->name}&nbsp;-&nbsp;{$hotel_name}</span>
+							{* {foreach from=$dir item=file}
+							{if $file != "." && $file != ".."}
+							{$file}
+							{/if}
+							{/foreach} *}
 						</div>
 						{* {if isset($num_reviews)}
 							{for $foo=1 to 5}
@@ -291,7 +296,8 @@
 								{/if}
 							</span>
 						{/if}
-					</div> <!-- end image-block -->
+					</div> 
+					<!-- end image-block -->
 					{if isset($images) && count($images) > 0}
 						<!-- thumbnails -->
 						<div class="row">
@@ -827,19 +833,33 @@
 {/if}
 <script type="text/javascript">
 
-	let x = false;
+	/**let x = false;
 	let id_panorama;
 	images.forEach(function(x){
 		if(x.panorama != null){
 			id_panorama = x.id_image;
 		}
-	});
+	});*/
 
-	if(id_panorama){
-		let z = id_panorama.split('');
+	//if(id_panorama){
+	//	let z = id_panorama.split('');
 		$('.jqzoom').css('display','none');
 
 		var headerPanorama = pannellum.viewer('panorama', {
+			"type": "equirectangular",
+			"panorama": "{$base_dir}img/rooms/{$product->id}/panorama_01.jpg",
+			"autoLoad": true,
+			"showControls": false,
+			"vaov": 120,
+			"autoRotate": true,
+			"minXaw": -120,
+			"maxXaw": 120,
+			"minPitch": -55,
+			"maxPitch": 55,
+			"mouseZoom": false,
+			"autoRotateInactivityDelay": 2000
+		});
+		/**var headerPanorama = pannellum.viewer('panorama', {
 			"type": "equirectangular",
 			"panorama": "{$img_prod_dir}"+z[0]+"/"+z[1]+"/"+id_panorama+".jpg",
 			"autoLoad": true,
@@ -852,8 +872,8 @@
 			"maxPitch": 55,
 			"mouseZoom": false,
 			"autoRotateInactivityDelay": 2000
-		});
-	}
+		});*/
+	//}
 
 	$('#image-block').off('click');
 
