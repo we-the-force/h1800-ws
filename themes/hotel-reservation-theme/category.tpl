@@ -61,7 +61,8 @@
                     <div class="row no-gutters">
                         <div class="col-sm-7 pl-0 ">
                             <a href="{$room_v['product_link']}">
-                            <img src="{$room_v['image']}" class="img-responsive">
+                            {* <img src="{$room_v['image']}" class="img-responsive"> *}
+                            <img src="{$base_dir}img/rooms/{$room_v['id_product']}/DSC_01.jpg" class="img-responsive">
                             </a>
                         </div>
                         <div class="col-sm-5">
