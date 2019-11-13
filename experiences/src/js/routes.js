@@ -24,7 +24,27 @@ var routes = [{
         name: 'parks',
         path: '/parks/',
         id: 'parks',
-        component: Parks,
+        async: function(routeTo, routeFrom, resolve, reject) {
+            // Requested route
+            // Get external data and return template7 template
+            this.app.request.json(getCollection('Parques'),
+                function(data) {
+                    resolve(
+
+                        // How and what to load: template
+                        {
+
+                            component: Parks,
+                        },
+                        // Custom template context
+                        {
+                            context: {
+                                parks: data.entries,
+                            },
+                        }
+                    );
+                });
+        }
 
 
     },
