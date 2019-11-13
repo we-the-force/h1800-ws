@@ -1578,6 +1578,10 @@ header .row #header_logo,
     }
 }
 
+/* #contact .container{
+    max-width: unset;
+} */
+
 @media (min-width: 1200px) {
     .container {
         max-width: 1170px;
