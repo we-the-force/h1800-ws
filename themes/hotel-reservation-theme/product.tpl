@@ -271,7 +271,14 @@
 						{elseif $product->specificPrice && $product->specificPrice.reduction && $productPriceWithoutReduction > $productPrice}
 							<span class="discount">{l s='Reduced price!'}</span>
 						{/if} *}
-						{if $have_image}
+							<span id="view_full_size">
+								<div id="panorama">
+								</div>
+								<a class="jqzoom" rel="gal1" href="">
+									<img itemprop="image" src="{$base_dir}/img/rooms/{$product->id}/DSC_01.jpg" style="height: 100%;"/>
+								</a>
+							</span>
+						{* {if $have_image}
 							<span id="view_full_size">
 								<div id="panorama">
 								</div>
@@ -281,9 +288,6 @@
 									</a>
 								{else}
 									<img id="bigpic" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}"/>
-									<!-- {if !$content_only}
-										<span class="span_link no-print">{l s='View larger'}</span>
-									{/if} -->
 								{/if}
 							</span>
 						{else}
@@ -295,7 +299,7 @@
 									</span>
 								{/if}
 							</span>
-						{/if}
+						{/if} *}
 					</div> 
 					<!-- end image-block -->
 					{if isset($images) && count($images) > 0}
@@ -311,7 +315,16 @@
 							{/if}
 							<div id="thumbs_list">
 								<ul id="thumbs_list_frame">
-								{if isset($images)}
+									{foreach from=$dir2 item=file name=thumbnails}
+									{if $file != "." && $file != ".."}
+									<li>
+										<a>
+											<img class="img-responsive" id="thumb_{$file}" src="{$base_dir}/img/rooms/{$product->id}/{$file}" itemprop="image"/>
+										</a>
+									</li>
+									{/if}
+									{/foreach}
+								{* {if isset($images)}
 									{foreach from=$images item=image name=thumbnails}
 										{assign var=imageIds value="`$product->id`-`$image.id_image`"}
 										{if !empty($image.legend)}
@@ -325,7 +338,7 @@
 											</a>
 										</li>
 									{/foreach}
-								{/if}
+								{/if} *}
 								</ul>
 							</div> <!-- end thumbs_list -->
 							{if isset($images) && count($images) > 2}
@@ -828,11 +841,12 @@
 {addJsDef autocomplete_search_url=$link->getModuleLink('wkroomsearchblock','autocompletesearch')}
 {addJsDef images=$product->getImages(EN)}
 {addJsDef panorama=$product->getPanorama($product->id|intval)}
+{addJsDef dir=$dir}
 
 {/strip}
 {/if}
 <script type="text/javascript">
-
+	let id_panorama;
 	/**let x = false;
 	let id_panorama;
 	images.forEach(function(x){
@@ -840,8 +854,13 @@
 			id_panorama = x.id_image;
 		}
 	});*/
+	dir.forEach(function(x){
+		if(x == "panorama_01.jpg"){
+			id_panorama = true;
+		}
+	});
 
-	//if(id_panorama){
+	if(id_panorama){
 	//	let z = id_panorama.split('');
 		$('.jqzoom').css('display','none');
 
@@ -873,11 +892,47 @@
 			"mouseZoom": false,
 			"autoRotateInactivityDelay": 2000
 		});*/
-	//}
+	}
 
 	$('#image-block').off('click');
 
-    $('#thumbs_list li a').click(function(){
+	$('#thumbs_list li a').click(function(){
+		let name = $(this).children().attr('id').split('_');
+		if(name[1] == "panorama"){
+			$('#panorama').empty();
+			$('.jqzoom').css('display','none');
+			var wheight = $(window).height();
+			var wwidth = $(window).width();
+			var headerPanorama = pannellum.viewer('panorama', {
+				"type": "equirectangular",
+				"panorama": "{$base_dir}img/rooms/{$product->id}/"+name[1]+"_"+name[2],
+				"autoLoad": true,
+				"showControls": false,
+				"vaov": 120,
+				"autoRotate": true,
+				"minXaw": -120,
+				"maxXaw": 120,
+				"minPitch": -55,
+				"maxPitch": 55,
+				"mouseZoom": false,
+				"autoRotateInactivityDelay": 2000
+			});
+		}else{
+			$('#panorama').empty();
+			$('#panorama').removeAttr('class');
+			$('.jqzoom img').attr('src',"{$base_dir}img/rooms/{$product->id}/"+name[1]+"_"+name[2]);
+			$('.jqzoom').css('display','unset');
+			/**$('.jqzoom').jqzoom({
+				zoomType: 'innerzoom', //innerzoom/standard/reverse/drag
+				zoomWidth: 458, //zooming div default width(default width value is 200)
+				zoomHeight: 458, //zooming div default width(default height value is 200)
+				xOffset: 21, //zooming div default offset(default offset value is 10)
+				yOffset: 0,
+				title: false
+			});*/
+		}
+	});
+    /**$('#thumbs_list li a').click(function(){
 			let id = $(this).parent().attr('id').split('_')[1];
 			let image,exception = {};
 			try{
@@ -924,5 +979,5 @@
 					title: false
 				});
 			}
-    });
+    });*/
 </script>
