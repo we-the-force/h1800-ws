@@ -89,7 +89,7 @@
 			<p class="contact-desc col-sm-offset-2 col-sm-8">{l s='Si requieres información extra sobre el hotel o nuestros recorridos en los principales atractivos de Cuatrociénegas, ¡escríbenos!'}</p>
 		</div>
 		<div class="row margin-top-50">
-			<div class="map"></div>
+			<div id ="map" class="map"></div>
 		</div>
 
 		<div class="row margin-top-30">
@@ -267,3 +267,11 @@
 		{addJsDef hotelLocationArray = 0}
 	{/strip}
 {/if}
+{* <script>
+var map;
+var latlng = new google.maps.LatLng(26.984732, -102.081558);
+map = new google.maps.Map(document.getElementById("map"), {
+				center: latlng,
+				zoom: 8
+});
+</script> *}
