@@ -46,7 +46,6 @@
     background-attachment: fixed;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('/img/contact/01_Web.png');
 }
 
 .htl-contact-page .about {
@@ -63,13 +62,11 @@
 .htl-contact-page .img-01 {
     width: 400px;
     height: 470px;
-    background-image: url('/img/contact/02_Web.png');
 }
 
 .htl-contact-page .img-02 {
     width: 670px;
     height: 470px;
-    background-image: url('/img/contact/07_Web.png');
 }
 
 .htl-contact-page .images {

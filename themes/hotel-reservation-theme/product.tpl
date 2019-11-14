@@ -302,7 +302,7 @@
 						{/if} *}
 					</div> 
 					<!-- end image-block -->
-					{if isset($images) && count($images) > 0}
+					{* {if isset($images) && count($images) > 0} *}
 						<!-- thumbnails -->
 						<div class="row">
 						<div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
@@ -315,7 +315,7 @@
 							{/if}
 							<div id="thumbs_list">
 								<ul id="thumbs_list_frame">
-									{foreach from=$dir2 item=file name=thumbnails}
+									{foreach from=$dir item=file name=thumbnails}
 									{if $file != "." && $file != ".."}
 									<li>
 										<a>
@@ -352,7 +352,7 @@
 						</div>
 						<!-- end views-block -->
 						<!-- end thumbnails -->
-					{/if}
+					{* {/if} *}
 					{if isset($images) && count($images) > 1}
 						<p class="resetimg clear no-print">
 							<span id="wrapResetImages" style="display: none;">
@@ -846,7 +846,7 @@
 {/strip}
 {/if}
 <script type="text/javascript">
-	let id_panorama;
+	let id_panorama,id_180;
 	/**let x = false;
 	let id_panorama;
 	images.forEach(function(x){
@@ -857,6 +857,9 @@
 	dir.forEach(function(x){
 		if(x == "panorama_01.jpg"){
 			id_panorama = true;
+		}
+		else if(x == "180_01.jpg"){
+			id_180 = true;
 		}
 	});
 
@@ -892,13 +895,51 @@
 			"mouseZoom": false,
 			"autoRotateInactivityDelay": 2000
 		});*/
-	}
+	}else if(id_180){
+		$('.jqzoom').css('display','none');
+
+		var headerPanorama = pannellum.viewer('panorama', {
+			"type": "equirectangular",
+			"panorama": "{$base_dir}img/rooms/{$product->id}/180_01.jpg",
+			"autoLoad": true,
+			"showControls": false,
+			"vaov": 120,
+			"haov": 180,
+			"autoRotate": true,
+			"minXaw": -120,
+			"maxXaw": 120,
+			"minPitch": -55,
+			"maxPitch": 55,
+			"mouseZoom": false,
+			"autoRotateInactivityDelay": 2000
+		});
+	};
 
 	$('#image-block').off('click');
 
 	$('#thumbs_list li a').click(function(){
 		let name = $(this).children().attr('id').split('_');
 		if(name[1] == "panorama"){
+			$('#panorama').empty();
+			$('.jqzoom').css('display','none');
+			var wheight = $(window).height();
+			var wwidth = $(window).width();
+			var headerPanorama = pannellum.viewer('panorama', {
+				"type": "equirectangular",
+				"panorama": "{$base_dir}img/rooms/{$product->id}/"+name[1]+"_"+name[2],
+				"autoLoad": true,
+				"showControls": false,
+				"vaov": 120,
+				"haov": 180,
+				"autoRotate": true,
+				"minXaw": -120,
+				"maxXaw": 120,
+				"minPitch": -55,
+				"maxPitch": 55,
+				"mouseZoom": false,
+				"autoRotateInactivityDelay": 2000
+			});
+		}else if(name[1] == "180"){
 			$('#panorama').empty();
 			$('.jqzoom').css('display','none');
 			var wheight = $(window).height();

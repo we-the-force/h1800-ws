@@ -984,7 +984,7 @@ var ajaxCart = {
 
         }
 
-        $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="' + product.image + '" alt="' + product.name + '" title="' + product.name + '" />');
+        $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="{$base_dir}img/rooms/' + product.id + '/DSC_01.jpg" alt="' + product.name + '" title="' + product.name + '" />');
 
         /* var n = parseInt($(window).scrollTop()+50) + 'px'; */
 

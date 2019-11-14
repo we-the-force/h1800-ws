@@ -256,7 +256,8 @@
 					<div class="col-sm-5 room-type-img-block">
 						{* <p> *}
 							<a href="{$link->getProductLink($data_v['id_product'])}">
-								<img src="{$data_v['cover_img']}" class="img-responsive" />
+								{* <img src="{$data_v['cover_img']}" class="img-responsive" /> *}
+								<img src="{$base_dir}img/rooms/{$data_v['id_product']}/DSC_01.jpg" class="img-responsive" />
 							</a>
 						{* </p> *}
 						<p class="room_remove_block">
