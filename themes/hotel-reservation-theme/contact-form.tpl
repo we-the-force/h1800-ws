@@ -50,7 +50,7 @@
 	<div class="margin-top-30 htl-contact-page">
 		<div class="row">
 			<p class="contact-header col-sm-offset-2 col-sm-8">{if $lang_iso == 'es'} {l s='Sobre nosotros'} {elseif $lang_iso == 'en'} {l s='About us'} {/if}</p>
-			<div class="cover"></div>
+			<div class="cover" style="background-image: url('{$base_dir}img/contact/01_Web.png');" ></div>
 			{* <p class="contact-desc col-sm-offset-2 col-sm-8">{l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'}</p> *}
 		</div>
 		<div class="row margin-top-30" style="display: flex;">
@@ -86,26 +86,26 @@
 				{/if}
 				</p>
 			</div>
-			<div class="col-sm-4 img-01">
+			<div class="col-sm-4 img-01" style="background-image: url('{$base_dir}img/contact/02_Web.png');">
 			</div>
 		</div>
 		<div class="row margin-top-30 images">
-			<div class="col img" style="background-image: url('/img/contact/03_Web.png');">
+			<div class="col img" style="background-image: url('{$base_dir}img/contact/03_Web.png');">
 			</div>
-			<div class="col img" style="background-image: url('/img/contact/04_Web.png');">
+			<div class="col img" style="background-image: url('{$base_dir}img/contact/04_Web.png');">
 			</div>
-			<div class="col img" style="background-image: url('/img/contact/05_Web.png');">
+			<div class="col img" style="background-image: url('{$base_dir}img/contact/05_Web.png');">
 			</div>
-			<div class="col img" style="background-image: url('/img/contact/06_Web.png');">
+			<div class="col img" style="background-image: url('{$base_dir}img/contact/06_Web.png');">
 			</div>
 		</div>
 		<div class="row margin-top-70" style="display: flex; margin-bottom: 80px;">
-			<div class="col-sm-7 img-02">
+			<div class="col-sm-7 img-02" style="background-image: url('{$base_dir}img/contact/07_Web.png');">
 			</div>
 			<div class="col-sm-6 frase">
-				<img src="/img/Vector_izq.png" class="left">
+				<img src="{$base_dir}img/Vector_izq.png" class="left">
 				<p class="frase-01">{if $lang_iso == 'es'} {l s='Se halla solo a 2 km del centro de la ciudad de Cuatrociénegas de Carranza.'} {elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} {/if}</p>
-				<img src="/img/Vector_der.png" class="right">
+				<img src="{$base_dir}img/Vector_der.png" class="right">
 			</div>
 		</div>
 		<div class="row">
