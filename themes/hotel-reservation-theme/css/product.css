@@ -1953,6 +1953,11 @@ Quick View Styles
     margin-bottom: 15px;
 }
 
+/* .columns-container .product_wrapper .primary_block .room_type_img_containter #image-block {
+    height: fit-content;
+    margin-bottom: 15px;
+}  */
+
 .columns-container .product_wrapper .primary_block .room_type_img_containter #views_block {
     width: 95%;
     display: block;

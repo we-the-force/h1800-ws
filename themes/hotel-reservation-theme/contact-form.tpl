@@ -47,11 +47,75 @@
 	</ul>
 {else}
 	{include file="$tpl_dir./errors.tpl"}
-	<div class="margin-top-50 htl-contact-page">
+	<div class="margin-top-30 htl-contact-page">
 		<div class="row">
-			<p class="contact-header col-sm-offset-2 col-sm-8">{l s='Contáctanos'}</p>
-			<p class="contact-desc col-sm-offset-2 col-sm-8">{l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'}</p>
+			<p class="contact-header col-sm-offset-2 col-sm-8">{if $lang_iso == 'es'} {l s='Sobre nosotros'} {elseif $lang_iso == 'en'} {l s='About us'} {/if}</p>
+			<div class="cover" style="background-image: url('{$base_dir}img/contact/01_Web.png');" ></div>
+			{* <p class="contact-desc col-sm-offset-2 col-sm-8">{l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'}</p> *}
 		</div>
+		<div class="row margin-top-30" style="display: flex;">
+			<div class="col-sm-8 margin-top-50">
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='Nuestro Hotel Hacienda 1800 está ubicado en el pueblo mágico de Cuatrociénegas, Coahuila. Es un oasis en el desierto con jardines y albercas al aire libre.'} 
+				{elseif $lang_iso == 'en'} {l s='Our Hotel Hacienda 1800 is located in the magical town of Cuatrociénegas, Coahuila. It is an oasis in the desert with gardens and outdoor pools.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='Cuenta con 34 habitaciones, 2 suites y una villa para hasta 6 personas, todas equipadas con aire acondicionado, amenidades de lujo y smart tv.'} 
+				{elseif $lang_iso == 'en'} {l s='It has 34 rooms, 2 suites and a villa for up to 6 people, all equipped with air conditioning, luxury amenities and smart TV.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='También contamos con un aqua bar donde podrás disfrutar de una extensa gama de bebidas.'} 
+				{elseif $lang_iso == 'en'} {l s='We also have an aqua bar where you can enjoy an extensive range of drinks.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='El hotel está ubicado en una zona privilegiada y tiene al alcance bellezas naturales que hacen de Cuatrociénegas el lugar ideal para aventureros y vacacionistas. El Río Mezquites, la Poza Azul, las Dunas de Yeso y las Minas de Mármol son solo algunos lugares que están a no más de 30 minutos de Hacienda 1800.'} 
+				{elseif $lang_iso == 'en'} {l s='The hotel is located in a privileged area and has natural beauties that make Cuatrociénegas the ideal place for adventurers and vacationers. The Mezquites River, the Blue Pool, the Plaster Dunes and the Marble Mines are just a few places that are no more than 30 minutes away from Hacienda 1800.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='Nuestra cocina prepara exquisitos platillos con ingredientes regionales y está considerada como la mejor de la región.'} 
+				{elseif $lang_iso == 'en'} {l s='Our kitchen prepares exquisite dishes with regional ingredients and is determined as the best in the region.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='Se halla a solo 2 km del centro de la ciudad de Cuatrociénegas de Carranza. El museo Casa Venustiano Carranza se encuentra a sólo 1.5 km de distancia. Distancia al Aeropuerto de Monclova es de 65 km.'} 
+				{elseif $lang_iso == 'en'} {l s='It is only 2 km from the city center of Cuatrociénegas de Carranza. The Casa Venustiano Carranza museum is only 1.5 km away. Distance to Monclova Airport is 65 km.'} 
+				{/if}
+				</p>
+			</div>
+			<div class="col-sm-4 img-01" style="background-image: url('{$base_dir}img/contact/02_Web.png');">
+			</div>
+		</div>
+		<div class="row margin-top-30 images">
+			<div class="col img" style="background-image: url('{$base_dir}img/contact/03_Web.png');">
+			</div>
+			<div class="col img" style="background-image: url('{$base_dir}img/contact/04_Web.png');">
+			</div>
+			<div class="col img" style="background-image: url('{$base_dir}img/contact/05_Web.png');">
+			</div>
+			<div class="col img" style="background-image: url('{$base_dir}img/contact/06_Web.png');">
+			</div>
+		</div>
+		<div class="row margin-top-70" style="display: flex; margin-bottom: 80px;">
+			<div class="col-sm-7 img-02" style="background-image: url('{$base_dir}img/contact/07_Web.png');">
+			</div>
+			<div class="col-sm-6 frase">
+				<img src="{$base_dir}img/Vector_izq.png" class="left">
+				<p class="frase-01">{if $lang_iso == 'es'} {l s='Se halla solo a 2 km del centro de la ciudad de Cuatrociénegas de Carranza.'} {elseif $lang_iso == 'en'} {l s='It is only 2 km from the city center of Cuatrociénegas de Carranza.'} {/if}</p>
+				<img src="{$base_dir}img/Vector_der.png" class="right">
+			</div>
+		</div>
+		<div class="row">
+			<p class="contact-header col-sm-offset-2 col-sm-8">{if $lang_iso == 'es'} {l s='Contactanos'} {elseif $lang_iso == 'en'} {l s='Contact us'} {/if}</p>
+			<p class="contact-desc col-sm-offset-2 col-sm-8">{if $lang_iso == 'es'} {l s='Si requieres información extra sobre el hotel o nuestros recorridos en los principales atractivos de Cuatrociénegas, ¡escríbenos!'} {elseif $lang_iso == 'en'} {l s='If you require extra information about the hotel or our tours in the main attractions of Cuatrociénegas, write us!'} {/if} </p>
+		</div>
+		<div class="row margin-top-50">
+			<div id ="map" class="map"></div>
+		</div>
+
 		<div class="row margin-top-30">
 			{if (isset($gblHtlAddress) && $gblHtlAddress) && (isset($gblHtlPhone) && $gblHtlPhone) && (isset($gblHtlEmail) && $gblHtlEmail)}
 				<div class="col-sm-6">
@@ -227,3 +291,11 @@
 		{addJsDef hotelLocationArray = 0}
 	{/strip}
 {/if}
+{* <script>
+var map;
+var latlng = new google.maps.LatLng(26.984732, -102.081558);
+map = new google.maps.Map(document.getElementById("map"), {
+				center: latlng,
+				zoom: 8
+});
+</script> *}

@@ -591,6 +591,8 @@ class ProductControllerCore extends FrontController
     protected function assignImages()
     {
         $images = $this->product->getImages((int)$this->context->cookie->id_lang);
+        $dir = scandir(_PS_IMG_DIR_.'rooms/'.$this->product->id.'/');
+        $dir2 = scandir(_PS_IMG_DIR_.'rooms/21/');
         $product_images = array();
 
         if (isset($images[0])) {
@@ -621,6 +623,8 @@ class ProductControllerCore extends FrontController
         }
         $size = Image::getSize(ImageType::getFormatedName('large'));
         $this->context->smarty->assign(array(
+            'dir' => $dir,
+            'dir2' => $dir2,
             'have_image' => (isset($cover['id_image']) && (int)$cover['id_image'])? array((int)$cover['id_image']) : Product::getCover((int)Tools::getValue('id_product')),
             'cover' => $cover,
             'imgWidth' => (int)$size['width'],

@@ -40,18 +40,20 @@
                                 {/if} *}
                                     <div class="item">
                                         <div class="margin-btm-30">
-                                            <img src="{$roomDisplay.image|escape:'htmlall':'UTF-8'}" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100">
+                                            {* <img src="{$roomDisplay.image|escape:'htmlall':'UTF-8'}" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100"> *}
+                                            <img src="{$base_dir}img/rooms/{$roomDisplay.id_product}/DSC_01.jpg" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100">
                                             <div class="hotelRoomDescContainer">
                                                 <div class="row margin-lr-0">
                                                     <h2 class="htlRoomTypeNameText col-xs-6 pull-left">{$roomDisplay.name|escape:'htmlall':'UTF-8'}</h2>
                                                     {if $roomDisplay.show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
                                                         <h3 class="htlRoomTypePriceText col-xs-6 pull-right">
-                                                            {if $roomDisplay.feature_price_diff >= 0}
+                                                            {convertPrice price = $roomDisplay.price}
+                                                            {* {if $roomDisplay.feature_price_diff >= 0}
                                                                 {convertPrice price = $roomDisplay.price_without_reduction}
                                                             {/if}
                                                             {if $roomDisplay.feature_price_diff}
                                                                 {convertPrice price = $roomDisplay.feature_price}
-                                                            {/if}
+                                                            {/if} *}
                                                             <br/>
                                                             <span class="wk_roomType_price">
                                                             &nbsp;{l s='Per Night' mod='wkhotelroom'}

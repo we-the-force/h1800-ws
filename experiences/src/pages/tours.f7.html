@@ -235,7 +235,7 @@
                             </p>
                         </div>
                         <div class="col-75">
-                            <div class="map"></div>
+                            <div id="verano-map" class="map"></div>
                         </div>
                     </div>
                     <div class="row notas">
@@ -335,12 +335,12 @@
                             <div class="photos row">
                                 <div class="col-35 photo ph1" style="background-image: url('../static/img/experience.png');">
                                 </div>
-        
+
                                 <div class="col-50" style="height: 100%;">
                                     <div class="row photo ph2"
                                         style="background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png')">
                                     </div>
-        
+
                                     <div class="row" style="height: 63%;">
                                         <div class="col-50 photo ph3"
                                             style="background-image: url('../static/img/experience.png');"></div>
@@ -349,7 +349,7 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                                 <div class="col-15" style="height: 100%;">
                                     <div class="row photo ph5" style="background-image: url('../static/img/experience.png');">
                                     </div>
@@ -357,7 +357,7 @@
                                     </div>
                                 </div>
                             </div>
-        
+
                             <div class="row desc">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -367,7 +367,7 @@
                                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </p>
                             </div>
-        
+
                             <div class="elements row">
                                 <div class="element col">
                                     <img src="../static/icons/Clock2.svg" alt="">
@@ -390,13 +390,13 @@
                                     <p class="normal">Maximo 8 adultos</p>
                                 </div>
                             </div>
-        
+
                             <div class="row" style="margin-bottom: 30px;">
                                 <p class="title">
                                     ITINERARIO
                                 </p>
                             </div>
-        
+
                             <div class="row day" id="day1">
                                 <div class="col-25 line">
                                     <div class="circle"></div>
@@ -496,7 +496,7 @@
                             </div>
                             <div class="cover"
                                 style="background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')">
-        
+
                             </div>
                             <div class="row include">
                                 <div class="col-25">
@@ -534,7 +534,7 @@
                                     </p>
                                 </div>
                                 <div class="col-75">
-                                    <div class="map"></div>
+                                    <div id="invierno-map" class="map"></div>
                                 </div>
                             </div>
                             <div class="row notas">
@@ -625,5 +625,50 @@
     </div>
 </template>
 <script>
-    export default {}
+    import $$ from 'dom7';
+    export default {
+        on: {
+            pageInit: function(e, page) {
+
+                var self = this;
+                var app = self.$app;
+
+
+                $$('#invierno').on('tab:show', function(e) {
+                    var map;
+                    map = new google.maps.Map(document.getElementById('invierno-map'), {
+                        center: {
+                            lat: -34.397,
+                            lng: 150.644
+                        },
+                        zoom: 8
+                    });
+                });
+                $$('#verano').on('tab:show', function(e) {
+                    var map;
+                    map = new google.maps.Map(document.getElementById('verano-map'), {
+                        center: {
+                            lat: -34.397,
+                            lng: 150.644
+                        },
+                        zoom: 8
+                    });
+                });
+
+                var map;
+                map = new google.maps.Map(document.getElementById('verano-map'), {
+                    center: {
+                        lat: -34.397,
+                        lng: 150.644
+                    },
+                    zoom: 8
+                });
+
+
+
+
+            }
+        }
+
+    }
 </script>

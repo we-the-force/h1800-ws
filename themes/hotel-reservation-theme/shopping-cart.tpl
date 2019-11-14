@@ -256,7 +256,8 @@
 					<div class="col-sm-5 room-type-img-block">
 						{* <p> *}
 							<a href="{$link->getProductLink($data_v['id_product'])}">
-								<img src="{$data_v['cover_img']}" class="img-responsive" />
+								{* <img src="{$data_v['cover_img']}" class="img-responsive" /> *}
+								<img src="{$base_dir}img/rooms/{$data_v['id_product']}/DSC_01.jpg" class="img-responsive" />
 							</a>
 						{* </p> *}
 						<p class="room_remove_block">
@@ -383,9 +384,9 @@
 		</a>
 	</p> *}
 	<div class="clear"></div>
-	<div class="cart_navigation_extra">
+	{* <div class="cart_navigation_extra">
 		<div id="HOOK_SHOPPING_CART_EXTRA">{if isset($HOOK_SHOPPING_CART_EXTRA)}{$HOOK_SHOPPING_CART_EXTRA}{/if}</div>
-	</div>
+	</div> *}
 	{strip}
 		{addJsDef deliveryAddress=$cart->id_address_delivery|intval}
 		{addJsDefL name=txtProduct}{l s='product' js=1}{/addJsDefL}

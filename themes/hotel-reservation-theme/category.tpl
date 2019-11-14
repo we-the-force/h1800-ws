@@ -61,7 +61,8 @@
                     <div class="row no-gutters">
                         <div class="col-sm-7 pl-0 ">
                             <a href="{$room_v['product_link']}">
-                            <img src="{$room_v['image']}" class="img-responsive">
+                            {* <img src="{$room_v['image']}" class="img-responsive"> *}
+                            <img src="{$base_dir}img/rooms/{$room_v['id_product']}/DSC_01.jpg" class="img-responsive">
                             </a>
                         </div>
                         <div class="col-sm-5">
@@ -83,7 +84,13 @@
                                 </div>
                             {/if} *}
 
-                            {* <span class="rm_left pull-right" {if $room_v['room_left']>$warning_num}  style="display:none"{/if}>{l s='Hurry!'} <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span> {l s='rooms left'}</span> *}
+                            {* <span class="rm_left pull-right" {if $room_v['room_left']>$warning_num}  style="display:none"{/if}>{l s='Hurry!'} 
+                                <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span> {l s='rooms left'}
+                            </span> *}
+
+                            <span class="rm_left pull-right" style="visibility:hidden">
+                                <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span>
+                            </span>
 
                             {if !empty($room_v['feature'])}
                                 <div class="rm_amenities_cont">
