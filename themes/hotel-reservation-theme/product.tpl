@@ -302,7 +302,7 @@
 						{/if} *}
 					</div> 
 					<!-- end image-block -->
-					{if isset($images) && count($images) > 0}
+					{* {if isset($images) && count($images) > 0} *}
 						<!-- thumbnails -->
 						<div class="row">
 						<div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
@@ -315,7 +315,7 @@
 							{/if}
 							<div id="thumbs_list">
 								<ul id="thumbs_list_frame">
-									{foreach from=$dir2 item=file name=thumbnails}
+									{foreach from=$dir item=file name=thumbnails}
 									{if $file != "." && $file != ".."}
 									<li>
 										<a>
@@ -352,7 +352,7 @@
 						</div>
 						<!-- end views-block -->
 						<!-- end thumbnails -->
-					{/if}
+					{* {/if} *}
 					{if isset($images) && count($images) > 1}
 						<p class="resetimg clear no-print">
 							<span id="wrapResetImages" style="display: none;">

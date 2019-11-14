@@ -55,12 +55,36 @@
 		</div>
 		<div class="row margin-top-30" style="display: flex;">
 			<div class="col-sm-8 margin-top-50">
-				<p class="about">{if $lang_iso == 'es'} {l s='Nuestro Hotel Hacienda 1800 está ubicado en el pueblo mágico de Cuatrociénegas, Coahuila. Es un oasis en el desierto con jardines y albercas al aire libre.'} {elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} {/if}</p>
-				<p class="about">{if $lang_iso == 'es'} {l s='Cuenta con 34 habitaciones, 2 suites y una villa para hasta 6 personas, todas equipadas con aire acondicionado, amenidades de lujo y smart tv.'} {elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} {/if}</p>
-				<p class="about">{if $lang_iso == 'es'} {l s='También contamos con un aqua bar donde podrás disfrutar de una extensa gama de bebidas.'} {elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} {/if}</p>
-				<p class="about">{if $lang_iso == 'es'} {l s='El hotel está ubicado en una zona privilegiada y tiene al alcance bellezas naturales que hacen de Cuatrociénegas el lugar ideal para aventureros y vacacionistas. El Río Mezquites, la Poza Azul, las Dunas de Yeso y las Minas de Mármol son solo algunos lugares que están a no más de 30 minutos de Hacienda 1800.'} {elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} {/if}</p>
-				<p class="about">{if $lang_iso == 'es'} {l s='Nuestra cocina prepara exquisitos platillos con ingredientes regionales y está considerada como la mejor de la región.'} {elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} {/if}</p>
-				<p class="about">{if $lang_iso == 'es'} {l s='Se halla a solo 2 km del centro de la ciudad de Cuatrociénegas de Carranza. El museo Casa Venustiano Carranza se encuentra a sólo 1.5 km de distancia. Distancia al Aeropuerto de Monclova es de 65 km.'} {elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} {/if}</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='Nuestro Hotel Hacienda 1800 está ubicado en el pueblo mágico de Cuatrociénegas, Coahuila. Es un oasis en el desierto con jardines y albercas al aire libre.'} 
+				{elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='Cuenta con 34 habitaciones, 2 suites y una villa para hasta 6 personas, todas equipadas con aire acondicionado, amenidades de lujo y smart tv.'} 
+				{elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='También contamos con un aqua bar donde podrás disfrutar de una extensa gama de bebidas.'} 
+				{elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='El hotel está ubicado en una zona privilegiada y tiene al alcance bellezas naturales que hacen de Cuatrociénegas el lugar ideal para aventureros y vacacionistas. El Río Mezquites, la Poza Azul, las Dunas de Yeso y las Minas de Mármol son solo algunos lugares que están a no más de 30 minutos de Hacienda 1800.'} 
+				{elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='Nuestra cocina prepara exquisitos platillos con ingredientes regionales y está considerada como la mejor de la región.'} 
+				{elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} 
+				{/if}
+				</p>
+				<p class="about">
+				{if $lang_iso == 'es'} {l s='Se halla a solo 2 km del centro de la ciudad de Cuatrociénegas de Carranza. El museo Casa Venustiano Carranza se encuentra a sólo 1.5 km de distancia. Distancia al Aeropuerto de Monclova es de 65 km.'} 
+				{elseif $lang_iso == 'en'} {l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'} 
+				{/if}
+				</p>
 			</div>
 			<div class="col-sm-4 img-01">
 			</div>
