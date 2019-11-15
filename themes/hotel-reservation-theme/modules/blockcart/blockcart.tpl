@@ -76,13 +76,33 @@
 											</div>
 											<!-- extra fields added by webkul to show on the cart  -->
 											<div class="room-capacity cart-info-sec">
-												<span class="product_info_label">{l s='Capacity' mod='blockcart'}:</span>
+												<span class="product_info_label">
+												{if $lang_iso == 'es'}
+																{l s='Capacidad' mod='blockcart'}
+												{elseif $lang_iso == 'en'}
+																{l s='Capacity' mod='blockcart'}
+												{/if}:</span>
 												<br>
-												<span class="product_info_data">{$cart_htl_data[$data_k]['adult']}&nbsp;{l s='Adults' mod='blockcart'}&nbsp;&&nbsp;{$cart_htl_data[$data_k]['children']}&nbsp;{l s='Children' mod='blockcart'}</span>
+												<span class="product_info_data">&nbsp;{$cart_htl_data[$data_k]['adult']}&nbsp;
+												{if $lang_iso == 'es'}
+																{l s='Personas'}
+												{elseif $lang_iso == 'en'}
+																{l s='Persons'}
+												{/if}
+												</span>
+												{* <span class="product_info_label">{l s='Capacity' mod='blockcart'}:</span>
+												<br>
+												<span class="product_info_data">{$cart_htl_data[$data_k]['adult']}&nbsp;{l s='Adults' mod='blockcart'}&nbsp;&&nbsp;{$cart_htl_data[$data_k]['children']}&nbsp;{l s='Children' mod='blockcart'}</span> *}
 											</div>
 
 											<div class="cart-info-sec">
-												<span class="product_info_label">{l s='Duration' mod='blockcart'}:</span><br>
+												<span class="product_info_label">
+													{if $lang_iso == 'es'}
+														{l s='Duración' mod='blockcart'}
+													{elseif $lang_iso == 'en'}
+														{l s='Duration' mod='blockcart'}
+													{/if}:
+												</span><br>	
 												<span class="product_info_data">
 												{foreach from=$cart_htl_data[$data_k]['date_diff'] key=data_k1 item=data_v}
 												{$data_v['data_form']|date_format:"%a. %e %b"}&nbsp;-&nbsp;{$data_v['data_to']|date_format:"%a. %e %b"}
@@ -91,7 +111,13 @@
 											</div>
 
 											<div class="cart-info-sec rm_product_info_{$product.id_product}">
-												<span class="product_info_label">{l s='Total Qty.' mod='blockcart'}:</span><br>
+												<span class="product_info_label">
+												{if $lang_iso == 'es'}
+													{l s='Cantidad total:' mod='blockcart'}
+												{elseif $lang_iso == 'en'}
+													{l s='Total Qty.' mod='blockcart'}
+												{/if}
+												:</span><br>
 												<span class="quantity-formated">
 													<span class="quantity product_info_data">{$cart_htl_data[$data_k]['total_num_rooms']}</span>
 												</span>
@@ -103,7 +129,13 @@
 											</div>
 										{/if}
 										<div class="cart-info-sec room-price rm_product_info_{$product.id_product}">
-											<span class="product_info_label">{l s='Price' mod='blockcart'}:</span>
+											<span class="product_info_label">
+											{if $lang_iso == 'es'}
+												{l s='Precio' mod='blockcart'}
+											{elseif $lang_iso == 'en'}
+												{l s='Price' mod='blockcart'}
+											{/if}
+											:</span>
 											<span class="price product_info_data" ttl_prod_price={if $priceDisplay == $smarty.const.PS_TAX_EXC}{$product.total}{else}{$product.total_wt}{/if}>
 												{if !isset($product.is_gift) || !$product.is_gift}
 													{if $priceDisplay == $smarty.const.PS_TAX_EXC}{displayWtPrice p="`$product.total`"}{else}{displayWtPrice p="`$product.total_wt`"}{/if}
