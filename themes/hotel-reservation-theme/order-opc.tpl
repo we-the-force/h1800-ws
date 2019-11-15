@@ -156,9 +156,11 @@
 															<!-- END Payment -->
 														</div>
 													</div>
-													<div class="cart_navigation_extra">
+													 {if $opc}
+													<div class="cart_navigation_extra payment_module">
 														<div id="HOOK_SHOPPING_CART_EXTRA">{if isset($HOOK_SHOPPING_CART_EXTRA)}{$HOOK_SHOPPING_CART_EXTRA}{/if}</div>
 													</div>
+													 {/if}
 												{/if}
 											</div>
 										{/if}
