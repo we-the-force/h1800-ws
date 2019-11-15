@@ -26,9 +26,10 @@
                                     <img src="../static/icons/Clock.svg" alt="">
                                     <p>Horarios</p>
                                     <p class="normal">
-                                        {{#Horarios}}
-                                        {{value.'Hora Inicio'}} - {{value.'Hora Cierre'}}</p>
-                                        {{/Horarios}}
+                                        {{#horario_es}}
+                                        {{value.diainicio}} - {{value.diafinal}} <br> {{value.tiempoinicio}} - {{value.tiempofin}}
+                                        {{/horario_es}}
+                                        </p>
                                 </div>
                                 <div class="element col">
                                         <img src="../static/icons/Level.svg" alt="">
@@ -69,22 +70,13 @@
                                 <div class="swiper-slide">
                                     <div class="bg" style="background-image: url('../static/img/experience.png');"></div>
                                     <div class="txt-box">
-                                        <div class="title">{{}}</div>
+                                        <div class="title">{{display}}</div>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                             incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </div>
                                 {{/Experiencias}}
-                                <div class="swiper-slide">
-                                    <div class="bg"
-                                        style="background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png');">
-                                    </div>
-                                    <div class="txt-box">
-                                        <div class="title">PASEO</div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                            incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
 
@@ -362,21 +354,24 @@
 </template>
 <script>
     import $$ from 'dom7';
+
     export default {
         on: {
             pageInit: function(e, page) {
 
                 var self = this;
                 var app = self.$app;
-                var map;
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {
-                        lat: -34.397,
-                        lng: 150.644
-                    },
-                    zoom: 8
-                });
 
+                // var map;
+                // map = new google.maps.Map(document.getElementById('map'), {
+                //     center: {
+                //         lat: -34.397,
+                //         lng: 150.644
+                //     },
+                //     zoom: 8
+                // });
+
+                console.log(self.parks);
 
 
             }

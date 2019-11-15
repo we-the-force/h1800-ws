@@ -52,7 +52,28 @@ var routes = [{
         name: 'tours',
         path: '/tours/',
         id: 'tours',
-        component: Tours,
+
+        async: function(routeTo, routeFrom, resolve, reject) {
+            // Requested route
+            // Get external data and return template7 template
+            this.app.request.json(getCollection('Itinerario'),
+                function(data) {
+                    resolve(
+
+                        // How and what to load: template
+                        {
+
+                            component: Tours,
+                        },
+                        // Custom template context
+                        {
+                            context: {
+                                tours: data.entries,
+                            },
+                        }
+                    );
+                });
+        }
     },
 
 

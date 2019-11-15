@@ -5,15 +5,15 @@
             <div class="navbar-inner row no-gap">
                 <div class="toolbar tabbar toolbar-bottom">
                     <div class="toolbar-inner">
+                        {{#each tours}}
+                            <a href="#{{Nombre}}" class="{{#if @first}}bleft tab-link-active {{/if}} tab-link {{#if @last}} bright{{/if}}"
+                                style="background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')">
+                                <p class="  ">{{Nombre}}</p>
+                            </a>
+                        {{/each}}
                         <!-- Links have "tab-link" class instead of just "link" to switch tabs -->
-                        <a href="#verano" class="bleft tab-link tab-link-active"
-                            style="background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')">
-                            <p class="  ">Verano</p>
-                        </a>
-                        <a href="#invierno" class="bright tab-link"
-                            style="background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')">
-                            <p class=" ">Invierno</p>
-                        </a>
+
+
                     </div>
                 </div>
             </div>
@@ -22,305 +22,308 @@
         <!-- Scrollable page content-->
         <div class="page-content hide-navbar-on-scroll">
             <div class="tabs">
-                <div class="tab tab-active" id="verano">
-                    <div class="row">
-                        <p class="title">
-                            Verano
-                        </p>
-                    </div>
-                    <div class="row">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                    </div>
-                    <div class="photos row">
-                        <div class="col-35 photo ph1" style="background-image: url('../static/img/experience.png');">
+                {{#each tours}}
+                    <div class="tab tab-active" id="{{Nombre}}">
+                        <div class="row">
+                            <p class="title">
+                                {{Nombre}}
+                            </p>
                         </div>
-
-                        <div class="col-50" style="height: 100%;">
-                            <div class="row photo ph2"
-                                style="background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png')">
+                        <div class="row">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                        </div>
+                        <div class="photos row">
+                            <div class="col-35 photo ph1" style="background-image: url('../static/img/experience.png');">
                             </div>
 
-                            <div class="row" style="height: 63%;">
-                                <div class="col-50 photo ph3"
-                                    style="background-image: url('../static/img/experience.png');"></div>
-                                <div class="col-50 photo ph4"
+                            <div class="col-50" style="height: 100%;">
+                                <div class="row photo ph2"
                                     style="background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png')">
                                 </div>
+
+                                <div class="row" style="height: 63%;">
+                                    <div class="col-50 photo ph3"
+                                        style="background-image: url('../static/img/experience.png');"></div>
+                                    <div class="col-50 photo ph4"
+                                        style="background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png')">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-15" style="height: 100%;">
+                                <div class="row photo ph5" style="background-image: url('../static/img/experience.png');">
+                                </div>
+                                <div class="row photo ph6" style="background-image: url('../static/img/experience.png');">
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-15" style="height: 100%;">
-                            <div class="row photo ph5" style="background-image: url('../static/img/experience.png');">
-                            </div>
-                            <div class="row photo ph6" style="background-image: url('../static/img/experience.png');">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row desc">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                    </div>
-
-                    <div class="elements row">
-                        <div class="element col">
-                            <img src="../static/icons/Clock2.svg" alt="">
-                            <p>Horarios</p>
-                            <p class="normal">08:00 - 22:00</p>
-                        </div>
-                        <div class="element col">
-                            <img src="../static/icons/Level2.svg" alt="">
-                            <p>Nivel de actividades</p>
-                            <p class="normal">Ligera</p>
-                        </div>
-                        <div class="element col">
-                            <img src="../static/icons/Clock2.svg" alt="">
-                            <p>Estadia aproximada</p>
-                            <p class="normal">3 hras</p>
-                        </div>
-                        <div class="element col">
-                            <img src="../static/icons/Users.svg" alt="">
-                            <p>Ubicacion</p>
-                            <p class="normal">Maximo 8 adultos</p>
-                        </div>
-                    </div>
-
-                    <div class="row" style="margin-bottom: 30px;">
-                        <p class="title">
-                            ITINERARIO
-                        </p>
-                    </div>
-
-                    <div class="row day" id="day1">
-                        <div class="col-25 line">
-                            <div class="circle"></div>
-                            <div class="vl"></div>
-                        </div>
-                        <div class="col-75 content">
-                            <img src="../static/img/experience.png" alt="">
-                            <div class="txt">
-                                <p class="title">
-                                    DÍA 1
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irure
-                                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur.
-                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                    mollit anim id est laborum.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row day" id="day2">
-                        <div class="col-25 line">
-                            <div class="circle"></div>
-                            <div class="vl"></div>
-                        </div>
-                        <div class="col-75 content">
-                            <img src="../static/img/experience.png" alt="">
-                            <div class="txt">
-                                <p class="title">
-                                    DÍA 2
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irure
-                                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur.
-                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                    mollit anim id est laborum.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row day" id="day3">
-                        <div class="col-25 line">
-                            <div class="circle"></div>
-                            <div class="vl"></div>
-                        </div>
-                        <div class="col-75 content">
-                            <img src="../static/img/experience.png" alt="">
-                            <div class="txt">
-                                <p class="title">
-                                    DÍA 3
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irure
-                                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur.
-                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                    mollit anim id est laborum.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row day" id="day4">
-                        <div class="col-25 line">
-                            <div class="circle"></div>
-                            <div class="vl-final"></div>
-                            <div class="circle-final"></div>
-                        </div>
-                        <div class="col-75 content">
-                            <img src="../static/img/experience.png" alt="">
-                            <div class="txt">
-                                <p class="title">
-                                    DÍA 4
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irure
-                                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur.
-                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                    mollit anim id est laborum.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cover"
-                        style="background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')">
-
-                    </div>
-                    <div class="row include">
-                        <div class="col-25">
-                            <p class="title">
-                                Qué incluye
+                        <div class="row desc">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
                         </div>
-                        <div class="col-75">
-                            <div class="item">
-                                <object data="../static/icons/Rooms.svg" type="image/svg+xml" class="logo"></object>
-                                <p class="header">Alojamiento</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+
+                        <div class="elements row">
+                            <div class="element col">
+                                <img src="../static/icons/Clock2.svg" alt="">
+                                <p>Horarios</p>
+                                <p class="normal">08:00 - 22:00</p>
                             </div>
-                            <div class="item">
-                                <object data="../static/icons/Parques.svg" type="image/svg+xml" class="logo"></object>
-                                <p class="header">Equipo</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <div class="element col">
+                                <img src="../static/icons/Level2.svg" alt="">
+                                <p>Nivel de actividades</p>
+                                <p class="normal">Ligera</p>
                             </div>
-                            <div class="item">
-                                <object data="../static/icons/MapBlack.svg" type="image/svg+xml" class="logo"></object>
-                                <p class="header">Mapas</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <div class="element col">
+                                <img src="../static/icons/Clock2.svg" alt="">
+                                <p>Estadia aproximada</p>
+                                <p class="normal">3 hras</p>
                             </div>
-                            <div class="item">
-                                <object data="../static/icons/Rooms.svg" type="image/svg+xml" class="logo"></object>
-                                <p class="header">Alojamiento</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <div class="element col">
+                                <img src="../static/icons/Users.svg" alt="">
+                                <p>Ubicacion</p>
+                                <p class="normal">Maximo 8 adultos</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="row no-gap location">
-                        <div class="col-25">
+
+                        <div class="row" style="margin-bottom: 30px;">
                             <p class="title">
-                                Dónde estarás
+                                ITINERARIO
                             </p>
                         </div>
-                        <div class="col-75">
-                            <div id="verano-map" class="map"></div>
+
+                        <div class="row day" id="day1">
+                            <div class="col-25 line">
+                                <div class="circle"></div>
+                                <div class="vl"></div>
+                            </div>
+                            <div class="col-75 content">
+                                <img src="../static/img/experience.png" alt="">
+                                <div class="txt">
+                                    <p class="title">
+                                        DÍA 1
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                        irure
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                        pariatur.
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                        mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
+                        <div class="row day" id="day2">
+                            <div class="col-25 line">
+                                <div class="circle"></div>
+                                <div class="vl"></div>
+                            </div>
+                            <div class="col-75 content">
+                                <img src="../static/img/experience.png" alt="">
+                                <div class="txt">
+                                    <p class="title">
+                                        DÍA 2
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                        irure
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                        pariatur.
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                        mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row day" id="day3">
+                            <div class="col-25 line">
+                                <div class="circle"></div>
+                                <div class="vl"></div>
+                            </div>
+                            <div class="col-75 content">
+                                <img src="../static/img/experience.png" alt="">
+                                <div class="txt">
+                                    <p class="title">
+                                        DÍA 3
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                        irure
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                        pariatur.
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                        mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row day" id="day4">
+                            <div class="col-25 line">
+                                <div class="circle"></div>
+                                <div class="vl-final"></div>
+                                <div class="circle-final"></div>
+                            </div>
+                            <div class="col-75 content">
+                                <img src="../static/img/experience.png" alt="">
+                                <div class="txt">
+                                    <p class="title">
+                                        DÍA 4
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                        irure
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                        pariatur.
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                        mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cover"
+                            style="background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')">
+
+                        </div>
+                        <div class="row include">
+                            <div class="col-25">
+                                <p class="title">
+                                    Qué incluye
+                                </p>
+                            </div>
+                            <div class="col-75">
+                                <div class="item">
+                                    <object data="../static/icons/Rooms.svg" type="image/svg+xml" class="logo"></object>
+                                    <p class="header">Alojamiento</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                                </div>
+                                <div class="item">
+                                    <object data="../static/icons/Parques.svg" type="image/svg+xml" class="logo"></object>
+                                    <p class="header">Equipo</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                                </div>
+                                <div class="item">
+                                    <object data="../static/icons/MapBlack.svg" type="image/svg+xml" class="logo"></object>
+                                    <p class="header">Mapas</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                                </div>
+                                <div class="item">
+                                    <object data="../static/icons/Rooms.svg" type="image/svg+xml" class="logo"></object>
+                                    <p class="header">Alojamiento</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gap location">
+                            <div class="col-25">
+                                <p class="title">
+                                    Dónde estarás
+                                </p>
+                            </div>
+                            <div class="col-75">
+                                <div id="verano-map" class="map"></div>
+                            </div>
+                        </div>
+                        <div class="row notas">
+                            <div class="col-25">
+                                <p class="title">
+                                    Cosas que debes tener en cuenta
+                                </p>
+                            </div>
+                            <div class="col-75">
+                                <div class="row content">
+                                    <div class="col-25">
+                                        <p class="header">
+                                            Política de cancelación
+                                        </p>
+                                    </div>
+                                    <div class="col-75">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row content">
+                                    <div class="col-25">
+                                        <p class="header">
+                                            Política de comunicación
+                                        </p>
+                                    </div>
+                                    <div class="col-75">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row content">
+                                    <div class="col-25">
+                                        <p class="header">
+                                            Requisitos para los participantes
+                                        </p>
+                                    </div>
+                                    <div class="col-75">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row content">
+                                    <div class="col-25">
+                                        <p class="header">
+                                            Más consejos
+                                        </p>
+                                    </div>
+                                    <div class="col-75">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button button-raised button-fill button-round">Contacto</button>
                     </div>
-                    <div class="row notas">
-                        <div class="col-25">
-                            <p class="title">
-                                Cosas que debes tener en cuenta
-                            </p>
-                        </div>
-                        <div class="col-75">
-                            <div class="row content">
-                                <div class="col-25">
-                                    <p class="header">
-                                        Política de cancelación
-                                    </p>
-                                </div>
-                                <div class="col-75">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row content">
-                                <div class="col-25">
-                                    <p class="header">
-                                        Política de comunicación
-                                    </p>
-                                </div>
-                                <div class="col-75">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row content">
-                                <div class="col-25">
-                                    <p class="header">
-                                        Requisitos para los participantes
-                                    </p>
-                                </div>
-                                <div class="col-75">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row content">
-                                <div class="col-25">
-                                    <p class="header">
-                                        Más consejos
-                                    </p>
-                                </div>
-                                <div class="col-75">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="button button-raised button-fill button-round">Contacto</button>
-                </div>
+                {{/each}}
+
                 <div class="tab" id="invierno">
                         <div class="row">
                                 <p class="title">

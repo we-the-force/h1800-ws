@@ -337,7 +337,7 @@ var onChange = window.addEventListener("resize", function() {
 
 
     $(document).ready(function(e) {
-        
+
         var hotel_id = $('#hotel_cat_id').val();
         if(typeof hotel_id == "undefined"){
             var hotel_id = $('#hotel_cat_id2').val();
