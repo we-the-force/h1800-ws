@@ -73,7 +73,7 @@
             <div class="form-group inputs_filter_search">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                        <label class="control-label" for="check_in_time2">{l s='Check In Time' mod='wkroomsearchblock'}</label>
+                        <label class="control-label" for="check_in_time2">{if $lang_iso == 'es'}{l s='Entrada' mod='wkroomsearchblock'}{elseif $lang_iso == 'en'}{l s='Check In Time' mod='wkroomsearchblock'}{/if}</label>
                         <div class="input-group">
                             <input class="form-control" type="text" id="check_in_time2" name="check_in_time2" {if isset($search_data)}value="{$search_data['date_from']}"{/if}/>
                             <label class="input-group-addon" for="check_in_time2"><i class="icon-calendar"></i></label>
@@ -81,7 +81,7 @@
                         <p class="error_msg" id="check_in_time_error_p2"></p>
                     </div>
                     <div class="col-xs-12 col-sm-12 margin-top-10">
-                        <label class="control-label" for="check_out_time2">{l s='Check Out Time' mod='wkroomsearchblock'}</label>
+                        <label class="control-label" for="check_out_time2">{if $lang_iso == 'es'}{l s='Salida' mod='wkroomsearchblock'}{elseif $lang_iso == 'en'}{l s='Check Out Time' mod='wkroomsearchblock'}{/if}</label>
                         <div class="input-group">
                             <input class="form-control" type="text" id="check_out_time2" name="check_out_time2" {if isset($search_data)}value="{$search_data['date_to']}"{/if} />
                             <label class="input-group-addon" for="check_out_time2"><i class="icon-calendar"></i></label>
@@ -92,7 +92,7 @@
             </div>
             <div class="btn_filter_search2">
                 <button type="submit" name="filter_search_btn2" class="btn btn-default button button-medium exclusive" id="filter_search_btn2">
-                    <span>{l s='Search' mod='wkhotelfiltersearchblock'}</span>
+                    <span>{if $lang_iso == 'es'}{l s='Buscar' mod='wkhotelfiltersearchblock'}{elseif $lang_iso == 'en'}{l s='Search' mod='wkhotelfiltersearchblock'}{/if}</span>
                 </button>
             </div>
         </form>
