@@ -54,7 +54,7 @@
 			{* <p class="contact-desc col-sm-offset-2 col-sm-8">{l s='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text.'}</p> *}
 		</div>
 		<div class="row margin-top-30" style="display: flex;">
-			<div class="col-sm-8 margin-top-50">
+			<div class="col-lg-8 margin-top-50">
 				<p class="about">
 				{if $lang_iso == 'es'} {l s='Nuestro Hotel Hacienda 1800 está ubicado en el pueblo mágico de Cuatrociénegas, Coahuila. Es un oasis en el desierto con jardines y albercas al aire libre.'} 
 				{elseif $lang_iso == 'en'} {l s='Our Hotel Hacienda 1800 is located in the magical town of Cuatrociénegas, Coahuila. It is an oasis in the desert with gardens and outdoor pools.'} 
@@ -70,11 +70,23 @@
 				{elseif $lang_iso == 'en'} {l s='We also have an aqua bar where you can enjoy an extensive range of drinks.'} 
 				{/if}
 				</p>
+				<div class="row margin-top-30 margin-bottom-30 images-mob">
+					<div class="col img" style="background-image: url('{$base_dir}img/contact/03_Web.png');">
+					</div>
+					<div class="col img" style="background-image: url('{$base_dir}img/contact/04_Web.png');">
+					</div>
+				</div>
 				<p class="about">
 				{if $lang_iso == 'es'} {l s='El hotel está ubicado en una zona privilegiada y tiene al alcance bellezas naturales que hacen de Cuatrociénegas el lugar ideal para aventureros y vacacionistas. El Río Mezquites, la Poza Azul, las Dunas de Yeso y las Minas de Mármol son solo algunos lugares que están a no más de 30 minutos de Hacienda 1800.'} 
 				{elseif $lang_iso == 'en'} {l s='The hotel is located in a privileged area and has natural beauties that make Cuatrociénegas the ideal place for adventurers and vacationers. The Mezquites River, the Blue Pool, the Plaster Dunes and the Marble Mines are just a few places that are no more than 30 minutes away from Hacienda 1800.'} 
 				{/if}
 				</p>
+				<div class="row margin-top-30 margin-bottom-30 images-mob">
+					<div class="col img" style="background-image: url('{$base_dir}img/contact/05_Web.png');">
+					</div>
+					<div class="col img" style="background-image: url('{$base_dir}img/contact/06_Web.png');">
+					</div>
+				</div>
 				<p class="about">
 				{if $lang_iso == 'es'} {l s='Nuestra cocina prepara exquisitos platillos con ingredientes regionales y está considerada como la mejor de la región.'} 
 				{elseif $lang_iso == 'en'} {l s='Our kitchen prepares exquisite dishes with regional ingredients and is determined as the best in the region.'} 
@@ -86,7 +98,7 @@
 				{/if}
 				</p>
 			</div>
-			<div class="col-sm-4 img-01" style="background-image: url('{$base_dir}img/contact/02_Web.png');">
+			<div class="col-lg-4 img-01 hidden-xs hidden-sm hidden-md" style="background-image: url('{$base_dir}img/contact/02_Web.png');">
 			</div>
 		</div>
 		<div class="row margin-top-30 images">
@@ -99,7 +111,7 @@
 			<div class="col img" style="background-image: url('{$base_dir}img/contact/06_Web.png');">
 			</div>
 		</div>
-		<div class="row margin-top-70" style="display: flex; margin-bottom: 80px;">
+		<div class="row margin-top-70 responsive-row">
 			<div class="col-sm-7 img-02" style="background-image: url('{$base_dir}img/contact/07_Web.png');">
 			</div>
 			<div class="col-sm-6 frase">

@@ -14,6 +14,10 @@
     margin-bottom: 50px;
 }
 
+.margin-bottom-30 {
+    margin-bottom: 30px;
+}
+
 .htl-contact-page {
     padding: 10px;
 }
@@ -43,8 +47,8 @@
     margin-right: calc(-100vw / 2 + 1170px / 2);
     display: inline-block;
     background-position: 50% 15%;
-    background-attachment: fixed;
-    background-size: contain;
+    background-attachment: unset;
+    background-size: auto;
     background-repeat: no-repeat;
 }
 
@@ -72,6 +76,51 @@
 .htl-contact-page .images {
     display: inline-flex;
     margin-bottom: 110px;
+}
+
+.htl-contact-page .images-mob {
+    display: none;
+}
+
+.htl-contact-page .responsive-row {
+    display: flex; 
+    margin-bottom: 80px;
+}
+
+@media (max-width: 1200px) {
+    .htl-contact-page .map {
+        width: 100%;
+    }
+    .htl-contact-page .images {
+        display: none;
+    }
+    .htl-contact-page .images-mob {
+        display: inline-flex;
+        width: 100vw;
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+    .htl-contact-page .about {
+        margin-bottom: 15px;
+    }
+    .htl-contact-page .img-02 {
+        width: 100vw;
+        height: 370px;
+        background-position: 50% 15%;
+        background-attachment: unset;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .htl-contact-page .responsive-row {
+        flex-direction: column;
+        margin-bottom: 80px;
+    }
+    .htl-contact-page .frase {
+        height: 350px;
+    }
+    
 }
 
 .htl-contact-page .frase {
@@ -113,22 +162,31 @@
     margin-right: 15px;
 }
 
+.htl-contact-page .images-mob .img {
+    width: 50vw;
+    height: 370px;
+    background-position: 50% 15%;
+    background-attachment: unset;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 @media (max-width: 1200px) {
-    .htl-contact-page .cover {
+    .htl-contact-page .cover{
         margin-left: calc(-100vw / 2 + 965px / 2);
         margin-right: calc(-100vw / 2 + 965px / 2);
     }
 }
 
 @media (max-width: 992px) {
-    .htl-contact-page .cover {
+    .htl-contact-page .cover{
         margin-left: calc(-100vw / 2 + 745px / 2);
         margin-right: calc(-100vw / 2 + 745px / 2);
     }
 }
 
 @media (max-width: 768px) {
-    .htl-contact-page .cover {
+    .htl-contact-page .cover{
         margin-left: -15px;
         margin-right: -15px;
     }
