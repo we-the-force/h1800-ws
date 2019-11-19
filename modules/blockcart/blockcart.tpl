@@ -69,8 +69,20 @@
 											</div>
 											<!-- extra fields added by webkul to show on the cart  -->
 											<div class="room-capacity cart-info-sec">
-												<span class="product_info_label">{l s='Capacity' mod='blockcart'}:</span>
-												<span class="product_info_data">&nbsp;{$cart_htl_data[$data_k]['adult']}&nbsp;{l s='Adults' mod='blockcart'}&nbsp;&&nbsp;{$cart_htl_data[$data_k]['children']}&nbsp;{l s='Children' mod='blockcart'}</span>
+												<span class="product_info_label">
+												{if $lang_iso == 'es'}
+																{l s='Capacidad' mod='blockcart'}
+												{elseif $lang_iso == 'en'}
+																{l s='Capacity' mod='blockcart'}
+												{/if}:</span>
+												<span class="product_info_data">&nbsp;{$cart_htl_data[$data_k]['adult']}&nbsp;
+												{if $lang_iso == 'es'}
+																{l s='Personas'}
+												{elseif $lang_iso == 'en'}
+																{l s='Persons'}
+												{/if}
+												{* &nbsp;&&nbsp;{$cart_htl_data[$data_k]['children']}&nbsp;{l s='Children' mod='blockcart'} *}
+												</span>
 											</div>
 
 											{if isset($product.attributes_small)}
@@ -110,8 +122,20 @@
 												<table class="table">
 													<tbody>
 														<tr>
-															<th>{l s='Duration' mod='blockcart'}</th>
-															<th>{l s='Qty.' mod='blockcart'}</th>
+															<th>
+																{if $lang_iso == 'es'}
+																	{l s='Duración' mod='blockcart'}
+																{elseif $lang_iso == 'en'}
+																	{l s='Duration' mod='blockcart'}
+																{/if}
+															</th>
+															<th>
+																{if $lang_iso == 'es'}
+																	{l s='Cantidad total:' mod='blockcart'}
+																{elseif $lang_iso == 'en'}
+																	{l s='Qty.' mod='blockcart'}
+																{/if}
+															</th>
 															<th>{l s='Price' mod='blockcart'}</th>
 															<th>&nbsp;<!-- {l s='Remove' mod='blockcart'} --></th>
 														</tr>
@@ -253,7 +277,7 @@
 			<div class="layer_cart_product col-xs-12 col-md-6">
 				<span class="cross" title="{l s='Close window' mod='blockcart'}"></span>
 				<h2>
-					<i class="icon-check"></i>{l s='Room successfully added to your cart' mod='blockcart'}
+					<i class="icon-check"></i>{if $lang_iso == 'es'}{l s='Cuarto añadido exitosamente a tus reservas' mod='blockcart'}{elseif $lang_iso == 'en'}{l s='Room successfully added to your cart' mod='blockcart'}{/if}
 				</h2>
 				<div class="product-image-container layer_cart_img">
 				</div>
@@ -261,15 +285,15 @@
 					<span id="layer_cart_product_title" class="product-name"></span>
 					<span id="layer_cart_product_attributes"></span>
 					<div>
-						<strong class="dark">{l s='Time Duration' mod='blockcart'} &nbsp;-&nbsp;</strong>
+						<strong class="dark">{if $lang_iso == 'es'}{l s='Duración de la estadía' mod='blockcart'}{elseif $lang_iso == 'en'}{l s='Time Duration' mod='blockcart'}{/if} &nbsp;-&nbsp;</strong>
 						<span id="layer_cart_product_time_duration"></span>
 					</div>
 					<div>
-						<strong class="dark">{l s='Rooms Quantity Added' mod='blockcart'} &nbsp;-&nbsp;</strong>
+						<strong class="dark">{if $lang_iso == 'es'}{l s='Cantidad de cuartos agregados' mod='blockcart'}{elseif $lang_iso == 'en'}{l s='Rooms Quantity Added' mod='blockcart'}{/if} &nbsp;-&nbsp;</strong>
 						<span id="layer_cart_product_quantity"></span>
 					</div>
 					<div>
-						<strong class="dark">{l s='Total Cart Cost of This Room Type' mod='blockcart'} &nbsp;-&nbsp;</strong>
+						<strong class="dark">{if $lang_iso == 'es'}{l s='Costo total de las habitaciones' mod='blockcart'}{elseif $lang_iso == 'en'}{l s='Total Cart Cost of This Room Type' mod='blockcart'}{/if} &nbsp;-&nbsp;</strong>
 						<span id="layer_cart_product_price"></span>
 					</div>
 				</div>
@@ -379,7 +403,7 @@
 					</span>
 					<a class="btn btn-default button button-medium"	href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
 						<span>
-							{l s='Proceed to checkout' mod='blockcart'}<i class="icon-chevron-right right"></i>
+							{if $lang_iso == 'es'}{l s='Pagar' mod='blockcart'}{elseif $lang_iso == 'en'}{l s='Proceed to checkout' mod='blockcart'}{/if}<i class="icon-chevron-right right"></i>
 						</span>
 					</a>
 				</div>

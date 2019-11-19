@@ -370,7 +370,7 @@
 					<!--HOOK_PRODUCT_TAB -->
 					<section class="page-product-box">
 						<ul class="nav nav-tabs product_description_tabs">
-							<li class="active"><a href="#room_info_tab" class="idTabHrefShort" data-toggle="tab">{l s='Room Information' mod='productcomments'}</a></li>
+							<li class="active"><a href="#room_info_tab" class="idTabHrefShort" data-toggle="tab">{if $lang_iso == 'es'}{l s='Información de la habitación' mod='productcomments'}{elseif $lang_iso == 'en'}{l s='Room Information' mod='productcomments'}{/if}</a></li>
 							{$HOOK_PRODUCT_TAB}
 						</ul>
 						<div class="tab-content product_description_tabs_contents">
@@ -384,7 +384,7 @@
 											<div class="room_info_heading">
 												<span>
 												{if $lang_iso == 'es'}
-																{l s='Car�cter�sticas de la habitaci�n'}
+																{l s='Características de la habitación'}
 												{elseif $lang_iso == 'en'}
 																{l s='Room features'}
 												{/if}
@@ -930,7 +930,6 @@
 				"autoLoad": true,
 				"showControls": false,
 				"vaov": 120,
-				"haov": 180,
 				"autoRotate": true,
 				"minXaw": -120,
 				"maxXaw": 120,
@@ -950,6 +949,7 @@
 				"autoLoad": true,
 				"showControls": false,
 				"vaov": 120,
+				"haov": 180,
 				"autoRotate": true,
 				"minXaw": -120,
 				"maxXaw": 120,
