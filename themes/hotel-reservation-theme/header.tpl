@@ -208,7 +208,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 											</svg>
 
                                                 <p>
-                                                    {if $lang_iso == 'es'} {l s='PARQUES'} {elseif $lang_iso == 'en'} {l s='PARKS'} {/if}
+                                                    {if $lang_iso == 'es'} EXPERIENCIAS {elseif $lang_iso == 'en'} EXPERIENCES {/if}
                                                 </p>
                                             </a>
                                         </div>
