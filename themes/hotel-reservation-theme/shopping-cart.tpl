@@ -148,7 +148,7 @@
 									{displayPrice price=($rm_v['amount'])}
 								</span>
 								{if isset($data_v['extra_demands']) && $data_v['extra_demands']}
-									<span class="plus-sign pull-right">
+									<span class="plus-sign pull-right hidden-md hidden-sm hidden-xs">
 										+
 									</span>
 								{/if}
