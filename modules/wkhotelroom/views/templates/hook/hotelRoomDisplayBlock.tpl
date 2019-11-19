@@ -47,7 +47,13 @@
                                                     <h2 class="htlRoomTypeNameText col-xs-6 pull-left">{$roomDisplay.name|escape:'htmlall':'UTF-8'}</h2>
                                                     {if $roomDisplay.show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
                                                         <h3 class="htlRoomTypePriceText col-xs-6 pull-right">
-                                                            {convertPrice price = $roomDisplay.price}
+                                                            {* {$roomDisplay|@var_dump} *}
+                                                            {* {convertPrice price = $roomDisplay.feature_price} *}
+                                                            {if $roomDisplay.feature_price_diff > 0}
+                                                                {convertPrice price = $roomDisplay.feature_price}
+                                                            {elseif $roomDisplay.feature_price_diff == 0}
+                                                                {convertPrice price = $roomDisplay.price_without_reduction}
+                                                            {/if}
                                                             {* {if $roomDisplay.feature_price_diff >= 0}
                                                                 {convertPrice price = $roomDisplay.price_without_reduction}
                                                             {/if}
