@@ -984,7 +984,9 @@ var ajaxCart = {
 
         }
 
-        $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="/img/rooms/' + product.id + '/DSC_01.jpg" alt="' + product.name + '" title="' + product.name + '" />');
+        var base_url = window.location.origin;
+
+        $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="'+base_url+'/img/rooms/' + product.id + '/DSC_01.jpg" alt="' + product.name + '" title="' + product.name + '" />');
 
         /* var n = parseInt($(window).scrollTop()+50) + 'px'; */
 
