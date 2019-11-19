@@ -15,7 +15,7 @@
     public function initContent(){
 
       parent::initContent();
-      $this->setTemplate(_PS_THEME_DIR_.'activities.tpl');
+      $this->setTemplate(_PS_THEME_DIR_.'experiences.tpl');
 
     }
 
@@ -27,7 +27,7 @@
 
     public function setMedia(){
       parent::setMedia();
-      $this->addCSS(_THEME_CSS_DIR_.'activities.css');
+      $this->addCSS(_THEME_CSS_DIR_.'experiences.css');
       // $this->addJS(_THEME_JS_DIR_.'custom-page.js');
     }
 
