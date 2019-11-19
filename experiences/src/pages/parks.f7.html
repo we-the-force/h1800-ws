@@ -356,31 +356,43 @@
     import $$ from 'dom7';
 
     export default {
+        data: function() {
+            return {
+                exp: this.$app.request.json(this.$app.methods.getCollection('Experiencias'),
+                    function(data) {
+
+                        return data.entries;
+                    })
+            }
+        },
         on: {
             pageInit: function(e, page) {
 
                 var self = this;
                 var app = self.$app;
-                var myLatLng = {lat: -25.363, lng: 131.044};
-                 var map;
-                 map = new google.maps.Map(document.getElementById('canion-map'), {
-                     center: {
-                         lat: -34.397,
-                         lng: 150.644
-                     },
-                     zoom: 8
-                 });
+                var myLatLng = self.parks[0].Locacion;
+                console.log(self);
+                app.request.promise.json('users.json')
+                    .then(function(res) {
+                        console.log(res.data);
+                    });
+
+                var map;
+                map = new google.maps.Map(document.getElementById('canion-map'), {
+                    center: myLatLng,
+                    zoom: 13
+                });
                 var marker = new google.maps.Marker({
                     position: myLatLng,
                     map: map
                 });
                 //var lang = url.searchParams.get("c");
-                console.log(self.parks);
+                console.log();
 
-                $$('.dynamic-popup').on('click', function () {
+                $$('.dynamic-popup').on('click', function() {
                     dynamicPopup.open();
                 });
-                $$('.element.location').on('click', function(e){
+                $$('.element.location').on('click', function(e) {
                     e.preventDefault();
                     var move = $$(this).attr('href');
                     move = move.toString();

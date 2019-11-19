@@ -11,13 +11,8 @@ import RequestAndLoad from '../pages/request-and-load.f7.html';
 import NotFoundPage from '../pages/404.f7.html';
 
 
-var getCollection = function(collection) {
-    var apiPath = 'http://hacienda1800.com/panel/api/collections/get/';
-    var apiToken = '?token=8c4e6225dd7f133664f09e3f8dac1d'
-    var collectionUrl = apiPath + collection + apiToken;
-    return collectionUrl;
 
-};
+
 
 var routes = [{
 
@@ -27,7 +22,7 @@ var routes = [{
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
-            this.app.request.json(getCollection('Parques'),
+            this.app.request.json(this.app.methods.getCollection('Parques'),
                 function(data) {
                     resolve(
 
@@ -44,6 +39,8 @@ var routes = [{
                         }
                     );
                 });
+
+
         }
 
 
