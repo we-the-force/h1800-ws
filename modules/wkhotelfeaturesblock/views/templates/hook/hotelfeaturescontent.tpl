@@ -91,7 +91,8 @@ newer * versions in the future. If you wish to customize this module for your * 
                                                             {$amenity['feature_description']|escape:'htmlall':'UTF-8'}
                                                         </p>
                                                         <a href="{$base_dir}/index.php?controller=features" class="link">
-                                                            Ver más...
+                                                            {if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}
+                                                            
                                                         </a>
                                                     </div>
                                                     {*
