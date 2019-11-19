@@ -17,7 +17,7 @@
                 {{#each parks}}
                     <div class="tab {{#if @first}}tab-active{{/if}}" id="{{slug}}">
                         <div class="cover lazy lazy-fade-in"
-                            data-background="http://hacienda1800.com{{cover}}">
+                            data-background="http://hacienda1800.com{{cover.path}}">
                             <div class="title">
                                 <p>{{Nombre}}</p>
                             </div>
@@ -25,7 +25,7 @@
                                 <div class="element col">
                                     <img src="../static/icons/Clock.svg" alt="">
                                     <p>Horarios</p>
-                                    <p class="normal">
+                                    <p class="normal horarios">
                                         {{#horario_es}}
                                         {{value.diainicio}} - {{value.diafinal}} <br> {{value.tiempoinicio}} - {{value.tiempofin}}
                                         {{/horario_es}}
@@ -34,18 +34,18 @@
                                 <div class="element col">
                                         <img src="../static/icons/Level.svg" alt="">
                                     <p>Nivel de actividades</p>
-                                    <p class="normal">Ligera</p>
+                                    <p class="normal actividad">{{nivel_actividad_es}}</p>
                                 </div>
                                 <div class="element col">
                                         <img src="../static/icons/Clock.svg" alt="">
                                     <p>Estadia aproximada</p>
-                                    <p class="normal">3 hras</p>
+                                    <p class="normal">{{estadia_es}}</p>
                                 </div>
-                                <div class="element col">
+                                <a href="#{{slug}}-map" class="element location col">
                                         <img src="../static/icons/Map.svg" alt="">
                                     <p>Ubicacion</p>
                                     <p class="normal"></p>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div class="row desc">
@@ -80,7 +80,7 @@
                             </div>
                         </div>
 
-                        <div class="map">
+                        <div id="{{slug}}-map" class="map">
 
                         </div>
                         <div class="footer"
@@ -116,11 +116,11 @@
                                 <p>Estadia aproximada</p>
                                 <p class="normal">3 hras</p>
                             </div>
-                            <div class="element col">
+                            <a href="#{{slug}}" class="element col">
                                     <img src="../static/icons/Map.svg" alt="">
                                 <p>Ubicacion</p>
                                 <p class="normal"></p>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="row desc">
@@ -361,19 +361,34 @@
 
                 var self = this;
                 var app = self.$app;
-
-                // var map;
-                // map = new google.maps.Map(document.getElementById('map'), {
-                //     center: {
-                //         lat: -34.397,
-                //         lng: 150.644
-                //     },
-                //     zoom: 8
-                // });
-
+                var myLatLng = {lat: -25.363, lng: 131.044};
+                 var map;
+                 map = new google.maps.Map(document.getElementById('canion-map'), {
+                     center: {
+                         lat: -34.397,
+                         lng: 150.644
+                     },
+                     zoom: 8
+                 });
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map
+                });
+                //var lang = url.searchParams.get("c");
                 console.log(self.parks);
 
-
+                $$('.dynamic-popup').on('click', function () {
+                    dynamicPopup.open();
+                });
+                $$('.element.location').on('click', function(e){
+                    e.preventDefault();
+                    var move = $$(this).attr('href');
+                    move = move.toString();
+                    console.log(move);
+                    $$([document.documentElement, document.body]).animate({
+                        scrollTop: $$(move).offset().top
+                    }, 2000);
+                });
             }
         }
 
