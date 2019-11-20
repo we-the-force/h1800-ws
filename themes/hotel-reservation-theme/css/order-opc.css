@@ -786,3 +786,7 @@
 	content: "";}
 	#order-opc .fancybox-skin .fancybox-close {
 	background-image: url(../img/icon/icon-close.svg);}
+
+#order-opc .fancybox-inner{
+	height: 100% !important;
+}
