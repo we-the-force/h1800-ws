@@ -57,7 +57,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                             '<div class="col-lg-8 col-sm-12">' +
                             '<h3>' + items[i].title + '</h3>' +
                             '<p class="news-content">'+shortenText(toText(items[i].content),60, 300)+'</p>' +
-                            '<a href="{$base_dir}/index.php?controller=news" class="news-link"><p class="news-content">{if $lang_iso == \'es\'}{l s=\'Ver más...\'}{elseif $lang_iso == \'en\'}{l s=\'See more...\'}{/if}</p></a>' +
+                            '<a href="{$base_dir}/index.php?controller=news" class="news-link"><p class="news-content">{if $lang_iso == "es"}{l s="Ver más..."}{elseif $lang_iso == "en"}{l s="See more..."}{/if}</p></a>' +
                             '</div>' +
 
                             '</li>';
@@ -79,7 +79,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                               '<div class="col-lg-8 col-sm-12">' +
                               '<h3>' + item.title + '</h3>' +
                               '<p class="news-content">'+shortenText(toText(item.content),60, 300)+'</p>' +
-                              '<a href="' + item.link + '" class="news-link"><p class="news-content">{if $lang_iso == \'es\'}{l s=\'Ver más...\'}{elseif $lang_iso == \'en\'}{l s=\'See more...\'}{/if}</p></a>' +
+                              '<a href="' + item.link + '" class="news-link"><p class="news-content">{if $lang_iso == "es"}{l s="Ver más..."}{elseif $lang_iso == "en"}{l s="See more...""}{/if}</p></a>' +
                               '</div>' +
 
                               '</li>';
