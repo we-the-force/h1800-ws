@@ -34,7 +34,13 @@ var app = new Framework7({
         getCollection: function(collection, params) {
             var apiPath = 'http://hacienda1800.com/panel/api/collections/get/';
             var apiToken = '?token=8c4e6225dd7f133664f09e3f8dac1d'
-            var collectionUrl = apiPath + collection + apiToken + params;
+            if (params) {
+                var collectionUrl = apiPath + collection + apiToken + params;
+
+            } else {
+                var collectionUrl = apiPath + collection + apiToken;
+
+            }
             return collectionUrl;
 
         }
