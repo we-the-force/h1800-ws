@@ -75,7 +75,7 @@
                     <div class="col-xs-12 col-sm-12">
                         <label class="control-label" for="check_in_time_mob">{l s='Check In Time' mod='wkroomsearchblock'}</label>
                         <div class="input-group">
-                            <input class="form-control" type="text" id="check_in_time_mob" name="check_in_time_mob" {if isset($search_data)}value="{$search_data['date_from']}"{/if}/>
+                            <input class="form-control" type="" id="check_in_time_mob" name="check_in_time_mob" {if isset($search_data)}value="{$search_data['date_from']}"{/if}/>
                             <label class="input-group-addon" for="check_in_time_mob"><i class="icon-calendar"></i></label>
                         </div>
                         <p class="error_msg" id="check_in_time_error_p_mob"></p>
@@ -83,7 +83,7 @@
                     <div class="col-xs-12 col-sm-12 margin-top-10">
                         <label class="control-label" for="check_out_time_mob">{l s='Check Out Time' mod='wkroomsearchblock'}</label>
                         <div class="input-group">
-                            <input class="form-control" type="text" id="check_out_time_mob" name="check_out_time_mob" {if isset($search_data)}value="{$search_data['date_to']}"{/if} />
+                            <input class="form-control" type="" id="check_out_time_mob" name="check_out_time_mob" {if isset($search_data)}value="{$search_data['date_to']}"{/if} />
                             <label class="input-group-addon" for="check_out_time_mob"><i class="icon-calendar"></i></label>
                         </div>
                         <p class="error_msg" id="check_out_time_error_p_mob"></p>
