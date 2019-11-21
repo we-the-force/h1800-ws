@@ -345,7 +345,8 @@ class PaypalExpressCheckout extends Paypal
                 }
                 $product['quantity'] = 1;
             }
-            $fields['L_PAYMENTREQUEST_0_AMT'.$index] = Tools::ps_round($product['price_wt'], $this->decimals);
+            $fields['L_PAYMENTREQUEST_0_AMT'.$index] = $this->context->cart->getOrderTotal(true,Cart::ONLY_PRODUCTS);
+            // $fields['L_PAYMENTREQUEST_0_AMT'.$index] = Tools::ps_round($product['price_wt'], $this->decimals);
             $fields['L_PAYMENTREQUEST_0_QTY'.$index] = $product['quantity'];
 
             $total = $total + ($fields['L_PAYMENTREQUEST_0_AMT'.$index] * $product['quantity']);
@@ -451,11 +452,12 @@ class PaypalExpressCheckout extends Paypal
     {
         $total = 0.00;
 
-        foreach ($this->product_list as $product) {
-            $price = Tools::ps_round($product['price_wt'], $this->decimals);
-            $quantity = Tools::ps_round($product['quantity'], $this->decimals);
-            $total = Tools::ps_round($total + ($price * $quantity), $this->decimals);
-        }
+        // foreach ($this->product_list as $product) {
+        //     $price = Tools::ps_round($product['price_wt'], $this->decimals);
+        //     $quantity = Tools::ps_round($product['quantity'], $this->decimals);
+        //     $total = Tools::ps_round($total + ($price * $quantity), $this->decimals);
+        // }
+        $total = $total + $this->context->cart->getOrderTotal(true,Cart::ONLY_PRODUCTS);
 
         if ($this->context->cart->gift == 1) {
             $total = Tools::ps_round($total + $this->getGiftWrappingPrice(), $this->decimals);
