@@ -53,7 +53,7 @@ var routes = [{
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
-            this.app.request.json(getCollection('Itinerario'),
+            this.app.request.json(this.app.methods.getCollection('Itinerario'),
                 function(data) {
                     resolve(
 
@@ -97,7 +97,7 @@ var routes = [{
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
-            this.app.request.json(getCollection('Experiencias'),
+            this.app.request.json(this.app.methods.getCollection('Experiencias'),
                 function(data) {
                     resolve(
 
