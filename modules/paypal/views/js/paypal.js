@@ -44,19 +44,19 @@
 	                $.ajax({
 	                    url: "{$base_dir_ssl}modules/paypal/express_checkout/payment.php",
 	                    type: "GET",
-	                    data: '&ajax=1&onlytoken=1&express_checkout='+$('input[name="express_checkout"]').val()+'&current_shop_url='+$('input[name="current_shop_url"]').val()+'&bn='+$('input[name="bn"]').val()+str,   
+	                    data: '&ajax=1&onlytoken=1&express_checkout='+$('input[name="express_checkout"]').val()+'&current_shop_url='+$('input[name="current_shop_url"]').val()+'&bn='+$('input[name="bn"]').val()+str,
 	                    async: true,
 	                    crossDomain: true,
 
-	                    
+
 	                    success: function (token) {
 	                        var url = paypal.checkout.urlPrefix +token;
-	                    
+
 	                        paypal.checkout.startFlow(url);
 	                    },
 	                    error: function (responseData, textStatus, errorThrown) {
 	                        alert("Error in ajax post"+responseData.statusText);
-	                    
+
 	                        paypal.checkout.closeFlow();
 	                    }
 	                });
@@ -75,7 +75,7 @@ function updateFormDatas()
 	$('.paypal_payment_form input[name=quantity]').val(nb);
 	$('.paypal_payment_form input[name=id_p_attr]').val(id);
 }
-	
+
 $(document).ready( function() {
 
 	if($('#in_context_checkout_enabled').val() != 1)
@@ -127,34 +127,33 @@ $(document).ready( function() {
 		setTimeout(function(){displayExpressCheckoutShortcut()}, 500);
 	});
 
-	if($('body#product').length > 0)
-		setTimeout(function(){displayExpressCheckoutShortcut()}, 500);
-	
+
+
 	{/literal}
 	{if isset($paypal_authorization)}
 	{literal}
-	
+
 		/* 1.5 One page checkout*/
 		var qty = $('.qty-field.cart_quantity_input').val();
 		$('.qty-field.cart_quantity_input').after(qty);
 		$('.qty-field.cart_quantity_input, .cart_total_bar, .cart_quantity_delete, #cart_voucher *').remove();
-		
+
 		var br = $('.cart > a').prev();
 		br.prev().remove();
 		br.remove();
 		$('.cart.ui-content > a').remove();
-		
+
 		var gift_fieldset = $('#gift_div').prev();
 		var gift_title = gift_fieldset.prev();
 		$('#gift_div, #gift_mobile_div').remove();
 		gift_fieldset.remove();
 		gift_title.remove();
-		
+
 	{/literal}
 	{/if}
 	{if isset($paypal_confirmation)}
 	{literal}
-		
+
 		$('#container_express_checkout').hide();
 		if(jquery_version[0] >= 1 && jquery_version[1] >= 7)
 		{
@@ -220,7 +219,7 @@ $(document).ready( function() {
 	{literal}
 	var fullPath = baseDirPP + modulePath + subFolder;
 	var confirmTimer = false;
-		
+
 	if ($('form[target="hss_iframe"]').length == 0) {
 		if ($('select[name^="group_"]').length > 0)
 			displayExpressCheckoutShortcut();
