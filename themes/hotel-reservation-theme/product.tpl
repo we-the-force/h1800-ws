@@ -174,7 +174,7 @@
 														{if $lang_iso == 'es'}{l s='Lo sentimos'}{elseif $lang_iso == 'en'}{l s='Sorry :('}{/if}
 													</h2>
 													<p>
-														{if $lang_iso == 'es'}{l s='Esta habitación no está disponible. 
+														{if $lang_iso == 'es'}{l s='Esta habitación no está disponible.
 														Por favor intenta seleccionando otras fechas.'}
 														{elseif $lang_iso == 'en'}{l s='This room is not available.
 														Please try selecting other dates.'}{/if}
@@ -300,7 +300,7 @@
 								{/if}
 							</span>
 						{/if} *}
-					</div> 
+					</div>
 					<!-- end image-block -->
 					{* {if isset($images) && count($images) > 0} *}
 						<!-- thumbnails -->
@@ -846,6 +846,12 @@
 {/strip}
 {/if}
 <script type="text/javascript">
+if($('#product')){
+	$('#container_express_checkout').css('display', 'none');
+} else {
+	console.log('no prod')
+
+}
 	let id_panorama,id_180;
 	/**let x = false;
 	let id_panorama;
