@@ -854,6 +854,7 @@
 			id_panorama = x.id_image;
 		}
 	});*/
+
 	dir.forEach(function(x){
 		if(x == "panorama_01.jpg"){
 			id_panorama = true;
@@ -908,6 +909,8 @@
 			"autoRotate": true,
 			"minXaw": -120,
 			"maxXaw": 120,
+			"minYaw": -90,
+			"maxYaw": 90,
 			"minPitch": -55,
 			"maxPitch": 55,
 			"mouseZoom": false,
@@ -951,8 +954,10 @@
 				"vaov": 120,
 				"haov": 180,
 				"autoRotate": true,
-				"minXaw": -120,
-				"maxXaw": 120,
+				"minXaw": -60,
+				"maxXaw": 60,
+				"minYaw": -90,
+				"maxYaw": 90,
 				"minPitch": -55,
 				"maxPitch": 55,
 				"mouseZoom": false,
