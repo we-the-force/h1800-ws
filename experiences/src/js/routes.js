@@ -27,6 +27,13 @@ var routes = [{
             this.app.request.promise.json(this.app.methods.getCollection('Parques'))
             .then(res => {
                 let parquesitos = res.data.entries;
+
+                // parquesitos = res.data.entries;
+                // console.log(parquesitos);
+
+
+                return parquesitos;
+            }).then(parquesitos => {
                 for (let park of parquesitos) {
                     park.exper = [];
 
@@ -48,10 +55,6 @@ var routes = [{
 
 
                 }
-                // parquesitos = res.data.entries;
-                // console.log(parquesitos);
-
-
                 return parquesitos;
             }).then(parquesitos => {
                 resolve(
