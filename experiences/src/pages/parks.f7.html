@@ -7,6 +7,9 @@
                     <div class="toolbar-inner">
                         {{#each parks}}
                         <a href="#{{slug}}" class="{{#if @last}}bright {{/if}} tab-link {{#if @first}}tab-link-active bleft{{/if}}">{{Nombre}}</a>
+                        {{#each exper}}
+                            <p>{{Nombre}}</p>
+                        {{/each}}
                         {{/each}}
                     </div>
                 </div>
@@ -66,16 +69,16 @@
                             data-slides-per-view="auto" class="swiper-container swiper-init">
                             <!-- <div class="swiper-pagination"></div> -->
                             <div class="swiper-wrapper">
-                                {{#exp_info}}
+                                {{#each exper}}
                                 <div class="swiper-slide">
                                     <div class="bg" style="background-image: url('static/img/experience.png');"></div>
                                     <div class="txt-box">
-                                        <div class="title">{{display}}</div>
+                                        <div class="title">{{Nombre}}</div>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                             incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </div>
-                                {{/exp_info}}
+                                {{/each}}
 
                             </div>
                         </div>
@@ -358,32 +361,19 @@
     export default {
 
         on: {
-            pageInit: function(e, page) {
 
+            pageInit: function(e, page) {
+                console.log('init');
                 var self = this;
                 var app = self.$app;
+
                 var myLatLng = self.parks[0].Locacion;
+                console.log(self.parks);
 
-                var experiences_ids = [];
-                let parques = [];
-                let experiencias = [];
-                self.parks
-                for (let park of self.parks) {
-                    park.exp_info = [];
 
-                    let parque = park;
-                    for (let exp of parque.Experiencias) {
-                        let experiencia = exp;
-                        let filter = '&filter[_id]=' + experiencia._id;
-                        app.request.promise.json(this.$app.methods.getCollection('Experiencias', filter))
-                            .then(res => {
 
-                                parque.exp_info.push(res.data.entries[0]);
 
-                            });
 
-                    }
-                }
 
 
 
@@ -397,7 +387,6 @@
                     map: map
                 });
                 //var lang = url.searchParams.get("c");
-                console.log();
 
                 $$('.dynamic-popup').on('click', function() {
                     dynamicPopup.open();

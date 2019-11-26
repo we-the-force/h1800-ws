@@ -2,6 +2,7 @@
 import AboutPage from '../pages/about.f7.html';
 import FormPage from '../pages/form.f7.html';
 import Parks from '../pages/parks.f7.html';
+import Mod from '../pages/mods.f7.html';
 import Experiences from '../pages/experiences.f7.html';
 import Tours from '../pages/tours.f7.html';
 
@@ -22,23 +23,73 @@ var routes = [{
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
-            this.app.request.json(this.app.methods.getCollection('Parques'),
-                function(data) {
-                    resolve(
+            let parques = [];
+            this.app.request.promise.json(this.app.methods.getCollection('Parques'))
+            .then(res => {
+                let parquesitos = res.data.entries;
+                for (let park of parquesitos) {
+                    park.exper = [];
 
-                        // How and what to load: template
-                        {
+                    let parque = park;
 
-                            component: Parks,
+                    for (let exp of parque.Experiencias) {
+                        let experiencia = exp;
+                        let filter = '&filter[_id]=' + experiencia._id;
+                        this.app.request.promise.json(this.app.methods.getCollection('Experiencias', filter))
+                            .then(expe => {
+
+                                parque.exper.push(expe.data.entries[0]);
+                                // console.log(parque.exp_info);
+
+
+                            });
+
+                    }
+
+
+                }
+                // parquesitos = res.data.entries;
+                // console.log(parquesitos);
+
+
+                return parquesitos;
+            }).then(parquesitos => {
+                resolve(
+
+                    // How and what to load: template
+                    {
+
+                        component: Parks,
+                    },
+                    // Custom template context
+                    {
+                        context: {
+                            parks: parquesitos,
                         },
-                        // Custom template context
-                        {
-                            context: {
-                                parks: data.entries,
-                            },
-                        }
-                    );
-                });
+                    }
+                );
+            });
+
+
+            // for (let park of self.parks) {
+            //     park.exp_info = [];
+
+            //     let parque = park;
+            //     for (let exp of parque.Experiencias) {
+            //         let experiencia = exp;
+            //         let filter = '&filter[_id]=' + experiencia._id;
+            //         app.request.promise.json(this.$app.methods.getCollection('Experiencias', filter))
+            //             .then(res => {
+
+            //                 parque.exp_info.push(res.data.entries[0]);
+
+            //             });
+
+            //     }
+            // }
+
+
+
 
 
         }
@@ -89,6 +140,7 @@ var routes = [{
         path: '/dynamic-route/blog/:blogId/post/:postId/',
         component: DynamicRoutePage,
     },
+
     {
         name: 'experiences',
         path: '/experiences/',
