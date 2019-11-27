@@ -2,7 +2,6 @@
 import AboutPage from '../pages/about.f7.html';
 import FormPage from '../pages/form.f7.html';
 import Parks from '../pages/parks.f7.html';
-import Mod from '../pages/mods.f7.html';
 import Experiences from '../pages/experiences.f7.html';
 import Tours from '../pages/tours.f7.html';
 
@@ -18,8 +17,12 @@ import NotFoundPage from '../pages/404.f7.html';
 var routes = [{
 
         name: 'parks',
-        path: '/parks/',
+        path: '/',
         id: 'parks',
+        options: {
+            history: true,
+            pushState: true
+        },
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
@@ -103,7 +106,10 @@ var routes = [{
         name: 'tours',
         path: '/tours/',
         id: 'tours',
-
+        options: {
+            history: true,
+            pushState: true
+        },
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
@@ -148,7 +154,10 @@ var routes = [{
         name: 'experiences',
         path: '/experiences/',
         id: 'experiences',
-
+        options: {
+            history: true,
+            pushState: true
+        },
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template

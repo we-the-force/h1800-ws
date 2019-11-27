@@ -67,7 +67,7 @@ newer * versions in the future. If you wish to customize this module for your * 
             <div class="owl-carousel parks owl-theme">
                 <div class="item">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/DUNAS_YESO_1.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="{$base_url}index.php?controller=activities">
+                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/DUNAS_YESO_1.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="{$base_url}experiences">
                             {* <img style="width: 100%; height: auto;" src="{$img_dir}parks/DUNAS_YESO_1.jpg" class="img-responsive"> *}
                         </a>
                     </div>
@@ -83,7 +83,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                 </div>
                 <div class="item">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/CAÑON_GRANDE_3.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="{$base_url}index.php?controller=activities">
+                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/CAÑON_GRANDE_3.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="{$base_url}experiences">
                             {* <img style="width: 100%; height: auto;" src="{$img_dir}parks/DUNAS_YESO_1.jpg" class="img-responsive"> *}
                         </a>
                     </div>
@@ -99,7 +99,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                 </div>
                 <div class="item">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/RIO_MEZQUITES_5.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="{$base_url}index.php?controller=activities">
+                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/RIO_MEZQUITES_5.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="{$base_url}experiences">
                             {* <img style="width: 100%; height: auto;" src="{$img_dir}parks/DUNAS_YESO_1.jpg" class="img-responsive"> *}
                         </a>
                     </div>
@@ -115,7 +115,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                 </div>
                 <div class="item">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/MINA_MARMOL_6.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="{$base_url}index.php?controller=activities">
+                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/MINA_MARMOL_6.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="{$base_url}experiences">
                             {* <img style="width: 100%; height: auto;" src="{$img_dir}parks/DUNAS_YESO_1.jpg" class="img-responsive"> *}
                         </a>
                     </div>

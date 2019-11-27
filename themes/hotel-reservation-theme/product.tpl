@@ -876,7 +876,7 @@ if($('#product')){
 
 		var headerPanorama = pannellum.viewer('panorama', {
 			"type": "equirectangular",
-			"panorama": "{$base_dir}img/rooms/{$product->id}/panorama_01.jpg",
+			"panorama": "https://hacienda1800.com/img/rooms/{$product->id}/panorama_01.jpg",
 			"autoLoad": true,
 			"showControls": false,
 			"vaov": 120,
@@ -907,7 +907,7 @@ if($('#product')){
 
 		var headerPanorama = pannellum.viewer('panorama', {
 			"type": "equirectangular",
-			"panorama": "{$base_dir}img/rooms/{$product->id}/180_01.jpg",
+			"panorama": "https://hacienda1800.com/img/rooms/{$product->id}/180_01.jpg",
 			"autoLoad": true,
 			"showControls": false,
 			"vaov": 120,
@@ -935,7 +935,7 @@ if($('#product')){
 			var wwidth = $(window).width();
 			var headerPanorama = pannellum.viewer('panorama', {
 				"type": "equirectangular",
-				"panorama": "{$base_dir}img/rooms/{$product->id}/"+name[1]+"_"+name[2],
+				"panorama": "https://hacienda1800.com/img/rooms/{$product->id}/"+name[1]+"_"+name[2],
 				"autoLoad": true,
 				"showControls": false,
 				"vaov": 120,
@@ -954,7 +954,7 @@ if($('#product')){
 			var wwidth = $(window).width();
 			var headerPanorama = pannellum.viewer('panorama', {
 				"type": "equirectangular",
-				"panorama": "{$base_dir}img/rooms/{$product->id}/"+name[1]+"_"+name[2],
+				"panorama": "https://hacienda1800.com/img/rooms/{$product->id}/"+name[1]+"_"+name[2],
 				"autoLoad": true,
 				"showControls": false,
 				"vaov": 120,

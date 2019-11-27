@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="page-content hide-navbar-on-scroll">
+        <div class="page-content hide-navbar-on-scroll" id="parks-page">
             <div class="tabs">
                 {{#each parks}}
                     <div class="tab {{#if @first}}tab-active{{/if}}" id="{{slug}}">
@@ -47,7 +47,7 @@
                                     <p>Estadia aproximada</p>
                                     <p class="normal">{{estadia_es}}</p>
                                 </div>
-                                <a href="#{{slug}}-map" class="element location col">
+                                <a href="#{{slug}}-map"  class="element location col">
                                         <img src="static/icons/Map.svg" alt="">
                                     <p>Ubicacion</p>
                                     <p class="normal"></p>
@@ -121,22 +121,36 @@
 
             pageInit: function(e, page) {
                 console.log('init');
+
                 var self = this;
                 var app = self.$app;
 
                 var myLatLng = self.parks[0].Locacion;
 
 
+                for (let index = 0; index < self.parks.length; index++) {
+                    const parque = self.parks[index];
+                    for (let second = 0; second < parque.Experiencias.length; second++) {
+                        const experiencia = parque.Experiencias[second];
+                        var filter = '&filter[_id]=' + experiencia._id;
 
-                for(let park of self.parks){
+                        app.request.promise.json(app.methods.getCollection('Experiencias', filter))
+                        .then(expe => {
+                            var currentExp=expe.data.entries[0];
 
-                    for(let exp of park.exper){
-                        console.log(exp);
+                            // parque.exper.push(expe.data.entries[0]);
+                            // console.log(parque.exp_info);
+                            console.log(currentExp);
 
-                        // let expHtml = '<div class="swiper-slide"> <div class="bg" style="background-image: url('+exp.thumbnail.path+');"></div> <div class="txt-box"> <div class="title">'+exp.Nombre+'</div> <p>'+exp.Descripcion+'.</p> </div> </div>';
-                        // $$('#'+parque.slug+'-exp-slider').append(expHtml);
+                            var expHtml = '<div class="swiper-slide"> <div class="bg" style="background-image: url(https://hacienda1800.com'+currentExp.thumbnail.path+');"></div> <div class="txt-box"> <div class="title">'+currentExp.Nombre+'</div> <p>'+currentExp.Descripcion+'.</p> </div> </div>';
+                            $$('#'+parque.slug+'-exp-slider').append(expHtml);
+
+
+                        });
                     }
+
                 }
+
 
 
 
@@ -161,10 +175,15 @@
                     e.preventDefault();
                     var move = $$(this).attr('href');
                     move = move.toString();
+                    move = move.replace('#', '');
+                    move = document.getElementById(move);
+
+                    move= move.offsetTop;
                     console.log(move);
-                    $$([document.documentElement, document.body]).animate({
-                        scrollTop: $$(move).offset().top
-                    }, 2000);
+
+                    document.getElementById('parks-page').scrollTop = move;
+
+
                 });
             }
         }
