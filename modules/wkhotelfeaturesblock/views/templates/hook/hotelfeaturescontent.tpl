@@ -47,6 +47,7 @@ newer * versions in the future. If you wish to customize this module for your * 
         </div>
     </div>
     {else}
+
     <div id="hotelAmenitiesBlock" class="row home_block_container">
         <div class="col-xs-12 col-sm-12 home_amenities_wrapper">
             <div class="row home_block_desc_wrapper">
@@ -93,7 +94,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                                                         </p>
                                                         <a href="{$base_dir}/index.php?controller=features" class="link">
                                                             {if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}
-                                                            
+
                                                         </a>
                                                     </div>
                                                     {*
@@ -161,14 +162,6 @@ newer * versions in the future. If you wish to customize this module for your * 
 
 <script type="text/javascript">
     $(document).ready(function(e) {
-        
-        if($('#features')){
-            console.log('test');
-            $('#paypal-column-block').css('display', 'none');
-        } else {
-            console.log('no features')
-
-        }
 
         if($('body').hasClass('index')){
             $('#hotelAmenitiesBlock .owl-carousel.amenities').owlCarousel({
@@ -190,7 +183,7 @@ newer * versions in the future. If you wish to customize this module for your * 
             }
         });
         }
-        
+
     });
 </script>
 <style>
