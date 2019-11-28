@@ -24,6 +24,17 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
     </div>
     <!-- /Block RSS module-->
     <script>
+
+    $(document).ready(function(e) {
+        
+        if($('#news')){
+            $('#container_express_checkout').css('display', 'none');
+        } else {
+            console.log('no news')
+
+        }
+    }
+
     function toText(node) {
        let tag = document.createElement('div')
        tag.innerHTML = node

@@ -47,7 +47,6 @@ newer * versions in the future. If you wish to customize this module for your * 
         </div>
     </div>
     {else}
-
     <div id="hotelAmenitiesBlock" class="row home_block_container">
         <div class="col-xs-12 col-sm-12 home_amenities_wrapper">
             <div class="row home_block_desc_wrapper">
@@ -163,6 +162,13 @@ newer * versions in the future. If you wish to customize this module for your * 
 <script type="text/javascript">
     $(document).ready(function(e) {
         
+        if($('#features')){
+            $('#container_express_checkout').css('display', 'none');
+        } else {
+            console.log('no features')
+
+        }
+
         if($('body').hasClass('index')){
             $('#hotelAmenitiesBlock .owl-carousel.amenities').owlCarousel({
             loop:true,
