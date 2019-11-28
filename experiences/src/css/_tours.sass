@@ -32,6 +32,10 @@
             &.ph6
                 height: 63%
                 margin-top: 11%
+    .punch
+        p
+            text-align: center
+            width: 100%
     .desc
         width: 80%
         margin-left: auto
@@ -47,6 +51,7 @@
             white-space: normal
             margin: 0px
             font-weight: 265
+            width: 100%
     .elements
         width: fit-content
         margin-left: auto
@@ -68,6 +73,7 @@
             img
                 margin-bottom: 5px
             p
+
                 @include font-bold
                 font-size: 22px
                 line-height: 20px
@@ -79,6 +85,10 @@
                 &.normal
                     width: 75%
                     font-weight: normal
+                &.horarios
+                    font-size: 16px
+                &.actividad
+                    text-transform: capitalize
     .day
         height: 300px
         .line
@@ -90,15 +100,15 @@
                 border: 2px solid #000000
                 display: block
                 position: relative
-                float: right   
+                float: right
             .vl
                 border-right: 2px solid #000000
-                height: calc( 100% - 24px ) 
+                height: calc( 100% - 24px )
                 margin-right: 12px
                 margin-top: 24px
             .vl-final
                 border-right: 2px solid #000000
-                height: calc( 100% - 38px ) 
+                height: calc( 100% - 38px )
                 margin-right: 12px
                 margin-top: 24px
                 margin-bottom: 14px
@@ -109,7 +119,7 @@
                 border: 2px solid #000000
                 display: block
                 position: relative
-                float: right 
+                float: right
                 margin-top: -14px
                 margin-right: 6.5px
         .content
@@ -134,7 +144,7 @@
                     margin: 0px
                     @include font-normal
                     font-weight: 265
-                    font-size: 16px 
+                    font-size: 16px
                     line-height: 22px
                     color: #1F1F1F
                     white-space: normal
@@ -182,6 +192,8 @@
                 white-space: normal
                 margin: 5px 16px
                 font-weight: 265
+
+
     .location
         margin-top: 60px
         .title
@@ -207,7 +219,7 @@
             width: 50%
         .content
             border-bottom: 1px solid#D2D1D2
-            padding-bottom: 30px 
+            padding-bottom: 30px
             padding-top: 20px
             width: 90%
             .header
@@ -220,6 +232,7 @@
                 line-height: 31px
                 color: #1F1F1F
             p
+
                 @include font-normal
                 white-space: normal
                 width: 80%
