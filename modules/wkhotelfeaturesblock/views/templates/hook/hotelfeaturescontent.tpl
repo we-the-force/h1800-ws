@@ -163,7 +163,8 @@ newer * versions in the future. If you wish to customize this module for your * 
     $(document).ready(function(e) {
         
         if($('#features')){
-            $('#container_express_checkout').css('display', 'none');
+            console.log('test');
+            $('#paypal-column-block').css('display', 'none');
         } else {
             console.log('no features')
 

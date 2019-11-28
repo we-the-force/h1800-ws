@@ -28,7 +28,8 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
     $(document).ready(function(e) {
         
         if($('#news')){
-            $('#container_express_checkout').css('display', 'none');
+            console.log('test');
+            $('#paypal-column-block').css('display', 'none');
         } else {
             console.log('no news')
 
