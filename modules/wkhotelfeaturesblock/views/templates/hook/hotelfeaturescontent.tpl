@@ -159,9 +159,15 @@ newer * versions in the future. If you wish to customize this module for your * 
 
 
         {/if}
-
 <script type="text/javascript">
     $(document).ready(function(e) {
+
+        if($('body').hasClass('features')){
+            console.log('test');
+            $('#paypal-column-block').css('display', 'none');
+        } else {
+            console.log('no news');
+        }
 
         if($('body').hasClass('index')){
             $('#hotelAmenitiesBlock .owl-carousel.amenities').owlCarousel({
