@@ -33,7 +33,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
             console.log('no news')
 
         }
-    }
+    });
 
     function toText(node) {
        let tag = document.createElement('div')
