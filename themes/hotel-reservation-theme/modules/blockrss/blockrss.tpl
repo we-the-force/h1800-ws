@@ -21,22 +21,85 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                 </ul>
 
         </div>
+        <div id="popup" style="display: none;">
+            <div class="content-popup">
+                <div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
+                <div>
+                    <h2>Contenido POPUP</h2>
+                    <p>Lorem Ipsum...</p>
+                    <div style="float:left; width:100%;">
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup-overlay"></div>
     </div>
     <!-- /Block RSS module-->
     <script>
 
     $(document).ready(function(e) {
-        
-        if($('#news')){
+        if($('body').hasClass('news')){
             console.log('test');
             $('#paypal-column-block').css('display', 'none');
-        } else {
-            console.log('no news')
+            $.getJSON("https://hacienda1800.com/panel/api/collections/get/news?token=8c4e6225dd7f133664f09e3f8dac1d", function(result){
 
+                $.each(result.entries, function(i, field){
+                    var body = '<li class="row news-item">' +
+                              '<div class="col-lg-4 col-sm-12">' +
+                              '<a href="#">' +
+                              '<img src="https://hacienda1800.com' + field.thumbnail.path+ '" alt="" class="news-thumb">' +
+                              '</a>' +
+                              '</div>' +
+                              '<div class="col-lg-8 col-sm-12">' +
+                              '<h3>' + field.title + '</h3>' +
+                              '<p class="news-content">'+field.short_description+'</p>' +
+                              "<a href='#' class='news-link' data-id='"+ i +"'><p class='news-content'>{if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}</p></a>" +
+                              '</div>' +
+                              '</li>';
+                    
+                    $('#news-home').append(body);
+                });
+
+                /**var modal = '<div class="modal" id="myModal">'+
+                    '<div class="modal-dialog modal-lg">'+
+                    '<div class="modal-content">'+
+                    '<div class="modal-header">'+
+                    '<button type="button" class="close" data-dismiss="modal">&times;</button>'+
+                    '</div>'+
+                    '<div class="modal-body">'+
+                    'Modal body..'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>'+;*/
+                $('.news-link').click(function(e){
+                    e.preventDefault();
+                    console.log($(this).data('id'));
+                });
+            });
+        } else if ($('body').hasClass('index')){
+            $.getJSON("https://hacienda1800.com/panel/api/collections/get/news?token=8c4e6225dd7f133664f09e3f8dac1d&limit=3", function(result){
+                console.log(result.entries);
+                $.each(result.entries, function(i, field){
+                    var body = '<li class="row news-item">' +
+                            '<div class="col-lg-4 col-sm-12">' +
+                            '<a href="{$base_dir}/index.php?controller=news">' +
+                            '<img src="https://hacienda1800.com' + field.thumbnail.path + '" alt="" class="news-thumb">' +
+                            '</a>' +
+                            '</div>' +
+                            '<div class="col-lg-8 col-sm-12">' +
+                            '<h3>' + field.title + '</h3>' +
+                            '<p class="news-content">'+field.short_description+'</p>' +
+                            "<a href='{$base_dir}/index.php?controller=news' class='news-link'><p class='news-content'>{if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}</p></a>" +
+                            '</div>' +
+                            '</li>';
+                    $('#news-home').append(body);
+                });
+            });
         }
     });
 
-    function toText(node) {
+/**    function toText(node) {
        let tag = document.createElement('div')
        tag.innerHTML = node
        node = tag.innerText
@@ -108,5 +171,5 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
 
 
             }
-        });
+        });*/
     </script>
