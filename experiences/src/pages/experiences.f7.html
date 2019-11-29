@@ -70,26 +70,31 @@
                         var currentExp=expe.data.entries[0];
                         // creamos dinámicamente el popup
                         var dynamicPopup = app.popup.create({
-                          content: '<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExp.Fotos[0].path+');"> <div class="title"> <p>'+currentExp.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExp.Descripcion+'</p> </div> <div id="map-'+currentExp.Nombre+'"></div> </div>',
+                          content: '<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExp.Fotos[0].path+');"> <div class="title"> <p>'+currentExp.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExp.Descripcion+'</p> </div> <div id="map-'+currentExp.Nombre+'" class="exp-map"></div> </div>',
                           on: {
                             open: function (popup) {
-                              console.log(popup);
-                            $$(popup).find('.title').addClass('test');
+
 
 
                             },
                             opened: function (popup) {
                             //   console.log(popup);
+                                var location = currentExp.Locacion;
+                                console.log(location);
 
+                                var map;
+                                map = new google.maps.Map(document.getElementById('map-'+currentExp.Nombre), {
+                                    center: location,
+                                    zoom: 13
+                                });
+                                var marker = new google.maps.Marker({
+                                    position: location,
+                                    map: map
+                                });
                             },
                           }
                         });
-                        // parque.exper.push(expe.data.entries[0]);
-                        // console.log(parque.exp_info);
-                        // console.log(currentExp);
 
-                        // var expHtml = '<div class="swiper-slide"> <div class="bg" style="background-image: url(https://hacienda1800.com'+currentExp.thumbnail.path+');"></div> <div class="txt-box"> <div class="title">'+currentExp.Nombre+'</div> <p>'+currentExp.Descripcion+'.</p> </div> </div>';
-                        // $$('#'+parque.slug+'-exp-slider').append(expHtml);
                         return dynamicPopup;
 
                     }).then(dynamicPopup => {
