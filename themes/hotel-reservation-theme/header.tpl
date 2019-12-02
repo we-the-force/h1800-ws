@@ -136,6 +136,20 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                                 {hook h='displayLeftColumn' mod='wkhotelfiltersearchblock' var='mob'}
                             </div>
                         </div>
+                        <div id="news-popup" style="display: none;">
+                            <div class="news-content-popup">
+                                <span class="cross" title="Close window"></span>
+                                <div class="col-lg-6 col-sm-12">
+                                    <img src="https://hacienda1800.com/panel/storage/uploads/2019/11/28/5de04b35c70f4Restaurante.jpg"/>
+                                    
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <h3 id="title"></h3>
+                                    <div id="info"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-overlay" style="width: 100%; height: 100%; display: none;"></div>
 
                         <div class="menu">
                             <div class="container">
