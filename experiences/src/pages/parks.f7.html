@@ -44,12 +44,12 @@
                                 </div>
                                 <div class="element col">
                                         <img src="static/icons/Clock.svg" alt="">
-                                    <p>Estadia aproximada</p>
+                                    <p>Estadía aproximada</p>
                                     <p class="normal">{{estadia_es}}</p>
                                 </div>
                                 <a href="#{{slug}}-map"  class="element location col">
                                         <img src="static/icons/Map.svg" alt="">
-                                    <p>Ubicacion</p>
+                                    <p>Ubicación</p>
                                     <p class="normal"></p>
                                 </a>
                             </div>
@@ -95,10 +95,10 @@
                         </div>
                         <div class="footer"
                             style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
-                            <div class="title">
-                                <p>DUNAS</p>
-                            </div>
-                            <button class="button button-raised button-fill button-round">Contacto</button>
+                            <a class="title link external" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                                <p>Reservar</p>
+                            </a>
+                            <!-- <a href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="button button-raised button-fill link external button-round">Contacto</a> -->
                         </div>
                     </div>
                 {{/each}}
@@ -143,7 +143,7 @@
                             // console.log(parque.exp_info);
                             console.log(currentExp);
 
-                            var expHtml = '<div class="swiper-slide"> <div class="bg" style="background-image: url(https://hacienda1800.com'+currentExp.thumbnail.path+');"></div> <div class="txt-box"> <div class="title">'+currentExp.Nombre+'</div> <p>'+currentExp.Descripcion+'.</p> </div> </div>';
+                            var expHtml = '<div class="swiper-slide"> <div class="bg" style="background-image: url(https://hacienda1800.com'+currentExp.thumbnail.path+');"></div> <div class="txt-box"> <div class="title">'+currentExp.Nombre+'</div> <p>'+currentExp.description_short+'.</p> </div> </div>';
                             $$('#'+parque.slug+'-exp-slider').append(expHtml);
 
 
