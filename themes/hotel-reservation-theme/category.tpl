@@ -84,7 +84,7 @@
                                 </div>
                             {/if} *}
 
-                           {*  <span class="rm_left pull-right" {if $room_v['room_left']>$warning_num}  style="display:none"{/if}>{l s='Hurry!'} 
+                           {*  <span class="rm_left pull-right" {if $room_v['room_left']>$warning_num}  style="display:none"{/if}>{l s='Hurry!'}
                                 <span class="cat_remain_rm_qty_{$room_v['id_product']}">{$room_v['room_left']}</span> {l s='rooms left'}
                             </span> *}
 
@@ -133,16 +133,17 @@
 
                             <div class="row margin-lr-0 pull-left rm_price_cont">
                                 {if $room_v['feature_price_diff'] >= 0}
-                                    <span class="pull-left rm_price_val {if $room_v['feature_price_diff']>0}room_type_old_price{/if}">
+                                    <span class="pull-left rm_price_txt">{if $lang_iso == 'es'}fin de semana{elseif $lang_iso == 'en'}weekends{/if}</span><span class="pull-left rm_price_val {if $room_v['feature_price_diff']>0}room_type_old_price{/if}">
                                         {displayPrice price = $room_v['price_without_reduction']|round:2|floatVal}
                                     </span>
                                 {/if}
                                 {if $room_v['feature_price_diff']}
-                                    <span class="pull-left rm_price_val">
+                                    <span class="pull-left rm_price_txt">{if $lang_iso == 'es'}entre semana{elseif $lang_iso == 'en'}weekdays{/if}</span><span class="pull-left rm_price_val">
                                         {displayPrice price = $room_v['feature_price']|round:2|floatVal}
                                     </span>
                                 {/if}
                                 <br>
+
                                 <span class="pull-left rm_price_txt">{l s='Per Night'}</span>
                             </div>
 

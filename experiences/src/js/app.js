@@ -13,7 +13,10 @@ import routes from './routes.js';
 
 var app = new Framework7({
     root: '#app', // App root element
-
+    routes: routes,
+    view: {
+    pushState: true,
+    },
     name: 'Hacienda 1800', // App name
     theme: 'auto', // Automatic theme detection
     // App root data
@@ -32,7 +35,7 @@ var app = new Framework7({
             app.dialog.alert('Hello World!');
         },
         getCollection: function(collection, params) {
-            var apiPath = 'http://hacienda1800.com/panel/api/collections/get/';
+            var apiPath = 'https://hacienda1800.com/panel/api/collections/get/';
             var apiToken = '?token=8c4e6225dd7f133664f09e3f8dac1d'
             if (params) {
                 var collectionUrl = apiPath + collection + apiToken + params;
@@ -46,7 +49,7 @@ var app = new Framework7({
         }
     },
     // App routes
-    routes: routes,
+
 });
 
 // Login Screen Demo

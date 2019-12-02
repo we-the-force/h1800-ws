@@ -94,7 +94,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                                                         </p>
                                                         <a href="{$base_dir}/index.php?controller=features" class="link">
                                                             {if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}
-                                                            
+
                                                         </a>
                                                     </div>
                                                     {*
@@ -159,10 +159,16 @@ newer * versions in the future. If you wish to customize this module for your * 
 
 
         {/if}
-
 <script type="text/javascript">
     $(document).ready(function(e) {
-        
+
+        if($('body').hasClass('features')){
+            console.log('test');
+            $('#paypal-column-block').css('display', 'none');
+        } else {
+            console.log('no news');
+        }
+
         if($('body').hasClass('index')){
             $('#hotelAmenitiesBlock .owl-carousel.amenities').owlCarousel({
             loop:true,
@@ -183,7 +189,7 @@ newer * versions in the future. If you wish to customize this module for your * 
             }
         });
         }
-        
+
     });
 </script>
 <style>

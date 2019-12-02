@@ -174,7 +174,7 @@
 														{if $lang_iso == 'es'}{l s='Lo sentimos'}{elseif $lang_iso == 'en'}{l s='Sorry :('}{/if}
 													</h2>
 													<p>
-														{if $lang_iso == 'es'}{l s='Esta habitación no está disponible. 
+														{if $lang_iso == 'es'}{l s='Esta habitación no está disponible.
 														Por favor intenta seleccionando otras fechas.'}
 														{elseif $lang_iso == 'en'}{l s='This room is not available.
 														Please try selecting other dates.'}{/if}
@@ -300,7 +300,7 @@
 								{/if}
 							</span>
 						{/if} *}
-					</div> 
+					</div>
 					<!-- end image-block -->
 					{* {if isset($images) && count($images) > 0} *}
 						<!-- thumbnails -->
@@ -846,6 +846,12 @@
 {/strip}
 {/if}
 <script type="text/javascript">
+if($('#product')){
+	$('#container_express_checkout').css('display', 'none');
+} else {
+	console.log('no prod')
+
+}
 	let id_panorama,id_180;
 	/**let x = false;
 	let id_panorama;
@@ -870,7 +876,7 @@
 
 		var headerPanorama = pannellum.viewer('panorama', {
 			"type": "equirectangular",
-			"panorama": "{$base_dir}img/rooms/{$product->id}/panorama_01.jpg",
+			"panorama": "https://hacienda1800.com/img/rooms/{$product->id}/panorama_01.jpg",
 			"autoLoad": true,
 			"showControls": false,
 			"vaov": 120,
@@ -901,7 +907,7 @@
 
 		var headerPanorama = pannellum.viewer('panorama', {
 			"type": "equirectangular",
-			"panorama": "{$base_dir}img/rooms/{$product->id}/180_01.jpg",
+			"panorama": "https://hacienda1800.com/img/rooms/{$product->id}/180_01.jpg",
 			"autoLoad": true,
 			"showControls": false,
 			"vaov": 120,
@@ -909,8 +915,8 @@
 			"autoRotate": true,
 			"minXaw": -120,
 			"maxXaw": 120,
-			"minYaw": -90,
-			"maxYaw": 90,
+			"minYaw": -78,
+			"maxYaw": 78,
 			"minPitch": -55,
 			"maxPitch": 55,
 			"mouseZoom": false,
@@ -929,7 +935,7 @@
 			var wwidth = $(window).width();
 			var headerPanorama = pannellum.viewer('panorama', {
 				"type": "equirectangular",
-				"panorama": "{$base_dir}img/rooms/{$product->id}/"+name[1]+"_"+name[2],
+				"panorama": "https://hacienda1800.com/img/rooms/{$product->id}/"+name[1]+"_"+name[2],
 				"autoLoad": true,
 				"showControls": false,
 				"vaov": 120,
@@ -948,7 +954,7 @@
 			var wwidth = $(window).width();
 			var headerPanorama = pannellum.viewer('panorama', {
 				"type": "equirectangular",
-				"panorama": "{$base_dir}img/rooms/{$product->id}/"+name[1]+"_"+name[2],
+				"panorama": "https://hacienda1800.com/img/rooms/{$product->id}/"+name[1]+"_"+name[2],
 				"autoLoad": true,
 				"showControls": false,
 				"vaov": 120,
@@ -956,8 +962,8 @@
 				"autoRotate": true,
 				"minXaw": -60,
 				"maxXaw": 60,
-				"minYaw": -90,
-				"maxYaw": 90,
+				"minYaw": -78,
+				"maxYaw": 78,
 				"minPitch": -55,
 				"maxPitch": 55,
 				"mouseZoom": false,

@@ -4,14 +4,14 @@
     right: 10px
     top: 10px
     color: white
-  #map
+  .exp-map
     height: 370px
   .cover
     width: 100%
-    height: 570px
-    background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png')
-    background-position: 50% 70%
-    background-attachment: fixed
+    height: 350px
+    background-image: url('../static/img/PORTADA_EXPERIENCIAS.jpg')
+    background-position: 50% 50%
+
     background-size: cover
     background-repeat: no-repeat
     display: flex
@@ -35,7 +35,7 @@
   .cover
     width: 100%
     height: 570px
-    background-image: url('../static/img/hacienda1800-experiences-cover-kayak.png')
+    background-image: url('../static/img/PORTADA_EXPERIENCIAS.jpg')
     background-position: 50% 70%
     background-attachment: fixed
     background-size: cover
@@ -109,20 +109,61 @@
     height: 370px
     background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')
     background-position: 50% 70%
-    background-attachment: fixed
+    // background-attachment: fixed
     background-size: cover
     background-repeat: no-repeat
     display: flex
+    flex-direction: column
     align-items: center
     justify-content: center
+    .title
+        border: 1px solid #ffffff
+        width: 570px
+        height: 115px
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-bottom: 39px
+        p
+            @include font-bold
+            font-size: 60px
+            color: #fff
+            margin: 0
+            padding: 0
+            text-transform: uppercase
+    button
+        width: 15%
+        height: 36px
+        @include font-bold
+        font-size: 14px
+        line-height: 20px
+        text-align: center
 
 
 
 
 @media screen and (max-width: $break-small)
+  #experiences
+
+    .footer
+      .title
+          width: auto
+          height: auto
+          padding: 25px
+          border: none
+          background: rgba(255, 255, 255, 0.2)
+
+          p
+              font-size: 30px
+      a
+          width: auto
+          padding-left: 15px
+          padding-right: 15px
+
   .experiences-pop
 
-    #map
+
+    .exp-map
       height: 370px
     .cover
       width: 100%

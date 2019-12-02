@@ -17,28 +17,85 @@ import NotFoundPage from '../pages/404.f7.html';
 var routes = [{
 
         name: 'parks',
-        path: '/parks/',
+        path: '/',
         id: 'parks',
+        options: {
+            history: true,
+            pushState: true
+        },
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
-            this.app.request.json(this.app.methods.getCollection('Parques'),
-                function(data) {
-                    resolve(
+            let parques = [];
+            this.app.request.promise.json(this.app.methods.getCollection('Parques'))
+            .then(res => {
+                let parquesitos = res.data.entries;
 
-                        // How and what to load: template
-                        {
+                // parquesitos = res.data.entries;
+                // console.log(parquesitos);
 
-                            component: Parks,
+
+                return parquesitos;
+            }).then(parquesitos => {
+                for (let park of parquesitos) {
+                    park.exper = [];
+
+                    let parque = park;
+
+                    for (let exp of parque.Experiencias) {
+                        let experiencia = exp;
+                        let filter = '&filter[_id]=' + experiencia._id;
+                        this.app.request.promise.json(this.app.methods.getCollection('Experiencias', filter))
+                            .then(expe => {
+
+                                parque.exper.push(expe.data.entries[0]);
+                                // console.log(parque.exp_info);
+
+
+                            });
+
+                    }
+
+
+                }
+                return parquesitos;
+            }).then(parquesitos => {
+                resolve(
+
+                    // How and what to load: template
+                    {
+
+                        component: Parks,
+                    },
+                    // Custom template context
+                    {
+                        context: {
+                            parks: parquesitos,
                         },
-                        // Custom template context
-                        {
-                            context: {
-                                parks: data.entries,
-                            },
-                        }
-                    );
-                });
+                    }
+                );
+            });
+
+
+            // for (let park of self.parks) {
+            //     park.exp_info = [];
+
+            //     let parque = park;
+            //     for (let exp of parque.Experiencias) {
+            //         let experiencia = exp;
+            //         let filter = '&filter[_id]=' + experiencia._id;
+            //         app.request.promise.json(this.$app.methods.getCollection('Experiencias', filter))
+            //             .then(res => {
+
+            //                 parque.exp_info.push(res.data.entries[0]);
+
+            //             });
+
+            //     }
+            // }
+
+
+
 
 
         }
@@ -49,7 +106,10 @@ var routes = [{
         name: 'tours',
         path: '/tours/',
         id: 'tours',
-
+        options: {
+            history: true,
+            pushState: true
+        },
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
@@ -89,11 +149,15 @@ var routes = [{
         path: '/dynamic-route/blog/:blogId/post/:postId/',
         component: DynamicRoutePage,
     },
+
     {
         name: 'experiences',
         path: '/experiences/',
         id: 'experiences',
-
+        options: {
+            history: true,
+            pushState: true
+        },
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
