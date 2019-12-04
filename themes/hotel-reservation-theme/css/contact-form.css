@@ -83,7 +83,7 @@
 }
 
 .htl-contact-page .responsive-row {
-    display: flex; 
+    display: flex;
     margin-bottom: 80px;
 }
 
@@ -120,7 +120,7 @@
     .htl-contact-page .frase {
         height: 350px;
     }
-    
+
 }
 
 .htl-contact-page .frase {
@@ -523,4 +523,33 @@
 #googleMapWrapper {
     clear: both;
     height: 500px;
+}
+
+#contact .directions-cont {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+
+
+}
+#contact .contact-header {
+    padding-bottom: 20px;
+}
+#contact .contact-desc {
+    padding-bottom: 40px;
+}
+
+#contact .directions-cont .from-btn {
+    padding: 5px 20px;
+    background-color: #003380;
+    border-radius: 20px;
+
+}
+#contact .directions-cont .from-btn i{
+    display: inline-block;
+}
+#contact .directions-cont .from-btn p{
+    display: inline-block;
+    color: white;
+    line-height: 1;
 }
