@@ -7,7 +7,7 @@
                     <div class="toolbar-inner">
                         {{#each tours}}
                             <a href="#{{Nombre}}" class="{{#if @first}}bleft tab-link-active {{/if}} tab-link {{#if @last}} bright{{/if}}"
-                                style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
+                                style="">
                                 <p class="  ">{{Nombre}}</p>
                             </a>
                         {{/each}}
@@ -30,9 +30,11 @@
                             </p>
                         </div>
                         <div class="row punch">
-                            <p>
-                                {{punchline}}
-                            </p>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <p>
+                                    {{punchline}}
+                                </p>
+                            </div>
                         </div>
                         <div class="photos row">
                             <div class="col-35 photo ph1" style="background-image: url('static/img/experience.png');">
