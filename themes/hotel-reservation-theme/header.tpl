@@ -141,7 +141,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                                 <span class="cross" title="Close window"></span>
                                 <div class="col-lg-6 col-sm-12">
                                     <img src="https://hacienda1800.com/panel/storage/uploads/2019/11/28/5de04b35c70f4Restaurante.jpg"/>
-                                    
+
                                 </div>
                                 <div class="col-lg-6 col-sm-12">
                                     <h3 id="title"></h3>
@@ -286,6 +286,8 @@ var wwidth = $(window).width();
 var headerPanorama2;
 var headerPanorama;
 function panelInit(){
+    $('#splash').fadeOut();
+    $('#page').css('display','block');
 
     headerPanorama = pannellum.viewer('header-panorama1', {
         "type": "equirectangular",
@@ -351,7 +353,6 @@ var onChange = window.addEventListener("resize", function() {
 
 
     $(document).ready(function(e) {
-
         var hotel_id = $('#hotel_cat_id').val();
         if(typeof hotel_id == "undefined"){
             var hotel_id = $('#hotel_cat_id2').val();
@@ -379,12 +380,27 @@ var onChange = window.addEventListener("resize", function() {
         }
 
         if ($('body').attr('id') == 'index') {
+            var splash = localStorage.getItem('splash')
+
+            if(splash){
+                panelInit();
+            }else{
+                console.log('false')
+            }
             $('#splash .left .skew').on('click', function(e){
                 e.preventDefault();
                 $('#page').css('display','block');
                 panelInit();
-                $('#splash').fadeOut();
+
                 $(window).bind(onChange);
+                localStorage.setItem('splash', true);
+            });
+            $('#splash .right .skew').on('click', function(e){
+                e.preventDefault();
+                panelInit();
+                $(window).bind(onChange);
+                localStorage.setItem('splash', true);
+                window.location.href='https://hacienda1800.com/experiences/#!/';
             });
             $('.menu').fadeOut();
             $(window).on("scroll", function(e) {
