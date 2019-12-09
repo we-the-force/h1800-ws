@@ -37,27 +37,27 @@
                             </div>
                         </div>
                         <div class="photos row">
-                            <div class="col-35 photo ph1" style="background-image: url('static/img/experience.png');">
+                            <div class="col-35 photo ph1" style="background-image: url('https://hacienda1800.com{{Gallery[0].path}}');">
                             </div>
 
                             <div class="col-50" style="height: 100%;">
                                 <div class="row photo ph2"
-                                    style="background-image: url('static/img/hacienda1800-experiences-cover-kayak.png')">
+                                    style="background-image: url('https://hacienda1800.com{{Gallery[1].path}}')">
                                 </div>
 
                                 <div class="row" style="height: 63%;">
                                     <div class="col-50 photo ph3"
-                                        style="background-image: url('static/img/experience.png');"></div>
+                                        style="background-image: url('https://hacienda1800.com{{Gallery[0].path}}');"></div>
                                     <div class="col-50 photo ph4"
-                                        style="background-image: url('static/img/hacienda1800-experiences-cover-kayak.png')">
+                                        style="background-image: url('https://hacienda1800.com{{Gallery[1].path}}')">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-15" style="height: 100%;">
-                                <div class="row photo ph5" style="background-image: url('static/img/experience.png');">
+                                <div class="row photo ph5" style="background-image: url('https://hacienda1800.com{{Gallery[2].path}}');">
                                 </div>
-                                <div class="row photo ph6" style="background-image: url('static/img/experience.png');">
+                                <div class="row photo ph6" style="background-image: url('https://hacienda1800.com{{Gallery[2].path}}');">
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                                         DÍA 1
                                     </p>
                                     <p>
-                                        CheckIn en el hotel y una velada astronómica en el Río San Marcos. Disfruta de una cena maridaje de 4 tiempos, una solista en vivo y un astrónomo con telescopio guiándole por las maravillas de nuestra galaxia.
+                                        CheckIn entre 1pm y 3pm en el hotel y una velada astronómica en el Río San Marcos. Disfruta de una cena maridaje de 4 tiempos, una solista en vivo y un astrónomo con telescopio guiándole por las maravillas de nuestra galaxia.
 
                                     </p>
                                 </div>
@@ -180,7 +180,7 @@
                                         DÍA 4
                                     </p>
                                     <p>
-                                        Disfruta de un rico desayuno y las instalaciones del hotel. Check out Hotel Hacienda 1800.
+                                        Disfruta de un rico desayuno y las instalaciones del hotel. Check out 3pm Hotel Hacienda 1800.
 
 
                                     </p>
@@ -313,7 +313,7 @@
                         </div> -->
                         <div class="footer"
                             style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
-                            <a class="title link external" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                            <a class="title link external" href="https://api.whatsapp.com/send?phone=5218661784142&text=Hola%20Jackie,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20itinerarios" target="_blank">
                                 <p>Reservar</p>
                             </a>
                             <!-- <a href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="button button-raised button-fill link external button-round">Contacto</a> -->
@@ -346,7 +346,12 @@
                     var map;
                     map = new google.maps.Map(document.getElementById('Invierno-map'), {
                         center: location,
-                        zoom: 8
+                        zoom: 13,
+                        scrollwheel: false,
+                        navigationControl: false,
+                        mapTypeControl: false,
+                        scaleControl: false,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
                     });
                     var marker = new google.maps.Marker({
                         position: location,
@@ -360,7 +365,12 @@
                     var map;
                     map = new google.maps.Map(document.getElementById('Verano-map'), {
                         center: location,
-                        zoom: 8
+                        zoom: 13,
+                        scrollwheel: false,
+                        navigationControl: false,
+                        mapTypeControl: false,
+                        scaleControl: false,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
                     });
                     var marker = new google.maps.Marker({
                         position: location,
@@ -371,7 +381,12 @@
                 var map;
                 map = new google.maps.Map(document.getElementById('Verano-map'), {
                     center: self.tours[0].PuntoDeRunion,
-                    zoom: 8
+                    zoom: 13,
+                    scrollwheel: false,
+                    navigationControl: false,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
                 var marker = new google.maps.Marker({
                     position: self.tours[0].PuntoDeRunion,

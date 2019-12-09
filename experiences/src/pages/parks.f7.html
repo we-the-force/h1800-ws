@@ -95,7 +95,7 @@
                         </div>
                         <div class="footer"
                             style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
-                            <a class="title link external" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                            <a class="title link external" href="https://api.whatsapp.com/send?phone=521{{contact.phone}}&text=Hola%20{{contact.name}},%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20{{Nombre}}" target="_blank">
                                 <p>Reservar</p>
                             </a>
                             <!-- <a href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="button button-raised button-fill link external button-round">Contacto</a> -->
@@ -178,7 +178,12 @@
                 var map;
                 map = new google.maps.Map(document.getElementById('canion-map'), {
                     center: myLatLng,
-                    zoom: 13
+                    zoom: 13,
+                    scrollwheel: false,
+                    navigationControl: false,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
                 var marker = new google.maps.Marker({
                     position: myLatLng,
