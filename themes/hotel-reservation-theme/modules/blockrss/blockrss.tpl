@@ -21,7 +21,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                 </ul>
 
         </div>
-        <div id="popup" style="display: none;">
+{*         <div id="news-popup" style="display: none;">
             <div class="content-popup">
                 <div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
                 <div>
@@ -32,7 +32,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                 </div>
             </div>
         </div>
-        <div class="popup-overlay"></div>
+        <div class="news-overlay" style="width: 100%; height: 100%; display: none;"></div> *}
     </div>
     <!-- /Block RSS module-->
     <script>
@@ -74,7 +74,18 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                     '</div>'+;*/
                 $('.news-link').click(function(e){
                     e.preventDefault();
+                    console.log(result.entries[$(this).data('id')]);
                     console.log($(this).data('id'));
+                    $('#news-popup img').attr('src','https://hacienda1800.com'+result.entries[$(this).data('id')].thumbnail.path);
+                    $('#news-popup #title').text(result.entries[$(this).data('id')].title);
+                    $('#news-popup #info').html(result.entries[$(this).data('id')].content);
+                    $('.news-overlay').css('display','block');
+                    $('#news-popup').css('display','block');
+                });
+
+                $('.news-overlay, #news-popup .cross').click(function(){
+                    $('.news-overlay').css('display','none');
+                    $('#news-popup').css('display','none');
                 });
             });
         } else if ($('body').hasClass('index')){

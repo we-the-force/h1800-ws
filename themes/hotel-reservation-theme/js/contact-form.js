@@ -23,6 +23,12 @@
  *  International Registered Trademark & Property of PrestaShop SA
  */
 //global variables
+var airmty;
+var airtrc;
+var hotel1800;
+var directionsService;
+var directionsRenderer;
+
 if (typeof $.uniform.defaults !== 'undefined') {
     if (typeof contact_fileDefaultHtml !== 'undefined')
         $.uniform.defaults.fileDefaultHtml = contact_fileDefaultHtml;
@@ -31,6 +37,7 @@ if (typeof $.uniform.defaults !== 'undefined') {
 }
 
 $(document).ready(function() {
+
     //By Webkul JS
     $(document).on('click', '.contact_type_ul li', function() {
         $('#contact_type').html($(this).html());
@@ -66,7 +73,57 @@ function showProductSelect(id_order) {
 }
 
 
+// function initMap() {
+//     hotelLocationArray = JSON.parse(hotelLocationArray);
+//     airmty = "25.777896,-100.107835";
+//     airtrc = "25.563133,-103.403130";
+//     console.log(hotelLocationArray[0].latitude);
+//     console.log(hotelLocationArray[0].longitude);
+
+//     hotel1800 = ''+hotelLocationArray[0].latitude+','+ hotelLocationArray[0].longitude;
+//   var directionsService = new google.maps.DirectionsService();
+//   var directionsRenderer = new google.maps.DirectionsRenderer();
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 7,
+//     center: {lat: 41.85, lng: -87.65}
+//   });
+//   directionsRenderer.setMap(map);
+
+//   var onChangeHandler = function() {
+//   };
+//     $('.from-btn').on('click', function(){
+//     calculateAndDisplayRoute(directionsService, directionsRenderer);
+
+//     });
+// //   document.getElementById('start').addEventListener('change', onChangeHandler);
+// //   document.getElementById('end').addEventListener('change', onChangeHandler);
+// }
+
+// function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+//   directionsService.route(
+//       {
+//           origin: airmty,
+//           destination: hotel1800,
+//         travelMode: 'DRIVING'
+//       },
+//       function(response, status) {
+//         if (status === 'OK') {
+//           directionsRenderer.setDirections(response);
+//         } else {
+//           window.alert('Directions request failed due to ' + status);
+//         }
+//       });
+// }
+
+
+
 function initMap() {
+    airmty = new google.maps.LatLng(25.777896, -100.107835);
+    airtrc = new google.maps.LatLng(25.563133, -103.403130);
+    hotel1800 = new google.maps.LatLng(hotelLocationArray[0].latitude, hotelLocationArray[0].longitude);
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer();
+
     var map;
     var bounds = new google.maps.LatLngBounds();
     hotelLocationArray = JSON.parse(hotelLocationArray);
@@ -74,6 +131,7 @@ function initMap() {
 
     // Display a map on the page
     map = new google.maps.Map(document.getElementById("map"));
+    directionsRenderer.setMap(map);
     google.maps.event.trigger(map, 'resize');
 
     map.setTilt(45);
@@ -84,6 +142,7 @@ function initMap() {
     var i;
 
     $.each(hotelLocationArray, function(i, location) {
+        var position = hotel1800;
         var position = new google.maps.LatLng(location.latitude, location.longitude);
         bounds.extend(position);
         marker = new google.maps.Marker({
@@ -91,12 +150,13 @@ function initMap() {
             map: map,
             title: location.hotel_name,
             animation: google.maps.Animation.DROP,
-            zoomControl: true,
+            disableDefaultUI: false,
+            zoomControl: false,
             mapTypeControl: false,
             scaleControl: false,
-            streetViewControl: true,
+            streetViewControl: false,
             rotateControl: false,
-            fullscreenControl: true
+            fullscreenControl: false
         });
 
         // Allow each marker to have an info window
@@ -115,5 +175,24 @@ function initMap() {
     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
         // this.setZoom(8);
         google.maps.event.removeListener(boundsListener);
+    });
+}
+function calcRoute() {
+    airmty = new google.maps.LatLng(25.777896, -100.107835);
+    airtrc = new google.maps.LatLng(25.563133, -103.403130);
+
+    var selectedMode = 'DRIVING';
+    var request = {
+        origin: airmty,
+        destination: airtrc,
+        // Note that JavaScript allows us to access the constant
+        // using square brackets and a string value as its
+        // "property."
+        travelMode: google.maps.TravelMode[selectedMode]
+    };
+    directionsService.route(request, function (response, status) {
+        if (status == 'OK') {
+            directionsRenderer.setDirections(response);
+        }
     });
 }

@@ -133,18 +133,18 @@
 
                             <div class="row margin-lr-0 pull-left rm_price_cont">
                                 {if $room_v['feature_price_diff'] >= 0}
-                                    <span class="pull-left rm_price_txt">{if $lang_iso == 'es'}fin de semana{elseif $lang_iso == 'en'}weekends{/if}</span><span class="pull-left rm_price_val {if $room_v['feature_price_diff']>0}room_type_old_price{/if}">
+                                    <span class="pull-left rm_price_txt">{if $lang_iso == 'es'}viernes a sábado{elseif $lang_iso == 'en'}friday to saturday{/if}</span><span class="pull-left rm_price_val {if $room_v['feature_price_diff']>0}{/if}">
                                         {displayPrice price = $room_v['price_without_reduction']|round:2|floatVal}
                                     </span>
                                 {/if}
                                 {if $room_v['feature_price_diff']}
-                                    <span class="pull-left rm_price_txt">{if $lang_iso == 'es'}entre semana{elseif $lang_iso == 'en'}weekdays{/if}</span><span class="pull-left rm_price_val">
+                                    <span class="pull-left rm_price_txt">{if $lang_iso == 'es'}domingo a jueves{elseif $lang_iso == 'en'}sunday to thursday{/if}</span><span class="pull-left rm_price_val">
                                         {displayPrice price = $room_v['feature_price']|round:2|floatVal}
                                     </span>
                                 {/if}
                                 <br>
 
-                                <span class="pull-left rm_price_txt">{l s='Per Night'}</span>
+                                <span class="pull-left rm_price_txt">{if $lang_iso == 'es'}por noche{elseif $lang_iso == 'en'}per night{/if}</span>
                             </div>
 
                             <a cat_rm_check_in="{$booking_date_from}" cat_rm_check_out="{$booking_date_to}" href="" rm_product_id="{$room_v['id_product']}" cat_rm_book_nm_days="{$num_days}" data-id-product-attribute="0" data-id-product="{$room_v['id_product']|intval}" class="btn btn-default button button-medium ajax_add_to_cart_button pull-right"><span>{l s='Book Now'}</span></a>
