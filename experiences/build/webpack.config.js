@@ -26,7 +26,8 @@ module.exports = {
     output: {
         path: resolvePath('www'),
         filename: 'js/app.js',
-        publicPath: '',
+        // comentar siguiente linea para poder trabajar local, se usa en ambiente de prod
+        publicPath: '/experiences/',
         hotUpdateChunkFilename: 'hot/hot-update.js',
         hotUpdateMainFilename: 'hot/hot-update.json',
     },

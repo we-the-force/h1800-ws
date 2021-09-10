@@ -58,6 +58,7 @@ var routes = [{
 
 
                 }
+                console.log(parquesitos);
                 return parquesitos;
             }).then(parquesitos => {
                 resolve(
