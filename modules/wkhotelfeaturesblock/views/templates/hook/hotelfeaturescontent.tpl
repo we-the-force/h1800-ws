@@ -4,9 +4,9 @@ newer * versions in the future. If you wish to customize this module for your * 
     * @copyright 2010-2018 Webkul IN * @license https://store.webkul.com/license.html *} {if $smarty.get.controller eq "features"}
     <div id="hotelAmenitiesBlock" class="row home_block_container">
         <div class="col-xs-12 col-md-12 col-lg-12">
-            {if $hotelAmenities} {foreach from=$hotelAmenities item=amenity name=amenityBlock}
+            {if $hotelAmenities} {foreach from=$hotelAmenities key=k item=amenity name=amenityBlock}
 
-            <div class="row amenity no-gutters">
+            <div class="row amenity no-gutters hide feature-{$k}">
                 <div class="col-xs-12 col-md-8 col-lg-8 nopadding">
                     <div class="media d-block" style="background-image: url({$module_dir|escape:'htmlall':'UTF-8'}views/img/hotels_features_img/{$amenity.id_features_block|escape:'htmlall':'UTF-8'}.jpg)">
 
@@ -15,13 +15,17 @@ newer * versions in the future. If you wish to customize this module for your * 
                 </div>
                 <div class="col-xs-12 col-md-4 col-lg-4">
                     <div class="media-body">
-
+                        
                         <div class="media-body-cont">
                             <h2 class="media-heading">{$amenity['feature_title']|escape:'htmlall':'UTF-8'}</h2>
+
+
+                            
+
                             <hr>
                             <p>
                                 {$amenity['feature_description']|escape:'htmlall':'UTF-8'}
-
+                                
                             </p>
                             {if $smarty.foreach.amenityBlock.first}
                             <p style="text-align: center;">
@@ -31,7 +35,10 @@ newer * versions in the future. If you wish to customize this module for your * 
                             </p>
 
                             {/if}
+                            <a href="{$base_dir}/index.php?controller=features&feature={$k}" class="link hide">
+                                {if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}
 
+                            </a>
                         </div>
 
 
@@ -73,7 +80,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                     <div class="main-content">
                         <div class="owl-carousel amenities owl-theme">
                             {* <div class="carousel-inner"> *}
-                                {assign var='counter' value=1} {foreach from=$hotelAmenities item=amenity name=amenityBlock} {* {if $counter == 1}
+                                {assign var='counter' value=1} {foreach from=$hotelAmenities item=amenity key=k name=amenityBlock} {* {if $counter == 1}
                                 <div class="carousel-item active">
                                     {else}
                                     <div class="carousel-item">
@@ -89,10 +96,10 @@ newer * versions in the future. If you wish to customize this module for your * 
                                                 <div class="row">
                                                     <div class="col-md-9 col-lg-9">
                                                         <h2 class="media-heading">{$amenity['feature_title']|escape:'htmlall':'UTF-8'}</h2>
-                                                        <p>
+                                                        {* <p>
                                                             {$amenity['feature_description']|escape:'htmlall':'UTF-8'}
-                                                        </p>
-                                                        <a href="{$base_dir}/index.php?controller=features" class="link">
+                                                        </p> *}
+                                                        <a href="{$base_dir}/index.php?controller=features&feature={$k}" class="link">
                                                             {if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}
 
                                                         </a>
@@ -161,8 +168,38 @@ newer * versions in the future. If you wish to customize this module for your * 
         {/if}
 <script type="text/javascript">
     $(document).ready(function(e) {
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
 
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+            return false;
+        };
         if($('body').hasClass('features')){
+            var feature = getUrlParameter('feature');
+            console.log('feature: '+feature);
+           
+            if(feature===false){
+            $('.amenity').removeClass('hide');
+            $('.amenity .link').removeClass('hide');
+
+
+            } else {
+            $('.amenity').addClass('hide');
+
+                $('.amenity.feature-'+feature).removeClass('hide');
+                // $('.amenity.feature-'+feature+' .link').removeClass('hide');
+
+            }
+
             console.log('test');
             $('#paypal-column-block').css('display', 'none');
         } else {

@@ -59,6 +59,7 @@ if (version_compare(_PS_VERSION_, '1.5', '<')) {
 
 function displayConfirm($context)
 {
+
     include _PS_ROOT_DIR_.'/header.php';
 
     $paypal = new PayPal();
@@ -149,8 +150,7 @@ function displayAjax($context)
     $paypal = new PayPal();
     $return = array();
 
-    if (
-        (!empty($id_cart) && $context->cart->id == $id_cart) &&
+    if ((!empty($id_cart) && $context->cart->id == $id_cart) &&
         !empty($payerID) &&
         !empty($paymentId) &&
         !empty($submit)

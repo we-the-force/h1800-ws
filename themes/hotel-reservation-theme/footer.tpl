@@ -42,5 +42,29 @@
 		</div><!-- #page -->
 {/if}
 {include file="$tpl_dir./global.tpl"}
+
+
+<script type="application/ld+json">
+            {
+             "@context" : "http://schema.org",
+             "@type" : "Organization",
+             "name" : "Hotel",
+             "url" : "https://hacienda1800.com",
+             "sameAs" : [
+               "https://twitter.com/hacienda1800",
+               "https://www.facebook.com/hacienda1800",
+               "https://www.instagram.com/hacienda1800/"
+              ],
+             "address": {
+               "@type": "PostalAddress",
+               "streetAddress": "Calle Las Parras 1007, La Bartole単a",
+               "addressLocality": "Altamira",
+               "addressRegion": "Coahuila",
+               "postalCode": "27640",
+               "addressCountry": "MX"
+             }
+            }
+            </script>
+
 	</body>
 </html>

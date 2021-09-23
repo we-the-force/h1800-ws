@@ -129,13 +129,13 @@
 				<div class="directions-cont">
 					<a class="from-btn" href="https://goo.gl/maps/TzEULaZCE9K2naGR9" target="_blank">
 
-						<p><i class="icon-plane"></i> {if $lang_iso == 'es'}Desde{elseif $lang_iso == 'en'}From{/if} Monterrey</p>
+						<p><i class="icon-plane"></i> From Monterrey</p>
 					</a>
 					<a class="from-btn" href="https://goo.gl/maps/nyKoxtpcnFHqb9iN9" target="_blank">
-						<p><i class="icon-plane"></i> {if $lang_iso == 'es'}Desde{elseif $lang_iso == 'en'}From{/if} Torreon</p>
+						<p><i class="icon-plane"></i> From Torreon</p>
 					</a>
 					<a class="from-btn" href="https://goo.gl/maps/YBTSvvdSWkzvkg5V9" target="_blank">
-						<p><i class="icon-plane"></i> {if $lang_iso == 'es'}Desde{elseif $lang_iso == 'en'}From{/if} Saltillo</p>
+						<p><i class="icon-plane"></i> From Saltillo</p>
 					</a>
 				</div>
 			</div>
@@ -167,14 +167,7 @@
 								</p>
 							</div>
 						{/if}
-						{if isset($gblHtlEmail) && $gblHtlEmail}
-							<div>
-								<p class="global-address-header">{l s='Mail Us'}</p>
-								<p class="global-address-value">
-									{$gblHtlEmail}
-								</p>
-							</div>
-						{/if}
+						
 					</div>
 				</div>
 			{/if}

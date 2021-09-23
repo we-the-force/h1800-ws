@@ -23,8 +23,36 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-<div id="paypal-wrapper">
+<div class="bootstrap">
+	<div class="alert alert-info">
+		<p>
+            {l s='Note : As part of European Regulation PSD2 and related SCA (Strong Customer Authentication) planned on September 14th 2019, all transactions will have to go through SCA (3DS 2.0) with the aim to reduce friction (fewer “client challenges”) while raise conversion and protection (more liability shifts from merchant to bank).' mod='paypal'}
+		</p>
 
+		<p>
+            {l s='It is thus recommended to enable 3D Secure in order to avoid bank declines and impact to your business.' mod='paypal'}
+		</p>
+
+		<p>
+            {{l s='More info in our blog post [b]to get the last updates:[/b]' mod='paypal'}|paypalreplace}
+			<a href="https://www.braintreepayments.com/ie/features/3d-secure">
+				https://www.braintreepayments.com/ie/features/3d-secure
+			</a>
+		</p>
+	</div>
+</div>
+
+
+<div id="paypal-wrapper">
+	{if !empty($hss_errors)}
+        <div style="background-color: red; color: white; font-weight: bolder; padding: 5px; margin-top: 10px;">
+            {l s='Orders for following carts (id) could not be created because of email error' mod='paypal'}
+            {foreach from=$hss_errors item=hss}
+                <p><span style="background-color: black; padding: 5px;">{$hss.id_cart|escape:'htmlall':'UTF-8'} - {$hss.email|escape:'htmlall':'UTF-8'}</span></p>
+            {/foreach}
+            {l s='You must change the e-mail in the module configuration with the one displayed above' mod='paypal'}
+        </div>
+	{/if}
 	{* PayPal configuration page header *}
 	<div class="box half left">
 		{if isset($PayPal_logo.LocalPayPalLogoLarge)}
@@ -45,43 +73,8 @@
 
 	<div class="paypal-clear"></div>
 
-	{*
-	<!-- div class="bootstrap">
-		<form method="post" action="{$smarty.server.REQUEST_URI|escape:'htmlall':'UTF-8'}" id="paypal_configuration">
-			{if $PayPal_tls_verificator == '1'}
-				<div style="margin-bottom: 20px;">
-					{l s='Your configuration use version 1.2 of protocol TLS' mod='paypal'}<br/>
-					<a href="{l s='https://www.paypal-knowledge.com/infocenter/index?page=content&widgetview=true&id=FAQ1914&viewlocale=en_US' mod='paypal'}">{l s='Click here to know more' mod='paypal'}</a>
-				</div>
-			{elseif $PayPal_tls_verificator == '0'}
-				<div style="margin-bottom: 20px;">
-					{l s='Your configuration use version 1.0 to communicate with PayPal.From July, all payments will be blocked.Thank you to approach your hosting company to enable the TLS version 1.2' mod='paypal'}<br/>
-					<a href="{l s='https://www.paypal-knowledge.com/infocenter/index?page=content&widgetview=true&id=FAQ1914&viewlocale=en_US' mod='paypal'}">{l s='Click here to know more' mod='paypal'}</a>
-				</div>
-			{else}
-			{/if}
-			<button name="submitTlsVerificator" id="submitTlsVerificator">{l s='check your tls version' mod='paypal'}</button>
 
-		</form>
-
-
-
-	</div -->
-	*}
 	{if $PayPal_allowed_methods}
-		{if $default_lang_iso == 'fr'}
-			<div class="paypal-clear"></div><hr />
-			<div class="box">
-			{l s='Download the ' mod='paypal'}<a href="http://altfarm.mediaplex.com/ad/ck/3484-197941-8030-54"> {l s='Paypal Integration Guide' mod='paypal'}</a> {l s='and follow the configuration step by step' mod='paypal'}
-
-			</div>
-		{else}
-			<div class="paypal-clear"></div><hr />
-			<div class="box">
-			{l s='Download the ' mod='paypal'}<a href="http://altfarm.mediaplex.com/ad/ck/3484-197941-8030-169"> {l s='Paypal Integration Guide' mod='paypal'}</a> {l s='and follow the configuration step by step' mod='paypal'}
-
-			</div>
-		{/if}
 		<div class="paypal-clear"></div><hr>
 
 		<form method="post" action="{$smarty.server.REQUEST_URI|escape:'htmlall':'UTF-8'}" id="paypal_configuration">
@@ -91,21 +84,8 @@
 				<div style="line-height: 20px; margin-top: 8px">
 					<div>
 						<label>{l s='Your country' mod='paypal'} :
-							{$PayPal_country|escape:'htmlall':'UTF-8'}&nbsp;&nbsp;&nbsp;<a href="#" id="paypal_country_change" class="small">{l s='change' mod='paypal'}</a>
+							{$PayPal_country|escape:'htmlall':'UTF-8'}
 						</label>
-
-						<div class="paypal-hide" id="paypal-country-form-content">
-							<h3>{l s='Select your country' mod='paypal'} :</h3>
-
-							<select name="paypal_country_default" id="paypal_country_default">
-							{foreach from=$Countries item=country}
-								<option value="{$country.id_country|escape:'htmlall':'UTF-8'}" {if $country.id_country == $PayPal_country_id}selected="selected"{/if}>{$country.name|escape:'htmlall':'UTF-8'}</option>
-							{/foreach}
-							</select>
-
-							<br />
-							<br />
-						</div>
 					</div>
 
 					<label>{l s='You already have a PayPal business account' mod='paypal'} ?</label>
@@ -180,15 +160,15 @@
 
                 {if (in_array($PayPal_PVZ, $PayPal_allowed_methods))}
                     {if version_compare($smarty.const.PHP_VERSION, '5.4.0', '<')}
-						<strong class="braintree_title_bo">{l s='Want to use Braintree as card processor ?' mod='paypal'}</strong> &nbsp;<a href="{l s='https://www.braintreepayments.com/' mod='paypal'}" target="_blank" class="braintree_link"><img src="{$PayPal_module_dir}/views/img/logos/BRAINTREE.png" class="braintree_logo"> &nbsp;&nbsp;&nbsp;<div class="bo_paypal_help">?</div></a><br/>
+						<strong class="braintree_title_bo">{l s='Want to use Braintree as card processor ?' mod='paypal'}</strong> &nbsp;<a href="{l s='https://www.braintreepayments.com/' mod='paypal'}" target="_blank" class="braintree_link"><img src="{$PayPal_module_dir|escape:'htmlall':'UTF-8'}/views/img/logos/BRAINTREE.png" class="braintree_logo"> &nbsp;&nbsp;&nbsp;<div class="bo_paypal_help">?</div></a><br/>
 						<p id="error_version_php">{l s='You can\'t use braintree because your PHP version is too old (PHP 5.4 min)' mod='paypal'}</p>
                     {elseif !$ps_ssl_active}
-						<strong class="braintree_title_bo">{l s='Want to use Braintree as card processor ?' mod='paypal'}</strong> &nbsp;<a href="{l s='https://www.braintreepayments.com/' mod='paypal'}" target="_blank" class="braintree_link"><img src="{$PayPal_module_dir}/views/img/logos/BRAINTREE.png" class="braintree_logo"> &nbsp;&nbsp;&nbsp;<div class="bo_paypal_help">?</div></a><br/>
+						<strong class="braintree_title_bo">{l s='Want to use Braintree as card processor ?' mod='paypal'}</strong> &nbsp;<a href="{l s='https://www.braintreepayments.com/' mod='paypal'}" target="_blank" class="braintree_link"><img src="{$PayPal_module_dir|escape:'htmlall':'UTF-8'}/views/img/logos/BRAINTREE.png" class="braintree_logo"> &nbsp;&nbsp;&nbsp;<div class="bo_paypal_help">?</div></a><br/>
 						<p id="error_version_php">{l s='You can\'t use braintree because you haven\'t enabled https' mod='paypal'}</p>
 					{else}
                     {* WEBSITE PAYMENT PLUS *}
                         <br />
-                        <strong class="braintree_title_bo">{l s='Want to use Braintree as card processor ?' mod='paypal'} {l s='(Euro only)' mod='paypal'}</strong> &nbsp;<a href="{l s='https://www.braintreepayments.com/' mod='paypal'}" target="_blank" class="braintree_link"><img src="{$PayPal_module_dir}/views/img/logos/BRAINTREE.png" class="braintree_logo"> &nbsp;&nbsp;&nbsp;<div class="bo_paypal_help">?</div></a><br/>
+                        <strong class="braintree_title_bo">{l s='Want to use Braintree as card processor ?' mod='paypal'} {l s='(Euro only)' mod='paypal'}</strong> &nbsp;<a href="{l s='https://www.braintreepayments.com/' mod='paypal'}" target="_blank" class="braintree_link"><img src="{$PayPal_module_dir|escape:'htmlall':'UTF-8'}/views/img/logos/BRAINTREE.png" class="braintree_logo"> &nbsp;&nbsp;&nbsp;<div class="bo_paypal_help">?</div></a><br/>
 
 						<label for="braintree_enabled">
                             <input type="checkbox" name="braintree_enabled" id="braintree_enabled" value='{$PayPal_PVZ|escape:'htmlall':'UTF-8'}' {if $PayPal_braintree_enabled}checked="checked"{/if} />
@@ -196,7 +176,7 @@
                             <span class="description"></span>
                             <!-- <p class="toolbox"></p> -->
                         </label>
-                        <span id="braintree_message" style="{$Braintree_Style}">{$Braintree_Message|escape:'htmlall':'UTF-8'}</span>
+                        <span id="braintree_message" style="{$Braintree_Style|escape:'htmlall':'UTF-8'}">{$Braintree_Message|escape:'htmlall':'UTF-8'}</span>
                         <div id="paypal_braintree">
 							{include './button_braintree.tpl'}
 						</div>
@@ -241,17 +221,25 @@
 				<hr />
 
 			</div>
-
+			{* TEST FOR CURL*}
+			<div>
+				<span class="paypal-section">3</span>
+				<h3 class="inline">{l s='Test TLS & curl' mod='paypal'}</h3>
+				<br /><br />
+				<input type="hidden" id="security_token" value="{$smarty.get.token}" >
+				<span style="cursor: pointer;display: inline-block;" id="test_ssl_submit"><b>{l s='Test' mod='paypal'}</b></span>
+				<div style="margin-top: 10px;" id="test_ssl_result"></div>
+			</div>
 			{* ENABLE YOUR ONLINE SHOP TO PROCESS PAYMENT *}
 			<div class="box paypal-disabled" id="credentials">
-				<span class="paypal-section">3</span> <h3 class="inline">{l s='Process payments on your online shop' mod='paypal'}</h3>
+				<span class="paypal-section">4</span> <h3 class="inline">{l s='Process payments on your online shop' mod='paypal'}</h3>
 				<br /><br />
 
 				<div class="paypal-hide" id="configuration">
 					{* Credentials *}
 
 					<div id="standard-credentials">
-						<h4>{l s='Communicate your PayPal identification info' mod='paypal'}</h4>
+						<h4>{l s='Communicate your PayPal identification info to PrestaShop' mod='paypal'}</h4>
 
 						<br />
 
@@ -274,7 +262,7 @@
 					</div>
 
 					<div id="paypalplus-credentials">
-						<h4>{l s='Provide your PayPal API credentials' mod='paypal'}</h4>
+						<h4>{l s='Provide your PayPal API credentials to PrestaShop' mod='paypal'}</h4>
 
 						<br />
 
@@ -486,11 +474,13 @@
 
 				<hr />
 			</div>
+
 		</form>
+
     {else}
 		<div class="paypal-clear"></div><hr />
 			<div class="box">
-				<p>{l s='Your country is not available for this module.' mod='paypal'}</p>
+				<p>{l s='Your country is not available for this module please go on Prestashop addons to see the different possibilities.' mod='paypal'}</p>
 			</div>
 			<hr />
 		</div>
@@ -498,3 +488,6 @@
 	{/if}
 
 </div>
+<script>
+	var tlscurltest_url = '{$tls_link_ajax|addslashes}';
+</script>

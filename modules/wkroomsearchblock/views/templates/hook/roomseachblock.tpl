@@ -8,27 +8,13 @@ newer * versions in the future. If you wish to customize this module for your * 
 
             <div class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-
-                        <div id="header-panorama2" class="header-panorama">
-
-                        </div>
-                        <img src="{$img_ps_dir}360.svg" class="pano360icon" alt=""> {* <img src="{$img_ps_dir}hotel_header_lifestyle2.jpg" alt=""> *}
-
-                    </div>
-                    <div class="item lifestyle">
+                    
+                    <div class="item lifestyle active">
                         <div class="img" style="background-image: url('{$img_ps_dir}hotel_header_lifestyle.jpg');"></div>
 
 
                     </div>
-                    <div class="item">
-
-                        <div id="header-panorama1" class="header-panorama">
-
-                        </div>
-                        <img src="{$img_ps_dir}360.svg" class="pano360icon" alt="">
-
-                    </div>
+                    
                     <div class="item lifestyle">
                         <div class="img" style="background-image: url('{$img_ps_dir}hotel_header_lifestyle2.jpg');"></div>
 

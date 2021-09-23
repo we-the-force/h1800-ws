@@ -49,7 +49,7 @@ newer * versions in the future. If you wish to customize this module for your * 
         {/if} *}
         <!-- SnapWidget -->
 
-        <div class="row" id="instafeed">  </div>
+        <div id="instagram-feed1" class="row instagram_feed"></div>
     </div>
     <hr class="home_block_seperator" />
     </div>
@@ -137,48 +137,6 @@ newer * versions in the future. If you wish to customize this module for your * 
     </div>
 <script type="text/javascript">
     $(document).ready(function(e) {
-
-        async function instagramPhotos () {
-            // It will contain our photos' links
-            const res = []
-
-            try {
-                const userInfoSource = await $.get('https://www.instagram.com/hacienda1800/');
-                // userInfoSource.data contains the HTML from Axios
-                const jsonObject = userInfoSource.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1)
-
-                const userInfo = JSON.parse(jsonObject);
-                // Retrieve only the first 10 results
-                const mediaArray = userInfo.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, 10)
-                for (let media of mediaArray) {
-                    const node = media.node
-
-                    // Process only if is an image
-                    if ((node.__typename && node.__typename !== 'GraphImage')) {
-                        continue
-                    }
-
-                    // Push the thumbnail src in the array
-                    res.push(node.thumbnail_src)
-                }
-            } catch (e) {
-                console.error('Unable to retrieve photos. Reason: ' + e.toString())
-            }
-
-            console.log(res);
-            var instaLayout = '';
-            for (let index = 0; index < res.length; index++) {
-              const element = res[index];
-              $('#instafeed').append('<div class="col-sm-4 col-lg-4 col-md-4 col-xs-6 "> <a href="//instagram.com/hacienda1800" target="_blank" class=""> <img src="'+element+'" class="insta-img"/> </a> </div>')
-
-            }
-        }
-        try {
-            instagramPhotos();
-        }
-        catch(e) {
-            console.log('Error fetching instagram photos.')
-        }
         $('#hotelActivitiesBlock .owl-carousel.parks').owlCarousel({
             loop:true,
             margin: 10,
@@ -197,5 +155,11 @@ newer * versions in the future. If you wish to customize this module for your * 
                 },
             }
         });
+
     });
+        
+
+  
+    
+   
 </script>

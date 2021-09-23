@@ -228,15 +228,15 @@ $(document).ready(function () {
     function displayCredentials() {
         var paypal_business = $('input[name="business"]:checked').val();
         var paypal_payment_method = $('input[name="paypal_payment_method"]:checked').val();
+
         if(paypal_payment_method == PayPal_PVZ)
         {
-// c'est quoi cette fonction !!!
+            // c'est quoi cette fonction !!!
         }
         else if (paypal_payment_method != PayPal_HSS &&
-            (typeof ($('input[name="api_username"]').val()) != 'undefined') &&
-            ($('input[name="api_username"]').val().length > 0 ||
-                    $('input[name="api_password"]').val().length > 0 ||
-                    $('input[name="api_signature"]').val().length > 0)) {
+                ($('input[name="api_username"]').val().length > 0 ||
+                        $('input[name="api_password"]').val().length > 0 ||
+                        $('input[name="api_signature"]').val().length > 0)) {
 
             if (paypal_payment_method == PayPal_PPP) {
                 $('#paypalplus-credentials').slideDown();
@@ -399,31 +399,6 @@ $(document).ready(function () {
             $('#paypal-get-identification').click( getIdentification );
         }
 
-        // Display country change form
-        function countryChange() {
-            var div = $('<div id="paypal-country-form">');
-            var inner = $('#paypal-country-form-content').clone().html();
-            $.fancybox({'content': div.append(inner)});
-            return false;
-        }
-
-        if(jquery_version[0]>=1 && jquery_version[1] >= 7) {
-            $('a#paypal_country_change').on('click', countryChange);
-        } else {
-            $('a#paypal_country_change').click( countryChange );
-        }
-
-        function defaultCountryChange() {
-            var form = $('#paypal_configuration');
-            form.append('<input type="hidden" name="paypal_country_only" value="' + $(this).val() + '" />');
-            form.submit();
-        }
-
-        if(jquery_version[0]>=1 && jquery_version[1] >= 7) {
-            $('#paypal_country_default').on('change', defaultCountryChange);
-        } else {
-            $('#paypal_country_default').change( defaultCountryChange);
-        }
 
         function loginActivate() {
             var val = parseInt($(this).val());
@@ -443,5 +418,9 @@ $(document).ready(function () {
             $("#paypal_login_yes_or_no input[name='paypal_login']").change(loginActivate);
         }
     }
+
+    $('#test_ssl_submit').click(function() {
+        $('#test_ssl_result').load(tlscurltest_url);
+    });
 
 });

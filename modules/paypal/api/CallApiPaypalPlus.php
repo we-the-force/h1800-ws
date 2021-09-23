@@ -56,13 +56,9 @@ class CallApiPaypalPlus extends ApiPaypalPlus
         $accessToken = $this->getToken(URL_PPP_CREATE_TOKEN, array('grant_type' => 'client_credentials'));
 
         if ($accessToken != false) {
-
             $result = Tools::jsonDecode($this->createPayment($this->customer, $this->cart, $accessToken));
-
             if (isset($result->links)) {
-
                 foreach ($result->links as $link) {
-
                     if ($link->rel == 'approval_url') {
                         $this->id_payment = $result->id;
                         return $link->href;
@@ -126,7 +122,8 @@ class CallApiPaypalPlus extends ApiPaypalPlus
 
         return $this->sendByCURL(URL_PPP_EXECUTE_REFUND.$paymentId.'/refund', Tools::jsonEncode($data), $header);
     }
-
+    
+    
     public function patch($id_payment, $address)
     {
         /*

@@ -120,7 +120,6 @@ class PaypalLoginUser extends ObjectModel
             foreach ($results as $result) {
                 $logins[$result['id_paypal_login_user']] = new PaypalLoginUser((int) $result['id_paypal_login_user']);
             }
-
         }
 
         return $logins;
@@ -128,6 +127,9 @@ class PaypalLoginUser extends ObjectModel
 
     public static function getByIdCustomer($id_customer)
     {
+    	if (!Validate::isInt($id_customer) || $id_customer < 1) {
+		    return false;
+	    }
         $login = self::getPaypalLoginUsers(false, $id_customer);
 
         if ($login && count($login)) {

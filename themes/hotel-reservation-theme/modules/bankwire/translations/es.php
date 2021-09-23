@@ -35,16 +35,3 @@ $_MODULE['<{bankwire}hotel-reservation-theme>payment_execution_edd87c9059d88fea4
 $_MODULE['<{bankwire}hotel-reservation-theme>payment_execution_569fd05bdafa1712c4f6be5b153b8418'] = 'Otros métodos de pago';
 $_MODULE['<{bankwire}hotel-reservation-theme>payment_execution_46b9e3665f187c739c55983f757ccda0'] = 'Confirmo mi pedido';
 $_MODULE['<{bankwire}hotel-reservation-theme>infos_c1be305030739396775edaca9813f77d'] = 'Este módulo permite aceptar pagos seguros por transferencia bancaria.';
-$_MODULE['<{bankwire}hotel-reservation-theme>infos_60742d06006fde3043c77e6549d71a99'] = 'Si el cliente elige pagar por transferencia bancaria, el pedido cambiará su estado a \"Pendiente de pago\"';
-$_MODULE['<{bankwire}hotel-reservation-theme>infos_5fb4bbf993c23848433caf58e6b2816d'] = 'Por lo tanto, deberá confirmar el pedido en cuanto reciba la transferencia bancaria.';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_5e1695822fc5af98f6b749ea3cbc9b4c'] = 'Pago por transferencia bancaria';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_4e1fb9f4b46556d64db55d50629ee301'] = '(el trámite del pedido tomará más tiempo)';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_1f8cdc30326f1f930b0c87b25fdac965'] = 'Por favor, háganos una transferencia por';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_b2f40690858b404ed10e62bdf422c704'] = 'Importe';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_5ca0b1b910f393ed1f9f6fa99e414255'] = 'Nombre del titular de la cuenta';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_d717aa33e18263b8405ba00e94353cdc'] = 'Incluya estos datos';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_984482eb9ff11e6310fef641d2268a2a'] = 'Nombre del banco';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_bb4ec5aac6864a05fcc220cccd8e82f9'] = 'No olvide incluir su número de pedido #%d en el concepto de su transferencia bancaria.';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_1faa25b80a8d31e5ef25a78d3336606d'] = 'No olvide indicar su número de pedido %s en el concepto de su transferencia bancaria.';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_d15feee53d81ea16269e54d4784fa123'] = 'Hemos notificado un problema con su pedido. Si piensa que esto es un error, póngase en contacto con nosotros';
-$_MODULE['<{bankwire}hotel-reservation-theme>payment_return_66fcf4c223bbf4c7c886d4784e1f62e4'] = 'experimentado equipo de atención al cliente';
