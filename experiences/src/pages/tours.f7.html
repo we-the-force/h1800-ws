@@ -1,6 +1,9 @@
 <template>
     <div class="page" data-name="tours" id="tours">
 
+
+
+
         <div class="navbar">
             <div class="navbar-inner row no-gap">
                 <div class="toolbar tabbar toolbar-bottom">
@@ -173,8 +176,7 @@
                                 <div class="circle-final"></div>
                             </div>
                             <div class="col-75 content">
-                                <img src="https://hacienda1800.com/panel/storage/uploads/2019/11/27/5ddee67e0c5f3IT_07.jpg"
- alt="">
+                                <img src="https://hacienda1800.com/panel/storage/uploads/2019/11/27/5ddee67e0c5f3IT_07.jpg" alt="">
                                 <div class="txt">
                                     <p class="title">
                                         DÍA 4
@@ -187,10 +189,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cover"
-                            style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
-
-                        </div>
+                        
                         <div class="row include">
                             <div class="col-25">
                                 <p class="title">
@@ -229,6 +228,12 @@
                             <div class="col-75">
                                 <div id="{{Nombre}}-map" class="map" data-location="{lat: {{PuntoDeRunion.lat}}, lng: {{PuntoDeRunion.lng}}}"></div>
                             </div>
+                        </div>
+                        <div class="cover"
+                            style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
+                            <a class="title link external whatsappLink" href="" target="_blank">
+                                <p>Reservar</p>
+                            </a>
                         </div>
                         <!-- <div class="row notas">
                             <div class="col-25">
@@ -311,17 +316,17 @@
                                 </div>
                             </div>
                         </div> -->
-                        <!-- <div class="footer"
-                            style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
-                            <a class="title link external" href="https://api.whatsapp.com/send?phone=5218661784142&text=Hola%20Jackie,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20itinerarios" target="_blank">
-                                <p>Reservar</p>
-                            </a>
-                            <!-- <a href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="button button-raised button-fill link external button-round">Contacto</a> -->
-                        </div> -->
                     </div>
                 {{/each}}
-
-
+                
+    {{#each tourscontact}}
+        {{#js_if "this.Seccion === 'Itinerarios'"}}
+    <a id="checkme" class="title link external" hidden="hidden" href="https://api.whatsapp.com/send?phone={{Telefono}}&text=Hola {{Nombre}}, {{Descripcion}}" target="_blank">
+        <p>Reservar</p>
+    </a>
+        {{else}}
+        {{/js_if}}
+    {{/each}}
             </div>
 
         </div>
@@ -332,7 +337,6 @@
     export default {
         on: {
             pageInit: function(e, page) {
-
                 var self = this;
                 var app = self.$app;
                 console.log(self.tours);
@@ -393,8 +397,10 @@
                     map: map
                 });
 
-
-
+                if($$("#checkme").attr('href')==undefined)
+                    $$(".whatsappLink").attr('style','display:none');
+                else
+                $$(".whatsappLink").attr('href',$$("#checkme").attr('href'));
 
             }
         }

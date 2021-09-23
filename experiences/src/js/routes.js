@@ -13,7 +13,6 @@ import NotFoundPage from '../pages/404.f7.html';
 
 
 
-
 var routes = [{
 
         name: 'parks',
@@ -114,23 +113,32 @@ var routes = [{
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
-            this.app.request.json(this.app.methods.getCollection('Itinerario'),
-                function(data) {
-                    resolve(
+            let MenuWhatsapp;
+            let thisOption;
+            this.app.request.json(this.app.methods.getCollection('MenuWhatsapp'),
+            function(data) {
+                MenuWhatsapp=data.entries;
+            }).then(this.app.request.json(this.app.methods.getCollection('Itinerario'),
+            function(data) {
+                console.log("data entries ",data.entries);
+                console.log("whatsapp entries ",MenuWhatsapp);
+                
+                resolve(
 
-                        // How and what to load: template
-                        {
+                    // How and what to load: template
+                    {
 
-                            component: Tours,
+                        component: Tours,
+                    },
+                    // Custom template context
+                    {
+                        context: {
+                            tours: data.entries,
+                            tourscontact : MenuWhatsapp
                         },
-                        // Custom template context
-                        {
-                            context: {
-                                tours: data.entries,
-                            },
-                        }
-                    );
-                });
+                    }
+                );
+            }));
         }
     },
 
@@ -160,28 +168,34 @@ var routes = [{
             pushState: true
         },
         async: function(routeTo, routeFrom, resolve, reject) {
-            // Requested route
-            // Get external data and return template7 template
-            this.app.request.json(this.app.methods.getCollection('Experiencias'),
-                function(data) {
-                    resolve(
+            let MenuWhatsapp;
+            this.app.request.json(this.app.methods.getCollection('MenuWhatsapp'),
+            function(data) {
 
-                        // How and what to load: template
-                        {
+                console.log("presir",data.entries);
+                MenuWhatsapp=data.entries;
+            }).then(this.app.request.json(this.app.methods.getCollection('Experiencias'),
+            function(data) {
+                console.log("yesir",MenuWhatsapp);
+                console.log("nosir",data.entries);
+                resolve(
 
-                            component: Experiences,
+                    // How and what to load: template
+                    {
+
+                        component: Experiences,
+                    },
+                    // Custom template context
+                    {
+                        context: {
+                            experiences: data.entries,
+                            experiencecontact : MenuWhatsapp
                         },
-                        // Custom template context
-                        {
-                            context: {
-                                experiences: data.entries,
-                            },
-                        }
-                    );
-                });
+                    }
+                );
+            }));
         }
     },
-
     {
         path: '/request-and-load/user/:userId/',
         async: function(routeTo, routeFrom, resolve, reject) {
