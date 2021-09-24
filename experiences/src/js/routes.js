@@ -57,7 +57,7 @@ var routes = [{
 
 
                 }
-                console.log(parquesitos);
+                //console.log(parquesitos);
                 return parquesitos;
             }).then(parquesitos => {
                 resolve(
@@ -115,13 +115,13 @@ var routes = [{
             // Get external data and return template7 template
             let MenuWhatsapp;
             let thisOption;
-            this.app.request.json(this.app.methods.getCollection('MenuWhatsapp'),
+            this.app.request.promise.json(this.app.methods.getCollection('MenuWhatsapp'),
             function(data) {
                 MenuWhatsapp=data.entries;
             }).then(this.app.request.json(this.app.methods.getCollection('Itinerario'),
             function(data) {
-                console.log("data entries ",data.entries);
-                console.log("whatsapp entries ",MenuWhatsapp);
+                //console.log("data entries ",data.entries);
+                //console.log("whatsapp entries ",MenuWhatsapp);
                 
                 resolve(
 
@@ -172,12 +172,12 @@ var routes = [{
             this.app.request.json(this.app.methods.getCollection('MenuWhatsapp'),
             function(data) {
 
-                console.log("presir",data.entries);
+                //console.log("presir",data.entries);
                 MenuWhatsapp=data.entries;
             }).then(this.app.request.json(this.app.methods.getCollection('Experiencias'),
             function(data) {
-                console.log("yesir",MenuWhatsapp);
-                console.log("nosir",data.entries);
+                //console.log("yesir",MenuWhatsapp);
+                //console.log("nosir",data.entries);
                 resolve(
 
                     // How and what to load: template
