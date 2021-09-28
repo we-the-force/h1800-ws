@@ -241,6 +241,13 @@ newer * versions in the future. If you wish to customize this module for your * 
   left: 0;
 }
 
+.main-content .dining-nav {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  left: 0;
+}
+
 .main-content .owl-stage {
   padding-left: 0px !important;
 }
@@ -254,7 +261,21 @@ newer * versions in the future. If you wish to customize this module for your * 
   z-index: 100;
 }
 
+.main-content .dining-nav .owl-prev, .main-content .dining-nav .owl-next{
+  position: absolute;
+  width: 100%;
+  color: inherit;
+  background: none;
+  border: none;
+  z-index: 100;
+}
+
 .main-content .parks-nav .owl-prev svg{
+  position: absolute;
+  left: 0px;
+}
+
+.main-content .dining-nav .owl-prev svg{
   position: absolute;
   left: 0px;
 }
@@ -263,4 +284,13 @@ newer * versions in the future. If you wish to customize this module for your * 
   position: absolute;
   right: -15px;
 }
+
+.main-content .dining-nav .owl-next svg{
+  position: absolute;
+  right: -15px;
+}
+svg{
+  cursor: pointer;
+}
+
 </style>
