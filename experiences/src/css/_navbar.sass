@@ -21,72 +21,132 @@
     #hicon
         width: 50px
         border-radius: 50%
+@media screen and ( max-width: 1024px )
+    #princ-navbar
+        .row
+            /* align-items: unset */
+            .nav-tab
+                position: relative
+                top: 50%
+                transform: translate(0%, -50%)
+                height: fit-content
+                border-right: 1px solid #8B8B8B
+                border-left: 1px solid #8B8B8B
+                @include font-bold
+                font-size: 18px
+                line-height: 24px
+                color: #d2d1d2
+                &.bright
+                    border-right: unset
+                &.bleft
+                    border-left: unset
+                &.nav-tab-active
+                    color: #373737
+        #hicon
+            width: 50px
+            border-radius: 50%
 
+@media screen and ( max-width: 768px )
+    #princ-navbar
+        height: 45px
+        .row
 
-    @media screen and ( max-width: 768px )
-        .no-gap
-            --f7-grid-gap: unset
-            --f7-grid-row-gap: unset
-        .view
-            .navbar
-                .row
-                    align-items: unset
-                    .toolbar
-                        background-color: #ffffff
-                        padding-bottom: 10px
-                        .toolbar-inner
-                            padding-bottom: 15px
-                        .tab-link-highlight
-                            display: none
-                        .tab-link
-                            position: relative
-                            top: 50%
-                            transform: translate(0%, -50%)
-                            height: fit-content
-                            border-right: 1px solid #8B8B8B
-                            border-left: 1px solid #8B8B8B
-                            @include font-bold
-                            font-size: 24px
-                            line-height: 24px
+            .nav-tab
+                font-size: 12px
+                border: 0px solid #000000 !important
+                width: 24%
+                margin: 0
+            .nav-tab-home
+                width: 4%
+        #hicon
+            width: 20px
+            border-radius: 50%
+    .view
+        .page-content
+            padding-top: 40px
+        .navbar
+            height: 28px
+            .navbar-inner
+                height: 28px
+                .tab-link
+            .row
 
-                            color: #d2d1d2
-                            &.tab-link-active
-                                color: #373737
-                            &.bright
-                                border-right: unset
-                            &.bleft
-                                border-left: unset
-                        &:before,&:after
-                            content: none
-
-            #tours
-                .navbar
-                    width: 90%
-                    margin-left: auto
-                    margin-right: auto
-                    right: 0px
+                .toolbar
+                    height: 28px
+                    padding-bottom: 0
                     .toolbar-inner
-                        height: 65px
-                    .tab-link
-                        height: 100%
-                        border: none
-                        filter: saturate(0)
-                        p
-                            @include font-bold
-                            font-size: 30px
-                            line-height: 25px
-                            letter-spacing: 1px
-                            color: #fff
-                            background: rgba(255, 255, 255, 0.2)
-                            box-sizing: border-box
-                            margin-left: auto
-                            margin-right: auto
-                            border: 1px solid #ffffff
-                            width: 70%
-                            height: 35px
-                            text-align: center
-                        &.tab-link-active
-                            filter: saturate(1)
+                        height: 28px
+                        padding-bottom: 0
+                        .tab-link
+
+                            font-size: 12px
+                            border: none !important
+    #hicon
+        width: 20px
+        border-radius: 50%
+        // .no-gap
+        //     --f7-grid-gap: unset
+        //     --f7-grid-row-gap: unset
+        // .view
+        //     .navbar
+        //         .row
+        //             align-items: unset
+        //             .toolbar
+        //                 background-color: #ffffff
+        //                 padding-bottom: 10px
+        //                 .toolbar-inner
+        //                     padding-bottom: 15px
+        //                 .tab-link-highlight
+        //                     display: none
+        //                 .tab-link
+        //                     position: relative
+        //                     top: 50%
+        //                     transform: translate(0%, -50%)
+        //                     height: fit-content
+        //                     border-right: 1px solid #8B8B8B
+        //                     border-left: 1px solid #8B8B8B
+        //                     @include font-bold
+        //                     font-size: 24px
+        //                     line-height: 24px
+
+        //                     color: #d2d1d2
+        //                     &.tab-link-active
+        //                         color: #373737
+        //                     &.bright
+        //                         border-right: unset
+        //                     &.bleft
+        //                         border-left: unset
+        //                 &:before,&:after
+        //                     content: none
+
+        //     #tours
+        //         .navbar
+        //             width: 90%
+        //             margin-left: auto
+        //             margin-right: auto
+        //             right: 0px
+        //             .toolbar-inner
+        //                 height: 65px
+        //             .tab-link
+        //                 height: 100%
+        //                 border: none
+        //                 filter: saturate(0)
+        //                 p
+        //                     @include font-bold
+        //                     font-size: 30px
+        //                     line-height: 25px
+        //                     letter-spacing: 1px
+        //                     color: #fff
+        //                     background: rgba(255, 255, 255, 0.2)
+        //                     box-sizing: border-box
+        //                     margin-left: auto
+        //                     margin-right: auto
+        //                     border: 1px solid #ffffff
+        //                     width: 70%
+        //                     height: 35px
+        //                     text-align: center
+        //                 &.tab-link-active
+        //                     filter: saturate(1)
         
 
 @media screen and (max-width: $break-small)
