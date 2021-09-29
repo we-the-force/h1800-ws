@@ -1,0 +1,373 @@
+.experiences-pop
+    .popup-close
+        position: absolute
+        right: 10px
+        top: 10px
+        color: white
+    .exp-map
+        height: 370px
+    .cover
+        width: 100%
+        height: 350px
+        background-image: url('../static/img/PORTADA_EXPERIENCIAS.jpg')
+        background-position: 50% 50%
+
+        background-size: cover
+        background-repeat: no-repeat
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        .title
+            border: 1px solid #ffffff
+            padding: 23px 74px
+            margin-bottom: 80px
+            p
+                @include font-bold
+                font-size: 60px
+                color: #fff
+                margin: 0
+                padding: 0
+                text-transform: capitalize
+                line-height: 1
+#dining
+    .photos1
+        width: 90%
+        height: 470px
+        margin-left: auto
+        margin-right: auto
+        margin-top: 31px
+        .row
+            --f7-grid-row-gap: 3%
+        .photo1
+            background-position: 50% 50%
+            background-size: cover
+            background-repeat: no-repeat
+            &.ph2,&.ph5
+                height: 33%
+            &.ph1,&.ph3,&.ph4
+                height: 100%
+            &.ph6
+                height: 63%
+                margin-top: 11%
+    .tab
+        .cover
+            width: 100%
+            height: 570px
+            background-position: 50% 70%
+            background-attachment: fixed
+            background-size: cover
+            background-repeat: no-repeat
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            .title
+                border: 1px solid #ffffff
+                width: 765px
+                height: 115px
+                display: flex
+                align-items: center
+                justify-content: center
+                margin-bottom: 39px
+                p
+                    @include font-bold
+                    font-size: 60px
+                    color: #fff
+                    margin: 0
+                    padding: 0
+                    text-transform: uppercase
+            .elements
+                margin-top: 39px
+                display: flex
+                flex-direction: row
+                .element
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    justify-content: center
+                    background: rgba(255, 255, 255, 0.2)
+                    box-sizing: border-box
+                    margin-left: 15px
+                    margin-right: 15px
+                    border: 1px solid #ffffff
+                    width: 170px
+                    height: 170px
+                    img
+                        margin-bottom: 5px
+                    p
+                        &.horarios
+                            font-size: 16px
+                        &.actividad
+                            text-transform: capitalize
+                        @include font-bold
+                        font-size: 22px
+                        line-height: 20px
+                        white-space: normal
+                        text-align: center
+                        color: #fff
+                        margin: 0
+                        padding: 0
+                        &.normal
+                            font-weight: normal
+        .experiences
+            margin-left: 10%
+            margin-right: 10%
+            padding-top: 5%
+            padding-bottom: 5%
+            position: relative
+            .row
+                justify-content: left
+            .experience
+                display: block
+                position: relative
+                width: 100%
+                height: 300px
+                overflow: hidden
+
+                .title
+                    position: absolute
+                    z-index: 1
+                    width: auto
+                    display: inline-block
+                    margin-left: auto
+                    margin-right: auto
+                    bottom: 30px
+                    left: 50%
+                    transform: translate(-50%, 0%);
+                    text-align: center
+
+
+                    p
+                        @include font-bold
+                        font-size: 24px
+                        color: #ffffff
+                        margin: 0
+                        padding: 0
+                        display: inline-block
+                        width: auto
+                        text-transform: capitalize
+                        border: 1px solid #ffffff
+                        padding: 11px 31px
+                        background-color: rgba(255,255,255,0.1)
+
+            .bg
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                filter: brightness(0.8)
+                background-position: 50% 50%
+                // background-attachment: fixed
+                background-size: cover
+                background-repeat: no-repeat
+                // background-color: blue
+        .desc
+            width: 76%
+            margin-left: auto
+            margin-right: auto
+            margin-top: 60px
+            margin-bottom: 30px
+            p
+                @include font-normal
+                font-size: 22px
+                line-height: 31px
+                font-weight: 200
+                white-space: normal
+                text-align: center
+                width: 100%
+                text-align: center
+        .photo
+            width: 85%
+            height: 400px
+            margin-left: auto
+            margin-right: auto
+            margin-top: 20px
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            background-attachment: fixed
+            background-position: 50% 50%
+            // background-attachment: fixed
+            background-size: cover
+            background-repeat: no-repeat
+            .txt-box
+                width: 465px
+                height: 200px
+                border: 1px solid #ffffff
+                position: absolute
+                left: 10%
+                p
+                    @include font-normal
+                    font-size: 22px
+                    line-height: 31px
+                    margin: 18px 40px
+                    color: #ffffff
+                    white-space: normal
+
+        .swiper-container
+            margin: 30px 0px
+            font-size: 18px
+            width: 85%
+            height: fit-content
+            margin-left: auto
+            margin-right: auto
+            .swiper-slide
+                height: 400px
+                width: 470px !important
+                font-size: 25px
+                font-weight: 300
+                display: flex
+                justify-content: center
+                align-items: center
+                background: #fff
+                color: #000
+                box-sizing: border-box
+                border: 1px solid #ddd
+                .bg
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    filter: brightness(0.8)
+                    background-position: 50% 50%
+                    background-size: cover
+                    background-repeat: no-repeat
+                .txt-box
+                    width: 414px
+                    height: 170px
+                    border: 1px solid #ffffff
+                    position: absolute
+                    bottom: 30px
+                    left: 50%
+                    transform: translate(-50%, 0%)
+                    .title
+                        position: relative
+                        padding: 11px 31px
+                        @include font-bold
+                        font-size: 30px
+                        line-height: 56px
+                        letter-spacing: 1px
+                        color: #ffffff
+                    p
+                        @include font-normal
+                        font-size: 14px
+                        line-height: 1
+                        color: #ffffff
+                        white-space: normal
+                        text-align: left
+                        margin: 0px 15px
+        .map
+            width: 85%
+            height: 500px
+            margin: 60px auto 120px
+            background: #1F70D1
+        .footer
+            width: 100%
+            height: 370px
+            background-image: url('../static/img/hacienda1800-experiences-footer-lake.png')
+            background-position: 50% 70%
+            // background-attachment: fixed
+            background-size: cover
+            background-repeat: no-repeat
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            .title
+                border: 1px solid #ffffff
+                width: 570px
+                height: 115px
+                display: flex
+                align-items: center
+                justify-content: center
+                margin-bottom: 39px
+                p
+                    @include font-bold
+                    font-size: 60px
+                    color: #fff
+                    margin: 0
+                    padding: 0
+                    text-transform: uppercase
+            button
+                width: 15%
+                height: 36px
+                @include font-bold
+                font-size: 14px
+                line-height: 20px
+                text-align: center
+
+@media screen and (max-width: $break-small)
+    #dining
+        .tab
+            min-height: 100%
+            .footer
+                .title
+                    width: auto
+                    height: auto
+                    padding: 25px
+                    border: none
+                    background: rgba(255, 255, 255, 0.2)
+
+                    p
+                        font-size: 30px
+                a
+                    width: auto
+                    padding-left: 15px
+                    padding-right: 15px
+            .swiper-container
+                width: 100%
+                margin: 0
+                margin-top: 20px
+                .swiper-wrapper
+                    .swiper-slide
+                        width: 80% !important
+                        .txt-box
+                            width: auto
+                            height: 150px
+                            padding-bottom: 20px
+
+                            .title
+                                font-size: 20px
+
+            .cover
+                background-attachment: inherit
+                justify-content: space-around
+
+                .title
+                    width: auto
+                    padding-left: 5%
+                    padding-right: 5%
+                    padding-top: 5%
+                    padding-bottom: 5%
+                    height: auto
+                    border: none
+                    background: rgba(255, 255, 255, 0.2)
+
+
+                    p
+                        font-size: 30px
+
+                .elements
+                    justify-content: space-around
+
+                    .element
+                        width: 20%
+                        margin: 0
+                        height: 120px
+                        border: none
+                        display: flex
+                        justify-content: start
+                        // background: none
+                        padding-top: 10px
+                        padding-bottom: 10px
+                        img
+                            width: 20px
+                            height: 20px
+                        p
+                            font-size: 14px
+                            &.normal
+                                font-size: 10px
+                                line-height: 1

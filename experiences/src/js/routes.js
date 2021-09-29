@@ -2,6 +2,7 @@
 import AboutPage from '../pages/about.f7.html';
 import FormPage from '../pages/form.f7.html';
 import Parks from '../pages/parks.f7.html';
+import Dining from '../pages/dining.f7.html';
 import Experiences from '../pages/experiences.f7.html';
 import Tours from '../pages/tours.f7.html';
 
@@ -113,6 +114,7 @@ var routes = [{
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
+            // async promise explained https://blog.risingstack.com/mastering-async-await-in-nodejs/
             let MenuWhatsapp;
             let thisOption;
             this.app.request.promise.json(this.app.methods.getCollection('MenuWhatsapp'),
@@ -135,6 +137,45 @@ var routes = [{
                         context: {
                             tours: data.entries,
                             tourscontact : MenuWhatsapp
+                        },
+                    }
+                );
+            }));
+        }
+    },
+    {
+        name: 'dining',
+        path: '/dining/:id',
+        id: 'dining',
+        options: {
+            history: true,
+            pushState: true
+        },
+        async: function(routeTo, routeFrom, resolve, reject) {
+            // Requested route
+            // Get external data and return template7 template
+            // async promise explained https://blog.risingstack.com/mastering-async-await-in-nodejs/
+            let MenuWhatsapp;
+            let sectionSelected=routeTo.params.id;
+
+            this.app.request.promise.json(this.app.methods.getCollection('MenuWhatsapp'),
+            function(data) {
+                MenuWhatsapp=data.entries;
+            }).then(this.app.request.json(this.app.methods.getCollection('Dining'),
+            function(data) {
+                resolve(
+
+                    // How and what to load: template
+                    {
+
+                        component: Dining,
+                    },
+                    // Custom template context
+                    {
+                        context: {
+                            dining: data.entries,
+                            diningcontact : MenuWhatsapp,
+                            section:sectionSelected
                         },
                     }
                 );
@@ -167,12 +208,15 @@ var routes = [{
             history: true,
             pushState: true
         },
-        async: function(routeTo, routeFrom, resolve, reject) {
+        async: function(routeTo, routeFrom, resolve, reject, request) {
             let MenuWhatsapp;
+            let tab="[{\"key\":\"value\"}]";
+            let tabJSON=JSON.parse(tab);
             this.app.request.json(this.app.methods.getCollection('MenuWhatsapp'),
             function(data) {
 
-                //console.log("presir",data.entries);
+                console.log("presir",data.entries);
+                console.log("othersir",tabJSON);
                 MenuWhatsapp=data.entries;
             }).then(this.app.request.json(this.app.methods.getCollection('Experiencias'),
             function(data) {
@@ -189,7 +233,8 @@ var routes = [{
                     {
                         context: {
                             experiences: data.entries,
-                            experiencecontact : MenuWhatsapp
+                            experiencecontact : MenuWhatsapp,
+                            tab: tabJSON
                         },
                     }
                 );
