@@ -81,6 +81,15 @@ else window.onload = parseJSAtOnload;
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
         <script type="text/javascript" src="js/instafeed.js"></script>
+        <!-- AFFILIRED MASTER TAG, PLEASE DON'T REMOVE -->
+        <script type="text/javascript">
+         (function() {
+         var sc = document.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+         sc.src = '//customs.affilired.com/track/?merchant=4819';
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+         })();
+        </script>
+        <!-- END AFFILIRED MASTER TAG -->
 
             <link rel="stylesheet" href="css/instafeed.css">
 
