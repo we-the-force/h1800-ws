@@ -1,0 +1,116 @@
+<template>
+    <div class="page" data-name="dining" id="dining">
+        <div class="navbar">
+            <div class="navbar-inner row no-gap">
+                <div class="toolbar tabbar toolbar-bottom">
+                    <div class="toolbar-inner">
+                        {{#each dining}}
+                        <a href="#{{slug}}" name="{{slug}}" class="{{#if @last}}bright {{/if}} tab-link {{#if @first}}tab-link-active bleft{{/if}}">{{Tipo}}</a>
+                        
+                        
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-content hide-navbar-on-scroll" id="parks-page">
+            <div class="tabs">
+                {{#each dining}}
+                    <div class="tab {{#if @first}}tab-active{{/if}}" id="{{slug}}" data-park="{{slug}}" >
+                        <div class="cover lazy lazy-fade-in" data-background="https://hacienda1800.com{{cover.path}}">
+                            <div class="title">
+                                <p>{{Tipo}}</p>
+                            </div>
+                            <div class="elements row">
+                                <div class="element col">
+                                    <img src="static/icons/Clock.svg" alt="">
+                                    <p>Horarios</p>
+                                    <p class="normal horarios">
+                                        de 8am a 8pm
+                                        </p>
+                                </div>
+                                <div class="element col">
+                                        <img src="static/icons/Level.svg" alt="">
+                                    <p>Nivel de actividades</p>
+                                    <p class="normal actividad">Lorem</p>
+                                </div>
+                                <div class="element col">
+                                        <img src="static/icons/Clock.svg" alt="">
+                                    <p>Estadía aproximada</p>
+                                    <p class="normal">Ipsum</p>
+                                </div>
+                                <a href=""  class="element location col">
+                                        <img src="static/icons/Map.svg" alt="">
+                                    <p>Sit Amet</p>
+                                    <p class="normal"></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row desc">
+                            <p >{{Descripcion}}</p>
+                        </div>
+                        <div class="block">
+                        <div class="row desc">
+                            <div class="col-100 medium-50">
+                                {{Includes}}
+
+                            </div>
+                            <div class="col-100 medium-50">
+                                {{Adicionales}}
+                            </div>
+                        </div>
+                        </div>
+                        <div class="photos1 row">
+                            <div class="col-35 photo1 ph1" style="background-image: url('https://hacienda1800.com{{Fotos[0].path}}');">
+                            </div>
+
+                            <div class="col-50" style="height: 100%;">
+                                <div class="row photo1 ph2"
+                                    style="background-image: url('https://hacienda1800.com{{Fotos[1].path}}')">
+                                </div>
+
+                                <div class="row" style="height: 63%;">
+                                    <div class="col-50 photo1 ph3"
+                                        style="background-image: url('https://hacienda1800.com{{Fotos[2].path}}');"></div>
+                                    <div class="col-50 photo1 ph4"
+                                        style="background-image: url('https://hacienda1800.com{{Fotos[3].path}}')">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-15" style="height: 100%;">
+                                <div class="row photo1 ph5" style="background-image: url('https://hacienda1800.com{{Fotos[4].path}}');">
+                                </div>
+                                <div class="row photo1 ph6" style="background-image: url('https://hacienda1800.com{{Fotos[5].path}}');">
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                {{/each}}
+            </div>
+            <div class="footer"
+                style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png');margin-bottom: 60px; margin-top: 60px;">
+                <a class="title link external" href="" target="_blank">
+                    <p></p>
+                </a>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    
+    import $$ from 'dom7';
+    export default {
+        on: {
+            pageInit: function(e, page) {
+                var mySelector="a[name="+this.section+"]";
+                console.log(mySelector);
+                console.log($$('.toolbar-inner').find("a[name=cenaromantica"));
+
+                $$('.toolbar-inner').find(mySelector)[0].click();
+
+            }
+        }
+    }
+
+</script>
