@@ -189,7 +189,7 @@ newer * versions in the future. If you wish to customize this module for your * 
                 </div>
                 <div class="item">{*Number 3*}
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/DINING_PICNIC_TRADICIONAL.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="https://hacienda1800.com/experiences/#!/dining/picnictradicional">
+                        <a class="activity-link" style="width: 100%; height: 340px; overflow: hidden; display: block; background-image: url({$img_dir}parks/dining_bigpicnic.jpg); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;" href="https://hacienda1800.com/experiences/#!/dining/picnictradicional">
                             {* <img style="width: 100%; height: auto;" src="{$img_dir}parks/DUNAS_YESO_1.jpg" class="img-responsive"> *}
                         </a>
                     </div>

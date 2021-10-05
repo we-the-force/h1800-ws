@@ -244,7 +244,7 @@
                 </div>
 
                 <div class="row">
-                    <h2>Detalles</h2>
+                    <h2>{if $lang_iso == 'es'} Detalles {elseif $lang_iso == 'en'} Details {/if}</h2>
                     <div class="col-md-6">
                         <div class="mylist">
                             {$roomDisplay.Detalles1}
@@ -258,7 +258,7 @@
                 </div>
                 {if $roomDisplay.Amenidades!= null}
                 <div class="row">
-                    <h2>Amenidades</h2>
+                    <h2>{if $lang_iso == 'es'} Amenidades {elseif $lang_iso == 'en'} Amenities {/if}</h2>
                     <p>
                     {$roomDisplay.Amenidades}
                     </p>
@@ -266,7 +266,7 @@
                 {/if}
                 {if $roomDisplay.Promocion!= null}
                 <div class="row">
-                    <h2>Promocion</h2>
+                    <h2>{if $lang_iso == 'es'} Promoción {elseif $lang_iso == 'en'} Promotion {/if}</h2>
                     <p>
                     {$roomDisplay.Promocion}
                     </p>
