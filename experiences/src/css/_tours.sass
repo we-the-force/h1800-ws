@@ -192,6 +192,19 @@
         background-attachment: fixed
         background-size: cover
         background-repeat: no-repeat
+        text-align: center
+        .title
+            margin-top: 100px
+            border: 1px solid #ffffff
+            padding: 23px 74px
+        p
+            @include font-bold
+            font-size: 60px
+            color: #fff
+            margin: 0
+            padding: 0
+            text-transform: capitalize
+            line-height: 1
     .include
         margin-top: 60px
         .title
@@ -288,3 +301,77 @@
         font-size: 14px
         line-height: 20px
         text-align: center
+
+
+
+
+
+
+@media screen and (max-width: $break-small)
+    #tours
+
+        .navbar
+            height: 34px
+            .navbar-inner
+                height: 100%
+                .toolbar
+                    height: 100%
+                    .toolbar-inner
+                        height: auto
+                        .tab-link
+                            background: transparent
+                            p
+                                font-size: 16px
+                                color: #d2d1d2
+                                border: none
+                                line-height: 1
+                                height: auto
+
+                            &.tab-link-active
+                                p
+                                    color: #000
+        .page-content
+            .tab
+                .footer
+                    .title
+                        width: auto
+                        height: auto
+                        padding: 25px
+                        border: none
+                        background: rgba(255, 255, 255, 0.2)
+
+                        p
+                            font-size: 30px
+                    a
+                        width: auto
+                        padding-left: 15px
+                        padding-right: 15px
+                .punch
+                    p
+                        margin: 0
+                        padding: 0 5%
+                        width: 90%
+                        white-space: normal
+                .elements
+                    .element
+                        height: auto
+                        border: none
+                        padding-bottom: 15px
+                .title
+                    margin: 20px 0px
+                    text-align: center
+                    width: 100%
+                    font-size: 30px
+                .day
+                    .content
+                        img
+                            display: none
+                        .txt
+                            margin-right: 5%
+                .include
+                    .item
+                        &:first
+                            margin-top: 75px
+                .location
+                    .map
+                        margin-top: 75px

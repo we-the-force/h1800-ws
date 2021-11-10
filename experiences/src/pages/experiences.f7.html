@@ -9,7 +9,6 @@
                 </div>
             </div>
             <div class="experiences">
-
                     <div class="row no-gap">
                         {{#each experiences}}
 
@@ -33,9 +32,15 @@
             </div>
             <div class="footer"
                 style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
-                <a class="title link external" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                {{#each experiencecontact}}
+                    {{#js_if "this.Seccion === 'Experiencias'"}}
+                <a class="title link external" href="https://api.whatsapp.com/send?phone={{Telefono}}&text=Hola {{Nombre}}, {{Descripcion}}" target="_blank">
                     <p>Reservar</p>
                 </a>
+                    {{else}}
+                    {{/js_if}}
+                {{/each}}
+        
                 <!-- <a href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="button button-raised button-fill link external button-round">Contacto</a> -->
             </div>
 
@@ -74,9 +79,21 @@
                     .then(expe => {
                         // cachamos el objeto experiencia
                         var currentExp=expe.data.entries[0];
+                        var myContent="",w3=false,w2=false,w1=false;
                         // creamos dinámicamente el popup
+                        (currentExp.WhatsappNumero3==null || currentExp.WhatsappNumero3=="")?w3=false:w3=true;
+                        (currentExp.WhatsappNumero2==null || currentExp.WhatsappNumero2=="")?w2=false:w2=true;
+                        (currentExp.WhatsappNumero1==null || currentExp.WhatsappNumero1=="")?w1=false:w1=true;
+                        if(w3==true && w2==true && w1==true)
+                        myContent='<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExp.Fotos[0].path+');"> <div class="title"> <p>'+currentExp.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExp.Descripcion+'</p> <a class="title link external" style="display: inline-block; margin: 3px; padding-left:16px;padding-right:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;" href="https://api.whatsapp.com/send?phone='+currentExp.WhatsappNumero1+'&text='+currentExp.WhatsappMensaje+'" target="_blank"><p>Reservar por Whatsapp Opción 1</p></a> <a class="title link external" style="display: inline-block; margin: 3px; padding-left:16px;padding-right:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;" href="https://api.whatsapp.com/send?phone='+currentExp.WhatsappNumero2+'&text='+currentExp.WhatsappMensaje+'" target="_blank"><p>Reservar por Whatsapp Opción 2</p></a> <a class="title link external" style="display: inline-block;margin: 3px; padding-left:16px;padding-right:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;" href="https://api.whatsapp.com/send?phone='+currentExp.WhatsappNumero3+'&text='+currentExp.WhatsappMensaje+'" target="_blank"><p>Reservar por Whatsapp Opcion 3</p></a> </div> <div id="map-'+currentExp.Nombre+'" class="exp-map"></div></div>';
+                        else if (w3==false&&w2==true&&w1==true)
+                        myContent='<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExp.Fotos[0].path+');"> <div class="title"> <p>'+currentExp.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExp.Descripcion+'</p> <a class="title link external" style="display: inline-block; margin: 3px;padding-left:16px;padding-right:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;" href="https://api.whatsapp.com/send?phone='+currentExp.WhatsappNumero1+'&text='+currentExp.WhatsappMensaje+'" target="_blank"><p>Reservar por Whatsapp Opción 1</p></a> <a class="title link external" style="display: inline-block; margin: 3px; padding-left:16px;padding-right:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;" href="https://api.whatsapp.com/send?phone='+currentExp.WhatsappNumero2+'&text='+currentExp.WhatsappMensaje+'" target="_blank"><p>Reservar por Whatsapp Opción 2</p></a> </div> <div id="map-'+currentExp.Nombre+'" class="exp-map"></div></div>';
+                        else if (w3==false&&w2==false&&w1==true)
+                        myContent='<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExp.Fotos[0].path+');"> <div class="title"> <p>'+currentExp.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExp.Descripcion+'</p> <a class="title link external" style="display: inline-block; margin: 3px;padding-left:16px;padding-right:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;" href="https://api.whatsapp.com/send?phone='+currentExp.WhatsappNumero1+'&text='+currentExp.WhatsappMensaje+'" target="_blank"><p>Reservar por Whatsapp</p></a> <div id="map-'+currentExp.Nombre+'" class="exp-map"></div></div>';
+                        else 
+                        myContent='<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExp.Fotos[0].path+');"> <div class="title"> <p>'+currentExp.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExp.Descripcion+'</p> </div> <div id="map-'+currentExp.Nombre+'" class="exp-map"></div></div>';
                         var dynamicPopup = app.popup.create({
-                          content: '<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExp.Fotos[0].path+');"> <div class="title"> <p>'+currentExp.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExp.Descripcion+'</p> </div> <div id="map-'+currentExp.Nombre+'" class="exp-map"></div> </div>',
+                          content: myContent,
                           on: {
                             open: function (popup) {
 
@@ -91,7 +108,12 @@
                                 var map;
                                 map = new google.maps.Map(document.getElementById('map-'+currentExp.Nombre), {
                                     center: location,
-                                    zoom: 13
+                                    zoom: 13,
+                                    scrollwheel: false,
+                                    navigationControl: false,
+                                    mapTypeControl: false,
+                                    scaleControl: false,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
                                 });
                                 var marker = new google.maps.Marker({
                                     position: location,

@@ -47,7 +47,6 @@ class ApiPaypalPlus
         $ch = curl_init();
 
         if ($ch) {
-
             if ((int) Configuration::get('PAYPAL_SANDBOX') == 1) {
                 curl_setopt($ch, CURLOPT_URL, 'https://api.sandbox.paypal.com'.$url);
             } else {
@@ -73,7 +72,6 @@ class ApiPaypalPlus
                 } else {
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
                 }
-
             }
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HEADER, false);
@@ -104,7 +102,6 @@ class ApiPaypalPlus
         if (isset($oPayPalToken->error)) {
             return false;
         } else {
-
             if ($this->context->cookie->paypal_access_token_time_max > time()) {
                 return $this->context->cookie->paypal_access_token_access_token;
             }
@@ -151,9 +148,7 @@ class ApiPaypalPlus
         $accessToken = $this->getToken(URL_PPP_CREATE_TOKEN, array('grant_type' => 'client_credentials'));
 
         if ($accessToken) {
-
             $data = $this->_createWebProfile();
-
             $header = array(
                 'Content-Type:application/json',
                 'Authorization:Bearer '.$accessToken,
@@ -163,7 +158,6 @@ class ApiPaypalPlus
             if (isset($result->id)) {
                 return $result->id;
             } else {
-
                 $results = $this->getListProfile();
 
                 foreach ($results as $result) {
@@ -183,7 +177,6 @@ class ApiPaypalPlus
         $accessToken = $this->getToken(URL_PPP_CREATE_TOKEN, array('grant_type' => 'client_credentials'));
 
         if ($accessToken) {
-
             $header = array(
                 'Content-Type:application/json',
                 'Authorization:Bearer '.$accessToken,
@@ -219,9 +212,8 @@ class ApiPaypalPlus
             $totalShippingCostWithoutTax = $cart->getTotalShippingCost(null, false);
         }
 
-        $totalCartWithTax = $this->getCartPaymentTotal(true);
-        $totalCartWithoutTax = $this->getCartPaymentTotal(false);
-
+        $totalCartWithTax = $cart->getOrderTotal(true);
+        $totalCartWithoutTax = $cart->getOrderTotal(false);
         $total_tax = $totalCartWithTax - $totalCartWithoutTax;
 
         if ($cart->gift) {
@@ -230,16 +222,18 @@ class ApiPaypalPlus
             } else {
                 $giftWithoutTax = (float) (Configuration::get('PS_GIFT_WRAPPING_PRICE'));
             }
-
         } else {
             $giftWithoutTax = 0;
         }
 
+        $cartItems = $cart->getProducts();
+        $discounts = Context::getContext()->cart->getCartRules();
         $shop_url = PayPal::getShopDomainSsl(true, true);
 
         /*
          * Création de l'obj à envoyer à Paypal
          */
+
         $state = new State($address->id_state);
         $shipping_address = new stdClass();
         $shipping_address->recipient_name = $address->alias;
@@ -265,48 +259,28 @@ class ApiPaypalPlus
 
         $aItems = array();
         /* Item */
-        // ojects needed to get advance paid amount
-        if ($cartItems = $cart->getProducts()) {
-            $objCustomerAdv = new HotelCustomerAdvancedPayment();
-            $objAdvPayment = new HotelAdvancedPayment();
-            $objCartBooking = new HotelCartBookingData();
-            foreach ($cartItems as $cartItem) {
-                // set advance product price if customer chhoses advance payment
-                if (Configuration::get('WK_ALLOW_ADVANCED_PAYMENT')
-                    && $objCustomerAdv->getClientAdvPaymentDtl($this->context->cart->id, $this->context->cart->id_guest)
-                ) {
-                    $cartItem['price_wt'] = $cartItem['price'] = $objAdvPayment->getProductMinAdvPaymentAmountByIdCart(
-                        $this->context->cart->id,
-                        $cartItem['id_product']
-                    );
-                    $cartItem['quantity'] = 1;
-                } elseif ($productRoomTypes = $objCartBooking->getCartInfoIdCartIdProduct(
-                    $this->context->cart->id,
-                    $cartItem['id_product']
-                )) {
-                    $cartItem['price_wt'] = 0;
-                    foreach ($productRoomTypes as $cartRoomInfo) {
-                        if ($roomTotalPrice = HotelRoomTypeFeaturePricing::getRoomTypeTotalPrice(
-                            $cartRoomInfo['id_product'],
-                            $cartRoomInfo['date_from'],
-                            $cartRoomInfo['date_to']
-                        )) {
-                            $cartItem['price_wt'] += $roomTotalPrice['total_price_tax_incl'];
-                            $cartItem['price'] += $roomTotalPrice['total_price_tax_excl'];
-                        }
-                    }
-                    $cartItem['quantity'] = 1;
-                }
+        foreach ($cartItems as $cartItem) {
+            $item = new stdClass();
+            $item->name = $cartItem['name'];
+            $item->currency = $oCurrency->iso_code;
+            $item->quantity = $cartItem['quantity'];
+            //$item->price = number_format(round($cartItem['price_wt'], 2), 2);
+            $item->price = number_format(round($cartItem['price'], 2), 2);
+            $item->tax = number_format(round($cartItem['price_wt'] - $cartItem['price'], 2), 2);
+            $aItems[] = $item;
+            unset($item);
+        }
 
-                $item = new stdClass();
-                $item->name = $cartItem['name'];
-                $item->currency = $oCurrency->iso_code;
-                $item->quantity = $cartItem['quantity'];
-                $item->price = number_format(round($cartItem['price'], 2), 2);
-                $item->tax = number_format(round($cartItem['price_wt'] - $cartItem['price'], 2), 2);
-                $aItems[] = $item;
-                unset($item);
-            }
+        foreach ($discounts as $discount) {
+            $item = new stdClass();
+            $item->name = $discount['name'];
+            $item->currency = $oCurrency->iso_code;
+            $item->quantity = 1;
+            //$item->price = number_format(round($cartItem['price_wt'], 2), 2);
+            $item->price = (number_format(round($discount['value_tax_exc'], 2), 2)) * -1;
+            $item->tax = (number_format(round($discount['value_real'] - $discount['value_tax_exc'], 2), 2)) * -1;
+            $aItems[] = $item;
+            unset($item);
         }
 
         /* ItemList */
@@ -363,20 +337,5 @@ class ApiPaypalPlus
 
         $result = $this->sendByCURL(URL_PPP_CREATE_PAYMENT, Tools::jsonEncode($data), $header);
         return $result;
-    }
-
-    public function getCartPaymentTotal($withTax = true)
-    {
-        $context = Context::getContext();
-        if (Configuration::get('WK_ALLOW_ADVANCED_PAYMENT')) {
-            $objCustAdvPay = new HotelCustomerAdvancedPayment();
-            $orderTotal = $objCustAdvPay->getOrdertTotal(
-                $context->cart->id,
-                $context->cart->id_guest
-            );
-        } else {
-            $orderTotal = $cart->getOrderTotal($withTax, Cart::BOTH);
-        }
-        return $orderTotal;
     }
 }

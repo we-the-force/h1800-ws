@@ -757,7 +757,6 @@ var ajaxCart = {
                     var content = '<dt class="unvisible" data-id="cart_block_product_' + domIdProduct + '">';
                     var name = $.trim($('<span />').html(this.name).text());
                     name = (name.length > 30 ? name.substring(0, 27) + '...' : name);
-                    
                     content += '<a class="cart-images" href="' + this.link + '" title="' + name + '"><img  src="' + this.image_cart + '" alt="' + this.name + '"></a>';
 
                     content += '<div class="cart-info">';
@@ -985,10 +984,9 @@ var ajaxCart = {
 
         }
 
-        //var base_url = window.location.origin;
-        var re = new RegExp(/^.*\//);
+        var base_url = window.location.origin;
 
-        $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="'+re.exec(window.location.href)+'/img/rooms/' + product.id + '/DSC_01.jpg" alt="' + product.name + '" title="' + product.name + '" />');
+        $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="'+base_url+'/img/rooms/' + product.id + '/DSC_01.jpg" alt="' + product.name + '" title="' + product.name + '" />');
 
         /* var n = parseInt($(window).scrollTop()+50) + 'px'; */
 

@@ -23,7 +23,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
         </div>
         <div id="popup" style="display: none;">
             <div class="content-popup">
-                <div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
+                <div class="close"><a href="#" id="close">Close</a></div>
                 <div>
                     <h2>Contenido POPUP</h2>
                     <p>Lorem Ipsum...</p>
@@ -38,28 +38,53 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
     <script>
 
     $(document).ready(function(e) {
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+            return false;
+        };
         if($('body').hasClass('news')){
             console.log('test');
             $('#paypal-column-block').css('display', 'none');
             $.getJSON("https://hacienda1800.com/panel/api/collections/get/news?token=8c4e6225dd7f133664f09e3f8dac1d", function(result){
 
                 $.each(result.entries, function(i, field){
-                    var body = '<li class="row news-item">' +
+                    var body = '<li class="row news-item hide post-'+i+'">' +
                               '<div class="col-lg-4 col-sm-12">' +
                               '<a href="#">' +
-                              '<img src="https://hacienda1800.com' + field.thumbnail.path+ '" alt="" class="news-thumb">' +
+                              '<img src="https://hacienda1800.com' + field.thumbnail.path+ '" alt="'+field.short_description+'" class="news-thumb">' +
                               '</a>' +
                               '</div>' +
                               '<div class="col-lg-8 col-sm-12">' +
                               '<h3>' + field.title + '</h3>' +
-                              '<p class="news-content">'+field.short_description+'</p>' +
-                              "<a href='#' class='news-link' data-id='"+ i +"'><p class='news-content'>{if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}</p></a>" +
+                              '<p class="news-description">'+field.short_description+'</p>' +
+                              '<div class="news-content hide">'+field.content+'</div>' +
+
+                                "<a href='{$base_dir}/index.php?controller=news&post="+i+"' class='news-link '> <p class='news-content'> {if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if} </p> </a>" +
                               '</div>' +
                               '</li>';
                     
                     $('#news-home').append(body);
                 });
-
+                var post = getUrlParameter('post');
+                if(post===false){
+                    $('.news-item').removeClass('hide');
+                    // $('.news-item .news-').removeClass('hide');
+                } else {
+                $('.news-item.post-'+post).removeClass('hide');
+                $('.news-item.post-'+post+' .news-content').removeClass('hide');
+                $('.news-item.post-'+post+' .news-link').addClass('hide');
+                }
                 /**var modal = '<div class="modal" id="myModal">'+
                     '<div class="modal-dialog modal-lg">'+
                     '<div class="modal-content">'+
@@ -72,10 +97,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                     '</div>'+
                     '</div>'+
                     '</div>'+;*/
-                $('.news-link').click(function(e){
-                    e.preventDefault();
-                    console.log($(this).data('id'));
-                });
+                
             });
         } else if ($('body').hasClass('index')){
             $.getJSON("https://hacienda1800.com/panel/api/collections/get/news?token=8c4e6225dd7f133664f09e3f8dac1d&limit=3", function(result){
@@ -90,7 +112,7 @@ wish to upgrade PrestaShop to newer * versions in the future. If you wish to cus
                             '<div class="col-lg-8 col-sm-12">' +
                             '<h3>' + field.title + '</h3>' +
                             '<p class="news-content">'+field.short_description+'</p>' +
-                            "<a href='{$base_dir}/index.php?controller=news' class='news-link'><p class='news-content'>{if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}</p></a>" +
+                            "<a href='{$base_dir}/index.php?controller=news&post="+i+"' class='news-link'><p class='news-content'>{if $lang_iso == 'es'}{l s='Ver más...'}{elseif $lang_iso == 'en'}{l s='See more...'}{/if}</p></a>" +
                             '</div>' +
                             '</li>';
                     $('#news-home').append(body);

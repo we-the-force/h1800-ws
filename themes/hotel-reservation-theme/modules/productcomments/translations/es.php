@@ -57,6 +57,7 @@ $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_20089c27bf83
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_4d3d769b812b6faa6b76e1a8abaece2d'] = 'Activo';
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_6f7351657f795bc1357a53142b1184cc'] = 'Aprobar';
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_ecf74aa77715220b378ec668e75655a8'] = 'No abusivo';
+$_MODULE['<{productcomments}hotel-reservation-theme>productcomments_reviews_d844ad9202d0de8442498775ba6ef819'] = 'Reseña(s)';
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_c31732fda0c6f01c446db7163b214de4'] = 'Escriba una reseña';
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_51ec9bf4aaeab1b25bb57f9f8d4de557'] = 'Título:';
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_a2ed44743411cf8b80e397448fce104c'] = 'Su nombre:';
@@ -75,7 +76,6 @@ $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_9a2ccd416534
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_4e3ee0f5bd8f527715fb0776741b9754'] = 'Su comentario ha sido añadido y estará disponible una vez sea aprobado por un moderador.';
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_186c30cab59f6b64a453778330d4bbf0'] = 'Nuevo comentario';
 $_MODULE['<{productcomments}hotel-reservation-theme>productcomments_e0aa021e21dddbd6d8cecec71e9cf564'] = 'OK';
-$_MODULE['<{productcomments}hotel-reservation-theme>productcomments_reviews_d844ad9202d0de8442498775ba6ef819'] = 'Reseña(s)';
 $_MODULE['<{productcomments}hotel-reservation-theme>products-comparison_8413c683b4b27cc3f4dbd4c90329d8ba'] = 'Comentarios';
 $_MODULE['<{productcomments}hotel-reservation-theme>products-comparison_b1897515d548a960afe49ecf66a29021'] = 'Promedio';
 $_MODULE['<{productcomments}hotel-reservation-theme>products-comparison_5d9acecbb0b55a71dea7403896356001'] = 'Ver comentarios';

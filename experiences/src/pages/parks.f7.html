@@ -1,9 +1,6 @@
 <template>
     <div class="page" data-name="parks" id="parks">
         <!-- Top Navbar -->
-        {{#test}}
-            {{Nombre}}
-        {{/test}}
         <div class="navbar">
             <div class="navbar-inner row no-gap">
                 <div class="toolbar tabbar toolbar-bottom">
@@ -21,9 +18,9 @@
         <div class="page-content hide-navbar-on-scroll" id="parks-page">
             <div class="tabs">
                 {{#each parks}}
-                    <div class="tab {{#if @first}}tab-active{{/if}}" id="{{slug}}">
+                    <div class="tab {{#if @first}}tab-active{{/if}}" id="{{slug}}" data-lat="{{Locacion.lat}}" data-lng="{{Locacion.lng}}" data-park="{{slug}}" data-location="{{Locacion}}" data-index="{{@index}}">
                         <div class="cover lazy lazy-fade-in"
-                            data-background="http://hacienda1800.com{{cover.path}}">
+                            data-background="https://hacienda1800.com{{cover.path}}">
                             <div class="title">
                                 <p>{{Nombre}}</p>
                             </div>
@@ -79,15 +76,12 @@
                         </div>
                         {{/Fotos}}
 
-                        <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="30" data-loop="true"
-                            data-slides-per-view="auto" class="swiper-container swiper-init">
-                            <!-- <div class="swiper-pagination"></div> -->
-                            <div class="swiper-wrapper" id="{{slug}}-exp-slider">
+                        <div class="experiences">
 
+                                <div class="row no-gap">
+                                    
+                                </div>
 
-
-
-                            </div>
                         </div>
 
                         <div id="{{slug}}-map" class="map">
@@ -95,10 +89,10 @@
                         </div>
                         <div class="footer"
                             style="background-image: url('static/img/hacienda1800-experiences-footer-lake.png')">
-                            <a class="title link external" href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                            <a class="title link external" href="https://api.whatsapp.com/send?phone=521{{contact.phone}}&text=Hola%20{{contact.name}},%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20{{Nombre}}" target="_blank">
                                 <p>Reservar</p>
                             </a>
-                            <!-- <a href="https://api.whatsapp.com/send?phone=5218662376908&text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="button button-raised button-fill link external button-round">Contacto</a> -->
+                            <a href="https://api.whatsapp.com/send?phone=5218119109810&text=Hola Katty,%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="button button-raised button-fill link external button-round">Contacto</a>
                         </div>
                     </div>
                 {{/each}}
@@ -113,7 +107,7 @@
 </template>
 <script>
     import $$ from 'dom7';
-
+    import forAsync from 'for-async';
     export default {
 
 
@@ -124,17 +118,24 @@
 
                 var self = this;
                 var app = self.$app;
-
+                
                 var myLatLng = self.parks[0].Locacion;
 
                 console.log(myLatLng);
+                $$('#parks').on('page:tabshow', function(){
+                    console.log('first-tab');
+                });
+                
+                    const parque = self.parks[0];
 
-                for (let index = 0; index < self.parks.length; index++) {
-                    const parque = self.parks[index];
-                    for (let second = 0; second < parque.Experiencias.length; second++) {
-                        const experiencia = parque.Experiencias[second];
+
+
+
+                    
+                    forAsync(parque.Experiencias, function(item, idx){
+                      return new Promise(function(resolve){
+                        const experiencia = item;
                         var filter = '&filter[_id]=' + experiencia._id;
-
                         app.request.promise.json(app.methods.getCollection('Experiencias', filter))
                         .then(expe => {
                             var currentExp=expe.data.entries[0];
@@ -143,35 +144,237 @@
                             // console.log(parque.exp_info);
                             console.log(currentExp);
 
-                            var expHtml = '<div class="swiper-slide"> <div class="bg" style="background-image: url(https://hacienda1800.com'+currentExp.thumbnail.path+');"></div> <div class="txt-box"> <div class="title">'+currentExp.Nombre+'</div> <p>'+currentExp.description_short+'.</p> </div> </div>';
-                            $$('#'+parque.slug+'-exp-slider').append(expHtml);
+                            // var expHtml = '<div class="swiper-slide"> <div class="bg" style="background-image: url(https://hacienda1800.com'+currentExp.thumbnail.path+');"></div> <div class="txt-box"> <div class="title">'+currentExp.Nombre+'</div> <p>'+currentExp.description_short+'.</p> </div> </div>';
+                            // $$('#'+parque.slug+'-exp-slider').append(expHtml);
+                            var expHtml=
+                            '<div class="col-100 small-50 large-25">'+
+                                '<a class="experience" href="#" data-id="'+currentExp._id+'" data-popup=".popup-push">'+
+
+                                    '<div style="background-image: url(https://hacienda1800.com'+ currentExp.thumbnail.path+');" class="bg" ></div>'+
+
+                                    '<div class="title">'+
+                                        '<p>'+currentExp.Nombre+'</p>'+
+                                    '</div>'+
+                                '</a>'+
+                            '</div>';
+                            $$('.experiences .row').append(expHtml)
 
 
-                        });
-                    }
+                        })
+                        .then(expe => {
+                            resolve();
+                        })
+                      })
+                    
+                    })
+                    .then(function(){
+                      // This code only runs after the loop has completed
+                      $$('.experience').on('click', function (e) {
+                          e.preventDefault();
+                          console.log('click');
+                          // traemos id de la experiencia del botón que le dimos click
+                          var exp_id = $$(this).data('id');
+                          // guardamos el id para filtrar en el api
+                          var filter = '&filter[_id]=' + exp_id;
+                          // hacemos petición al api con promise de la experiencia que le dimos click por id
+                          app.request.promise.json(app.methods.getCollection('Experiencias', filter))
+                          .then(expe => {
+                              // cachamos el objeto experiencia
+                              var currentExpPop=expe.data.entries[0];
+                              console.log(currentExpPop);
+                              // creamos dinámicamente el popup
+                              var dynamicPopup = app.popup.create({
+                                content: '<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExpPop.Fotos[0].path+');"> <div class="title"> <p>'+currentExpPop.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExpPop.Descripcion+'</p> </div> <div id="map-'+currentExpPop.Nombre+'" class="exp-map"></div> </div>',
+                                on: {
+                                  open: function (popup) {
 
-                }
+
+
+                                  },
+                                  opened: function (popup) {
+                                  //   console.log(popup);
+                                      var location = currentExpPop.Locacion;
+                                      console.log(location);
+
+                                      var popmap;
+                                      popmap = new google.maps.Map(document.getElementById('map-'+currentExpPop.Nombre), {
+                                          center: location,
+                                          zoom: 13,
+                                          scrollwheel: false,
+                                          navigationControl: false,
+                                          mapTypeControl: false,
+                                          scaleControl: false,
+                                          mapTypeId: google.maps.MapTypeId.ROADMAP
+                                      });
+                                      var markerPop = new google.maps.Marker({
+                                          position: location,
+                                          map: popmap
+                                      });
+                                  },
+                                }
+                              });
+
+                              return dynamicPopup;
+
+                          }).then(dynamicPopup => {
+                              dynamicPopup.open();
+                          });
+                      //
+                      });
+                      // Logs 1 line: `some!cool!array!`
+                    })
+
+
+                    // $$('.experiences .row').html('');
+                    
+                    
+                
+
+                    $$('.dynamic-popup').on('click', function () {
+                      dynamicPopup.open();
+                    });
+
+                $$('.tab').on('tab:show', function (e) {
+                    var currentLat = $$(this).data('lat');
+                    var currentLng = $$(this).data('lng');
+                    var currentPark = $$(this).data('park');
+                    var parkIndex = $$(this).data('index');
+                    $$('.experiences .row').html('');
+
+                    console.log(currentPark);
+                    
+                    const parque = self.parks[parkIndex];
+                    forAsync(parque.Experiencias, function(item, idx){
+                      return new Promise(function(resolve){
+                        const experiencia = item;
+                        var filter = '&filter[_id]=' + experiencia._id;
+
+                        app.request.promise.json(app.methods.getCollection('Experiencias', filter))
+                        .then(expe => {
+                            var currentExpTab=expe.data.entries[0];
+
+                            // parque.exper.push(expe.data.entries[0]);
+                            // console.log(parque.exp_info);
+                            console.log(currentExpTab);
+
+                            // var expHtml = '<div class="swiper-slide"> <div class="bg" style="background-image: url(https://hacienda1800.com'+currentExpTab.thumbnail.path+');"></div> <div class="txt-box"> <div class="title">'+currentExpTab.Nombre+'</div> <p>'+currentExpTab.description_short+'.</p> </div> </div>';
+                            // $$('#'+parque.slug+'-exp-slider').append(expHtml);
+                            var expHtml=
+                            '<div class="col-100 small-50 large-25">'+
+                                '<a class="experience" href="#" data-id="'+currentExpTab._id+'" data-popup=".popup-push">'+
+
+                                    '<div style="background-image: url(https://hacienda1800.com'+ currentExpTab.thumbnail.path+');" class="bg" ></div>'+
+
+                                    '<div class="title">'+
+                                        '<p>'+currentExpTab.Nombre+'</p>'+
+                                    '</div>'+
+                                '</a>'+
+                            '</div>';
+                            $$('.experiences .row').append(expHtml)
+
+
+                        })
+                        .then(expe => {
+                            resolve();
+                        })
+                      })
+
+                    })
+                    .then(function(){
+                      // This code only runs after the loop has completed
+                      $$('.experience').on('click', function (e) {
+                          e.preventDefault();
+                          console.log('click');
+                          // traemos id de la experiencia del botón que le dimos click
+                          var exp_id = $$(this).data('id');
+                          // guardamos el id para filtrar en el api
+                          var filter = '&filter[_id]=' + exp_id;
+                          // hacemos petición al api con promise de la experiencia que le dimos click por id
+                          app.request.promise.json(app.methods.getCollection('Experiencias', filter))
+                          .then(expe => {
+                              // cachamos el objeto experiencia
+                              var currentExpPop=expe.data.entries[0];
+                              console.log(currentExpPop);
+                              // creamos dinámicamente el popup
+                              var dynamicPopup = app.popup.create({
+                                content: '<div class="experiences-pop popup  popup-push"> <a class="link popup-close" href="#"><i class="material-icons md-only">close</i></a> <div class="cover" style="background-image: url(https://hacienda1800.com'+currentExpPop.Fotos[0].path+');"> <div class="title"> <p>'+currentExpPop.Nombre+'</p> </div> </div> <div class="block"> <h3>Qué incluye</h3> <p>'+currentExpPop.Descripcion+'</p> </div> <div id="map-'+currentExpPop.Nombre+'" class="exp-map"></div> </div>',
+                                on: {
+                                  open: function (popup) {
 
 
 
+                                  },
+                                  opened: function (popup) {
+                                  //   console.log(popup);
+                                      var location = currentExpPop.Locacion;
+                                      console.log(location);
 
+                                      var popmap;
+                                      popmap = new google.maps.Map(document.getElementById('map-'+currentExpPop.Nombre), {
+                                          center: location,
+                                          zoom: 13,
+                                          scrollwheel: false,
+                                          navigationControl: false,
+                                          mapTypeControl: false,
+                                          scaleControl: false,
+                                          mapTypeId: google.maps.MapTypeId.ROADMAP
+                                      });
+                                      var markerPop = new google.maps.Marker({
+                                          position: location,
+                                          map: popmap
+                                      });
+                                  },
+                                }
+                              });
 
+                              return dynamicPopup;
 
+                          }).then(dynamicPopup => {
+                              dynamicPopup.open();
+                          });
+                      //
+                      });
+                      // Logs 1 line: `some!cool!array!`
+                    });
+                    
+                    // var location = $$(this).data('location');
+                    var location = new google.maps.LatLng(currentLat, currentLng);
+                    console.log(currentLat, currentLng);
 
-                var map;
-                map = new google.maps.Map(document.getElementById('canion-map'), {
-                    center: myLatLng,
-                    zoom: 13
+                    var map;
+                    map = new google.maps.Map(document.getElementById(currentPark+'-map'), {
+                        center: location,
+                        zoom: 13
+                    });
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                    });
+                    // $$('.dynamic-popup').on('click', function () {
+                    //   dynamicPopup.open();
+                    // });
+                    
                 });
-                var marker = new google.maps.Marker({
+
+
+
+                var maptab;
+                maptab = new google.maps.Map(document.getElementById('canion-map'), {
+                    center: myLatLng,
+                    zoom: 13,
+                    scrollwheel: false,
+                    navigationControl: false,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                var markerTab = new google.maps.Marker({
                     position: myLatLng,
-                    map: map
+                    map: maptab
                 });
                 //var lang = url.searchParams.get("c");
 
-                $$('.dynamic-popup').on('click', function() {
-                    dynamicPopup.open();
-                });
+                
                 $$('.element.location').on('click', function(e) {
                     e.preventDefault();
                     var move = $$(this).attr('href');
@@ -186,6 +389,8 @@
 
 
                 });
+                
+                
             }
         }
 

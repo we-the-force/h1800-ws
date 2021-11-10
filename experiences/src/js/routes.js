@@ -2,6 +2,7 @@
 import AboutPage from '../pages/about.f7.html';
 import FormPage from '../pages/form.f7.html';
 import Parks from '../pages/parks.f7.html';
+import Dining from '../pages/dining.f7.html';
 import Experiences from '../pages/experiences.f7.html';
 import Tours from '../pages/tours.f7.html';
 
@@ -9,7 +10,6 @@ import Tours from '../pages/tours.f7.html';
 import DynamicRoutePage from '../pages/dynamic-route.f7.html';
 import RequestAndLoad from '../pages/request-and-load.f7.html';
 import NotFoundPage from '../pages/404.f7.html';
-
 
 
 
@@ -58,6 +58,7 @@ var routes = [{
 
 
                 }
+                //console.log(parquesitos);
                 return parquesitos;
             }).then(parquesitos => {
                 resolve(
@@ -113,23 +114,72 @@ var routes = [{
         async: function(routeTo, routeFrom, resolve, reject) {
             // Requested route
             // Get external data and return template7 template
-            this.app.request.json(this.app.methods.getCollection('Itinerario'),
-                function(data) {
-                    resolve(
+            // async promise explained https://blog.risingstack.com/mastering-async-await-in-nodejs/
+            let MenuWhatsapp;
+            let thisOption;
+            this.app.request.promise.json(this.app.methods.getCollection('MenuWhatsapp'),
+            function(data) {
+                MenuWhatsapp=data.entries;
+            }).then(this.app.request.json(this.app.methods.getCollection('Itinerario'),
+            function(data) {
+                //console.log("data entries ",data.entries);
+                //console.log("whatsapp entries ",MenuWhatsapp);
+                
+                resolve(
 
-                        // How and what to load: template
-                        {
+                    // How and what to load: template
+                    {
 
-                            component: Tours,
+                        component: Tours,
+                    },
+                    // Custom template context
+                    {
+                        context: {
+                            tours: data.entries,
+                            tourscontact : MenuWhatsapp
                         },
-                        // Custom template context
-                        {
-                            context: {
-                                tours: data.entries,
-                            },
-                        }
-                    );
-                });
+                    }
+                );
+            }));
+        }
+    },
+    {
+        name: 'dining',
+        path: '/dining/:id',
+        id: 'dining',
+        options: {
+            history: true,
+            pushState: true
+        },
+        async: function(routeTo, routeFrom, resolve, reject) {
+            // Requested route
+            // Get external data and return template7 template
+            // async promise explained https://blog.risingstack.com/mastering-async-await-in-nodejs/
+            let MenuWhatsapp;
+            let sectionSelected=routeTo.params.id;
+
+            this.app.request.promise.json(this.app.methods.getCollection('MenuWhatsapp'),
+            function(data) {
+                MenuWhatsapp=data.entries;
+            }).then(this.app.request.json(this.app.methods.getCollection('Dining'),
+            function(data) {
+                resolve(
+
+                    // How and what to load: template
+                    {
+
+                        component: Dining,
+                    },
+                    // Custom template context
+                    {
+                        context: {
+                            dining: data.entries,
+                            diningcontact : MenuWhatsapp,
+                            section:sectionSelected
+                        },
+                    }
+                );
+            }));
         }
     },
 
@@ -158,29 +208,39 @@ var routes = [{
             history: true,
             pushState: true
         },
-        async: function(routeTo, routeFrom, resolve, reject) {
-            // Requested route
-            // Get external data and return template7 template
-            this.app.request.json(this.app.methods.getCollection('Experiencias'),
-                function(data) {
-                    resolve(
+        async: function(routeTo, routeFrom, resolve, reject, request) {
+            let MenuWhatsapp;
+            let tab="[{\"key\":\"value\"}]";
+            let tabJSON=JSON.parse(tab);
+            this.app.request.json(this.app.methods.getCollection('MenuWhatsapp'),
+            function(data) {
 
-                        // How and what to load: template
-                        {
+                console.log("presir",data.entries);
+                console.log("othersir",tabJSON);
+                MenuWhatsapp=data.entries;
+            }).then(this.app.request.json(this.app.methods.getCollection('Experiencias'),
+            function(data) {
+                //console.log("yesir",MenuWhatsapp);
+                //console.log("nosir",data.entries);
+                resolve(
 
-                            component: Experiences,
+                    // How and what to load: template
+                    {
+
+                        component: Experiences,
+                    },
+                    // Custom template context
+                    {
+                        context: {
+                            experiences: data.entries,
+                            experiencecontact : MenuWhatsapp,
+                            tab: tabJSON
                         },
-                        // Custom template context
-                        {
-                            context: {
-                                experiences: data.entries,
-                            },
-                        }
-                    );
-                });
+                    }
+                );
+            }));
         }
     },
-
     {
         path: '/request-and-load/user/:userId/',
         async: function(routeTo, routeFrom, resolve, reject) {

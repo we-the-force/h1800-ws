@@ -26,7 +26,7 @@
 				<hr>
 			</div> *}
 				<div class=" header-rmsearch-inner-wrapper">
-					<form method="POST" id="search_hotel_block_form">
+					{* <form method="POST" id="search_hotel_block_form">
 
 						{if isset($location_enable) && $location_enable}
 							<div class="form-group
@@ -126,7 +126,11 @@
 								<span>{l s='Search Now' mod='wkroomsearchblock'}</span>
 							</button>
 						</div>
-					</form>
+					</form> *}
+					<div id="search_hotel_block">
+						<a href="https://reservaciones.nshoteles.com.mx/reservacionesonline/index.php/mipagina/nshoteles/RW41YIKOmux6gO50HjFalKOqGcGCyytiE3SmFy_MH9LipaA5djGVClReUyBbL6MIngPtHaCBRhX9FTNU3tuU8yIdxT03uDNKwcb9oMCdSGJv9MEw93BCuCD1FGOW9O8q" class="btn btn-default button button-medium exclusive" name="search_room_submit"
+						    id="search_room_submit" target="_blank"> <span>Reservar</span> </a>
+					</div>
 				</div>
 		</div>
 	</div>

@@ -20,8 +20,8 @@
  *
  *  @author    PrestaShop SA <contact@prestashop.com>
  *  @copyright 2007-2018 PrestaShop SA
- *  @version  Release: $Revision: 13573 $
  *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ *  @version  Release: $Revision: 13573 $
  *  International Registered Trademark & Property of PrestaShop SA
  */
 
@@ -49,6 +49,9 @@ class PayPalBraintreeSubmitModuleFrontController extends ModuleFrontController
 
     public function postProcess()
     {
+        if (Tools::getValue('action') == 'getOrderInformation') {
+            return $this->getOrderInformation();
+        }
 
         $paypal = new PayPal();
         $braintree = new PrestaBraintree();
@@ -59,14 +62,18 @@ class PayPalBraintreeSubmitModuleFrontController extends ModuleFrontController
             $this->redirectFailedPayment($paypal->l('failed load cart'));
         }
 
-        if (Configuration::get('PAYPAL_USE_3D_SECURE') && in_array(Tools::getValue('card_type'), array('Visa','MasterCard'))&& Tools::getValue('liabilityShifted') == 'false' && Tools::getValue('liabilityShiftPossible') == 'false') {
+        if (Tools::getValue('liabilityShifted') == 'false' && Tools::getValue('liabilityShiftPossible') == 'false') {
             $paypal->reset_context();
-            $this->redirectFailedPayment($this->getErrorMessageByCode('gateway_rejected'));
+            $this->redirectFailedPayment($paypal->l('Authentication missing for this transaction.'));
         }
 
+        if (Tools::getValue('liabilityShifted') == 'false' && Tools::getValue('liabilityShiftPossible') == 'true') {
+            $paypal->reset_context();
+            $this->redirectFailedPayment($paypal->l('Authentication unsuccessful for this transaction. Please try another card or payment method.'));
+        }
 
         $cart_status = $braintree->cartStatus($this->context->cart->id);
-        switch($cart_status) {
+        switch ($cart_status) {
             case 'alreadyUse':
                 $order_id = Order::getOrderByCartId($this->context->cart->id);
                 $this->redirectConfirmation($paypal->id, $this->context->cart->id, $order_id);
@@ -75,24 +82,14 @@ class PayPalBraintreeSubmitModuleFrontController extends ModuleFrontController
                 $braintree_transaction = $braintree->checkStatus($this->context->cart->id);
                 if ($braintree_transaction instanceof Braintree_Transaction && $braintree->isValidStatus($braintree_transaction->status)) {
                     $transactionDetail = $this->getDetailsTransaction($braintree_transaction->id, $braintree_transaction->status);
-                    $paypal->validateOrder(
-                        $this->context->cart->id,
-                        (Configuration::get('PAYPAL_CAPTURE')?Configuration::get('PAYPAL_BRAINTREE_OS_AWAITING'):Configuration::get('PS_OS_PAYMENT')),
-                        $braintree_transaction->amount,
-                        'Braintree',
-                        $paypal->l('Payment accepted.'),
-                        $transactionDetail,
-                        $this->context->cart->id_currency,
-                        false,
-                        $this->context->customer->secure_key
-                    );
+                    $paypal->validateOrder($this->context->cart->id, (Configuration::get('PAYPAL_CAPTURE')?Configuration::get('PAYPAL_BRAINTREE_OS_AWAITING'):Configuration::get('PS_OS_PAYMENT')), $braintree_transaction->amount, 'Braintree', $paypal->l('Payment accepted.'), $transactionDetail, $this->context->cart->id_currency, false, $this->context->customer->secure_key);
                     $order_id = Order::getOrderByCartId($this->context->cart->id);
                     $this->redirectConfirmation($paypal->id, $this->context->cart->id, $order_id);
-                    break;
                 }
+                break;
             default:
                 $id_braintree_presta = $braintree->saveTransaction(array('id_cart' => $this->context->cart->id, 'nonce_payment_token' => Tools::getValue('payment_method_nonce'), 'client_token' => Tools::getValue('client_token'), 'datas' => Tools::getValue('deviceData')));
-
+                
                 $transaction = $braintree->sale($this->context->cart, $id_account_braintree, Tools::getValue('payment_method_nonce'), Tools::getValue('deviceData'));
 
                 if (!$transaction) {
@@ -116,24 +113,22 @@ class PayPalBraintreeSubmitModuleFrontController extends ModuleFrontController
         } else {
             Tools::redirect('index.php?controller=order&step=3&bt_error_msg='.urlencode($error));
         }
-
     }
 
     public function redirectConfirmation($id_paypal, $id_cart, $id_order)
     {
         Tools::redirect($this->context->link->getPageLink('order-confirmation.php?id_module='.$id_paypal.'&id_cart='.$id_cart.'&id_order='.$id_order.'&key='.Context::getContext()->customer->secure_key.'&braintree=1'));
     }
-
+    
     public function getDetailsTransaction($transaction_id, $status)
     {
         $currency = new Currency($this->context->cart->id_currency);
-        $braintree = new PrestaBraintree();
         return array(
             'currency' => pSQL($currency->iso_code),
             'id_invoice' => null,
             'id_transaction' => pSQL($transaction_id),
             'transaction_id' => pSQL($transaction_id),
-            'total_paid' => (float) pSQL($braintree->getCartPaymentTotal()),
+            'total_paid' => (float) pSQL($this->context->cart->getOrderTotal()),
             'shipping' => (float) pSQL($this->context->cart->getTotalShippingCost()),
             'payment_status' => $status,
             'payment_date' => date('Y-m-d H:i:s'),
@@ -161,5 +156,51 @@ class PayPalBraintreeSubmitModuleFrontController extends ModuleFrontController
                 $message = $module->l('Your transaction isn\'t valid : ').$code;
         }
         return $message;
+    }
+
+    public function getOrderInformation()
+    {
+        $customer = new Customer($this->context->cart->id_customer);
+        $address = new Address($this->context->cart->id_address_delivery);
+        $country = new Country($address->id_country);
+        $iso = '';
+
+        if ($address->id_state) {
+            $state = new State((int) $address->id_state);
+            $iso = $state->iso_code;
+        }
+
+        $responseContent = array(
+            'success' => true,
+            'use3dVerification' => (int)Configuration::get('PAYPAL_USE_3D_SECURE'),
+            'orderInformation' => array(
+                'amount' => $this->context->cart->getOrderTotal(true, Cart::BOTH),
+                'email' => $customer->email,
+                'billingAddress' => array(
+                    'givenName' => $customer->firstname,
+                    'surneme' => $customer->lastname,
+                    'phoneNumber' => $address->phone,
+                    'streetAddress' => $address->address1,
+                    'locality' => $address->city,
+                    'countryCodeAlpha2' => $country->iso_code,
+                    'region' => $iso,
+                    'postalCode' => $address->postcode
+                ),
+                'additionalInformation' => array(
+                    'shippingGivenName' => $address->firstname,
+                    'shippingSurname' => $address->lastname,
+                    'shippingPhone' => $address->phone,
+                    'shippingAddress' => array(
+                        'streetAddress' => $address->address1,
+                        'locality' => $address->city,
+                        'countryCodeAlpha2' => $country->iso_code,
+                        'region' => $iso,
+                        'postalCode' => $address->postcode
+                    )
+                )
+            )
+        );
+
+        die(Tools::jsonEncode($responseContent));
     }
 }

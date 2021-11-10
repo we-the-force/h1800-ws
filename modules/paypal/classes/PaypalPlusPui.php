@@ -20,8 +20,8 @@
  *
  *  @author    PrestaShop SA <contact@prestashop.com>
  *  @copyright 2007-2018 PrestaShop SA
- *  @version  Release: $Revision: 13573 $
  *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ *  @version  Release: $Revision: 13573 $
  *  International Registered Trademark & Property of PrestaShop SA
  */
 
@@ -42,7 +42,7 @@ class PaypalPlusPui extends ObjectModel
     );
 
 
-    public function getByIdOrder($id_order)
+    public static function getByIdOrder($id_order)
     {
         $sql = new DbQuery();
         $sql->select('*');

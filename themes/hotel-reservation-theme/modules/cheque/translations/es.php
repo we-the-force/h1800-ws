@@ -33,9 +33,6 @@ $_MODULE['<{cheque}hotel-reservation-theme>payment_execution_569fd05bdafa1712c4f
 $_MODULE['<{cheque}hotel-reservation-theme>infos_14e41f4cfd99b10766cc15676d8cda66'] = 'Este módulo te permite aceptar pagos por cheque.';
 $_MODULE['<{cheque}hotel-reservation-theme>infos_e444fe40d43bccfad255cf62ddc8d18f'] = 'Si el cliente opta por esta forma de pago, el estado del pedido cambiará a \"En espera del pago.\"';
 $_MODULE['<{cheque}hotel-reservation-theme>infos_8c88bbf5712292b26e2a6bbeb0a7b5c4'] = 'Por lo tanto, deberás validar manualmente el pedido tras la recepción del cheque.';
-$_MODULE['<{cheque}hotel-reservation-theme>payment_f05fd8637f8a6281466a507fcb56baec'] = 'Pagar por cheque';
-$_MODULE['<{cheque}hotel-reservation-theme>payment_4b80fae2153218ed763bdadc418e8589'] = 'Pagar por cheque';
-$_MODULE['<{cheque}hotel-reservation-theme>payment_4e1fb9f4b46556d64db55d50629ee301'] = '(el procesamiento del pedido tomará más tiempo)';
 $_MODULE['<{cheque}hotel-reservation-theme>payment_return_88526efe38fd18179a127024aba8c1d7'] = 'Su pedido en %s se ha completado.';
 $_MODULE['<{cheque}hotel-reservation-theme>payment_return_61da27a5dd1f8ced46c77b0feaa9e159'] = 'Por favor, envíenos un cheque incluyendo los siguientes datos:';
 $_MODULE['<{cheque}hotel-reservation-theme>payment_return_621455d95c5de701e05900a98aaa9c66'] = 'Importe del pago.';
@@ -45,3 +42,6 @@ $_MODULE['<{cheque}hotel-reservation-theme>payment_return_e1c54fdba2544646684f41
 $_MODULE['<{cheque}hotel-reservation-theme>payment_return_4761b03b53bc2b3bd948bb7443a26f31'] = 'No olvide incluir la referencia de su pedido %s.';
 $_MODULE['<{cheque}hotel-reservation-theme>payment_return_d15feee53d81ea16269e54d4784fa123'] = 'Hemos notificado un problema con su pedido. Si piensa que esto es un error, póngase en contacto con nuestro';
 $_MODULE['<{cheque}hotel-reservation-theme>payment_return_decce112a9e64363c997b04aa71b7cb8'] = 'departamento de atención al cliente.';
+$_MODULE['<{cheque}hotel-reservation-theme>payment_f05fd8637f8a6281466a507fcb56baec'] = 'Pagar por cheque';
+$_MODULE['<{cheque}hotel-reservation-theme>payment_4b80fae2153218ed763bdadc418e8589'] = 'Pagar por cheque';
+$_MODULE['<{cheque}hotel-reservation-theme>payment_4e1fb9f4b46556d64db55d50629ee301'] = '(el procesamiento del pedido tomará más tiempo)';

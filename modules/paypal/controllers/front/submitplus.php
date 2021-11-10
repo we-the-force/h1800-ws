@@ -20,8 +20,8 @@
  *
  *  @author    PrestaShop SA <contact@prestashop.com>
  *  @copyright 2007-2018 PrestaShop SA
- *  @version  Release: $Revision: 13573 $
  *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ *  @version  Release: $Revision: 13573 $
  *  International Registered Trademark & Property of PrestaShop SA
  */
 
@@ -57,6 +57,7 @@ class PayPalSubmitplusModuleFrontController extends ModuleFrontController
 
     public function initContent()
     {
+
         parent::initContent();
 
         $paypal = new PayPal();
@@ -88,22 +89,20 @@ class PayPalSubmitplusModuleFrontController extends ModuleFrontController
                         /* LookUp OK */
                         /* Affichage bouton confirmation */
 
-                        $this->context->smarty->assign(
-                            array(
-                                'PayerID' => $payment->payer->payer_info->payer_id,
-                                'paymentId' => $this->paymentId,
-                                'id_cart' => $this->id_cart,
-                                'totalAmount' => Tools::displayPrice(Cart::getTotalCart($this->id_cart)),
-                                'linkSubmitPlus' => $this->context->link->getModuleLink('paypal', 'submitplus'),
-                            )
-                        );
+                        $this->context->smarty->assign(array(
+                            'PayerID' => $payment->payer->payer_info->payer_id,
+                            'paymentId' => $this->paymentId,
+                            'id_cart' => $this->id_cart,
+                            'totalAmount' => Tools::displayPrice(Cart::getTotalCart($this->id_cart)),
+                            'linkSubmitPlus' => $this->context->link->getModuleLink('paypal', 'submitplus'),
+                        ));
                         break;
 
                     case 'canceled':
                         /* LookUp cancel */
                         $paypal->validateOrder(
                             $this->id_cart,
-                            $this->getOrderStatus('order_canceled'),
+                            Configuration::get('PS_OS_CANCELED'),
                             $payment->transactions[0]->amount->total,
                             $payment->payer->payment_method,
                             null,
@@ -115,7 +114,7 @@ class PayPalSubmitplusModuleFrontController extends ModuleFrontController
                         /* Erreur de payment */
                         $paypal->validateOrder(
                             $this->id_cart,
-                            $this->getOrderStatus('payment_error'),
+                            Configuration::get('PS_OS_ERROR'),
                             $payment->transactions[0]->amount->total,
                             $payment->payer->payment_method,
                             null,
@@ -132,7 +131,6 @@ class PayPalSubmitplusModuleFrontController extends ModuleFrontController
         }
 
         if (($this->context->customer->is_guest) || $this->context->customer->id == false) {
-
             /* If guest we clear the cookie for security reason */
             $this->context->customer->mylogout();
         }
@@ -181,33 +179,32 @@ class PayPalSubmitplusModuleFrontController extends ModuleFrontController
         $paymentId = Tools::getValue('paymentId');
         $submit = Tools::getValue('submit');
 
-        if ((!empty($id_cart) && $this->context->cart->id == $id_cart)
-            && !empty($payerID)
-            && !empty($paymentId)
-            && !empty($submit)
+        if ((!empty($id_cart) && $this->context->cart->id == $id_cart) &&
+            !empty($payerID) &&
+            !empty($paymentId) &&
+            !empty($submit)
         ) {
-            $CallApiPaypalPlus = new CallApiPaypalPlus();
-            $payment = Tools::jsonDecode($CallApiPaypalPlus->executePayment($payerID, $paymentId));
+            $paypal = new PayPal();
 
+            if ($submit == 'confirmPayment') {
+                $CallApiPaypalPlus = new CallApiPaypalPlus();
+                $payment = Tools::jsonDecode($CallApiPaypalPlus->executePayment($payerID, $paymentId));
 
-            if (isset($payment->state)) {
-                $paypal = new PayPal();
+                if (isset($payment->state)) {
+                    $transaction = array(
+                        'id_transaction' => $payment->transactions[0]->related_resources[0]->sale->id,
+                        'payment_status' => $payment->state,
+                        'total_paid' => $payment->transactions[0]->amount->total,
+                        'id_invoice' => 0,
+                        'shipping' => 0,
+                        'currency' => $payment->transactions[0]->amount->currency,
+                        'payment_date' => date("Y-m-d H:i:s"),
+                    );
 
-                $transaction = array(
-                    'id_transaction' => $payment->transactions[0]->related_resources[0]->sale->id,
-                    'payment_status' => $payment->state,
-                    'total_paid' => $payment->transactions[0]->amount->total,
-                    'id_invoice' => 0,
-                    'shipping' => 0,
-                    'currency' => $payment->transactions[0]->amount->currency,
-                    'payment_date' => date("Y-m-d H:i:s"),
-                );
-
-                if ($submit == 'confirmPayment') {
                     if ($payment->state == 'approved') {
                         $paypal->validateOrder(
                             $this->id_cart,
-                            $this->getOrderStatus('payment'),
+                            Configuration::get('PS_OS_PAYMENT'),
                             $payment->transactions[0]->amount->total,
                             $payment->payer->payment_method,
                             null,
@@ -217,7 +214,7 @@ class PayPalSubmitplusModuleFrontController extends ModuleFrontController
                     } else {
                         $paypal->validateOrder(
                             $this->id_cart,
-                            $this->getOrderStatus('payment_error'),
+                            Configuration::get('PS_OS_ERROR'),
                             $payment->transactions[0]->amount->total,
                             $payment->payer->payment_method,
                             null,
@@ -234,19 +231,18 @@ class PayPalSubmitplusModuleFrontController extends ModuleFrontController
 
                         $paypal_plus_pui->save();
                     }
-                } elseif ($submit == 'confirmCancel') {
-                    $paypal->validateOrder(
-                        $this->id_cart,
-                        $this->getOrderStatus('order_canceled'),
-                        $payment->transactions[0]->amount->total,
-                        $payment->payer->payment_method,
-                        null,
-                        $transaction
-                    );
-                    $return['success'][] = $this->module->l('Your order has been canceled');
                 } else {
                     $return['error'][] = $this->module->l('An error occured during the payment');
                 }
+            } elseif ($submit == 'confirmCancel') {
+                $paypal->validateOrder(
+                    $this->id_cart,
+                    Configuration::get('PS_OS_CANCELED'),
+                    Context::getContext()->cart->getOrderTotal(),
+                    'PayPal',
+                    null
+                );
+                $return['success'][] = $this->module->l('Your order has been canceled');
             } else {
                 $return['error'][] = $this->module->l('An error occured during the payment');
             }

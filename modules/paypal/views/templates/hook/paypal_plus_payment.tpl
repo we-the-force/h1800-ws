@@ -30,6 +30,9 @@
 
 {literal}
     <script type="application/javascript">
+    
+
+
 
         // presta 160
         $("input[name=payment_option]").on("click", function(){
@@ -37,6 +40,7 @@
 
              $("#confirmOrder").show();
              ppp.deselectPaymentMethod();
+
 
              //$("payment_option_form #ppplus").hide();
 
@@ -60,7 +64,7 @@
 
 
         var ppp = PAYPAL.apps.PPP({
-            "approvalUrl": "{/literal}{$approval_url|escape:'UTF-8'}{literal}",
+            "approvalUrl": "{/literal}{$approval_url}{literal}", {/literal}{* it is impossible escape of url *}{literal}
             "placeholder": "ppplus",
             "mode": "{/literal}{$mode|escape:'htmlall':'UTF-8'}{literal}",
             {/literal}{if $mode == 'sandbox'}"showPuiOnSandbox": "true",{/if}{literal}
@@ -76,6 +80,7 @@
             "disableContinue": function (){
                 $("#confirmOrder").show();
             },
+
 
             "onContinue" : function () {
 
@@ -126,7 +131,7 @@
 
         function doPatch(ppp) {
             jQuery.ajax({
-                url : "{/literal}{$ajaxUrl}{literal}",
+                url : "{/literal}{$ajaxUrl|addslashes}{literal}",
                 success: function(){
                    ppp.doCheckout();
                }

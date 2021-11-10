@@ -49,5 +49,5 @@
 {/if}
 </div>
 <ul class="clearfix footer_links">
-	<li><a class="btn button button-small" href="{$link->getPageLink('authentication')|escape:'html':'UTF-8'}" title="{l s='Back to Login'}" rel="nofollow"><span><i class="icon-chevron-left"></i>&nbsp;{l s='Back to Login'}</span></a></li>
+	<li><a class="btn button button-small" href="{$link->getPageLink('order-opc')|escape:'html':'UTF-8'}" title="{l s='Back to Login'}" rel="nofollow"><span><i class="icon-chevron-left"></i>&nbsp;{l s='Back to Login'}</span></a></li>
 </ul>

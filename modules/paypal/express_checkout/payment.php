@@ -173,13 +173,11 @@ if ($request_type && $ppec->type) {
             $ppec->logs[] = $ppec->l('Cannot create new cart');
             $display = (_PS_VERSION_ < '1.5') ? new BWDisplay() : new FrontController();
 
-            $ppec->context->smarty->assign(
-                array(
-                    'logs' => $ppec->logs,
-                    'message' => $ppec->l('Error occurred:'),
-                    'use_mobile' => (bool) $ppec->useMobile(),
-                )
-            );
+            $ppec->context->smarty->assign(array(
+                'logs' => $ppec->logs,
+                'message' => $ppec->l('Error occurred:'),
+                'use_mobile' => (bool) $ppec->useMobile(),
+            ));
 
             $template = 'error.tpl';
         } else {
@@ -209,10 +207,7 @@ if ($request_type && $ppec->type) {
         // Display Error and die with this method
         $ppec->displayPayPalAPIError($ppec->l('Error during the preparation of the Express Checkout payment'), $ppec->logs);
     }
-
 } elseif (!empty($ppec->token) && ($ppec->token == $token) && ($ppec->payer_id = $payer_id)) {
-
-
     //If a token exist with payer_id, then we are back from the PayPal API
     /* Get payment infos from paypal */
     $ppec->getExpressCheckout();
@@ -285,7 +280,7 @@ if ($request_type && $ppec->type) {
                     $ppec->context->cart->updateAddressId($ppec->context->cart->id_address_delivery, $address->id);
                     $ppec->context->cart->updateAddressId($ppec->context->cart->id_address_invoice, $address->id);
                 }
-
+                
                 $ppec->context->cart->id_guest = $ppec->context->cookie->id_guest;
             }
 
@@ -304,6 +299,8 @@ if ($request_type && $ppec->type) {
 function validateOrder($customer, $cart, $ppec)
 {
     $amount_match = $ppec->rightPaymentProcess();
+    $order_total = (float) $cart->getOrderTotal(true, Cart::BOTH);
+
     // Payment succeed
     if ($ppec->hasSucceedRequest() && !empty($ppec->token) && $amount_match) {
         if ((bool) Configuration::get('PAYPAL_CAPTURE')) {
@@ -343,7 +340,6 @@ function validateOrder($customer, $cart, $ppec)
         } else {
             $message = $ppec->l('Price paid on paypal is not the same that on PrestaShop.').'<br />';
         }
-
     }
 
     $transaction = PayPalOrder::getTransactionDetails($ppec, $payment_status);

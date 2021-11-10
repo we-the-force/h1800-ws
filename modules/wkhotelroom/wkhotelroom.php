@@ -42,7 +42,9 @@ class WkHotelRoom extends Module
     }
 
     public function hookDisplayHome()
-    {
+    {//https://hacienda1800.com/panel/api/collections/get/Habitaciones?token=8c4e6225dd7f133664f09e3f8dac1d
+        $json = file_get_contents('https://hacienda1800.com/panel/api/collections/get/Habitaciones?&token=8c4e6225dd7f133664f09e3f8dac1d');
+        $obj = json_decode($json);
         $objRoomBlock = new WkHotelRoomDisplay();
         if ($hotelRoomDisplay = $objRoomBlock->getHotelRoomDisplayData()) {
             $idLang = $this->context->language->id;
@@ -82,6 +84,31 @@ class WkHotelRoom extends Module
                 );
                 $htlRoom['feature_price'] = $featurePrice;
                 $htlRoom['feature_price_diff'] = (float)($productPriceWithoutReduction - $featurePrice);
+
+                foreach($obj->entries as $habitacion){
+                    if($habitacion->Tipo==$product->name){
+                        $htlRoom['Descripcion']=$habitacion->Descripcion;
+                        $htlRoom['Tipo']=$habitacion->Tipo;
+                        $htlRoom['PrecioDomAJue']=$habitacion->PrecioDomAJue;
+                        $htlRoom['PrecioVieASab']=$habitacion->PrecioVieASab;
+                        $htlRoom['Gallery1']=$habitacion->Gallery[0]->path;
+                        $htlRoom['Gallery2']=$habitacion->Gallery[1]->path;
+                        $htlRoom['Gallery3']=$habitacion->Gallery[2]->path;
+                        $htlRoom['Gallery4']=$habitacion->Gallery[3]->path;
+                        $htlRoom['Gallery5']=$habitacion->Gallery[4]->path;
+                        $htlRoom['Gallery6']=$habitacion->Gallery[5]->path;
+                        $htlRoom['Gallery7']=$habitacion->Gallery[6]->path;
+                        $htlRoom['Gallery8']=$habitacion->Gallery[7]->path;
+                        $htlRoom['Gallery9']=$habitacion->Gallery[8]->path;
+                        $htlRoom['Gallery10']=$habitacion->Gallery[9]->path;
+                        $htlRoom['Detalles1']=$habitacion->Detalles1;
+                        $htlRoom['Detalles2']=$habitacion->Detalles2;
+                        $htlRoom['Amenidades']=$habitacion->Amenidades;
+                        $htlRoom['Promocion']=$habitacion->Promocion;
+
+
+                    }
+                }
             }
         }
         $this->context->smarty->assign(
