@@ -105,6 +105,7 @@ class WkHotelRoom extends Module
                         $htlRoom['Detalles2']=$habitacion->Detalles2;
                         $htlRoom['Amenidades']=$habitacion->Amenidades;
                         $htlRoom['Promocion']=$habitacion->Promocion;
+                        $htlRoom['cover']=$habitacion->cover->path;
 
 
                     }

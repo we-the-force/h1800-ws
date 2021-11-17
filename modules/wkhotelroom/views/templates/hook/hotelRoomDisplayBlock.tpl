@@ -42,7 +42,12 @@
                                 <div class="margin-btm-30">
                                     {* <img src="{$roomDisplay.image|escape:'htmlall':'UTF-8'}" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100"> *}
                                     <div class="img-cont">
-                                        <img src="{$base_dir}img/rooms/{$roomDisplay.id_product}/DSC_01.jpg" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100">
+                                        {if $roomDisplay.cover!= null}
+                                            <img src="https://hacienda1800.com{$roomDisplay.cover}" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100">
+
+                                        
+                                        {/if}
+                                        {* <img src="{$base_dir}img/rooms/{$roomDisplay.id_product}/DSC_01.jpg" alt="{$roomDisplay.name|escape:'htmlall':'UTF-8'}" class="img-responsive width-100"> *}
                                     </div>
                                     <div class="hotelRoomDescContainer">
                                         <div class="row margin-lr-0">
